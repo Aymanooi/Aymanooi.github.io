@@ -2,12 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Instant Decision</title>
+<title>Instant Crypto Decision</title>
 </head>
-<body style="text-align:center;margin-top:80px;font-family:Arial;">
+<body style="text-align:center;margin-top:50px;font-family:Arial;">
   <h1>Instant Crypto Decision</h1>
   <p>Pay $2 in Bitcoin and get your result instantly</p>
 
+  <!-- زر الدفع -->
   <a href="https://link.trustwallet.com/send?coin=0&address=bc1qkmhunfspjuqgeljsyavx3gxw3eu89adphwlf8t&amount=0.00003" target="_blank">
     <button style="font-size:20px;padding:15px 30px;">
       Pay with Bitcoin
@@ -16,22 +17,35 @@
 
   <br><br>
 
+  <!-- زر لتأكيد الدفع وعرض القرار -->
   <button onclick="showResult()" style="font-size:16px;padding:10px 25px;">
     I've Paid
   </button>
 
-  <pre id="result" style="margin-top:30px;font-size:18px;color:green;"></pre>
+  <pre id="result" style="margin-top:20px;font-size:18px;color:green;"></pre>
+  <pre id="earnings" style="margin-top:10px;font-size:16px;color:blue;"></pre>
 
 <script>
+let totalEarnings = 0; // رصيدك بالـ$
+
 function showResult(){
-  let decision = "SUITABLE";
-  let confidence = 82;
-  let reason = "Good market conditions";
+  // قرار عشوائي
+  let decisions = [
+    {decision:"SUITABLE", confidence:92, reason:"Excellent market conditions"},
+    {decision:"NOT SUITABLE", confidence:76, reason:"Price too high"},
+    {decision:"SUITABLE", confidence:82, reason:"Good market conditions"},
+    {decision:"NOT SUITABLE", confidence:70, reason:"Too risky at the moment"}
+  ];
+  let choice = decisions[Math.floor(Math.random()*decisions.length)];
 
   document.getElementById("result").innerText =
-    "Decision: " + decision +
-    "\nConfidence: " + confidence + "%" +
-    "\nReason: " + reason;
+    "Decision: " + choice.decision +
+    "\nConfidence: " + choice.confidence + "%" +
+    "\nReason: " + choice.reason;
+
+  // زيادة الأرباح
+  totalEarnings += 2; // كل دفعة 2$
+  document.getElementById("earnings").innerText = "Total Earnings: $" + totalEarnings;
 }
 </script>
 </body>
