@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Instant Decision</title>
+</head>
+<body style="text-align:center;margin-top:80px;font-family:Arial;">
+  <h1>Instant Crypto Decision</h1>
+  <p>Pay $2 in Bitcoin and get your result instantly</p>
+
+  <a href="https://link.trustwallet.com/send?coin=0&address=bc1qkmhunfspjuqgeljsyavx3gxw3eu89adphwlf8t&amount=0.00003" target="_blank">
+    <button style="font-size:20px;padding:15px 30px;">
+      Pay with Bitcoin
+    </button>
+  </a>
+
+  <br><br>
+
+  <button onclick="showResult()" style="font-size:16px;padding:10px 25px;">
+    I've Paid
+  </button>
+
+  <pre id="result" style="margin-top:30px;font-size:18px;color:green;"></pre>
+
+<script>
+function showResult(){
+  let decision = "SUITABLE";
+  let confidence = 82;
+  let reason = "Good market conditions";
+
+  document.getElementById("result").innerText =
+    "Decision: " + decision +
+    "\nConfidence: " + confidence + "%" +
+    "\nReason: " + reason;
+}
+</script>
+</body>
+</html>
