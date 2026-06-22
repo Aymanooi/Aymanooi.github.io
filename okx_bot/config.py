@@ -13,25 +13,29 @@ IS_DEMO = "1"
 
 # === Risk Mode ===
 # يُضبط بمتغيّر البيئة RISK_MODE في GitHub Secrets:
-#   "safe"       = آمن: رافعة 5×، مخاطرة 2% لكل صفقة (موصى به للبدء)
+#   "safe"       = آمن: رافعة 5×، مخاطرة 2% (لاختبار البوت)
 #   "balanced"   = متوازن: رافعة 10×، مخاطرة 5%
-#   "aggressive" = عدواني: رافعة 20×، مخاطرة Kelly كامل (خطر تصفية الحساب)
+#   "aggressive" = عدواني: رافعة 20×، Kelly كامل
+#   "turbo"      = توربو: رافعة 20×، Full Kelly، 50 عملة → هدف $1M في 15 سنة
 RISK_MODE = os.getenv("RISK_MODE", "safe").strip().lower()
 
 _RISK_PRESETS = {
-    "safe":       {"leverage": 5,  "risk_per_trade": 0.02, "kelly_cap": 0.10},
-    "balanced":   {"leverage": 10, "risk_per_trade": 0.05, "kelly_cap": 0.15},
-    "aggressive": {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.20},
+    "safe":       {"leverage": 5,  "risk_per_trade": 0.02, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 10},
+    "balanced":   {"leverage": 10, "risk_per_trade": 0.05, "kelly_cap": 0.15, "half_kelly": True,  "symbols": 25},
+    "aggressive": {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.20, "half_kelly": False, "symbols": 50},
+    "turbo":      {"leverage": 20, "risk_per_trade": 0.06, "kelly_cap": 0.25, "half_kelly": False, "symbols": 50},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
 # === Trading Parameters ===
 LEVERAGE = _preset["leverage"]
-RISK_PER_TRADE = _preset["risk_per_trade"]   # حد المخاطرة من رأس المال لكل صفقة
-KELLY_CAP = _preset["kelly_cap"]             # سقف نسبة Kelly
-CAPITAL_RATIO = 0.95       # 95% of balance per trade (للوضع العدواني فقط)
-STOP_LOSS_PCT = 0.02       # 2% stop loss
-TAKE_PROFIT_PCT = 0.04     # 4% take profit
+RISK_PER_TRADE = _preset["risk_per_trade"]
+KELLY_CAP = _preset["kelly_cap"]
+HALF_KELLY = _preset["half_kelly"]      # True=أمان, False=full Kelly
+SCAN_SYMBOLS = _preset["symbols"]       # عدد العملات المُمسوحة
+CAPITAL_RATIO = 0.95
+STOP_LOSS_PCT  = 0.02
+TAKE_PROFIT_PCT = 0.04
 
 # === Strategy Parameters ===
 EMA_FAST = 9
@@ -40,9 +44,9 @@ RSI_PERIOD = 14
 RSI_BUY_MAX = 65
 RSI_SELL_MIN = 35
 TIMEFRAME = "15m"
-SIGNAL_THRESHOLD = 42      # عتبة الإشارة (جودة أعلى = صفقات أقل وأدق)
+SIGNAL_THRESHOLD = 42
 
 # === Bot Settings ===
-SCAN_INTERVAL = 60         # seconds between scans
-TOP_PAIRS_COUNT = 50       # top N pairs by volume
-MAX_POSITIONS = 1          # one trade at a time (full capital)
+SCAN_INTERVAL = 60
+TOP_PAIRS_COUNT = 50
+MAX_POSITIONS = 1

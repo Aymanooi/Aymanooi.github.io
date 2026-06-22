@@ -253,9 +253,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
     client.set_leverage(inst_id, LEVERAGE)
     wr    = brain.current_win_rate(memory)
-    kelly = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP)
-    # Risk = min(Kelly, configured per-trade cap) of balance — never the full balance
-    risk_frac    = min(kelly, cfg.RISK_PER_TRADE) if cfg.RISK_MODE != "aggressive" else kelly
+    kelly = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
+    risk_frac    = min(kelly, cfg.RISK_PER_TRADE)
     risk_capital = balance * risk_frac
     sz    = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, 1.0)
     if sz <= 0:

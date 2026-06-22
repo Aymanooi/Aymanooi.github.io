@@ -71,16 +71,19 @@ def adjusted_score(details, memory):
     return adj, prob_up
 
 
-def kelly_fraction(win_rate, rr=3.0, cap=0.20):
+def kelly_fraction(win_rate, rr=3.0, cap=0.20, half=True):
     """
-    Kelly = W - (1-W)/RR.  Half-Kelly for safety.
-    rr = reward:risk ratio (TP/SL = 3.0/1.0 = 3).
+    Kelly = W - (1-W)/RR.
+    rr   = reward:risk (TP/SL = 3.0/1.0 = 3).
+    half = True → half-Kelly (safer), False → full Kelly (turbo mode).
     Returns capital fraction to risk per trade.
     """
     if win_rate <= 0:
         return 0.05
     k = win_rate - (1 - win_rate) / rr
-    k = max(0.0, k) * 0.5  # half-Kelly
+    k = max(0.0, k)
+    if half:
+        k *= 0.5
     return max(0.05, min(cap, k))
 
 
