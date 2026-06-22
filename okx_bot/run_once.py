@@ -184,12 +184,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     """Fallback to MSCS strategy if Snowball fails."""
     from okx_client import OKXClient
     from strategy import analyze
+    import config as cfg
 
-    LEVERAGE        = 20
+    LEVERAGE        = cfg.LEVERAGE
     STOP_LOSS_PCT   = 0.02
     TAKE_PROFIT_PCT = 0.04
     CAPITAL_RATIO   = 0.95
     TOP_PAIRS       = 50
+
+    add_log(status, f"⚙️ وضع المخاطرة: {cfg.RISK_MODE} | رافعة: x{LEVERAGE}", "info")
 
     client = OKXClient(key, secret, phrase, demo)
     balance = client.get_balance()
@@ -250,9 +253,10 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
     client.set_leverage(inst_id, LEVERAGE)
     wr    = brain.current_win_rate(memory)
-    kelly = brain.kelly_fraction(wr)
-    # Use kelly% of balance as the capital at risk (not full balance)
-    risk_capital = balance * kelly
+    kelly = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP)
+    # Risk = min(Kelly, configured per-trade cap) of balance — never the full balance
+    risk_frac    = min(kelly, cfg.RISK_PER_TRADE) if cfg.RISK_MODE != "aggressive" else kelly
+    risk_capital = balance * risk_frac
     sz    = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, 1.0)
     if sz <= 0:
         add_log(status, f"{inst_id}: حجم صفر", "warning")
