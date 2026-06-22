@@ -1,0 +1,3 @@
+# Bybit private key — never commit
+.bybit/private_key.pem
+*.pem.bak
