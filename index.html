@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OKX Trading Bot — لوحة التحكم</title>
+  <title>Snowball v22 — OKX Trading Bot</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -91,7 +91,7 @@
 <body>
 
 <header>
-  <h1>🤖 OKX Trading Bot</h1>
+  <h1>❄️ Snowball v22 — OKX Bot</h1>
   <div class="meta">
     <span id="modeBadge" class="badge badge-demo">Demo 🧪</span>
     <span><span class="pulse"></span> يعمل على GitHub Actions</span>
@@ -116,16 +116,16 @@
       <div class="val c-white" id="totalTrades">—</div>
     </div>
     <div class="card">
-      <div class="lbl">الرافعة</div>
-      <div class="val c-blue">20x</div>
+      <div class="lbl">وضع Snowball</div>
+      <div class="val c-blue" id="mdpMode">—</div>
     </div>
     <div class="card">
-      <div class="lbl">وقف الخسارة</div>
-      <div class="val c-red">2%</div>
+      <div class="lbl">نمو الرصيد</div>
+      <div class="val c-green" id="growthX">—x</div>
     </div>
     <div class="card">
-      <div class="lbl">جني الأرباح</div>
-      <div class="val c-green">4%</div>
+      <div class="lbl">معدل الفوز</div>
+      <div class="val c-yellow" id="winRate">—%</div>
     </div>
   </div>
 
@@ -181,6 +181,9 @@ async function fetchStatus() {
     document.getElementById('openPos').textContent = (d.positions || []).length;
     document.getElementById('totalTrades').textContent = d.total_trades || 0;
     document.getElementById('lastRun').textContent = d.last_run || '—';
+    document.getElementById('mdpMode').textContent = d.mdp_mode || 'SURVIVAL';
+    document.getElementById('growthX').textContent = (d.growth_x || 1).toFixed(2) + 'x';
+    document.getElementById('winRate').textContent = (d.win_rate || 0) + '%';
 
     const badge = document.getElementById('modeBadge');
     badge.textContent = d.mode || 'Demo 🧪';
