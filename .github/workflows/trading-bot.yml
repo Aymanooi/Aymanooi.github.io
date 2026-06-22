@@ -1,0 +1,35 @@
+name: Bybit AI Trading Bot
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # كل ساعة
+  workflow_dispatch:        # تشغيل يدوي من GitHub UI
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: bot/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r bot/requirements.txt
+
+      - name: Run trading bot
+        working-directory: bot
+        env:
+          BYBIT_API_KEY: ${{ secrets.BYBIT_API_KEY }}
+          BYBIT_API_SECRET: ${{ secrets.BYBIT_API_SECRET }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BYBIT_TESTNET: ${{ secrets.BYBIT_TESTNET }}
+          DRY_RUN: ${{ secrets.DRY_RUN }}
+        run: python trading_bot.py
