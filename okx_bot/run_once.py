@@ -251,7 +251,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     client.set_leverage(inst_id, LEVERAGE)
     wr    = brain.current_win_rate(memory)
     kelly = brain.kelly_fraction(wr)
-    sz    = client.calculate_contracts(inst_id, balance, live_price, LEVERAGE, kelly)
+    # Use kelly% of balance as the capital at risk (not full balance)
+    risk_capital = balance * kelly
+    sz    = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, 1.0)
     if sz <= 0:
         add_log(status, f"{inst_id}: حجم صفر", "warning")
         return
@@ -263,7 +265,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         direction = "شراء 📈" if signal == "buy" else "بيع 📉"
         add_log(status,
             f"✅ {direction} {inst_id} @ {live_price} | "
-            f"درجة:{score} | Kelly:{kelly*100:.0f}%", "success")
+            f"درجة:{score} | Kelly:{kelly*100:.0f}% | مخاطرة:${risk_capital:.3f}", "success")
         brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
         status["total_trades"] = status.get("total_trades", 0) + 1
     else:

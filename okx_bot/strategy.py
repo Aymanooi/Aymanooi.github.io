@@ -319,20 +319,20 @@ def analyze(candles_15m, candles_1h=None) -> Dict:
     total = max(-100, min(100, total))
     details["Score"] = total
 
-    THRESHOLD = 35
+    THRESHOLD = 42
     signal = None
     if total >= THRESHOLD:
         signal = "buy"
     elif total <= -THRESHOLD:
         signal = "sell"
 
-    # ── Dynamic SL/TP via ATR (1.5x / 3.0x risk:reward 1:2) ─
+    # SL=1.0×ATR / TP=3.0×ATR → RR=3:1 → breakeven WR=25%
     atr_val = atr(highs, lows, closes, 14)
     if signal == "buy":
-        sl_price = round(price - 1.5 * atr_val, 6)
+        sl_price = round(price - 1.0 * atr_val, 6)
         tp_price = round(price + 3.0 * atr_val, 6)
     elif signal == "sell":
-        sl_price = round(price + 1.5 * atr_val, 6)
+        sl_price = round(price + 1.0 * atr_val, 6)
         tp_price = round(price - 3.0 * atr_val, 6)
     else:
         sl_price = tp_price = 0.0
