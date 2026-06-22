@@ -1,0 +1,18 @@
+{
+  "weights": {
+    "EMA": 1.0,
+    "RSI": 1.0,
+    "MACD": 1.0,
+    "BB": 1.0,
+    "Stoch": 1.0,
+    "Volume": 1.0,
+    "Pattern": 1.0,
+    "HTF_1h": 1.0
+  },
+  "bias": 0.0,
+  "trades": [],
+  "wins": 0,
+  "losses": 0,
+  "lr": 0.05,
+  "updated": null
+}

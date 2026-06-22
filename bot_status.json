@@ -1,0 +1,10 @@
+{
+  "last_run": "لم يبدأ بعد",
+  "mode": "Demo 🧪",
+  "balance": 0,
+  "positions": [],
+  "total_trades": 0,
+  "logs": [
+    {"time": "—", "msg": "في انتظار أول تشغيل...", "level": "info"}
+  ]
+}
