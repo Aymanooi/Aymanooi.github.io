@@ -137,7 +137,14 @@
   </div>
 
   <div class="box">
-    <div class="box-hd">🧠 أقوى الإشارات الحالية (MSCS)</div>
+    <div class="box-hd">🧠 العقل المتعلّم (Adaptive Brain)</div>
+    <div id="brainPanel">
+      <div class="empty">العقل لم يبدأ التعلّم بعد...</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="box-hd">🎯 أقوى الإشارات الحالية (MSCS)</div>
     <div id="signalsTable">
       <div class="empty">في انتظار التحليل...</div>
     </div>
@@ -191,6 +198,37 @@ async function fetchStatus() {
       posDiv.innerHTML = html;
     } else {
       posDiv.innerHTML = '<div class="empty">لا توجد صفقات مفتوحة حالياً</div>';
+    }
+
+    // Adaptive Brain
+    const brainDiv = document.getElementById('brainPanel');
+    if (d.brain) {
+      const b = d.brain;
+      let wHtml = '';
+      for (const [k, v] of Object.entries(b.weights || {})) {
+        const pct = Math.min(100, (v / 3) * 100);
+        const col = v >= 1 ? '#3fb950' : '#d29922';
+        wHtml += `<div style="display:flex;align-items:center;gap:8px;margin:4px 0;font-size:12px;">
+          <span style="min-width:70px;color:#8b949e;">${k}</span>
+          <div style="flex:1;height:6px;background:#21262d;border-radius:3px;">
+            <div style="width:${pct}%;height:100%;background:${col};border-radius:3px;"></div>
+          </div>
+          <span style="min-width:42px;color:${col};font-weight:bold;">${v}</span>
+        </div>`;
+      }
+      brainDiv.innerHTML = `
+        <div style="padding:16px 18px;">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:16px;">
+            <div style="text-align:center;"><div style="font-size:11px;color:#8b949e;">معدل الفوز</div><div style="font-size:22px;font-weight:bold;color:#3fb950;">${b.win_rate}%</div></div>
+            <div style="text-align:center;"><div style="font-size:11px;color:#8b949e;">رابحة</div><div style="font-size:22px;font-weight:bold;color:#3fb950;">${b.wins}</div></div>
+            <div style="text-align:center;"><div style="font-size:11px;color:#8b949e;">خاسرة</div><div style="font-size:22px;font-weight:bold;color:#f85149;">${b.losses}</div></div>
+            <div style="text-align:center;"><div style="font-size:11px;color:#8b949e;">حجم Kelly</div><div style="font-size:22px;font-weight:bold;color:#58a6ff;">${b.kelly}%</div></div>
+          </div>
+          <div style="font-size:11px;color:#8b949e;margin-bottom:6px;">أوزان المؤشرات المُتعلَّمة:</div>
+          ${wHtml}
+        </div>`;
+    } else {
+      brainDiv.innerHTML = '<div class="empty">العقل لم يبدأ التعلّم بعد...</div>';
     }
 
     // Top Signals

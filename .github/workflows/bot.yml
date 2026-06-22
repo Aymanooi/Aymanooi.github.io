@@ -39,6 +39,6 @@ jobs:
         run: |
           git config --local user.email "okx-bot@github-actions"
           git config --local user.name "OKX Bot"
-          git add bot_status.json
-          git diff --staged --quiet || git commit -m "bot: update status [skip ci]"
+          git add bot_status.json brain_memory.json
+          git diff --staged --quiet || git commit -m "bot: update status + brain [skip ci]"
           git push
