@@ -83,13 +83,17 @@ class OKXClient:
         contracts = math.floor(contracts / lot_sz) * lot_sz
         return max(contracts, float(lot_sz))
 
-    def place_order(self, inst_id, side, sz, entry_price, sl_pct, tp_pct):
-        if side == "buy":
-            sl_price = round(entry_price * (1 - sl_pct), 4)
-            tp_price = round(entry_price * (1 + tp_pct), 4)
+    def place_order(self, inst_id, side, sz, entry_price, sl_pct, tp_pct,
+                    sl_override=None, tp_override=None):
+        if sl_override and tp_override:
+            sl_price = sl_override
+            tp_price = tp_override
+        elif side == "buy":
+            sl_price = round(entry_price * (1 - sl_pct), 6)
+            tp_price = round(entry_price * (1 + tp_pct), 6)
         else:
-            sl_price = round(entry_price * (1 + sl_pct), 4)
-            tp_price = round(entry_price * (1 - tp_pct), 4)
+            sl_price = round(entry_price * (1 + sl_pct), 6)
+            tp_price = round(entry_price * (1 - tp_pct), 6)
 
         result = self.trade_api.place_order(
             instId=inst_id,

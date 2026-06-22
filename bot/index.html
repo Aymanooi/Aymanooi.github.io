@@ -137,6 +137,13 @@
   </div>
 
   <div class="box">
+    <div class="box-hd">🧠 أقوى الإشارات الحالية (MSCS)</div>
+    <div id="signalsTable">
+      <div class="empty">في انتظار التحليل...</div>
+    </div>
+  </div>
+
+  <div class="box">
     <div class="box-hd">
       <span>📋 سجل العمليات</span>
       <span id="nextRefresh" style="font-size:11px;font-weight:normal;color:#8b949e;"></span>
@@ -184,6 +191,27 @@ async function fetchStatus() {
       posDiv.innerHTML = html;
     } else {
       posDiv.innerHTML = '<div class="empty">لا توجد صفقات مفتوحة حالياً</div>';
+    }
+
+    // Top Signals
+    const sigDiv = document.getElementById('signalsTable');
+    if (d.top_signals && d.top_signals.length > 0) {
+      let html = '<table><thead><tr><th>الزوج</th><th>الإشارة</th><th>الدرجة /100</th><th>RSI</th><th>ADX</th><th>حجم</th></tr></thead><tbody>';
+      d.top_signals.forEach(s => {
+        const barW = Math.abs(s.score);
+        const barC = s.score > 0 ? '#3fb950' : '#f85149';
+        const scoreBar = `<div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:80px;height:6px;background:#21262d;border-radius:3px;">
+            <div style="width:${barW}%;height:100%;background:${barC};border-radius:3px;"></div>
+          </div>
+          <span style="color:${barC};font-weight:bold;">${s.score}</span>
+        </div>`;
+        html += `<tr><td><b>${s.instId}</b></td><td>${s.signal}</td><td>${scoreBar}</td><td>${s.rsi}</td><td>${s.adx}</td><td>${s.vol}x</td></tr>`;
+      });
+      html += '</tbody></table>';
+      sigDiv.innerHTML = html;
+    } else {
+      sigDiv.innerHTML = '<div class="empty">لا توجد إشارات قوية حالياً</div>';
     }
 
     // Logs
