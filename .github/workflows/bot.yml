@@ -34,6 +34,7 @@ jobs:
           OKX_SECRET_KEY: ${{ secrets.OKX_API_SECRET }}
           OKX_PASSPHRASE: ${{ secrets.OKX_PASSPHRASE }}
           OKX_IS_DEMO:    ${{ secrets.OKX_IS_DEMO }}
+          RISK_MODE:      ${{ secrets.RISK_MODE }}
         run: python okx_bot/run_once.py
 
       - name: Save state to repo

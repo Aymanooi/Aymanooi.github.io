@@ -71,18 +71,40 @@ def adjusted_score(details, memory):
     return adj, prob_up
 
 
-def kelly_fraction(win_rate, rr=2.0, cap=0.95):
+def kelly_fraction(win_rate, rr=3.0, cap=0.20, half=True):
     """
-    Kelly = W - (1-W)/RR.  Capped for safety. Returns fraction of capital.
-    rr = reward:risk ratio (our TP/SL = 3/1.5 = 2).
+    Kelly = W - (1-W)/RR.
+    rr   = reward:risk (TP/SL = 3.0/1.0 = 3).
+    half = True → half-Kelly (safer), False → full Kelly (turbo mode).
+    Returns capital fraction to risk per trade.
     """
     if win_rate <= 0:
-        return 0.10
+        return 0.05
     k = win_rate - (1 - win_rate) / rr
     k = max(0.0, k)
-    # Half-Kelly for safety, then clamp
-    k = k * 0.5
-    return max(0.10, min(cap, k))
+    if half:
+        k *= 0.5
+    return max(0.05, min(cap, k))
+
+
+def symbol_win_rate(memory, inst_id, min_trades=5):
+    """Return per-symbol WR once we have enough data, else None (still exploring)."""
+    sym = [t for t in memory.get("trades", [])
+           if t.get("instId") == inst_id and t.get("status") in ("win", "loss")]
+    if len(sym) < min_trades:
+        return None
+    return sum(1 for t in sym if t["status"] == "win") / len(sym)
+
+
+def should_trade_symbol(memory, inst_id, rr=3.0, min_trades=5):
+    """
+    Return True if this symbol has positive Kelly (WR > breakeven).
+    Returns True also when we don't have enough data yet (still learning).
+    """
+    wr = symbol_win_rate(memory, inst_id, min_trades)
+    if wr is None:
+        return True   # not enough data — keep exploring
+    return wr > (1 / (1 + rr))   # breakeven WR = 25%
 
 
 def record_open(memory, inst_id, signal, details, entry_price, score):
