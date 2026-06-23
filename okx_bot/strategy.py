@@ -331,7 +331,8 @@ def analyze(candles_15m, candles_1h=None) -> Dict:
     total = max(-100, min(100, total))
     details["Score"] = total
 
-    THRESHOLD = 45   # خُفِّض من 48 → إشارات أكثر مع الحفاظ على جودة التقاطع
+    # RR=3:1 → WR breakeven = 25% فقط، عتبة 40 تعطي إشارات أكثر مع الحفاظ على الجودة
+    THRESHOLD = 40
     signal = None
     if total >= THRESHOLD:
         signal = "buy"
