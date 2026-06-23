@@ -2286,9 +2286,9 @@ class TechnicalAgent(BaseAgent):
 class MLEnsembleAgent(BaseAgent):
     def __init__(self, name, weight):
         super().__init__(name, weight)
-        self.rf   = RandomForestClassifier(50,random_state=42) if ML_AVAILABLE else None
-        self.gb   = GradientBoostingClassifier(50,random_state=42) if ML_AVAILABLE else None
-        self.xgb  = xgb.XGBClassifier(50,use_label_encoder=False,
+        self.rf   = RandomForestClassifier(n_estimators=50,random_state=42) if ML_AVAILABLE else None
+        self.gb   = GradientBoostingClassifier(n_estimators=50,random_state=42) if ML_AVAILABLE else None
+        self.xgb  = xgb.XGBClassifier(n_estimators=50,use_label_encoder=False,
                                         eval_metric="logloss") if XGB_AVAILABLE else None
         self.sc   = StandardScaler() if ML_AVAILABLE else None
         self.trained = False
