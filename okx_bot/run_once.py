@@ -195,8 +195,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             sl_price = live_price * (0.97 if signal == "buy" else 1.03)
             tp_price = live_price * (1.06 if signal == "buy" else 0.94)
 
-        client.set_leverage(inst_id, LEVERAGE)
-        sz = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, CAPITAL_RATIO)
+        # ── FIX: حدّ الرافعة لأقصى ما تسمح به العملة (بعضها 10x فقط) ─────────
+        eff_leverage = LEVERAGE
+        max_lev = client.get_max_leverage(inst_id)
+        if max_lev and max_lev < LEVERAGE:
+            eff_leverage = max_lev
+            add_log(status, f"ℹ️ {inst_id}: رافعة {LEVERAGE}x→{eff_leverage:g}x (حد العملة)", "info")
+
+        client.set_leverage(inst_id, eff_leverage)
+        sz = client.calculate_contracts(inst_id, risk_capital, live_price, eff_leverage, CAPITAL_RATIO)
         if sz <= 0:
             add_log(status, f"⏭️ {inst_id}: حجم صفر — التالي", "warning")
             continue
