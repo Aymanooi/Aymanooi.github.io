@@ -254,10 +254,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    # Kelly يُقسَّم على عدد المراكز المتزامنة لضمان عدم المخاطرة الزائدة
-    wr         = brain.current_win_rate(memory)
-    kelly      = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
-    risk_frac  = min(kelly, cfg.RISK_PER_TRADE) / cfg.MAX_POSITIONS
+    # رأس المال الكامل مقسّماً على عدد المراكز المتزامنة
+    risk_capital = balance / max(cfg.MAX_POSITIONS, 1)
 
     trades_entered = 0
     # Iterate through ALL ranked signals until slots are filled
@@ -277,7 +275,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         tp_price   = tp_price or (live_price * (1.04 if signal=="buy" else 0.96))
 
         client.set_leverage(inst_id, LEVERAGE)
-        risk_capital = balance * risk_frac
         sz = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, 1.0)
         if sz <= 0:
             add_log(status, f"⏭️ {inst_id}: حجم صفر — التالي", "warning")
@@ -290,7 +287,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             direction = "شراء 📈" if signal == "buy" else "بيع 📉"
             add_log(status,
                 f"✅ {direction} {inst_id} @ {live_price} | "
-                f"درجة:{score} | Kelly:{kelly*100:.0f}% | مخاطرة:${risk_capital:.3f}", "success")
+                f"درجة:{score} | رأس المال:${risk_capital:.2f}", "success")
             brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
