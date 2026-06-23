@@ -38,11 +38,47 @@ jobs:
         run: python okx_bot/run_once.py
 
       - name: Save state to repo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --local user.email "snowball-bot@github-actions"
-          git config --local user.name "Snowball Bot"
-          git fetch origin main
-          git reset --soft origin/main
-          git add bot_status.json brain_memory.json okx_bot/snowball_v19.db || true
-          git diff --staged --quiet || git commit -m "bot: Snowball cycle update [skip ci]"
-          git push origin HEAD:main
+          python3 - <<'PYEOF'
+          import base64, json, os, urllib.request, urllib.error
+
+          token = os.environ['GH_TOKEN']
+          repo  = os.environ['GITHUB_REPOSITORY']
+
+          for fname in ['bot_status.json', 'brain_memory.json']:
+            try:
+              with open(fname, 'rb') as f:
+                content = base64.b64encode(f.read()).decode()
+            except FileNotFoundError:
+              continue
+
+            url = f'https://api.github.com/repos/{repo}/contents/{fname}'
+            headers = {
+              'Authorization': f'token {token}',
+              'Accept': 'application/vnd.github.v3+json',
+              'Content-Type': 'application/json',
+            }
+
+            # get current SHA (needed to update existing file)
+            sha = None
+            try:
+              req = urllib.request.Request(url, headers=headers)
+              with urllib.request.urlopen(req) as r:
+                sha = json.loads(r.read())['sha']
+            except Exception:
+              pass
+
+            body = {'message': f'bot: update {fname} [skip ci]', 'content': content}
+            if sha:
+              body['sha'] = sha
+
+            req = urllib.request.Request(url, data=json.dumps(body).encode(),
+                                         method='PUT', headers=headers)
+            try:
+              with urllib.request.urlopen(req) as r:
+                print(f'✅ {fname} updated')
+            except urllib.error.HTTPError as e:
+              print(f'❌ {fname} failed: {e.read().decode()[:200]}')
+          PYEOF
