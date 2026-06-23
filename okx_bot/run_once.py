@@ -53,8 +53,9 @@ async def run():
     os.environ["OKX_IS_DEMO"]    = demo
 
     status = load_status()
-    status["last_run"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    status["mode"]     = "Demo 🧪" if demo != "0" else "Live 💰"
+    status["last_run"]  = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    status["mode"]      = "Demo 🧪" if demo != "0" else "Live 💰"
+    status["risk_mode"] = os.environ.get("RISK_MODE", "safe").strip().lower()
 
     memory = brain.load_memory()
 
