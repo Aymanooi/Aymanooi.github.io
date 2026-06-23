@@ -14,7 +14,7 @@ IS_DEMO = "1"
 # === Risk Mode ===
 # يُضبط بمتغيّر البيئة RISK_MODE في GitHub Secrets:
 #   "safe"       = آمن: رافعة 5×، مخاطرة 2% (لاختبار البوت)
-#   "balanced"   = متوازن: رافعة 20×، مخاطرة 5%، مركزان متزامنان
+#   "balanced"   = متوازن: رافعة 20×، مخاطرة 5%، 3 مراكز متزامنة
 #   "boost"      = بوست: رافعة 15×، مخاطرة 7% (وسط بين balanced و aggressive)
 #   "aggressive" = عدواني: رافعة 20×، Kelly كامل
 #   "turbo"      = توربو: رافعة 20×، Full Kelly، 50 عملة → هدف $1M في 15 سنة
@@ -24,7 +24,7 @@ RISK_MODE = os.getenv("RISK_MODE", "safe").strip().lower()
 
 _RISK_PRESETS = {
     "safe":       {"leverage": 5,  "risk_per_trade": 0.02, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 10,  "filter_losers": False, "max_positions": 1},
-    "balanced":   {"leverage": 20, "risk_per_trade": 0.05, "kelly_cap": 0.15, "half_kelly": True,  "symbols": 50,  "filter_losers": False, "max_positions": 2},
+    "balanced":   {"leverage": 20, "risk_per_trade": 0.05, "kelly_cap": 0.25, "half_kelly": False, "symbols": 50,  "filter_losers": False, "max_positions": 3},
     "boost":      {"leverage": 15, "risk_per_trade": 0.07, "kelly_cap": 0.18, "half_kelly": False, "symbols": 50,  "filter_losers": False, "max_positions": 1},
     "aggressive": {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.20, "half_kelly": False, "symbols": 50,  "filter_losers": False, "max_positions": 1},
     "turbo":      {"leverage": 20, "risk_per_trade": 0.06, "kelly_cap": 0.25, "half_kelly": False, "symbols": 50,  "filter_losers": False, "max_positions": 1},
@@ -60,7 +60,7 @@ RSI_PERIOD = 14
 RSI_BUY_MAX = 65
 RSI_SELL_MIN = 35
 TIMEFRAME = "15m"
-SIGNAL_THRESHOLD = 42
+SIGNAL_THRESHOLD = 40
 
 # === Bot Settings ===
 SCAN_INTERVAL   = 60
