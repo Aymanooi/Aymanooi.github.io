@@ -28,28 +28,10 @@
       "score": -47,
       "status": "open",
       "opened": "2026-06-23 04:01:50 UTC"
-    },
-    {
-      "instId": "APE-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15
-      },
-      "entry": 0.13823,
-      "score": -42,
-      "status": "open",
-      "opened": "2026-06-23 07:19:48 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 07:19:48 UTC"
+  "updated": "2026-06-23 07:19:50 UTC"
 }
