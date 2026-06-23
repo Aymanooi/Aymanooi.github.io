@@ -43,4 +43,5 @@ jobs:
           git config --local user.name "Snowball Bot"
           git add bot_status.json brain_memory.json okx_bot/snowball_v19.db || true
           git diff --staged --quiet || git commit -m "bot: Snowball cycle update [skip ci]"
-          git push
+          git pull --rebase origin main || true
+          git push origin HEAD:main
