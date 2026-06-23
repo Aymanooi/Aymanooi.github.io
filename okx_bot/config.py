@@ -15,6 +15,7 @@ IS_DEMO = "1"
 # يُضبط بمتغيّر البيئة RISK_MODE في GitHub Secrets:
 #   "safe"       = آمن: رافعة 5×، مخاطرة 2% (لاختبار البوت)
 #   "balanced"   = متوازن: رافعة 10×، مخاطرة 5%
+#   "boost"      = بوست: رافعة 15×، مخاطرة 7% (وسط بين balanced و aggressive)
 #   "aggressive" = عدواني: رافعة 20×، Kelly كامل
 #   "turbo"      = توربو: رافعة 20×، Full Kelly، 50 عملة → هدف $1M في 15 سنة
 #   "nitro"      = نيترو: 20×، Full Kelly، فلتر الخاسرين → هدف $1M في ~3 سنوات
@@ -24,6 +25,7 @@ RISK_MODE = os.getenv("RISK_MODE", "safe").strip().lower()
 _RISK_PRESETS = {
     "safe":       {"leverage": 5,  "risk_per_trade": 0.02, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 10,  "filter_losers": False, "max_positions": 1},
     "balanced":   {"leverage": 10, "risk_per_trade": 0.05, "kelly_cap": 0.15, "half_kelly": True,  "symbols": 25,  "filter_losers": False, "max_positions": 1},
+    "boost":      {"leverage": 15, "risk_per_trade": 0.07, "kelly_cap": 0.18, "half_kelly": False, "symbols": 50,  "filter_losers": False, "max_positions": 1},
     "aggressive": {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.20, "half_kelly": False, "symbols": 50,  "filter_losers": False, "max_positions": 1},
     "turbo":      {"leverage": 20, "risk_per_trade": 0.06, "kelly_cap": 0.25, "half_kelly": False, "symbols": 50,  "filter_losers": False, "max_positions": 1},
     # nitro: يتداول على 50 عملة، يحذف تلقائياً العملات الخاسرة بعد 5 صفقات
