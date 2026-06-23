@@ -28,10 +28,28 @@
       "score": -47,
       "status": "open",
       "opened": "2026-06-23 04:01:50 UTC"
+    },
+    {
+      "instId": "O-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15
+      },
+      "entry": 0.599,
+      "score": -45,
+      "status": "open",
+      "opened": "2026-06-23 08:19:19 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 08:18:15 UTC"
+  "updated": "2026-06-23 08:19:19 UTC"
 }
