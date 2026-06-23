@@ -21,17 +21,17 @@
   "total_trades": 3,
   "logs": [
     {
-      "time": "2026-06-23 21:51:04 UTC",
+      "time": "2026-06-23 21:51:05 UTC",
       "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-23 21:51:04 UTC",
+      "time": "2026-06-23 21:51:05 UTC",
       "msg": "💰 الرصيد: $0.3249 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-23 21:51:04 UTC",
+      "time": "2026-06-23 21:51:05 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
       "level": "info"
     },
@@ -42,6 +42,31 @@
     },
     {
       "time": "2026-06-23 21:51:04 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-23 21:51:02 UTC",
+      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 21:51:02 UTC",
+      "msg": "💰 الرصيد: $0.3543 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 21:51:02 UTC",
+      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 21:51:02 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 21:51:02 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -392,31 +417,6 @@
     },
     {
       "time": "2026-06-23 21:47:29 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-23 21:47:19 UTC",
-      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 21:47:19 UTC",
-      "msg": "💰 الرصيد: $0.0430 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 21:47:18 UTC",
-      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 21:47:18 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 21:47:18 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     }
