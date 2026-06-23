@@ -10,10 +10,46 @@
     "HTF_1h": 1.0
   },
   "bias": 0.0,
-  "trades": [],
-  "wins": 2,
+  "trades": [
+    {
+      "instId": "ONDO-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15
+      },
+      "entry": 0.3248,
+      "score": -47,
+      "status": "open",
+      "opened": "2026-06-23 04:01:50 UTC"
+    },
+    {
+      "instId": "DOT-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": 10,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15
+      },
+      "entry": 0.9027,
+      "score": -48,
+      "status": "open",
+      "opened": "2026-06-23 12:07:46 UTC"
+    }
+  ],
+  "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 16:30:00 UTC",
-  "exited": {}
+  "updated": "2026-06-23 16:24:24 UTC"
 }
