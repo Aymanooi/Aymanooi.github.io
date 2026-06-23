@@ -184,9 +184,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     STOP_LOSS_PCT   = 0.02
     TAKE_PROFIT_PCT = 0.04
     CAPITAL_RATIO   = 0.95
-    TOP_PAIRS       = 50
+    TOP_PAIRS       = cfg.SCAN_SYMBOLS   # يأخذ قيمته من config (balanced=100)
 
-    add_log(status, f"⚙️ وضع المخاطرة: {cfg.RISK_MODE} | رافعة: x{LEVERAGE}", "info")
+    add_log(status, f"⚙️ وضع المخاطرة: {cfg.RISK_MODE} | رافعة: x{LEVERAGE} | مسح: {TOP_PAIRS} عملة", "info")
 
     client = OKXClient(key, secret, phrase, demo)
     balance = client.get_balance()
@@ -208,14 +208,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     ]
 
     # ── Detect closed positions → cooldown + brain learning ───────────────────
-    # مصدر الحقيقة = اتحاد (مراكز bot_status السابقة) + (صفقات الدماغ المفتوحة)
-    # هذا يضمن أن أي صفقة سجّلها الدماغ كـ"مفتوحة" لكنها لم تعد في OKX → يتعلّم منها
     believed_open = prev_open | brain.open_instruments(memory)
     newly_closed  = believed_open - active
     if newly_closed:
         for closed_id in newly_closed:
             brain.mark_exited(memory, closed_id)
-            # تعليم الدماغ من الربح المحقّق الفعلي (الأدقّ)، وإلا تقريب سعر السوق
             try:
                 realized = client.get_last_realized_pnl(closed_id)
                 ticker   = client.get_ticker(closed_id)
@@ -283,8 +280,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    # رأس المال مقسّماً على الصفقات التي ستُنفَّذ فعلاً (ليس عدد الفتحات كلها)
-    # مثال: فتحتان متاحتان لكن إشارة واحدة فقط → كامل الرصيد لتلك الإشارة
     trades_planned = min(slots_available, len(signals))
     risk_capital = balance / max(trades_planned, 1)
 
@@ -313,7 +308,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             sl_price = live_price * (0.97 if signal == "buy" else 1.03)
             tp_price = live_price * (1.06 if signal == "buy" else 0.94)
 
-        # ── FIX: حدّ الرافعة لأقصى ما تسمح به العملة (بعضها 10x فقط) ─────────
+        # حدّ الرافعة لأقصى ما تسمح به العملة
         eff_leverage = LEVERAGE
         max_lev = client.get_max_leverage(inst_id)
         if max_lev and max_lev < LEVERAGE:
