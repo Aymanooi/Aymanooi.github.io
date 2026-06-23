@@ -43,7 +43,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 - <<'PYEOF'
-          import base64, json, os, urllib.request, urllib.error
+          import base64, json, os, time, urllib.request, urllib.error
 
           token = os.environ['GH_TOKEN']
           repo  = os.environ['GITHUB_REPOSITORY']
@@ -62,28 +62,39 @@ jobs:
               'Content-Type': 'application/json',
             }
 
-            sha = None
-            try:
-              req = urllib.request.Request(url, headers=headers)
-              with urllib.request.urlopen(req) as r:
-                sha = json.loads(r.read())['sha']
-            except Exception:
-              pass
+            # Retry up to 5 times on SHA conflict (race condition between concurrent runs)
+            for attempt in range(5):
+              sha = None
+              try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req) as r:
+                  sha = json.loads(r.read())['sha']
+              except Exception:
+                pass
 
-            body = {'message': f'bot: update {fname} [skip ci]', 'content': content}
-            if sha:
-              body['sha'] = sha
+              body = {'message': f'bot: update {fname} [skip ci]', 'content': content}
+              if sha:
+                body['sha'] = sha
 
-            req = urllib.request.Request(url, data=json.dumps(body).encode(),
-                                         method='PUT', headers=headers)
-            try:
-              with urllib.request.urlopen(req) as r:
-                print(f'✅ {fname} updated')
-            except urllib.error.HTTPError as e:
-              print(f'❌ {fname} failed: {e.read().decode()[:200]}')
+              req = urllib.request.Request(url, data=json.dumps(body).encode(),
+                                           method='PUT', headers=headers)
+              try:
+                with urllib.request.urlopen(req) as r:
+                  print(f'✅ {fname} updated (attempt {attempt+1})')
+                  break
+              except urllib.error.HTTPError as e:
+                err = e.read().decode()
+                if e.code == 409 or 'sha' in err.lower():
+                  # SHA conflict — another run saved first, retry with fresh SHA
+                  print(f'⚠️ {fname} SHA conflict, retrying... ({attempt+1}/5)')
+                  time.sleep(2 ** attempt)
+                  continue
+                else:
+                  print(f'❌ {fname} failed: {err[:200]}')
+                  break
           PYEOF
 
-      - name: 🔁 Schedule next run in 5 minutes
+      - name: 🔁 Schedule next run in 60 seconds
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
