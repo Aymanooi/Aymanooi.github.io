@@ -85,6 +85,24 @@ class OKXClient:
             return None
         return pos
 
+    def get_last_realized_pnl(self, inst_id):
+        """
+        الربح/الخسارة المحقّق فعلياً لآخر مركز مُغلق على هذه العملة.
+        يُستخدم لتعليم الدماغ من النتيجة الحقيقية بدل تقريب سعر السوق.
+        يُرجع float أو None إذا لم تتوفّر البيانات.
+        """
+        try:
+            result = self.account_api.get_positions_history(
+                instType="SWAP", instId=inst_id, limit="5")
+            if result["code"] != "0" or not result["data"]:
+                return None
+            # الأحدث أولاً — حقل realizedPnl (أو pnl كبديل)
+            row = result["data"][0]
+            val = row.get("realizedPnl", row.get("pnl", ""))
+            return float(val) if val not in ("", None) else None
+        except Exception:
+            return None
+
     def calculate_contracts(self, inst_id, balance, price, leverage, capital_ratio):
         info = self.get_instrument_info(inst_id)
         if not info:

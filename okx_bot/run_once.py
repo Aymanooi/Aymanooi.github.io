@@ -186,15 +186,17 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     if newly_closed:
         for closed_id in newly_closed:
             brain.mark_exited(memory, closed_id)
-            # Teach brain using current market price as approximation of exit
+            # تعليم الدماغ من الربح المحقّق الفعلي (الأدقّ)، وإلا تقريب سعر السوق
             try:
-                ticker = client.get_ticker(closed_id)
-                if ticker:
-                    exit_px = float(ticker["last"])
-                    result  = brain.learn_from_closed(memory, closed_id, exit_px)
-                    if result is not None:
-                        outcome = "ربح ✅" if result == 1 else "خسارة ❌"
-                        add_log(status, f"🧠 Brain تعلّم: {closed_id} → {outcome}", "info")
+                realized = client.get_last_realized_pnl(closed_id)
+                ticker   = client.get_ticker(closed_id)
+                exit_px  = float(ticker["last"]) if ticker else 0.0
+                result   = brain.learn_from_closed(memory, closed_id, exit_px,
+                                                    realized_pnl=realized)
+                if result is not None:
+                    src = "(فعلي)" if realized is not None else "(تقدير)"
+                    outcome = "ربح ✅" if result == 1 else "خسارة ❌"
+                    add_log(status, f"🧠 Brain تعلّم: {closed_id} → {outcome} {src}", "info")
             except Exception:
                 pass
         add_log(status,

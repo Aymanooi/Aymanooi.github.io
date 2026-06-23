@@ -147,19 +147,25 @@ def record_open(memory, inst_id, signal, details, entry_price, score):
     memory["trades"] = memory["trades"][-200:]
 
 
-def learn_from_closed(memory, inst_id, exit_price):
+def learn_from_closed(memory, inst_id, exit_price, realized_pnl=None):
     """
     Find the open trade for inst_id, compute win/loss, and update weights
     via gradient step on logistic loss.
+
+    realized_pnl: إذا توفّر (الربح المحقّق الفعلي من OKX) يُستخدم لتحديد
+    الفوز/الخسارة بدقّة. وإلا نقدّر من سعر الخروج (exit_price).
     """
     for t in reversed(memory["trades"]):
         if t["instId"] == inst_id and t["status"] == "open":
             entry = t["entry"]
-            if t["signal"] == "buy":
-                pnl = exit_price - entry
+            if realized_pnl is not None:
+                won = 1 if realized_pnl > 0 else 0
             else:
-                pnl = entry - exit_price
-            won = 1 if pnl > 0 else 0
+                if t["signal"] == "buy":
+                    pnl = exit_price - entry
+                else:
+                    pnl = entry - exit_price
+                won = 1 if pnl > 0 else 0
             t["status"] = "win" if won else "loss"
             t["exit"] = exit_price
 
