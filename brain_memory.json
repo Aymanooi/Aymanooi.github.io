@@ -46,31 +46,13 @@
       "score": -48,
       "status": "open",
       "opened": "2026-06-23 12:07:46 UTC"
-    },
-    {
-      "instId": "LIGHT-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15
-      },
-      "entry": 0.1376,
-      "score": 48,
-      "status": "open",
-      "opened": "2026-06-23 17:30:27 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 17:32:08 UTC",
+  "updated": "2026-06-23 17:32:38 UTC",
   "exited": {
-    "XLM-USDT-SWAP": "2026-06-23T17:24:45.183519+00:00"
+    "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00"
   }
 }
