@@ -8,7 +8,7 @@
       "side": "بيع 📉",
       "entry": 0.6192,
       "size": 121.0,
-      "pnl": -0.2057
+      "pnl": -0.1815
     },
     {
       "instId": "LIGHT-USDT-SWAP",
@@ -26,7 +26,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-23 19:10:18 UTC",
+      "time": "2026-06-23 19:10:17 UTC",
       "msg": "💰 الرصيد: $0.0000 USDT",
       "level": "info"
     },
