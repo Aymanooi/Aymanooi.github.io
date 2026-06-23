@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-23 22:46:12 UTC",
   "mode": "Live 💰",
-  "balance": 1.5338,
+  "balance": 1.5452,
   "positions": [
     {
       "instId": "DYDX-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.1474012458193982,
       "size": 1196.0,
-      "pnl": 1.2184
+      "pnl": 1.2304
     }
   ],
   "total_trades": 3,
@@ -24,8 +24,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:46:12 UTC",
-      "msg": "💰 الرصيد: $1.5338 USDT",
+      "time": "2026-06-23 22:46:13 UTC",
+      "msg": "💰 الرصيد: $1.5452 USDT",
       "level": "info"
     },
     {
