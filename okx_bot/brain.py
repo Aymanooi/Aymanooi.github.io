@@ -107,6 +107,27 @@ def should_trade_symbol(memory, inst_id, rr=3.0, min_trades=5):
     return wr > (1 / (1 + rr))   # breakeven WR = 25%
 
 
+COOLDOWN_HOURS = 4
+
+def mark_exited(memory, inst_id):
+    """Record that a position on inst_id was just closed — starts cooldown timer."""
+    if "exited" not in memory:
+        memory["exited"] = {}
+    memory["exited"][inst_id] = datetime.now(timezone.utc).isoformat()
+
+def can_reenter(memory, inst_id, cooldown_hours=COOLDOWN_HOURS):
+    """True if cooldown has passed (or symbol never exited before)."""
+    exited = memory.get("exited", {})
+    if inst_id not in exited:
+        return True
+    try:
+        exited_at = datetime.fromisoformat(exited[inst_id])
+        elapsed_h = (datetime.now(timezone.utc) - exited_at).total_seconds() / 3600
+        return elapsed_h >= cooldown_hours
+    except Exception:
+        return True
+
+
 def record_open(memory, inst_id, signal, details, entry_price, score):
     """Log an opened trade so we can learn from it when it closes."""
     memory["trades"].append({

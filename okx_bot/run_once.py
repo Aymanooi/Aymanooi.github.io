@@ -100,6 +100,16 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         for p in positions if float(p.get("pos",0)) != 0
     ]
 
+    # Detect positions closed since last run → start cooldown so we don't re-enter
+    prev_open    = {p["instId"] for p in status.get("positions", [])}
+    newly_closed = prev_open - active
+    if newly_closed:
+        for closed_id in newly_closed:
+            brain.mark_exited(memory, closed_id)
+        add_log(status,
+            f"⏳ أُغلقت: {', '.join(newly_closed)} — "
+            f"محظورة من الدخول {brain.COOLDOWN_HOURS} ساعات", "info")
+
     # كم مركزاً يمكن فتحه الآن؟
     slots_available = cfg.MAX_POSITIONS - len(active)
     if slots_available <= 0 or balance < 1:
@@ -108,10 +118,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
     pairs   = client.get_top_pairs(TOP_PAIRS)
     signals = []
-    skipped_losers = 0
+    skipped_losers  = 0
+    skipped_cooldown = 0
     for inst_id in pairs:
         # تجاهل الأزواج المفتوحة بالفعل
         if inst_id in active:
+            continue
+        # تجاهل العملات التي أُغلقت مؤخراً (فترة التهدئة)
+        if not brain.can_reenter(memory, inst_id):
+            skipped_cooldown += 1
             continue
         try:
             # nitro/hyper mode: skip symbols proven to be losing
@@ -127,6 +142,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                                  "adj_score": adj, "prob": prob})
         except Exception:
             continue
+    if skipped_cooldown:
+        add_log(status, f"⏳ تخطّى {skipped_cooldown} عملة في فترة التهدئة ({brain.COOLDOWN_HOURS}ساعة)", "info")
     if skipped_losers:
         add_log(status, f"🚫 تخطّى {skipped_losers} عملة خاسرة (فلتر Nitro/Hyper)", "info")
 
