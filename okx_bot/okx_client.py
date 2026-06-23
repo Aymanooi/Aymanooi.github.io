@@ -19,6 +19,8 @@ class OKXClient:
         if result["code"] != "0":
             return []
         tickers = [t for t in result["data"] if t["instId"].endswith("-USDT-SWAP")]
+        # فلتر: السعر > $0.10 لتجنب العملات الصغيرة جداً التي ترفضها OKX
+        tickers = [t for t in tickers if float(t.get("last", 0)) >= 0.10]
         tickers.sort(key=lambda x: float(x.get("volCcy24h", 0)), reverse=True)
         return [t["instId"] for t in tickers[:count]]
 
