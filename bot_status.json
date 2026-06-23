@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-23 20:17:10 UTC",
+  "last_run": "2026-06-23 20:17:15 UTC",
   "mode": "Live 💰",
   "balance": 0.0,
   "positions": [
@@ -8,7 +8,7 @@
       "side": "بيع 📉",
       "entry": 1.0195253799392099,
       "size": 658.0,
-      "pnl": -0.0839
+      "pnl": -0.0707
     },
     {
       "instId": "LIGHT-USDT-SWAP",
@@ -20,6 +20,31 @@
   ],
   "total_trades": 3,
   "logs": [
+    {
+      "time": "2026-06-23 20:17:15 UTC",
+      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:17:15 UTC",
+      "msg": "💰 الرصيد: $0.0000 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:17:15 UTC",
+      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:17:15 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:17:15 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-23 20:17:11 UTC",
       "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
@@ -392,31 +417,6 @@
     },
     {
       "time": "2026-06-23 20:13:25 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-23 20:13:07 UTC",
-      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:13:07 UTC",
-      "msg": "💰 الرصيد: $0.0000 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:13:07 UTC",
-      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:13:07 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:13:07 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     }
