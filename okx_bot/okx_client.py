@@ -128,7 +128,7 @@ class OKXClient:
             ordType="market",
             sz=str(sz),
             attachAlgoOrds=[{
-                "attachAlgoClOrdId": f"bot_{int(time.time())}",
+                "attachAlgoClOrdId": f"b{int(time.time() * 1000) % (10 ** 15)}",
                 "tpTriggerPx": str(tp_price),
                 "tpOrdPx": "-1",
                 "slTriggerPx": str(sl_price),
