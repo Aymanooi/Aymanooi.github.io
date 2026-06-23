@@ -1,25 +1,50 @@
 {
-  "last_run": "2026-06-23 19:34:12 UTC",
+  "last_run": "2026-06-23 19:34:22 UTC",
   "mode": "Live 💰",
-  "balance": 0.0112,
+  "balance": 0.0055,
   "positions": [
     {
       "instId": "AXS-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 1.0195253799392099,
       "size": 658.0,
-      "pnl": 0.0675
+      "pnl": 0.0346
     },
     {
       "instId": "LIGHT-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.1377,
       "size": 327.0,
-      "pnl": 0.0654
+      "pnl": 0.0981
     }
   ],
   "total_trades": 3,
   "logs": [
+    {
+      "time": "2026-06-23 19:34:23 UTC",
+      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 19:34:23 UTC",
+      "msg": "💰 الرصيد: $0.0055 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 19:34:23 UTC",
+      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 19:34:22 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 19:34:22 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-23 19:34:13 UTC",
       "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
@@ -392,31 +417,6 @@
     },
     {
       "time": "2026-06-23 19:29:08 UTC",
-      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 19:29:08 UTC",
-      "msg": "💰 الرصيد: $0.1322 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 19:29:07 UTC",
-      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 19:29:07 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 19:29:07 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-23 19:28:58 UTC",
       "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
       "level": "info"
     }
