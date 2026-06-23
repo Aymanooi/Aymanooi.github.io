@@ -97,16 +97,18 @@ async def run():
 
 def _manage_open_positions(status, client, positions):
     """
-    وقف خسارة متحرّك برمجي: يمنع تحوّل الصفقة الرابحة إلى خاسرة.
-    - يتتبّع أعلى ربح (uplRatio) وصلت إليه كل صفقة.
-    - يُسلِّح التتبّع بمجرد تجاوز الربح ARM_RATIO.
-    - يُغلق فوراً إذا تراجع الربح من قمّته بمقدار GIVEBACK (يقفل المكسب).
+    مدير مخاطر برمجي كامل لكل مركز مفتوح:
+    - HARD_STOP: قاطع دائرة — يُغلق المركز عند خسارة كارثية (شبكة أمان لو فُتح
+      المركز بدون أمر وقف، فلا يصل إلى التصفية الكاملة).
     - HARD_TAKE: جني ربح إجباري عند مكسب كبير (احتياط لو فشل أمر TP).
+    - وقف متحرّك: يتتبّع أعلى ربح، يُسلَّح عند ARM_RATIO، ويُغلق إذا تراجع
+      الربح من قمّته بمقدار GIVEBACK → يقفل المكسب قبل أن يعود خسارة.
     يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
     """
-    ARM_RATIO = 0.25   # سلِّح التتبّع عند +25% على الهامش
-    GIVEBACK  = 0.15   # أغلق إذا تراجع 15% من القمّة
-    HARD_TAKE = 0.60   # جني ربح إجباري عند +60%
+    ARM_RATIO = 0.25    # سلِّح التتبّع عند +25% على الهامش
+    GIVEBACK  = 0.15    # أغلق إذا تراجع 15% من القمّة
+    HARD_TAKE = 0.60    # جني ربح إجباري عند +60%
+    HARD_STOP = -0.50   # قاطع دائرة: أغلق عند خسارة 50% من الهامش (قبل التصفية)
 
     peaks      = status.setdefault("peaks", {})
     closed_now = set()
@@ -119,6 +121,16 @@ def _manage_open_positions(status, client, positions):
 
         peak = max(peaks.get(inst_id, ratio), ratio)
         peaks[inst_id] = peak
+
+        # قاطع دائرة للخسارة الكارثية (حماية من التصفية الكاملة)
+        if ratio <= HARD_STOP:
+            if client.close_position(inst_id):
+                add_log(status,
+                    f"🛑 وقف طارئ {inst_id} عند {ratio*100:.0f}% — حماية رأس المال",
+                    "warning")
+                closed_now.add(inst_id)
+                peaks.pop(inst_id, None)
+            continue
 
         # جني ربح إجباري
         if ratio >= HARD_TAKE:
