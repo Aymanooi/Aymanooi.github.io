@@ -95,19 +95,35 @@ async def run():
     print("✅ Done.")
 
 
+def _trail_floor(peak):
+    """
+    أرضية الوقف المتحرّك المتدرّج (ratcheting) كدالة في أعلى ربح (uplRatio).
+    تتشدّد كلما كبر الربح فتقفل مكسباً أكبر، لكنها تترك الرابحين الكبار يركضون
+    بدل قصّهم مبكراً — وهذا جوهر التراكم: قِلّة من الصفقات الكبيرة تصنع الفرق.
+    تُرجع None إذا لم يُسلَّح التتبّع بعد.
+    """
+    if peak < 0.25:
+        return None              # غير مُسلَّح: لم يبلغ +25% بعد
+    if peak < 0.50:
+        return peak - 0.15       # +25–50%: تنازل حتى 15 نقطة من القمّة
+    if peak < 1.00:
+        return peak * 0.70       # +50–100%: احتفظ بـ70% من القمّة
+    if peak < 2.00:
+        return peak * 0.80       # +100–200%: اقفل 80% من المكسب الكبير
+    return peak * 0.85           # +200%+: اقفل 85% (رابح جامح — احمِ المكسب)
+
+
 def _manage_open_positions(status, client, positions):
     """
     مدير مخاطر برمجي كامل لكل مركز مفتوح:
     - HARD_STOP: قاطع دائرة — يُغلق المركز عند خسارة كارثية (شبكة أمان لو فُتح
       المركز بدون أمر وقف، فلا يصل إلى التصفية الكاملة).
-    - HARD_TAKE: جني ربح إجباري عند مكسب كبير (احتياط لو فشل أمر TP).
-    - وقف متحرّك: يتتبّع أعلى ربح، يُسلَّح عند ARM_RATIO، ويُغلق إذا تراجع
-      الربح من قمّته بمقدار GIVEBACK → يقفل المكسب قبل أن يعود خسارة.
+    - HARD_TAKE: سقف أمان للمكاسب الجامحة فقط (نادر) — لا يقصّ الرابح العادي.
+    - وقف متحرّك متدرّج (_trail_floor): يتتبّع أعلى ربح، يُسلَّح عند +25%،
+      ويرفع الأرضية كلما كبر الربح → يقفل مكسباً متزايداً مع ترك الكبار يركضون.
     يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
     """
-    ARM_RATIO = 0.25    # سلِّح التتبّع عند +25% على الهامش
-    GIVEBACK  = 0.15    # أغلق إذا تراجع 15% من القمّة
-    HARD_TAKE = 0.60    # جني ربح إجباري عند +60%
+    HARD_TAKE = 2.00    # سقف أمان: جني ربح فقط عند مكسب جامح +200% (نادر)
     HARD_STOP = -0.50   # قاطع دائرة: أغلق عند خسارة 50% من الهامش (قبل التصفية)
 
     peaks      = status.setdefault("peaks", {})
@@ -132,7 +148,7 @@ def _manage_open_positions(status, client, positions):
                 peaks.pop(inst_id, None)
             continue
 
-        # جني ربح إجباري
+        # سقف أمان للمكاسب الجامحة فقط
         if ratio >= HARD_TAKE:
             if client.close_position(inst_id):
                 add_log(status, f"🎯 جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
@@ -140,8 +156,9 @@ def _manage_open_positions(status, client, positions):
                 peaks.pop(inst_id, None)
             continue
 
-        # وقف متحرّك: مُسلَّح وتراجع بما يكفي
-        if peak >= ARM_RATIO and (peak - ratio) >= GIVEBACK:
+        # وقف متحرّك متدرّج: مُسلَّح وتراجع الربح إلى الأرضية أو دونها
+        floor = _trail_floor(peak)
+        if floor is not None and ratio <= floor:
             if client.close_position(inst_id):
                 add_log(status,
                     f"🔒 وقف متحرّك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
