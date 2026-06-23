@@ -1,7 +1,7 @@
 {
-  "last_run": "2026-06-23 22:53:44 UTC",
+  "last_run": "2026-06-23 22:53:46 UTC",
   "mode": "Live 💰",
-  "balance": 1.7545,
+  "balance": 1.6181,
   "positions": [
     {
       "instId": "FARTCOIN-USDT-SWAP",
@@ -15,33 +15,33 @@
       "side": "شراء 📈",
       "entry": 0.1474012458193982,
       "size": 1196.0,
-      "pnl": 2.8091
+      "pnl": 2.6656
     }
   ],
   "total_trades": 4,
   "logs": [
     {
-      "time": "2026-06-23 22:53:45 UTC",
+      "time": "2026-06-23 22:53:47 UTC",
       "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:53:45 UTC",
-      "msg": "💰 الرصيد: $1.7545 USDT",
+      "time": "2026-06-23 22:53:47 UTC",
+      "msg": "💰 الرصيد: $1.6181 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:53:44 UTC",
+      "time": "2026-06-23 22:53:47 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:53:44 UTC",
+      "time": "2026-06-23 22:53:46 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:53:44 UTC",
+      "time": "2026-06-23 22:53:46 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -431,7 +431,7 @@
     }
   ],
   "peaks": {
-    "DYDX-USDT-SWAP": 0.3186885114227023,
+    "DYDX-USDT-SWAP": 0.307833786341476,
     "FARTCOIN-USDT-SWAP": 0.0622568093385167
   }
 }
