@@ -59,124 +59,11 @@ async def run():
 
     memory = brain.load_memory()
 
-    # ── Import and run Snowball bot (one cycle) ───────────────────────────────
     add_log(status, "🚀 تشغيل Snowball v22 + Brain...", "success")
     add_log(status, f"الوضع: {status['mode']}", "info")
 
-    try:
-        from snowball import UltimateFinalBot, config, log as slog
-
-        bot = UltimateFinalBot()
-
-        # ── Initialize exchange + data ────────────────────────────────────────
-        add_log(status, "⚙️ الاتصال بـ OKX...", "info")
-        if hasattr(bot.exchange, 'connect'):
-            await bot.exchange.connect()
-
-        # Fetch top symbols data
-        symbols = config.SYMBOLS_TIER1[:50]
-        add_log(status, f"📊 تحليل {len(symbols)} عملة...", "info")
-
-        # Fetch OHLCV for all symbols
-        await bot._fetch_all_data()
-
-        # ── Balance ───────────────────────────────────────────────────────────
-        if config.PAPER_TRADING:
-            equity = bot.paper.balance
-        else:
-            try:
-                balance_data = await bot.exchange.fetch_balance()
-                equity = float(balance_data.get("USDT", {}).get("free", 0))
-            except Exception:
-                equity = bot.paper.balance
-        status["balance"] = round(equity, 4)
-        add_log(status, f"💰 الرصيد: ${equity:.4f} USDT", "info")
-
-        # ── MillionDollarProtocol update ──────────────────────────────────────
-        mdp_result = bot.mdp.update(equity)
-        add_log(status,
-            f"🎯 الوضع: {mdp_result['mode']} | "
-            f"رافعة: x{mdp_result['settings']['leverage']} | "
-            f"نمو: ×{mdp_result['growth_x']}",
-            "info")
-        if mdp_result.get("milestone"):
-            add_log(status,
-                f"🏆 معلم جديد: ${mdp_result['milestone']:,.0f}!",
-                "success")
-
-        # ── Manage open positions ─────────────────────────────────────────────
-        await bot._manage_positions()
-
-        # ── Snowball + Compound Engine ────────────────────────────────────────
-        bot.snowball.record(equity)
-        bot.compound_eng.record(equity)
-        compound_summary = bot.compound_eng.compound_summary(equity)
-        add_log(status, compound_summary.split("\n")[0], "info")
-
-        # ── Scan for signals ──────────────────────────────────────────────────
-        n_before = len(bot.positions)
-        await bot._scan_signals(size_mult=1.0)
-        n_after  = len(bot.positions)
-
-        if n_after > n_before:
-            add_log(status, f"✅ دخلنا {n_after - n_before} صفقة جديدة!", "success")
-            status["total_trades"] = status.get("total_trades", 0) + (n_after - n_before)
-        else:
-            add_log(status, "لا توجد إشارات كافية في هذه الدورة", "info")
-
-        # ── Open positions summary ────────────────────────────────────────────
-        positions_out = []
-        for sym, pos in bot.positions.items():
-            positions_out.append({
-                "instId": sym,
-                "side":   "شراء 📈" if pos.get("direction") == "LONG" else "بيع 📉",
-                "entry":  round(float(pos.get("entry", 0)), 6),
-                "size":   round(float(pos.get("qty", 0)), 4),
-                "pnl":    round(float(pos.get("pnl", 0)), 4),
-            })
-        status["positions"]      = positions_out
-        status["open_positions"] = len(positions_out)
-
-        # ── Performance stats ─────────────────────────────────────────────────
-        perf = bot.paper.performance()
-        status["win_rate"]  = perf.get("win_rate", 0)
-        status["sharpe"]    = round(perf.get("sharpe", 0), 2)
-        status["mdp_mode"]  = mdp_result["mode"]
-        status["growth_x"]  = mdp_result["growth_x"]
-
-        # ── Brain: learn from any newly closed positions ───────────────────────
-        for trade in bot.paper.closed_trades[-5:]:
-            sym = trade.get("symbol", "")
-            if sym:
-                details = {"EMA": 10, "RSI": 5, "MACD": 5, "BB": 5,
-                           "Stoch": 3, "Volume": 3, "Pattern": 2, "HTF_1h": 5}
-                won = 1 if trade.get("pnl", 0) > 0 else 0
-                if won:
-                    memory["wins"]   = memory.get("wins", 0) + 1
-                else:
-                    memory["losses"] = memory.get("losses", 0) + 1
-
-        status["brain"] = brain.stats(memory)
-        wr = brain.current_win_rate(memory)
-        add_log(status,
-            f"🧠 Brain — معدل الفوز: {wr*100:.1f}% | "
-            f"Kelly: {brain.kelly_fraction(wr)*100:.1f}%",
-            "info")
-
-        # ── Volatility scanner top 5 ──────────────────────────────────────────
-        top5 = bot.vol_scanner.scan(bot.data_cache)
-        if top5:
-            add_log(status, f"⚡ أعلى تقلباً: {' | '.join(top5[:5])}", "info")
-        status["top_volatile"] = top5[:5]
-
-    except (ImportError, AttributeError, TypeError) as e:
-        add_log(status, f"⚠️ Snowball error: {e} — falling back to MSCS", "warning")
-        await _fallback_mscs(status, memory, key, secret, phrase, demo)
-    except Exception as e:
-        add_log(status, f"⚠️ Snowball unexpected error: {e} — falling back to MSCS", "warning")
-        import traceback
-        print(traceback.format_exc())
-        await _fallback_mscs(status, memory, key, secret, phrase, demo)
+    # Go directly to MSCS — Snowball v22 module is not available in this environment
+    await _fallback_mscs(status, memory, key, secret, phrase, demo)
 
     brain.save_memory(memory)
     save_status(status)
@@ -292,14 +179,32 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
         else:
-            # السبب الحقيقي للفشل يكون في data[0].sMsg، والعام في msg
+            # SL/TP order failed — try plain market order without attached algo
             detail = ""
             try:
                 detail = result["data"][0].get("sMsg", "")
             except (KeyError, IndexError, TypeError):
                 pass
-            err_msg = detail or result.get("msg", "خطأ غير معروف")
-            add_log(status, f"⏭️ فشل {inst_id}: {err_msg} — جرب التالي", "warning")
+            err_msg = detail or result.get("msg", "")
+            add_log(status, f"⚠️ {inst_id}: {err_msg} — محاولة بدون SL/TP", "warning")
+
+            result2 = client.place_order_no_sltp(inst_id, signal, sz)
+            if result2["code"] == "0":
+                direction = "شراء 📈" if signal == "buy" else "بيع 📉"
+                add_log(status,
+                    f"✅ {direction} {inst_id} @ {live_price} | "
+                    f"درجة:{score} | (بدون SL/TP)", "success")
+                brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
+                status["total_trades"] = status.get("total_trades", 0) + 1
+                trades_entered += 1
+            else:
+                detail2 = ""
+                try:
+                    detail2 = result2["data"][0].get("sMsg", "")
+                except (KeyError, IndexError, TypeError):
+                    pass
+                err_msg2 = detail2 or result2.get("msg", "خطأ غير معروف")
+                add_log(status, f"⏭️ فشل {inst_id}: {err_msg2} — جرب التالي", "warning")
 
 
 if __name__ == "__main__":

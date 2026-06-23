@@ -94,17 +94,32 @@ class OKXClient:
             return 0
         return contracts
 
+    def _round_to_tick(self, price, tick_sz):
+        """Round price to the nearest valid tick size using Decimal for precision."""
+        from decimal import Decimal, ROUND_HALF_UP
+        tick_d  = Decimal(str(tick_sz))
+        price_d = Decimal(str(price))
+        rounded = (price_d / tick_d).quantize(Decimal("1"), rounding=ROUND_HALF_UP) * tick_d
+        return float(rounded)
+
     def place_order(self, inst_id, side, sz, entry_price, sl_pct, tp_pct,
                     sl_override=None, tp_override=None):
         if sl_override and tp_override:
             sl_price = sl_override
             tp_price = tp_override
         elif side == "buy":
-            sl_price = round(entry_price * (1 - sl_pct), 6)
-            tp_price = round(entry_price * (1 + tp_pct), 6)
+            sl_price = round(entry_price * (1 - sl_pct), 8)
+            tp_price = round(entry_price * (1 + tp_pct), 8)
         else:
-            sl_price = round(entry_price * (1 + sl_pct), 6)
-            tp_price = round(entry_price * (1 - tp_pct), 6)
+            sl_price = round(entry_price * (1 + sl_pct), 8)
+            tp_price = round(entry_price * (1 - tp_pct), 8)
+
+        # Round SL/TP to instrument tickSz — avoids "All operations failed"
+        info    = self.get_instrument_info(inst_id)
+        tick_sz = float(info.get("tickSz", 0)) if info else 0
+        if tick_sz > 0:
+            sl_price = self._round_to_tick(sl_price, tick_sz)
+            tp_price = self._round_to_tick(tp_price, tick_sz)
 
         result = self.trade_api.place_order(
             instId=inst_id,
@@ -119,6 +134,17 @@ class OKXClient:
                 "slTriggerPx": str(sl_price),
                 "slOrdPx": "-1",
             }]
+        )
+        return result
+
+    def place_order_no_sltp(self, inst_id, side, sz):
+        """Plain market order without SL/TP — fallback when attached algo fails."""
+        result = self.trade_api.place_order(
+            instId=inst_id,
+            tdMode="cross",
+            side=side,
+            ordType="market",
+            sz=str(sz),
         )
         return result
 
