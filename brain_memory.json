@@ -28,28 +28,10 @@
       "score": -47,
       "status": "open",
       "opened": "2026-06-23 04:01:50 UTC"
-    },
-    {
-      "instId": "CRV-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 5,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15
-      },
-      "entry": 0.2047,
-      "score": -54,
-      "status": "open",
-      "opened": "2026-06-23 11:55:39 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 11:55:39 UTC"
+  "updated": "2026-06-23 11:55:41 UTC"
 }
