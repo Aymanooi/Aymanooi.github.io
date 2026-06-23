@@ -1,40 +1,40 @@
 {
-  "last_run": "2026-06-23 12:12:26 UTC",
+  "last_run": "2026-06-23 12:12:29 UTC",
   "mode": "Live 💰",
-  "balance": 0.5026,
+  "balance": 0.4908,
   "positions": [
     {
       "instId": "DOT-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.9027,
       "size": 107.0,
-      "pnl": 0.0107
+      "pnl": 0.0
     }
   ],
   "total_trades": 2,
   "logs": [
     {
-      "time": "2026-06-23 12:12:27 UTC",
+      "time": "2026-06-23 12:12:30 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-23 12:12:27 UTC",
-      "msg": "💰 الرصيد: $0.5026 USDT",
+      "time": "2026-06-23 12:12:30 UTC",
+      "msg": "💰 الرصيد: $0.4908 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-23 12:12:26 UTC",
+      "time": "2026-06-23 12:12:29 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x10",
       "level": "info"
     },
     {
-      "time": "2026-06-23 12:12:26 UTC",
+      "time": "2026-06-23 12:12:29 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-23 12:12:26 UTC",
+      "time": "2026-06-23 12:12:29 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
