@@ -28,28 +28,10 @@
       "score": -47,
       "status": "open",
       "opened": "2026-06-23 04:01:50 UTC"
-    },
-    {
-      "instId": "EDGE-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -25,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 15,
-        "Stoch": 10,
-        "Volume": -5,
-        "Pattern": -10,
-        "HTF_1h": -15
-      },
-      "entry": 0.3727,
-      "score": -45,
-      "status": "open",
-      "opened": "2026-06-23 06:22:43 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 06:22:43 UTC"
+  "updated": "2026-06-23 06:22:47 UTC"
 }
