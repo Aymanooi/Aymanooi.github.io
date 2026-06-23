@@ -1,40 +1,40 @@
 {
-  "last_run": "2026-06-23 15:18:19 UTC",
+  "last_run": "2026-06-23 15:18:49 UTC",
   "mode": "Live 💰",
-  "balance": 1.5794,
+  "balance": 2.2211,
   "positions": [
     {
       "instId": "XLM-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.19456,
       "size": 6.4,
-      "pnl": 1.0688
+      "pnl": 1.6704
     }
   ],
   "total_trades": 3,
   "logs": [
     {
-      "time": "2026-06-23 15:18:20 UTC",
+      "time": "2026-06-23 15:18:50 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-23 15:18:19 UTC",
-      "msg": "💰 الرصيد: $1.5794 USDT",
+      "time": "2026-06-23 15:18:50 UTC",
+      "msg": "💰 الرصيد: $2.2211 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-23 15:18:19 UTC",
+      "time": "2026-06-23 15:18:49 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
       "level": "info"
     },
     {
-      "time": "2026-06-23 15:18:19 UTC",
+      "time": "2026-06-23 15:18:49 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-23 15:18:19 UTC",
+      "time": "2026-06-23 15:18:49 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
