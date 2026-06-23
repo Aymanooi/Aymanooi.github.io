@@ -1,40 +1,40 @@
 {
-  "last_run": "2026-06-23 07:53:38 UTC",
+  "last_run": "2026-06-23 07:53:41 UTC",
   "mode": "Live 💰",
-  "balance": 0.8465,
+  "balance": 0.8561,
   "positions": [
     {
       "instId": "APE-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.13824,
       "size": 4348.0,
-      "pnl": 0.5087
+      "pnl": 0.5174
     }
   ],
   "total_trades": 1,
   "logs": [
     {
-      "time": "2026-06-23 07:53:39 UTC",
+      "time": "2026-06-23 07:53:42 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-23 07:53:38 UTC",
-      "msg": "💰 الرصيد: $0.8465 USDT",
+      "time": "2026-06-23 07:53:42 UTC",
+      "msg": "💰 الرصيد: $0.8561 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-23 07:53:38 UTC",
+      "time": "2026-06-23 07:53:41 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x10",
       "level": "info"
     },
     {
-      "time": "2026-06-23 07:53:38 UTC",
+      "time": "2026-06-23 07:53:41 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-23 07:53:38 UTC",
+      "time": "2026-06-23 07:53:41 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
