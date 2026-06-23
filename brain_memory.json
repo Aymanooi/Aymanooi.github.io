@@ -66,30 +66,12 @@
       "score": 48,
       "status": "open",
       "opened": "2026-06-23 22:46:58 UTC"
-    },
-    {
-      "instId": "COAI-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15
-      },
-      "entry": 0.3507,
-      "score": 43,
-      "status": "open",
-      "opened": "2026-06-23 23:12:35 UTC"
     }
   ],
   "wins": 2,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 23:12:43 UTC",
+  "updated": "2026-06-23 23:12:48 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
