@@ -45,7 +45,6 @@ async def run():
         print("❌ Missing OKX credentials in GitHub Secrets.")
         sys.exit(1)
 
-    # Set env vars so FinalConfig picks them up
     os.environ["OKX_API_KEY"]    = key
     os.environ["OKX_API_SECRET"] = secret
     os.environ["OKX_SECRET_KEY"] = secret
@@ -62,7 +61,6 @@ async def run():
     add_log(status, "🚀 تشغيل Snowball v22 + Brain...", "success")
     add_log(status, f"الوضع: {status['mode']}", "info")
 
-    # Go directly to MSCS — Snowball v22 module is not available in this environment
     await _fallback_mscs(status, memory, key, secret, phrase, demo)
 
     brain.save_memory(memory)
@@ -71,7 +69,6 @@ async def run():
 
 
 async def _fallback_mscs(status, memory, key, secret, phrase, demo):
-    """Fallback to MSCS strategy if Snowball fails."""
     from okx_client import OKXClient
     from strategy import analyze
     import config as cfg
@@ -89,6 +86,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     status["balance"] = round(balance, 4)
     add_log(status, f"💰 الرصيد: ${balance:.4f} USDT")
 
+    # ── FIX: read previous positions BEFORE overwriting with current ──────────
+    prev_open = {p["instId"] for p in status.get("positions", [])}
+
     positions = client.get_all_positions()
     active    = {p["instId"] for p in positions if float(p.get("pos", 0)) != 0}
     status["positions"] = [
@@ -100,36 +100,43 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         for p in positions if float(p.get("pos",0)) != 0
     ]
 
-    # Detect positions closed since last run → start cooldown so we don't re-enter
-    prev_open    = {p["instId"] for p in status.get("positions", [])}
+    # ── Detect closed positions → cooldown + brain learning ───────────────────
     newly_closed = prev_open - active
     if newly_closed:
         for closed_id in newly_closed:
             brain.mark_exited(memory, closed_id)
+            # Teach brain using current market price as approximation of exit
+            try:
+                ticker = client.get_ticker(closed_id)
+                if ticker:
+                    exit_px = float(ticker["last"])
+                    result  = brain.learn_from_closed(memory, closed_id, exit_px)
+                    if result is not None:
+                        outcome = "ربح ✅" if result == 1 else "خسارة ❌"
+                        add_log(status, f"🧠 Brain تعلّم: {closed_id} → {outcome}", "info")
+            except Exception:
+                pass
         add_log(status,
             f"⏳ أُغلقت: {', '.join(newly_closed)} — "
             f"محظورة من الدخول {brain.COOLDOWN_HOURS} ساعات", "info")
 
-    # كم مركزاً يمكن فتحه الآن؟
+    # ── كم مركزاً يمكن فتحه الآن؟ ────────────────────────────────────────────
     slots_available = cfg.MAX_POSITIONS - len(active)
     if slots_available <= 0 or balance < 1:
         add_log(status, f"مراكز مفتوحة: {len(active)}/{cfg.MAX_POSITIONS} — لا دخول جديد")
         return
 
-    pairs   = client.get_top_pairs(TOP_PAIRS)
-    signals = []
-    skipped_losers  = 0
+    pairs            = client.get_top_pairs(TOP_PAIRS)
+    signals          = []
+    skipped_losers   = 0
     skipped_cooldown = 0
     for inst_id in pairs:
-        # تجاهل الأزواج المفتوحة بالفعل
         if inst_id in active:
             continue
-        # تجاهل العملات التي أُغلقت مؤخراً (فترة التهدئة)
         if not brain.can_reenter(memory, inst_id):
             skipped_cooldown += 1
             continue
         try:
-            # nitro/hyper mode: skip symbols proven to be losing
             if cfg.FILTER_LOSERS and not brain.should_trade_symbol(memory, inst_id):
                 skipped_losers += 1
                 continue
@@ -142,6 +149,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                                  "adj_score": adj, "prob": prob})
         except Exception:
             continue
+
     if skipped_cooldown:
         add_log(status, f"⏳ تخطّى {skipped_cooldown} عملة في فترة التهدئة ({brain.COOLDOWN_HOURS}ساعة)", "info")
     if skipped_losers:
@@ -158,11 +166,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    # رأس المال الكامل مقسّماً على عدد المراكز المتزامنة
-    risk_capital = balance / max(cfg.MAX_POSITIONS, 1)
+    # ── FIX: divide FREE balance by available slots (not MAX_POSITIONS) ───────
+    # Example: 1 slot open, $1.22 free → risk_capital=$1.22 (not $0.61)
+    risk_capital = balance / max(slots_available, 1)
 
     trades_entered = 0
-    # Iterate through ALL ranked signals until slots are filled
     for best in signals:
         if trades_entered >= slots_available:
             break
@@ -170,13 +178,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         inst_id  = best["instId"]
         signal   = best["signal"]
         score    = best["score"]
-        sl_price = best["sl_price"]
-        tp_price = best["tp_price"]
 
         ticker     = client.get_ticker(inst_id)
         live_price = float(ticker["last"]) if ticker else best["price"]
 
-        # SL/TP من السعر الحي + ATR (لا السعر القديم) — RR=3:1 مع مسافة أوسع
+        # SL/TP من السعر الحي + ATR → RR=3:1
         atr_val = best.get("atr", 0)
         if atr_val > 0:
             if signal == "buy":
@@ -190,7 +196,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             tp_price = live_price * (1.06 if signal == "buy" else 0.94)
 
         client.set_leverage(inst_id, LEVERAGE)
-        # Use CAPITAL_RATIO=0.95 to leave a buffer for OKX fees & maintenance margin
         sz = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, CAPITAL_RATIO)
         if sz <= 0:
             add_log(status, f"⏭️ {inst_id}: حجم صفر — التالي", "warning")
@@ -208,7 +213,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
         else:
-            # SL/TP order failed — try plain market order without attached algo
             detail = ""
             try:
                 detail = result["data"][0].get("sMsg", "")
