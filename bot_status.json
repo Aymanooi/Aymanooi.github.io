@@ -1,7 +1,7 @@
 {
-  "last_run": "2026-06-23 22:47:38 UTC",
+  "last_run": "2026-06-23 22:48:11 UTC",
   "mode": "Live 💰",
-  "balance": 0.1954,
+  "balance": 0.4794,
   "positions": [
     {
       "instId": "FARTCOIN-USDT-SWAP",
@@ -15,11 +15,36 @@
       "side": "شراء 📈",
       "entry": 0.1474012458193982,
       "size": 1196.0,
-      "pnl": 1.2304
+      "pnl": 1.5294
     }
   ],
   "total_trades": 4,
   "logs": [
+    {
+      "time": "2026-06-23 22:48:12 UTC",
+      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 22:48:12 UTC",
+      "msg": "💰 الرصيد: $0.4794 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 22:48:11 UTC",
+      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 22:48:11 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 22:48:11 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-23 22:47:39 UTC",
       "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
@@ -394,31 +419,6 @@
       "time": "2026-06-23 22:40:26 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
-    },
-    {
-      "time": "2026-06-23 22:40:17 UTC",
-      "msg": "مراكز مفتوحة: 1/2 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 22:40:17 UTC",
-      "msg": "💰 الرصيد: $0.7044 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 22:40:17 UTC",
-      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 22:40:16 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 22:40:16 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
     }
   ],
   "risk_mode": "balanced",
@@ -431,7 +431,7 @@
     }
   ],
   "peaks": {
-    "DYDX-USDT-SWAP": 0.162651838380059,
+    "DYDX-USDT-SWAP": 0.1735065634612853,
     "FARTCOIN-USDT-SWAP": 0.0
   }
 }
