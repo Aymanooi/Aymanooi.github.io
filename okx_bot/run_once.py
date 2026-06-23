@@ -70,7 +70,9 @@ async def run():
 
         # ── Initialize exchange + data ────────────────────────────────────────
         add_log(status, "⚙️ الاتصال بـ OKX...", "info")
-        await bot.exchange.connect()
+        # connect() is optional — ExchangeConnector may connect on first API call
+        if hasattr(bot.exchange, 'connect'):
+            await bot.exchange.connect()
 
         # Fetch top symbols data
         symbols = config.SYMBOLS_TIER1[:50]
@@ -168,13 +170,14 @@ async def run():
             add_log(status, f"⚡ أعلى تقلباً: {' | '.join(top5[:5])}", "info")
         status["top_volatile"] = top5[:5]
 
-    except ImportError as e:
-        add_log(status, f"⚠️ Snowball import error: {e} — falling back to MSCS", "warning")
+    except (ImportError, AttributeError, TypeError) as e:
+        add_log(status, f"⚠️ Snowball error: {e} — falling back to MSCS", "warning")
         await _fallback_mscs(status, memory, key, secret, phrase, demo)
     except Exception as e:
-        add_log(status, f"❌ خطأ: {str(e)[:200]}", "error")
+        add_log(status, f"⚠️ Snowball unexpected error: {e} — falling back to MSCS", "warning")
         import traceback
         print(traceback.format_exc())
+        await _fallback_mscs(status, memory, key, secret, phrase, demo)
 
     brain.save_memory(memory)
     save_status(status)
