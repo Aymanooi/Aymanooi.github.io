@@ -292,7 +292,13 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
         else:
-            err_msg = result.get("msg", result.get("data", [{}])[0].get("sMsg","") if result.get("data") else "")
+            # السبب الحقيقي للفشل يكون في data[0].sMsg، والعام في msg
+            detail = ""
+            try:
+                detail = result["data"][0].get("sMsg", "")
+            except (KeyError, IndexError, TypeError):
+                pass
+            err_msg = detail or result.get("msg", "خطأ غير معروف")
             add_log(status, f"⏭️ فشل {inst_id}: {err_msg} — جرب التالي", "warning")
 
 

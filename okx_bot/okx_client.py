@@ -80,10 +80,19 @@ class OKXClient:
             return 0
         ct_val = float(info.get("ctVal", 1))
         lot_sz = float(info.get("lotSz", 1))
+        min_sz = float(info.get("minSz", lot_sz))
         usdt_to_use = balance * capital_ratio
         contracts = (usdt_to_use * leverage) / (price * ct_val)
         contracts = math.floor(contracts / lot_sz) * lot_sz
-        return max(contracts, float(lot_sz))
+        # تأكد من تلبية الحد الأدنى للطلب
+        if contracts < min_sz:
+            contracts = min_sz
+        # الهامش المطلوب لهذا الحجم — لو تجاوز الرصيد، تخطّ العملة (ترجع 0)
+        notional      = contracts * ct_val * price
+        margin_needed = notional / leverage
+        if margin_needed > balance:
+            return 0
+        return contracts
 
     def place_order(self, inst_id, side, sz, entry_price, sl_pct, tp_pct,
                     sl_override=None, tp_override=None):
