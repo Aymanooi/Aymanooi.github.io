@@ -46,12 +46,30 @@
       "score": -48,
       "status": "open",
       "opened": "2026-06-23 12:07:46 UTC"
+    },
+    {
+      "instId": "ASTER-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": 5,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -5
+      },
+      "entry": 0.6191,
+      "score": -45,
+      "status": "open",
+      "opened": "2026-06-23 18:16:05 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 18:15:40 UTC",
+  "updated": "2026-06-23 18:16:05 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00"
   }
