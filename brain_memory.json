@@ -46,10 +46,28 @@
       "score": -48,
       "status": "open",
       "opened": "2026-06-23 12:07:46 UTC"
+    },
+    {
+      "instId": "XLM-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": -5,
+        "MACD": 10,
+        "BB": -15,
+        "Stoch": -10,
+        "Volume": -5,
+        "Pattern": 0,
+        "HTF_1h": -15
+      },
+      "entry": 0.19453,
+      "score": -55,
+      "status": "open",
+      "opened": "2026-06-23 13:53:17 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 13:52:42 UTC"
+  "updated": "2026-06-23 13:53:17 UTC"
 }
