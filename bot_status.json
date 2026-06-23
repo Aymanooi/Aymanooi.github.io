@@ -1,40 +1,40 @@
 {
-  "last_run": "2026-06-23 22:40:43 UTC",
+  "last_run": "2026-06-23 22:40:45 UTC",
   "mode": "Live 💰",
-  "balance": 0.7953,
+  "balance": 0.8066,
   "positions": [
     {
       "instId": "DYDX-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.1474012458193982,
       "size": 1196.0,
-      "pnl": 0.441
+      "pnl": 0.453
     }
   ],
   "total_trades": 3,
   "logs": [
     {
-      "time": "2026-06-23 22:40:44 UTC",
+      "time": "2026-06-23 22:40:45 UTC",
       "msg": "مراكز مفتوحة: 1/2 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:40:44 UTC",
-      "msg": "💰 الرصيد: $0.7953 USDT",
+      "time": "2026-06-23 22:40:45 UTC",
+      "msg": "💰 الرصيد: $0.8066 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:40:44 UTC",
+      "time": "2026-06-23 22:40:45 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:40:43 UTC",
+      "time": "2026-06-23 22:40:45 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-23 22:40:43 UTC",
+      "time": "2026-06-23 22:40:45 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -424,6 +424,6 @@
     }
   ],
   "peaks": {
-    "DYDX-USDT-SWAP": 0.0500340656623255
+    "DYDX-USDT-SWAP": 0.0513909062974749
   }
 }
