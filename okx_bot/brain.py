@@ -128,6 +128,11 @@ def can_reenter(memory, inst_id, cooldown_hours=COOLDOWN_HOURS):
         return True
 
 
+def open_instruments(memory):
+    """Set of instIds the brain believes are still open (recorded but not yet learned)."""
+    return {t["instId"] for t in memory.get("trades", []) if t.get("status") == "open"}
+
+
 def record_open(memory, inst_id, signal, details, entry_price, score):
     """Log an opened trade so we can learn from it when it closes."""
     memory["trades"].append({

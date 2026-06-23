@@ -128,7 +128,10 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     ]
 
     # ── Detect closed positions → cooldown + brain learning ───────────────────
-    newly_closed = prev_open - active
+    # مصدر الحقيقة = اتحاد (مراكز bot_status السابقة) + (صفقات الدماغ المفتوحة)
+    # هذا يضمن أن أي صفقة سجّلها الدماغ كـ"مفتوحة" لكنها لم تعد في OKX → يتعلّم منها
+    believed_open = prev_open | brain.open_instruments(memory)
+    newly_closed  = believed_open - active
     if newly_closed:
         for closed_id in newly_closed:
             brain.mark_exited(memory, closed_id)
