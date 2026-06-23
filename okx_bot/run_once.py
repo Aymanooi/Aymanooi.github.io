@@ -210,16 +210,21 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         for p in positions if float(p.get("pos",0)) != 0
     ]
 
-    if active or balance < 1:
-        add_log(status, f"صفقة مفتوحة أو رصيد منخفض — لا دخول جديد")
+    # كم مركزاً يمكن فتحه الآن؟
+    slots_available = cfg.MAX_POSITIONS - len(active)
+    if slots_available <= 0 or balance < 1:
+        add_log(status, f"مراكز مفتوحة: {len(active)}/{cfg.MAX_POSITIONS} — لا دخول جديد")
         return
 
     pairs   = client.get_top_pairs(TOP_PAIRS)
     signals = []
     skipped_losers = 0
     for inst_id in pairs:
+        # تجاهل الأزواج المفتوحة بالفعل
+        if inst_id in active:
+            continue
         try:
-            # nitro mode: skip symbols proven to be losing
+            # nitro/hyper mode: skip symbols proven to be losing
             if cfg.FILTER_LOSERS and not brain.should_trade_symbol(memory, inst_id):
                 skipped_losers += 1
                 continue
@@ -233,7 +238,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         except Exception:
             continue
     if skipped_losers:
-        add_log(status, f"🚫 تخطّى {skipped_losers} عملة خاسرة (فلتر Nitro)", "info")
+        add_log(status, f"🚫 تخطّى {skipped_losers} عملة خاسرة (فلتر Nitro/Hyper)", "info")
 
     signals.sort(key=lambda x: abs(x.get("adj_score", x["score"])), reverse=True)
     status["top_signals"] = [
@@ -246,40 +251,44 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    best     = signals[0]
-    inst_id  = best["instId"]
-    signal   = best["signal"]
-    score    = best["score"]
-    sl_price = best["sl_price"]
-    tp_price = best["tp_price"]
+    # Kelly يُقسَّم على عدد المراكز المتزامنة لضمان عدم المخاطرة الزائدة
+    wr         = brain.current_win_rate(memory)
+    kelly      = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
+    risk_frac  = min(kelly, cfg.RISK_PER_TRADE) / cfg.MAX_POSITIONS
 
-    ticker     = client.get_ticker(inst_id)
-    live_price = float(ticker["last"]) if ticker else best["price"]
-    sl_price   = sl_price or (live_price * (0.98 if signal=="buy" else 1.02))
-    tp_price   = tp_price or (live_price * (1.04 if signal=="buy" else 0.96))
+    trades_entered = 0
+    for best in signals[:slots_available]:
+        inst_id  = best["instId"]
+        signal   = best["signal"]
+        score    = best["score"]
+        sl_price = best["sl_price"]
+        tp_price = best["tp_price"]
 
-    client.set_leverage(inst_id, LEVERAGE)
-    wr    = brain.current_win_rate(memory)
-    kelly = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
-    risk_frac    = min(kelly, cfg.RISK_PER_TRADE)
-    risk_capital = balance * risk_frac
-    sz    = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, 1.0)
-    if sz <= 0:
-        add_log(status, f"{inst_id}: حجم صفر", "warning")
-        return
+        ticker     = client.get_ticker(inst_id)
+        live_price = float(ticker["last"]) if ticker else best["price"]
+        sl_price   = sl_price or (live_price * (0.98 if signal=="buy" else 1.02))
+        tp_price   = tp_price or (live_price * (1.04 if signal=="buy" else 0.96))
 
-    result = client.place_order(inst_id, signal, sz, live_price,
-                                STOP_LOSS_PCT, TAKE_PROFIT_PCT,
-                                sl_override=sl_price, tp_override=tp_price)
-    if result["code"] == "0":
-        direction = "شراء 📈" if signal == "buy" else "بيع 📉"
-        add_log(status,
-            f"✅ {direction} {inst_id} @ {live_price} | "
-            f"درجة:{score} | Kelly:{kelly*100:.0f}% | مخاطرة:${risk_capital:.3f}", "success")
-        brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
-        status["total_trades"] = status.get("total_trades", 0) + 1
-    else:
-        add_log(status, f"❌ فشل: {result.get('msg','')}", "error")
+        client.set_leverage(inst_id, LEVERAGE)
+        risk_capital = balance * risk_frac
+        sz = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, 1.0)
+        if sz <= 0:
+            add_log(status, f"{inst_id}: حجم صفر", "warning")
+            continue
+
+        result = client.place_order(inst_id, signal, sz, live_price,
+                                    STOP_LOSS_PCT, TAKE_PROFIT_PCT,
+                                    sl_override=sl_price, tp_override=tp_price)
+        if result["code"] == "0":
+            direction = "شراء 📈" if signal == "buy" else "بيع 📉"
+            add_log(status,
+                f"✅ {direction} {inst_id} @ {live_price} | "
+                f"درجة:{score} | Kelly:{kelly*100:.0f}% | مخاطرة:${risk_capital:.3f}", "success")
+            brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
+            status["total_trades"] = status.get("total_trades", 0) + 1
+            trades_entered += 1
+        else:
+            add_log(status, f"❌ فشل {inst_id}: {result.get('msg','')}", "error")
 
 
 if __name__ == "__main__":
