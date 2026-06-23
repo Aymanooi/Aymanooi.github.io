@@ -34,6 +34,32 @@ def add_log(status, msg, level="info"):
     print(f"[{ts}] {msg}")
 
 
+def _refresh_state_from_github():
+    """Fetch latest state files from GitHub to avoid reading a stale local clone."""
+    import urllib.request
+    import base64 as b64
+    token = os.environ.get('GH_TOKEN', '')
+    repo  = os.environ.get('GITHUB_REPOSITORY', '')
+    if not token or not repo:
+        return
+    for fname, path in [('bot_status.json', STATUS_FILE),
+                         ('brain_memory.json', brain.MEMORY_FILE)]:
+        try:
+            url = f'https://api.github.com/repos/{repo}/contents/{fname}'
+            req = urllib.request.Request(url, headers={
+                'Authorization': f'token {token}',
+                'Accept': 'application/vnd.github.v3+json'
+            })
+            with urllib.request.urlopen(req, timeout=10) as r:
+                data = json.loads(r.read())
+                content = b64.b64decode(data['content'])
+                with open(path, 'wb') as f:
+                    f.write(content)
+            print(f'🔄 {fname} محدَّث من GitHub')
+        except Exception:
+            pass
+
+
 async def run():
     # ── Validate credentials ──────────────────────────────────────────────────
     key    = os.environ.get("OKX_API_KEY", "").strip()
@@ -51,6 +77,7 @@ async def run():
     os.environ["OKX_PASSPHRASE"] = phrase
     os.environ["OKX_IS_DEMO"]    = demo
 
+    _refresh_state_from_github()
     status = load_status()
     status["last_run"]  = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     status["mode"]      = "Demo 🧪" if demo != "0" else "Live 💰"
@@ -166,9 +193,10 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    # ── FIX: divide FREE balance by available slots (not MAX_POSITIONS) ───────
-    # Example: 1 slot open, $1.22 free → risk_capital=$1.22 (not $0.61)
-    risk_capital = balance / max(slots_available, 1)
+    # رأس المال مقسّماً على الصفقات التي ستُنفَّذ فعلاً (ليس عدد الفتحات كلها)
+    # مثال: فتحتان متاحتان لكن إشارة واحدة فقط → كامل الرصيد لتلك الإشارة
+    trades_planned = min(slots_available, len(signals))
+    risk_capital = balance / max(trades_planned, 1)
 
     trades_entered = 0
     for best in signals:

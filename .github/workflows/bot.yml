@@ -30,12 +30,14 @@ jobs:
 
       - name: Run Snowball v22 + Brain
         env:
-          OKX_API_KEY:    ${{ secrets.OKX_API_KEY }}
-          OKX_API_SECRET: ${{ secrets.OKX_API_SECRET }}
-          OKX_SECRET_KEY: ${{ secrets.OKX_API_SECRET }}
-          OKX_PASSPHRASE: ${{ secrets.OKX_PASSPHRASE }}
-          OKX_IS_DEMO:    ${{ secrets.OKX_IS_DEMO }}
-          RISK_MODE:      ${{ secrets.RISK_MODE }}
+          OKX_API_KEY:        ${{ secrets.OKX_API_KEY }}
+          OKX_API_SECRET:     ${{ secrets.OKX_API_SECRET }}
+          OKX_SECRET_KEY:     ${{ secrets.OKX_API_SECRET }}
+          OKX_PASSPHRASE:     ${{ secrets.OKX_PASSPHRASE }}
+          OKX_IS_DEMO:        ${{ secrets.OKX_IS_DEMO }}
+          RISK_MODE:          ${{ secrets.RISK_MODE }}
+          GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY:  ${{ github.repository }}
         run: python okx_bot/run_once.py
 
       - name: Save state to repo
