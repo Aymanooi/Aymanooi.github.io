@@ -294,15 +294,15 @@ def analyze(candles_15m, candles_1h=None) -> Dict:
     adx_val = adx(highs, lows, closes)
     details["ADX"] = round(adx_val, 1)
     if adx_val > 35:
-        total = int(total * 1.35)   # قوي جداً: يرفع الثقة
+        total = int(total * 1.35)
     elif adx_val > 25:
-        total = int(total * 1.15)   # اتجاه واضح
+        total = int(total * 1.15)
     elif adx_val > 20:
-        total = int(total * 0.85)   # اتجاه ضعيف: خصم
+        total = int(total * 0.85)
     elif adx_val > 15:
-        total = int(total * 0.65)   # متذبذب: خصم كبير
+        total = int(total * 0.65)
     else:
-        total = int(total * 0.45)   # عرضي تماماً: تجاهل شبه كامل
+        total = int(total * 0.45)
 
     # ── 9. Higher Timeframe (1h) Confirmation  (max ±15) ────
     if candles_1h and len(candles_1h) >= 26:
@@ -331,7 +331,7 @@ def analyze(candles_15m, candles_1h=None) -> Dict:
     total = max(-100, min(100, total))
     details["Score"] = total
 
-    THRESHOLD = 48   # أعلى من 42 → إشارات أقل لكن أقوى
+    THRESHOLD = 45   # خُفِّض من 48 → إشارات أكثر مع الحفاظ على جودة التقاطع
     signal = None
     if total >= THRESHOLD:
         signal = "buy"
@@ -339,7 +339,6 @@ def analyze(candles_15m, candles_1h=None) -> Dict:
         signal = "sell"
 
     # SL=1.5×ATR / TP=4.5×ATR → RR=3:1 → WR مطلوب 25% فقط
-    # SL أوسع يتجنب الضجيج، TP أكبر يمسك الاتجاه الكامل
     atr_val = atr(highs, lows, closes, 14)
     if signal == "buy":
         sl_price = round(price - 1.5 * atr_val, 6)
