@@ -20,10 +20,13 @@ IS_DEMO = "1"
 RISK_MODE = os.getenv("RISK_MODE", "safe").strip().lower()
 
 _RISK_PRESETS = {
-    "safe":       {"leverage": 5,  "risk_per_trade": 0.02, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 10},
-    "balanced":   {"leverage": 10, "risk_per_trade": 0.05, "kelly_cap": 0.15, "half_kelly": True,  "symbols": 25},
-    "aggressive": {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.20, "half_kelly": False, "symbols": 50},
-    "turbo":      {"leverage": 20, "risk_per_trade": 0.06, "kelly_cap": 0.25, "half_kelly": False, "symbols": 50},
+    "safe":       {"leverage": 5,  "risk_per_trade": 0.02, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 10,  "filter_losers": False},
+    "balanced":   {"leverage": 10, "risk_per_trade": 0.05, "kelly_cap": 0.15, "half_kelly": True,  "symbols": 25,  "filter_losers": False},
+    "aggressive": {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.20, "half_kelly": False, "symbols": 50,  "filter_losers": False},
+    "turbo":      {"leverage": 20, "risk_per_trade": 0.06, "kelly_cap": 0.25, "half_kelly": False, "symbols": 50,  "filter_losers": False},
+    # nitro: يتداول على 50 عملة، يحذف تلقائياً العملات الخاسرة بعد 5 صفقات
+    # هدف: $10 → $1M في ~3 سنوات (إذا ثبت معدل الفوز على الأزواج الجيدة)
+    "nitro":      {"leverage": 20, "risk_per_trade": 0.15, "kelly_cap": 0.35, "half_kelly": False, "symbols": 50,  "filter_losers": True},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
@@ -31,8 +34,9 @@ _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 LEVERAGE = _preset["leverage"]
 RISK_PER_TRADE = _preset["risk_per_trade"]
 KELLY_CAP = _preset["kelly_cap"]
-HALF_KELLY = _preset["half_kelly"]      # True=أمان, False=full Kelly
-SCAN_SYMBOLS = _preset["symbols"]       # عدد العملات المُمسوحة
+HALF_KELLY     = _preset["half_kelly"]      # True=أمان, False=full Kelly
+SCAN_SYMBOLS   = _preset["symbols"]       # عدد العملات المُمسوحة
+FILTER_LOSERS  = _preset["filter_losers"] # True=يحذف العملات الخاسرة تلقائياً
 CAPITAL_RATIO = 0.95
 STOP_LOSS_PCT  = 0.02
 TAKE_PROFIT_PCT = 0.04

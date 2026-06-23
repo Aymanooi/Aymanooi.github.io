@@ -216,8 +216,13 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
     pairs   = client.get_top_pairs(TOP_PAIRS)
     signals = []
+    skipped_losers = 0
     for inst_id in pairs:
         try:
+            # nitro mode: skip symbols proven to be losing
+            if cfg.FILTER_LOSERS and not brain.should_trade_symbol(memory, inst_id):
+                skipped_losers += 1
+                continue
             c15 = client.get_candles(inst_id, bar="15m", limit=60)
             c1h = client.get_candles(inst_id, bar="1H", limit=60)
             r   = analyze(c15, c1h)
@@ -227,6 +232,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                                  "adj_score": adj, "prob": prob})
         except Exception:
             continue
+    if skipped_losers:
+        add_log(status, f"🚫 تخطّى {skipped_losers} عملة خاسرة (فلتر Nitro)", "info")
 
     signals.sort(key=lambda x: abs(x.get("adj_score", x["score"])), reverse=True)
     status["top_signals"] = [
