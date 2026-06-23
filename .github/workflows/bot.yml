@@ -2,16 +2,17 @@ name: OKX Trading Bot — Snowball v22
 
 on:
   schedule:
-    - cron: '*/5 * * * *'   # Every 5 minutes
+    - cron: '*/30 * * * *'   # fallback كل 30 دقيقة إذا انقطعت السلسلة
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   trade:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -61,7 +62,6 @@ jobs:
               'Content-Type': 'application/json',
             }
 
-            # get current SHA (needed to update existing file)
             sha = None
             try:
               req = urllib.request.Request(url, headers=headers)
@@ -82,3 +82,22 @@ jobs:
             except urllib.error.HTTPError as e:
               print(f'❌ {fname} failed: {e.read().decode()[:200]}')
           PYEOF
+
+      - name: 🔁 Schedule next run in 5 minutes
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "⏳ انتظار 5 دقائق ثم تشغيل البوت مجدداً..."
+          sleep 300
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Content-Type: application/json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/bot.yml/dispatches" \
+            -d '{"ref":"main"}')
+          if [ "$STATUS" = "204" ]; then
+            echo "✅ تم جدولة التشغيل القادم بنجاح (HTTP $STATUS)"
+          else
+            echo "⚠️ فشل الجدولة (HTTP $STATUS) — سيعتمد على الـ cron كبديل"
+          fi
