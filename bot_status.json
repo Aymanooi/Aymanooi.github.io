@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-23 22:55:40 UTC",
   "mode": "Live 💰",
-  "balance": 0.9818,
+  "balance": 0.9705,
   "positions": [
     {
       "instId": "FARTCOIN-USDT-SWAP",
@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 0.1474012458193982,
       "size": 1196.0,
-      "pnl": 1.9839
+      "pnl": 1.9719
     }
   ],
   "total_trades": 4,
@@ -27,7 +27,7 @@
     },
     {
       "time": "2026-06-23 22:55:41 UTC",
-      "msg": "💰 الرصيد: $0.9818 USDT",
+      "msg": "💰 الرصيد: $0.9705 USDT",
       "level": "info"
     },
     {
