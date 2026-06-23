@@ -28,10 +28,28 @@
       "score": -47,
       "status": "open",
       "opened": "2026-06-23 04:01:50 UTC"
+    },
+    {
+      "instId": "DOT-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": 10,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15
+      },
+      "entry": 0.9027,
+      "score": -48,
+      "status": "open",
+      "opened": "2026-06-23 12:07:46 UTC"
     }
   ],
   "wins": 0,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-23 12:07:12 UTC"
+  "updated": "2026-06-23 12:07:46 UTC"
 }
