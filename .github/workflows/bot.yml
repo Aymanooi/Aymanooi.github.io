@@ -88,8 +88,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "⏳ انتظار 5 دقائق ثم تشغيل البوت مجدداً..."
-          sleep 300
+          echo "⏳ انتظار دقيقة ثم تشغيل البوت مجدداً..."
+          sleep 60
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
             -H "Authorization: token $GH_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
