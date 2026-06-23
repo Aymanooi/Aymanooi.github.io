@@ -32,6 +32,10 @@ _RISK_PRESETS = {
     # hyper: نفس nitro + مركزان متزامنان → يضاعف الصفقات/شهر → هدف 1.5 سنة
     # تنبيه: المخاطرة أعلى — لا تستخدم إلا إذا كنت مستعداً لخسارة رأس المال كاملاً
     "hyper":      {"leverage": 20, "risk_per_trade": 0.12, "kelly_cap": 0.45, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 2},
+    # ultra: 5 مراكز متزامنة → 80 صفقة/شهر → احتمال 35% للوصول $1M في 6 أشهر
+    #        احتمال 80% للوصول $1M في 12 شهر (أوصى بها على 6 أشهر)
+    # ⚠️ أعلى مخاطرة — احتمال الخسارة الكاملة موجود إذا WR < 25%
+    "ultra":      {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.50, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 5},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
