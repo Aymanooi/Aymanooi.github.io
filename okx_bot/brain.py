@@ -107,7 +107,8 @@ def should_trade_symbol(memory, inst_id, rr=3.0, min_trades=5):
     return wr > (1 / (1 + rr))   # breakeven WR = 25%
 
 
-COOLDOWN_HOURS = 4
+# ساعة واحدة تكفي لتغيّر اتجاه 4 شمعات 15m — بعدها يُعاد الفحص من الصفر
+COOLDOWN_HOURS = 1
 
 def mark_exited(memory, inst_id):
     """Record that a position on inst_id was just closed — starts cooldown timer."""
