@@ -95,6 +95,57 @@ async def run():
     print("✅ Done.")
 
 
+def _manage_open_positions(status, client, positions):
+    """
+    وقف خسارة متحرّك برمجي: يمنع تحوّل الصفقة الرابحة إلى خاسرة.
+    - يتتبّع أعلى ربح (uplRatio) وصلت إليه كل صفقة.
+    - يُسلِّح التتبّع بمجرد تجاوز الربح ARM_RATIO.
+    - يُغلق فوراً إذا تراجع الربح من قمّته بمقدار GIVEBACK (يقفل المكسب).
+    - HARD_TAKE: جني ربح إجباري عند مكسب كبير (احتياط لو فشل أمر TP).
+    يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
+    """
+    ARM_RATIO = 0.25   # سلِّح التتبّع عند +25% على الهامش
+    GIVEBACK  = 0.15   # أغلق إذا تراجع 15% من القمّة
+    HARD_TAKE = 0.60   # جني ربح إجباري عند +60%
+
+    peaks      = status.setdefault("peaks", {})
+    closed_now = set()
+    for p in positions:
+        inst_id = p["instId"]
+        try:
+            ratio = float(p.get("uplRatio", 0))
+        except (ValueError, TypeError):
+            ratio = 0.0
+
+        peak = max(peaks.get(inst_id, ratio), ratio)
+        peaks[inst_id] = peak
+
+        # جني ربح إجباري
+        if ratio >= HARD_TAKE:
+            if client.close_position(inst_id):
+                add_log(status, f"🎯 جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
+                closed_now.add(inst_id)
+                peaks.pop(inst_id, None)
+            continue
+
+        # وقف متحرّك: مُسلَّح وتراجع بما يكفي
+        if peak >= ARM_RATIO and (peak - ratio) >= GIVEBACK:
+            if client.close_position(inst_id):
+                add_log(status,
+                    f"🔒 وقف متحرّك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
+                    "success")
+                closed_now.add(inst_id)
+                peaks.pop(inst_id, None)
+
+    # نظّف القمم للمراكز التي لم تعد مفتوحة
+    active_ids = {p["instId"] for p in positions} - closed_now
+    for k in list(peaks.keys()):
+        if k not in active_ids:
+            peaks.pop(k, None)
+
+    return closed_now
+
+
 async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     from okx_client import OKXClient
     from strategy import analyze
@@ -149,6 +200,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status,
             f"⏳ أُغلقت: {', '.join(newly_closed)} — "
             f"محظورة من الدخول {brain.COOLDOWN_HOURS} ساعات", "info")
+
+    # ── وقف الخسارة المتحرّك: يقفل الأرباح قبل أن تعود الصفقة للخسارة ──────────
+    closed_by_trail = _manage_open_positions(status, client, positions)
+    if closed_by_trail:
+        active -= closed_by_trail
 
     # ── كم مركزاً يمكن فتحه الآن؟ ────────────────────────────────────────────
     slots_available = cfg.MAX_POSITIONS - len(active)
