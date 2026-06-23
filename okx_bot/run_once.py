@@ -176,18 +176,18 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         ticker     = client.get_ticker(inst_id)
         live_price = float(ticker["last"]) if ticker else best["price"]
 
-        # Always compute SL/TP from live price + ATR so they're valid at order time
+        # SL/TP من السعر الحي + ATR (لا السعر القديم) — RR=3:1 مع مسافة أوسع
         atr_val = best.get("atr", 0)
         if atr_val > 0:
             if signal == "buy":
-                sl_price = live_price - 1.0 * atr_val
-                tp_price = live_price + 3.0 * atr_val
+                sl_price = live_price - 1.5 * atr_val
+                tp_price = live_price + 4.5 * atr_val
             else:
-                sl_price = live_price + 1.0 * atr_val
-                tp_price = live_price - 3.0 * atr_val
+                sl_price = live_price + 1.5 * atr_val
+                tp_price = live_price - 4.5 * atr_val
         else:
-            sl_price = live_price * (0.98 if signal == "buy" else 1.02)
-            tp_price = live_price * (1.04 if signal == "buy" else 0.96)
+            sl_price = live_price * (0.97 if signal == "buy" else 1.03)
+            tp_price = live_price * (1.06 if signal == "buy" else 0.94)
 
         client.set_leverage(inst_id, LEVERAGE)
         # Use CAPITAL_RATIO=0.95 to leave a buffer for OKX fees & maintenance margin
