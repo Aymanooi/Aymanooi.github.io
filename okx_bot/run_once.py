@@ -70,7 +70,6 @@ async def run():
 
         # ── Initialize exchange + data ────────────────────────────────────────
         add_log(status, "⚙️ الاتصال بـ OKX...", "info")
-        # connect() is optional — ExchangeConnector may connect on first API call
         if hasattr(bot.exchange, 'connect'):
             await bot.exchange.connect()
 
@@ -261,7 +260,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     risk_frac  = min(kelly, cfg.RISK_PER_TRADE) / cfg.MAX_POSITIONS
 
     trades_entered = 0
-    for best in signals[:slots_available]:
+    # Iterate through ALL ranked signals until slots are filled
+    for best in signals:
+        if trades_entered >= slots_available:
+            break
+
         inst_id  = best["instId"]
         signal   = best["signal"]
         score    = best["score"]
@@ -277,7 +280,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         risk_capital = balance * risk_frac
         sz = client.calculate_contracts(inst_id, risk_capital, live_price, LEVERAGE, 1.0)
         if sz <= 0:
-            add_log(status, f"{inst_id}: حجم صفر", "warning")
+            add_log(status, f"⏭️ {inst_id}: حجم صفر — التالي", "warning")
             continue
 
         result = client.place_order(inst_id, signal, sz, live_price,
@@ -292,7 +295,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
         else:
-            add_log(status, f"❌ فشل {inst_id}: {result.get('msg','')}", "error")
+            err_msg = result.get("msg", result.get("data", [{}])[0].get("sMsg","") if result.get("data") else "")
+            add_log(status, f"⏭️ فشل {inst_id}: {err_msg} — جرب التالي", "warning")
 
 
 if __name__ == "__main__":
