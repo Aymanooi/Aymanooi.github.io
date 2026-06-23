@@ -52,6 +52,17 @@ class OKXClient:
             return None
         return result["data"][0]
 
+    def get_max_leverage(self, inst_id):
+        """أقصى رافعة تسمح بها هذه العملة (بعض العملات حدّها 10x فقط)."""
+        info = self.get_instrument_info(inst_id)
+        if not info:
+            return None
+        try:
+            lever = float(info.get("lever", 0))
+            return lever if lever > 0 else None
+        except (ValueError, TypeError):
+            return None
+
     def set_leverage(self, inst_id, leverage):
         self.account_api.set_leverage(
             instId=inst_id,
