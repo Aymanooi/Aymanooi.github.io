@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-23 20:31:00 UTC",
+  "last_run": "2026-06-23 20:30:58 UTC",
   "mode": "Live 💰",
   "balance": 0.4215,
   "positions": [
@@ -21,52 +21,27 @@
   "total_trades": 3,
   "logs": [
     {
-      "time": "2026-06-23 20:31:01 UTC",
+      "time": "2026-06-23 20:30:59 UTC",
       "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-23 20:31:01 UTC",
+      "time": "2026-06-23 20:30:59 UTC",
       "msg": "💰 الرصيد: $0.4215 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-23 20:31:00 UTC",
+      "time": "2026-06-23 20:30:59 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
       "level": "info"
     },
     {
-      "time": "2026-06-23 20:31:00 UTC",
+      "time": "2026-06-23 20:30:58 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-23 20:31:00 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
       "time": "2026-06-23 20:30:58 UTC",
-      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:30:58 UTC",
-      "msg": "💰 الرصيد: $0.4215 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:30:57 UTC",
-      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:30:57 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-23 20:30:57 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -417,6 +392,31 @@
     },
     {
       "time": "2026-06-23 20:27:26 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-23 20:27:22 UTC",
+      "msg": "مراكز مفتوحة: 2/2 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:27:22 UTC",
+      "msg": "💰 الرصيد: $0.3742 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:27:22 UTC",
+      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x15",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:27:22 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-23 20:27:22 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     }
