@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 15:29:43 UTC",
   "mode": "Live 💰",
-  "balance": 3.525,
+  "balance": 3.5242,
   "positions": [
     {
       "instId": "ZRO-USDT-SWAP",
@@ -14,7 +14,7 @@
   "total_trades": 70,
   "logs": [
     {
-      "time": "2026-06-24 15:29:44 UTC",
+      "time": "2026-06-24 15:29:45 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
@@ -24,12 +24,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 15:29:43 UTC",
-      "msg": "💰 الرصيد: $3.5250 USDT",
+      "time": "2026-06-24 15:29:44 UTC",
+      "msg": "💰 الرصيد: $3.5242 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 15:29:43 UTC",
+      "time": "2026-06-24 15:29:44 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -474,5 +474,5 @@
     "updated": "2026-06-24 15:29:37 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 45.29
+  "drawdown": 45.3
 }
