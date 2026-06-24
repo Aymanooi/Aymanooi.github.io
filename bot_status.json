@@ -57,18 +57,18 @@
   "logs": [
     {
       "time": "2026-06-24 10:24:39 UTC",
-      "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
+      "msg": "مراكز مفتوحة: 7/5 — لا دخول جديد",
       "level": "info"
     },
     {
       "time": "2026-06-24 10:24:39 UTC",
-      "msg": "🔒 وقف متحرك $ UNI-USDT-SWAP: قمّة +$0.036 → $0.000 (قُفِل $0.000)",
-      "level": "success"
+      "msg": "⚠️ فشل إغلاق UNI-USDT-SWAP عند الوقف الدولاري",
+      "level": "error"
     },
     {
       "time": "2026-06-24 10:24:39 UTC",
-      "msg": "🔒 وقف متحرك $ ARX-USDT-SWAP: قمّة +$0.075 → $-0.015 (قُفِل $0.000)",
-      "level": "success"
+      "msg": "⚠️ فشل إغلاق ARX-USDT-SWAP عند الوقف الدولاري",
+      "level": "error"
     },
     {
       "time": "2026-06-24 10:24:38 UTC",
@@ -494,14 +494,18 @@
     "MASK-USDT-SWAP": 0.1339481774264273,
     "JTO-USDT-SWAP": 0.053452115812917596,
     "KGEN-USDT-SWAP": -0.0295683027794214,
-    "ENSO-USDT-SWAP": 0.0189453741711376
+    "ENSO-USDT-SWAP": 0.0189453741711376,
+    "ARX-USDT-SWAP": 0.0509251400441335,
+    "UNI-USDT-SWAP": 0.0207756232686984
   },
   "pnl_peaks": {
     "MASK-USDT-SWAP": 0.0207999999999979,
     "SOON-USDT-SWAP": 0.025,
     "JTO-USDT-SWAP": 0.0036,
     "KGEN-USDT-SWAP": -0.025,
-    "ENSO-USDT-SWAP": 0.0161999999999982
+    "ENSO-USDT-SWAP": 0.0161999999999982,
+    "ARX-USDT-SWAP": 0.0749999999999973,
+    "UNI-USDT-SWAP": 0.0360000000000014
   },
   "brain_stats": {
     "wins": 6,
