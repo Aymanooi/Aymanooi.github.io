@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 12:55:37 UTC",
   "mode": "Live 💰",
-  "balance": 0.6957,
+  "balance": 0.6978,
   "positions": [
     {
       "instId": "PROS-USDT-SWAP",
@@ -53,11 +53,11 @@
     },
     {
       "time": "2026-06-24 12:55:38 UTC",
-      "msg": "💰 الرصيد: $0.6957 USDT",
+      "msg": "💰 الرصيد: $0.6978 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:55:37 UTC",
+      "time": "2026-06-24 12:55:38 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
