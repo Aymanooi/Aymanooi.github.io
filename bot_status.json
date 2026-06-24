@@ -1,28 +1,28 @@
 {
   "last_run": "2026-06-24 10:05:10 UTC",
   "mode": "Live 💰",
-  "balance": 0.8417,
+  "balance": 0.8425,
   "positions": [
     {
       "instId": "GRASS-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.4489800000000002,
       "size": 25.0,
-      "pnl": -0.0195
+      "pnl": -0.022
     },
     {
       "instId": "PROS-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.475180952380953,
       "size": 210.0,
-      "pnl": 0.5
+      "pnl": 0.521
     },
     {
       "instId": "MASK-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.4020888888888891,
       "size": 9.0,
-      "pnl": 0.0118
+      "pnl": 0.0127
     },
     {
       "instId": "APE-USDT-SWAP",
@@ -36,19 +36,19 @@
       "side": "شراء 📈",
       "entry": 0.1618,
       "size": 5.0,
-      "pnl": 0.03
+      "pnl": 0.025
     }
   ],
   "total_trades": 10,
   "logs": [
     {
-      "time": "2026-06-24 10:05:10 UTC",
+      "time": "2026-06-24 10:05:11 UTC",
       "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:05:10 UTC",
-      "msg": "💰 الرصيد: $0.8417 USDT",
+      "time": "2026-06-24 10:05:11 UTC",
+      "msg": "💰 الرصيد: $0.8425 USDT",
       "level": "info"
     },
     {
