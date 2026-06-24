@@ -1,18 +1,48 @@
 {
-  "last_run": "2026-06-24 19:38:17 UTC",
+  "last_run": "2026-06-24 19:38:27 UTC",
   "mode": "Live 💰",
-  "balance": 10.7827,
+  "balance": 10.7867,
   "positions": [
     {
       "instId": "JUP-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.2025,
       "size": 3.0,
-      "pnl": -0.039
+      "pnl": -0.036
     }
   ],
   "total_trades": 105,
   "logs": [
+    {
+      "time": "2026-06-24 19:38:28 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 19:38:28 UTC",
+      "msg": "📉 رأس المال الكلي: $12.81 | القمّة $13.12 | تراجع 2.4% | مُنظّم ×1.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 19:38:27 UTC",
+      "msg": "💰 الرصيد: $10.7867 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 19:38:27 UTC",
+      "msg": "⚙️ rocket | رافعة x3 | مخاطرة 20% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 19:38:27 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 19:38:27 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 19:38:18 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -382,45 +412,15 @@
       "time": "2026-06-24 19:33:15 UTC",
       "msg": "💰 الرصيد: $12.8609 USDT",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 19:33:14 UTC",
-      "msg": "⚙️ rocket | رافعة x3 | مخاطرة 20% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 19:33:14 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 19:33:14 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 19:33:04 UTC",
-      "msg": "لا توجد إشارات كافية",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 19:33:04 UTC",
-      "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 19:32:29 UTC",
-      "msg": "📉 رأس المال الكلي: $12.84 | القمّة $13.12 | تراجع 2.1% | مُنظّم ×1.00",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [],
   "peaks": {
-    "JUP-USDT-SWAP": -0.0192592592592589
+    "JUP-USDT-SWAP": -0.0177777777777777
   },
   "pnl_peaks": {
-    "JUP-USDT-SWAP": -0.0389999999999999
+    "JUP-USDT-SWAP": -0.0359999999999994
   },
   "brain_stats": {
     "wins": 23,
@@ -440,8 +440,8 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-24 19:38:10 UTC"
+    "updated": "2026-06-24 19:38:18 UTC"
   },
   "equity_peak": 13.1179,
-  "drawdown": 2.4
+  "drawdown": 2.38
 }
