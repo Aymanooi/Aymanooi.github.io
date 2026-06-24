@@ -181,12 +181,32 @@
       "score": 36,
       "status": "open",
       "opened": "2026-06-24 09:49:11 UTC"
+    },
+    {
+      "instId": "JTO-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": -10,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 15
+      },
+      "entry": 0.6705,
+      "score": 42,
+      "status": "open",
+      "opened": "2026-06-24 10:09:23 UTC"
     }
   ],
   "wins": 6,
   "losses": 1,
   "lr": 0.05,
-  "updated": "2026-06-24 10:09:38 UTC",
+  "updated": "2026-06-24 10:09:23 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -200,7 +220,7 @@
     "CRV-USDT-SWAP": "2026-06-24T09:04:31.307577+00:00",
     "APT-USDT-SWAP": "2026-06-24T09:37:18.606811+00:00",
     "AVNT-USDT-SWAP": "2026-06-24T06:43:47.220201+00:00",
-    "PROS-USDT-SWAP": "2026-06-24T10:08:55.940318+00:00",
+    "PROS-USDT-SWAP": "2026-06-24T10:08:39.198435+00:00",
     "PIEVERSE-USDT-SWAP": "2026-06-24T08:25:09.820341+00:00",
     "EDGE-USDT-SWAP": "2026-06-24T09:04:29.920672+00:00",
     "OP-USDT-SWAP": "2026-06-24T09:04:30.370226+00:00",
