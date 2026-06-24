@@ -1,10 +1,20 @@
 {
-  "last_run": "2026-06-24 04:34:39 UTC",
+  "last_run": "2026-06-24 04:34:41 UTC",
   "mode": "Live 💰",
   "balance": 6.6373,
   "positions": [],
   "total_trades": 4,
   "logs": [
+    {
+      "time": "2026-06-24 04:34:41 UTC",
+      "msg": "🛑 البوت متوقف — 0 صفقة مغلقة: لا يوجد",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 04:34:41 UTC",
+      "msg": "🛑 bot_stop.json — إيقاف طارئ: إغلاق جميع الصفقات",
+      "level": "warning"
+    },
     {
       "time": "2026-06-24 04:34:39 UTC",
       "msg": "🛑 البوت متوقف — 0 صفقة مغلقة: لا يوجد",
@@ -394,16 +404,6 @@
       "time": "2026-06-24 04:28:25 UTC",
       "msg": "✅ أُغلق: JTO-USDT-SWAP",
       "level": "success"
-    },
-    {
-      "time": "2026-06-24 04:28:24 UTC",
-      "msg": "🛑 bot_stop.json — إيقاف طارئ: إغلاق جميع الصفقات",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 04:27:33 UTC",
-      "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
-      "level": "info"
     }
   ],
   "risk_mode": "balanced",
