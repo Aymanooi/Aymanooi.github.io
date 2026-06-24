@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 01:29:38 UTC",
   "mode": "Live 💰",
-  "balance": 0.3351,
+  "balance": 0.3567,
   "positions": [
     {
       "instId": "LINK-USDT-SWAP",
@@ -28,13 +28,13 @@
   "total_trades": 4,
   "logs": [
     {
-      "time": "2026-06-24 01:29:38 UTC",
+      "time": "2026-06-24 01:29:39 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 01:29:38 UTC",
-      "msg": "💰 الرصيد: $0.3351 USDT",
+      "time": "2026-06-24 01:29:39 UTC",
+      "msg": "💰 الرصيد: $0.3567 USDT",
       "level": "info"
     },
     {
