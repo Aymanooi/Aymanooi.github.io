@@ -54,6 +54,14 @@ CAPITAL_RATIO  = 0.95
 STOP_LOSS_PCT  = 0.02
 TAKE_PROFIT_PCT = 0.04
 
+# === Order Mode ===
+# "maker" = أوامر حدّية post-only تحذف رسوم taker (~2% على x20) — الباكتيست أثبت
+#           أنها تضاعف الحافة الصافية ($10→$24.86 مقابل $10.67). السلبية: قد لا
+#           يُنفَّذ الأمر لو ابتعد السعر، فيُنظَّف ويُعاد في الدورة التالية.
+# "taker" = أوامر سوق فورية التنفيذ لكن برسوم أعلى (ارجع إليها لو ضعُف معدّل التنفيذ).
+ORDER_MODE   = os.getenv("ORDER_MODE", "maker").strip().lower()
+MAKER_OFFSET = float(os.getenv("MAKER_OFFSET", "0.0005"))   # إزاحة سعر الـmaker (0.05%)
+
 # === Strategy Parameters ===
 EMA_FAST = 9
 EMA_SLOW = 21
