@@ -374,7 +374,7 @@
       "exit": 1.0981
     },
     {
-      "instId": "EDGE-USDT-SWAP",
+      "instId": "ICP-USDT-SWAP",
       "signal": "buy",
       "features": {
         "EMA": 10,
@@ -382,22 +382,22 @@
         "MACD": 20,
         "BB": -5,
         "Stoch": 0,
-        "Volume": 10,
-        "Pattern": 10,
-        "HTF_1h": 15,
+        "Volume": 5,
+        "Pattern": 0,
+        "HTF_1h": 5,
         "OBV": 10,
-        "RSIDivergence": -15
+        "RSIDivergence": 0
       },
-      "entry": 0.4031,
+      "entry": 2.193,
       "score": 36,
       "status": "open",
-      "opened": "2026-06-24 12:28:12 UTC"
+      "opened": "2026-06-24 12:28:17 UTC"
     }
   ],
   "wins": 10,
   "losses": 8,
   "lr": 0.05,
-  "updated": "2026-06-24 12:28:12 UTC",
+  "updated": "2026-06-24 12:28:17 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -435,6 +435,6 @@
     "ALLO-USDT-SWAP": "2026-06-24T11:50:25.452043+00:00",
     "RAVE-USDT-SWAP": "2026-06-24T11:50:25.799168+00:00",
     "XRP-USDT-SWAP": "2026-06-24T11:51:04.810047+00:00",
-    "PROVE-USDT-SWAP": "2026-06-24T12:26:23.943032+00:00"
+    "PROVE-USDT-SWAP": "2026-06-24T12:26:17.446387+00:00"
   }
 }
