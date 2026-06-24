@@ -307,32 +307,12 @@
       "score": -43,
       "status": "open",
       "opened": "2026-06-24 10:31:27 UTC"
-    },
-    {
-      "instId": "LDO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2554,
-      "score": -42,
-      "status": "open",
-      "opened": "2026-06-24 10:32:23 UTC"
     }
   ],
   "wins": 8,
   "losses": 5,
   "lr": 0.05,
-  "updated": "2026-06-24 10:32:23 UTC",
+  "updated": "2026-06-24 10:32:33 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
