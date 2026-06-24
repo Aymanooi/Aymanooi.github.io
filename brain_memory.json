@@ -1382,30 +1382,30 @@
       "exit": 0.1919
     },
     {
-      "instId": "GRASS-USDT-SWAP",
+      "instId": "SOON-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
         "RSI": 5,
         "MACD": -20,
         "BB": 5,
-        "Stoch": 10,
+        "Stoch": 0,
         "Volume": 0,
         "Pattern": 0,
-        "HTF_1h": -5,
+        "HTF_1h": -15,
         "OBV": -10,
-        "RSIDivergence": -15
+        "RSIDivergence": 0
       },
-      "entry": 0.434,
-      "score": -36,
+      "entry": 0.1603,
+      "score": -52,
       "status": "open",
-      "opened": "2026-06-24 17:10:26 UTC"
+      "opened": "2026-06-24 17:10:30 UTC"
     }
   ],
   "wins": 19,
   "losses": 47,
   "lr": 0.05,
-  "updated": "2026-06-24 17:10:26 UTC",
+  "updated": "2026-06-24 17:10:30 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T16:51:16.749639+00:00",
@@ -1470,6 +1470,7 @@
     "LQTY-USDT-SWAP": "2026-06-24T16:10:43.103337+00:00",
     "PI-USDT-SWAP": "2026-06-24T16:24:04.211533+00:00",
     "LIT-USDT-SWAP": "2026-06-24T16:52:05.687515+00:00",
-    "MORPHO-USDT-SWAP": "2026-06-24T17:02:19.304615+00:00"
+    "MORPHO-USDT-SWAP": "2026-06-24T17:02:19.304615+00:00",
+    "ARKM-USDT-SWAP": "2026-06-24T17:09:55.090921+00:00"
   }
 }
