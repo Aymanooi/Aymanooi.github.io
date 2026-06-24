@@ -114,6 +114,9 @@ async def run():
 
     await _fallback_mscs(status, memory, key, secret, phrase, demo)
 
+    # ── حفظ إحصائيات Brain في الحالة للعرض في لوحة التحكم ────────────────────
+    status["brain_stats"] = brain.stats(memory)
+
     brain.save_memory(memory)
     save_status(status)
     print("✅ Done.")
@@ -121,7 +124,7 @@ async def run():
 
 def _trail_floor(peak):
     """
-    وقف متحرك معاد معايرته لرافعة x20:
+    وقف متحرك نسبي (uplRatio) — احتياطي ثانوي بعد الوقف الدولاري.
     يُسلَّح بعد +30% هامش (= +1.5% سعر) — حركة حقيقية تفوق ضجيج الدقيقة.
     يحمي التعادل عند 30-80%، يقفل 45% من القمة بعد 80%, ويقفل أكثر كلما ارتفع.
     """
@@ -133,13 +136,32 @@ def _trail_floor(peak):
     return peak * 0.80                   # +800%+: اقفل 80% (رابح جامح)
 
 
+def _trail_floor_pnl(peak_pnl):
+    """
+    أرضية الوقف المتحرّك بالدولار المطلق (PnL) — الطبقة الأساسية لقفل الربح.
+
+    يحل مشكلة OKX Cross-Margin حيث uplRatio = upl/totalEquity (وليس upl/positionMargin)
+    مما يجعل ربح المركز الفعلي يبدو صغيراً جداً كنسبة، فلا يُسلَّح الوقف النسبي.
+    هنا نتتبّع ذروة الربح بالدولار ونقفل نسبة منها.
+
+    مثال: مركز عند +$0.625 → peak_pnl=0.625 → floor = 0.625×0.55 = $0.344
+    يُغلق إذا عاد UPL إلى $0.344 (يقفل $0.344 ربحاً).
+    """
+    if peak_pnl < 0.03: return None        # غير مُسلَّح: أقل من $0.03
+    if peak_pnl < 0.10: return 0.00        # $0.03–$0.10: احمِ التعادل
+    if peak_pnl < 0.30: return peak_pnl * 0.35   # $0.10–$0.30: اقفل 35%
+    if peak_pnl < 1.00: return peak_pnl * 0.55   # $0.30–$1.00: اقفل 55%
+    if peak_pnl < 5.00: return peak_pnl * 0.65   # $1–$5: اقفل 65%
+    return peak_pnl * 0.75                  # $5+: اقفل 75% (الفارس الجامح)
+
+
 def _manage_open_positions(status, client, positions):
     """
-    مدير مخاطر برمجي كامل لكل مركز مفتوح:
-    - HARD_STOP: قاطع دائرة بالنسبة — يُغلق عند خسارة 40% من الهامش.
-    - ABS_LOSS_USD: قاطع مطلق — أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة.
-    - HARD_TAKE: سقف أمان للمكاسب الجامحة (+200% هامش).
-    - _trail_floor: وقف متحرك يقفل مكسباً متزايداً.
+    مدير مخاطر برمجي كامل لكل مركز مفتوح (طبقات الحماية بالترتيب):
+    1. قاطع دائرة: نسبة (-40%) أو خسارة مطلقة ($0.40) — أيّهما أولاً.
+    2. HARD_TAKE: سقف أمان للمكاسب الجامحة (+200% هامش).
+    3. وقف متحرك بالدولار (_trail_floor_pnl): الأساسي — يُسلَّح من $0.03.
+    4. وقف متحرك نسبي (_trail_floor): احتياطي — يُسلَّح من +30% هامش.
     يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
     """
     HARD_TAKE    = 2.00    # جني ربح عند +200% هامش
@@ -147,6 +169,7 @@ def _manage_open_positions(status, client, positions):
     ABS_LOSS_USD = 0.40    # أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة
 
     peaks      = status.setdefault("peaks", {})
+    pnl_peaks  = status.setdefault("pnl_peaks", {})
     closed_now = set()
     for p in positions:
         inst_id = p["instId"]
@@ -163,8 +186,10 @@ def _manage_open_positions(status, client, positions):
 
         peak = max(peaks.get(inst_id, ratio), ratio)
         peaks[inst_id] = peak
+        peak_pnl = max(pnl_peaks.get(inst_id, upl), upl)
+        pnl_peaks[inst_id] = peak_pnl
 
-        # ── قاطع الدائرة: نسبة أو قيمة مطلقة ───────────────────────────────
+        # ── 1. قاطع الدائرة: نسبة أو قيمة مطلقة ───────────────────────────
         close_reason = None
         if ratio <= HARD_STOP:
             close_reason = f"{ratio*100:.0f}% (نسبة)"
@@ -178,29 +203,48 @@ def _manage_open_positions(status, client, positions):
                     "warning")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
             else:
                 add_log(status,
                     f"⚠️ فشل إغلاق {inst_id} عند {close_reason} — سيُعاد في الجولة القادمة",
                     "error")
             continue
 
+        # ── 2. سقف المكسب الجامح ───────────────────────────────────────────
         if ratio >= HARD_TAKE:
             if client.close_position(inst_id):
                 add_log(status, f"\U0001f3af جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
             else:
                 add_log(status, f"⚠️ فشل إغلاق {inst_id} عند جني الربح", "error")
             continue
 
+        # ── 3. وقف متحرك بالدولار (الأساسي) ────────────────────────────────
+        floor_pnl = _trail_floor_pnl(peak_pnl)
+        if floor_pnl is not None and upl <= floor_pnl:
+            if client.close_position(inst_id):
+                add_log(status,
+                    f"\U0001f512 وقف متحرك $ {inst_id}: قمّة +${peak_pnl:.3f} → ${upl:.3f} (قُفِل ${floor_pnl:.3f})",
+                    "success")
+                closed_now.add(inst_id)
+                peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
+            else:
+                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند الوقف الدولاري", "error")
+            continue
+
+        # ── 4. وقف متحرك نسبي (احتياطي) ────────────────────────────────────
         floor = _trail_floor(peak)
         if floor is not None and ratio <= floor:
             if client.close_position(inst_id):
                 add_log(status,
-                    f"\U0001f512 وقف متحرك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
+                    f"\U0001f512 وقف متحرك % {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
                     "success")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
             else:
                 add_log(status, f"⚠️ فشل إغلاق {inst_id} عند الوقف المتحرك", "error")
 
@@ -208,6 +252,9 @@ def _manage_open_positions(status, client, positions):
     for k in list(peaks.keys()):
         if k not in active_ids:
             peaks.pop(k, None)
+    for k in list(pnl_peaks.keys()):
+        if k not in active_ids:
+            pnl_peaks.pop(k, None)
 
     return closed_now
 
