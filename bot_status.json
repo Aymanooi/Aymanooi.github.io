@@ -6,27 +6,27 @@
   "total_trades": 115,
   "logs": [
     {
-      "time": "2026-06-24 21:16:40 UTC",
-      "msg": "📤 maker شراء 📈 MORPHO-USDT-SWAP @~1.7447 | درجة:46 | رأس المال:$9.733 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
+      "time": "2026-06-24 21:16:45 UTC",
+      "msg": "📤 maker شراء 📈 AVAX-USDT-SWAP @~6.335 | درجة:40 | رأس المال:$9.733 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-24 21:16:39 UTC",
-      "msg": "⏭️ maker فشل AVAX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "time": "2026-06-24 21:16:44 UTC",
+      "msg": "⏭️ maker فشل PROS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 21:16:37 UTC",
+      "time": "2026-06-24 21:16:42 UTC",
       "msg": "🧠 Brain WR=28.2% | مُنظّم ×0.35 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:37 UTC",
+      "time": "2026-06-24 21:16:42 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:37 UTC",
+      "time": "2026-06-24 21:16:42 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
@@ -409,10 +409,16 @@
   "risk_mode": "rocket",
   "top_signals": [
     {
+      "instId": "PROS-USDT-SWAP",
+      "signal": "buy",
+      "score": 47,
+      "prob": 0.72
+    },
+    {
       "instId": "AVAX-USDT-SWAP",
       "signal": "buy",
-      "score": 43,
-      "prob": 0.74
+      "score": 40,
+      "prob": 0.71
     },
     {
       "instId": "MORPHO-USDT-SWAP",
@@ -421,21 +427,15 @@
       "prob": 0.69
     },
     {
+      "instId": "ASTER-USDT-SWAP",
+      "signal": "buy",
+      "score": 36,
+      "prob": 0.69
+    },
+    {
       "instId": "O-USDT-SWAP",
       "signal": "buy",
       "score": 58,
-      "prob": 0.68
-    },
-    {
-      "instId": "PROS-USDT-SWAP",
-      "signal": "buy",
-      "score": 37,
-      "prob": 0.68
-    },
-    {
-      "instId": "TIA-USDT-SWAP",
-      "signal": "buy",
-      "score": 48,
       "prob": 0.68
     }
   ],
