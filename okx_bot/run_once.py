@@ -413,6 +413,27 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
+    # ── حارس التركّز الاتجاهي: وازن المحفظة بين شراء وبيع لتقليل خطر الترابط ─
+    # خطر الترابط = أكبر قاتل للحسابات الرافعة: لو كل المراكز باتجاه واحد،
+    # حركة سوق معاكسة واحدة تُصفّيها معاً. حين يطغى اتجاه نُفضّل الإشارة المعاكسة.
+    long_ct  = sum(1 for p in positions if float(p.get("pos", 0)) > 0)
+    short_ct = sum(1 for p in positions if float(p.get("pos", 0)) < 0)
+    skew_cap = max(2, int(cfg.MAX_POSITIONS * 0.6))   # مثال: 3 من 5
+    dominant = None
+    if long_ct >= skew_cap and long_ct > short_ct:
+        dominant = "buy"
+    elif short_ct >= skew_cap and short_ct > long_ct:
+        dominant = "sell"
+    if dominant:
+        opposite  = "sell" if dominant == "buy" else "buy"
+        balancing = [s for s in signals if s["signal"] == opposite]
+        if balancing:
+            dom_ct = long_ct if dominant == "buy" else short_ct
+            add_log(status,
+                f"⚖️ تركّز {dominant} ({dom_ct}/{cfg.MAX_POSITIONS}) — "
+                f"أُفضّل {opposite} لتوازن المحفظة وتقليل خطر الترابط", "info")
+            signals = balancing   # اختر من الاتجاه المعاكس فقط هذه الدورة
+
     # ── Kelly ديناميكي × مُنظّم منحنى رأس المال ─────────────────────────────
     wr = brain.current_win_rate(memory)
     kelly_frac = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY) * eq_throttle
