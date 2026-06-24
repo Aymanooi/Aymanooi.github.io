@@ -18,15 +18,20 @@
       "pnl": 0.9048
     }
   ],
-  "total_trades": 6,
+  "total_trades": 7,
   "logs": [
     {
-      "time": "2026-06-24 06:28:38 UTC",
-      "msg": "✅ شراء 📈 AVNT-USDT-SWAP @ 0.111 | درجة:42 | هامش:$0.203 (18.0% Kelly)",
+      "time": "2026-06-24 06:28:54 UTC",
+      "msg": "✅ بيع 📉 PROS-USDT-SWAP @ 0.4835 | درجة:-39 | هامش:$0.203 (18.0% Kelly)",
       "level": "success"
     },
     {
-      "time": "2026-06-24 06:28:37 UTC",
+      "time": "2026-06-24 06:28:53 UTC",
+      "msg": "✅ شراء 📈 AVNT-USDT-SWAP @ 0.1113 | درجة:42 | هامش:$0.203 (18.0% Kelly)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 06:28:51 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=50.0% → 18.0% من رأس المال",
       "level": "info"
     },
@@ -36,7 +41,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 06:28:02 UTC",
+      "time": "2026-06-24 06:28:03 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
       "level": "info"
     },
@@ -414,11 +419,6 @@
       "time": "2026-06-24 06:26:03 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 06:26:03 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -428,6 +428,12 @@
       "signal": "buy",
       "score": 42,
       "prob": 0.71
+    },
+    {
+      "instId": "PROS-USDT-SWAP",
+      "signal": "sell",
+      "score": -39,
+      "prob": 0.31
     }
   ],
   "peaks": {
