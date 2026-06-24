@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-24 17:49:55 UTC",
   "mode": "Live 💰",
-  "balance": 2.547,
+  "balance": 2.5487,
   "positions": [
     {
       "instId": "SPCX-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 155.785,
       "size": 0.08,
-      "pnl": 0.014
+      "pnl": 0.0148
     }
   ],
   "total_trades": 96,
@@ -24,12 +24,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:49:55 UTC",
-      "msg": "💰 الرصيد: $2.5470 USDT",
+      "time": "2026-06-24 17:49:56 UTC",
+      "msg": "💰 الرصيد: $2.5487 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:49:55 UTC",
+      "time": "2026-06-24 17:49:56 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -450,5 +450,5 @@
     "updated": "2026-06-24 17:49:32 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 54.91
+  "drawdown": 54.89
 }
