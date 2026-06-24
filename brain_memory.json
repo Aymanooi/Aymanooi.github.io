@@ -1590,32 +1590,12 @@
       "status": "loss",
       "opened": "2026-06-24 18:47:57 UTC",
       "exit": 0.1674
-    },
-    {
-      "instId": "STX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1681,
-      "score": -58,
-      "status": "open",
-      "opened": "2026-06-24 19:10:10 UTC"
     }
   ],
   "wins": 23,
   "losses": 53,
   "lr": 0.05,
-  "updated": "2026-06-24 19:10:25 UTC",
+  "updated": "2026-06-24 19:10:22 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
