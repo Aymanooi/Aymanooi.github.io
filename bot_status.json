@@ -28,17 +28,17 @@
   "total_trades": 9,
   "logs": [
     {
-      "time": "2026-06-24 09:46:18 UTC",
-      "msg": "✅ بيع 📉 PROS-USDT-SWAP @ 0.4756 | درجة:-35 | هامش:$1.061 (18.0% Kelly)",
+      "time": "2026-06-24 09:46:28 UTC",
+      "msg": "✅ بيع 📉 PROS-USDT-SWAP @ 0.4753 | درجة:-39 | هامش:$1.061 (18.0% Kelly)",
       "level": "success"
     },
     {
-      "time": "2026-06-24 09:46:17 UTC",
+      "time": "2026-06-24 09:46:27 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=83.3% → 18.0% من رأس المال",
       "level": "info"
     },
     {
-      "time": "2026-06-24 09:46:17 UTC",
+      "time": "2026-06-24 09:46:27 UTC",
       "msg": "⏳ تخطّى 10 عملة في فترة التهدئة",
       "level": "info"
     },
@@ -48,7 +48,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 09:45:45 UTC",
+      "time": "2026-06-24 09:45:46 UTC",
       "msg": "💰 الرصيد: $5.8963 USDT",
       "level": "info"
     },
@@ -433,14 +433,8 @@
     {
       "instId": "PROS-USDT-SWAP",
       "signal": "sell",
-      "score": -35,
-      "prob": 0.33
-    },
-    {
-      "instId": "PIEVERSE-USDT-SWAP",
-      "signal": "buy",
-      "score": 38,
-      "prob": 0.68
+      "score": -39,
+      "prob": 0.31
     }
   ],
   "peaks": {
