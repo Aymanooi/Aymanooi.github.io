@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 12:51:05 UTC",
   "mode": "Live 💰",
-  "balance": 0.5366,
+  "balance": 0.5357,
   "positions": [
     {
       "instId": "PROS-USDT-SWAP",
@@ -42,7 +42,7 @@
   "total_trades": 42,
   "logs": [
     {
-      "time": "2026-06-24 12:51:06 UTC",
+      "time": "2026-06-24 12:51:07 UTC",
       "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
       "level": "info"
     },
@@ -52,12 +52,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:51:05 UTC",
-      "msg": "💰 الرصيد: $0.5366 USDT",
+      "time": "2026-06-24 12:51:06 UTC",
+      "msg": "💰 الرصيد: $0.5357 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:51:05 UTC",
+      "time": "2026-06-24 12:51:06 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -510,5 +510,5 @@
     "updated": "2026-06-24 12:50:56 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 29.18
+  "drawdown": 29.19
 }
