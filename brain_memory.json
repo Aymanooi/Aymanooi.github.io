@@ -105,12 +105,30 @@
       "status": "loss",
       "opened": "2026-06-24 06:28:38 UTC",
       "exit": 0.1114
+    },
+    {
+      "instId": "ZRO-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": -5
+      },
+      "entry": 0.9343,
+      "score": 35,
+      "status": "open",
+      "opened": "2026-06-24 08:30:18 UTC"
     }
   ],
   "wins": 4,
   "losses": 1,
   "lr": 0.05,
-  "updated": "2026-06-24 08:30:17 UTC",
+  "updated": "2026-06-24 08:30:18 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
