@@ -29,14 +29,14 @@
       "side": "شراء 📈",
       "entry": 0.1479,
       "size": 1.0,
-      "pnl": 0.002
+      "pnl": 0.001
     },
     {
       "instId": "COAI-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.3576,
       "size": 319.0,
-      "pnl": 0.0319
+      "pnl": 0.0191
     },
     {
       "instId": "CRV-USDT-SWAP",
@@ -50,7 +50,7 @@
       "side": "شراء 📈",
       "entry": 0.3898333333333335,
       "size": 15.0,
-      "pnl": 0.16
+      "pnl": 0.19
     },
     {
       "instId": "OP-USDT-SWAP",
@@ -68,7 +68,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:34:00 UTC",
+      "time": "2026-06-24 08:34:01 UTC",
       "msg": "💰 الرصيد: $0.0000 USDT",
       "level": "info"
     },
