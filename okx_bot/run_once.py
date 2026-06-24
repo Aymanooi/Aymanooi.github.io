@@ -79,6 +79,7 @@ async def run():
 
     _refresh_state_from_github()
     status = load_status()
+    status.pop("stopped", None)   # clear stale stop flag at every fresh run
     status["last_run"]  = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     status["mode"]      = "Demo 🧪" if demo != "0" else "Live 💰"
     status["risk_mode"] = os.environ.get("RISK_MODE", "safe").strip().lower()
@@ -120,45 +121,97 @@ async def run():
 
 def _trail_floor(peak):
     """
-    أرضية الوقف المتحرّك المتدرّج (ratcheting) كدالة في أعلى ربح (uplRatio).
-    تتشدّد كلما كبر الربح فتقفل مكسباً أكبر، لكنها تترك الرابحين الكبار يركضون
-    بدل قصّهم مبكراً — وهذا جوهر التراكم: قِلّة من الصفقات الكبيرة تصنع الفرق.
-    تُرجع None إذا لم يُسلَّح التتبّع بعد.
+    أرضية الوقف المتحرّك النسبي (uplRatio).
+    احتياط ثانوي — الأولوية لـ _trail_floor_pnl الدولاري.
     """
     if peak < 0.25:
-        return None              # غير مُسلَّح: لم يبلغ +25% بعد
+        return None
     if peak < 0.50:
-        return peak - 0.15       # +25–50%: تنازل حتى 15 نقطة من القمّة
+        return peak - 0.15
     if peak < 1.00:
-        return peak * 0.70       # +50–100%: احتفظ بـ70% من القمّة
+        return peak * 0.70
     if peak < 2.00:
-        return peak * 0.80       # +100–200%: اقفل 80% من المكسب الكبير
-    return peak * 0.85           # +200%+: اقفل 85% (رابح جامح — احمِ المكسب)
+        return peak * 0.80
+    return peak * 0.85
+
+
+def _trail_floor_pnl(peak_pnl):
+    """
+    أرضية الوقف المتحرّك بالدولار المطلق (PnL).
+
+    يحل مشكلة OKX Cross-Margin حيث uplRatio = upl/totalEquity (وليس upl/positionMargin)
+    مما يجعل الربح الفعلي للمركز يبدو صغيراً جداً كنسبة.
+    هنا نتتبع ذروة الربح بالدولار ونقفل نسبة منها.
+
+    مثال: EDGE عند +$0.625 → peak_pnl=0.625 → floor = 0.625×0.55 = $0.344
+    يُغلق إذا عاد UPL إلى $0.344+ (يقفل $0.344 ربحاً).
+    """
+    if peak_pnl < 0.03:
+        return None              # لم يُسلَّح: أقل من $0.03
+    if peak_pnl < 0.10:
+        return 0.00              # $0.03–$0.10: احمِ نقطة التعادل
+    if peak_pnl < 0.30:
+        return peak_pnl * 0.35  # $0.10–$0.30: اقفل 35%
+    if peak_pnl < 1.00:
+        return peak_pnl * 0.55  # $0.30–$1.00: اقفل 55%
+    if peak_pnl < 5.00:
+        return peak_pnl * 0.65  # $1–$5: اقفل 65%
+    return peak_pnl * 0.75      # $5+: اقفل 75% (الفارس الجامح)
 
 
 def _manage_open_positions(status, client, positions):
     """
-    مدير مخاطر برمجي كامل لكل مركز مفتوح:
-    - HARD_STOP: قاطع دائرة — يُغلق المركز عند خسارة كارثية (شبكة أمان).
-    - HARD_TAKE: سقف أمان للمكاسب الجامحة فقط (نادر).
-    - وقف متحرّك متدرّج (_trail_floor): يقفل مكسباً متزايداً مع ترك الكبار يركضون.
-    يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
-    """
-    HARD_TAKE = 2.00    # سقف أمان: جني ربح عند +200% على الهامش (نادر)
-    HARD_STOP = -0.50   # قاطع دائرة: أغلق عند خسارة 50% من الهامش
+    مدير مخاطر برمجي كامل لكل مركز مفتوح.
 
-    peaks      = status.setdefault("peaks", {})
+    طبقات الحماية (بالترتيب):
+    1. ABS_LOSS_USD  — قاطع دولاري مطلق ($0.40) لمنع الخسائر الكبيرة
+    2. HARD_STOP     — قاطع نسبي (-40% uplRatio مُصحَّح بـ IMR)
+    3. HARD_TAKE     — سقف أمان للمكاسب الجامحة (+200%)
+    4. trail_pnl     — وقف متحرك دولاري (الأساسي — يعمل عند $0.03+)
+    5. trail_ratio   — وقف متحرك نسبي (احتياطي — يعمل عند +25% uplRatio)
+    """
+    HARD_TAKE    = 2.00   # +200% uplRatio (نادر — صفقة جامحة جداً)
+    HARD_STOP    = -0.40  # -40% uplRatio مُصحَّح
+    ABS_LOSS_USD = 0.40   # خسارة $0.40 مطلقة — قاطع فوري بغض النظر عن النسبة
+
+    peaks     = status.setdefault("peaks", {})
+    pnl_peaks = status.setdefault("pnl_peaks", {})
     closed_now = set()
+
     for p in positions:
         inst_id = p["instId"]
         try:
             ratio = float(p.get("uplRatio", 0))
+            upl   = float(p.get("upl", 0))
+            imr   = float(p.get("imr", 0))
+            # IMR fallback: في cross-margin يكون uplRatio = upl/totalEquity
+            # نستخدم upl/imr كتقدير أدق لنسبة الهامش الفعلي لهذا المركز
+            if imr > 0:
+                ratio = min(ratio, upl / imr)
         except (ValueError, TypeError):
             ratio = 0.0
+            upl   = 0.0
 
+        # تحديث ذروة الربح (بالدولار والنسبة)
+        peak_pnl = max(pnl_peaks.get(inst_id, upl), upl)
+        pnl_peaks[inst_id] = peak_pnl
         peak = max(peaks.get(inst_id, ratio), ratio)
         peaks[inst_id] = peak
 
+        # 1. قاطع الخسارة الدولاري المطلق
+        if upl <= -ABS_LOSS_USD:
+            if client.close_position(inst_id):
+                add_log(status,
+                    f"🛑 وقف طارئ {inst_id}: خسارة ${abs(upl):.2f} (حد ${ABS_LOSS_USD})",
+                    "warning")
+                closed_now.add(inst_id)
+                peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
+            else:
+                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند خسارة ${abs(upl):.2f}", "error")
+            continue
+
+        # 2. قاطع النسبة (HARD_STOP)
         if ratio <= HARD_STOP:
             if client.close_position(inst_id):
                 add_log(status,
@@ -166,28 +219,53 @@ def _manage_open_positions(status, client, positions):
                     "warning")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
+            else:
+                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند {ratio*100:.0f}%", "error")
             continue
 
+        # 3. سقف المكسب الجامح (HARD_TAKE)
         if ratio >= HARD_TAKE:
             if client.close_position(inst_id):
-                add_log(status, f"🎯 جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
+                add_log(status,
+                    f"🎯 جني ربح {inst_id} عند +{ratio*100:.0f}%",
+                    "success")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
             continue
 
+        # 4. وقف متحرّك دولاري (الأساسي)
+        floor_pnl = _trail_floor_pnl(peak_pnl)
+        if floor_pnl is not None and upl <= floor_pnl:
+            if client.close_position(inst_id):
+                add_log(status,
+                    f"🔒 وقف متحرّك $ {inst_id}: قمّة +${peak_pnl:.3f} → ${upl:.3f} (قُفِل ${floor_pnl:.3f})",
+                    "success")
+                closed_now.add(inst_id)
+                peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
+            continue
+
+        # 5. وقف متحرّك نسبي (احتياطي)
         floor = _trail_floor(peak)
         if floor is not None and ratio <= floor:
             if client.close_position(inst_id):
                 add_log(status,
-                    f"🔒 وقف متحرّك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
+                    f"🔒 وقف متحرّك % {inst_id}: قمّة +{peak*100:.0f}% → {ratio*100:.0f}% (ربح مقفول)",
                     "success")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+                pnl_peaks.pop(inst_id, None)
 
+    # تنظيف: احذف أي ذروة لمركز لم يعد مفتوحاً
     active_ids = {p["instId"] for p in positions} - closed_now
     for k in list(peaks.keys()):
         if k not in active_ids:
             peaks.pop(k, None)
+    for k in list(pnl_peaks.keys()):
+        if k not in active_ids:
+            pnl_peaks.pop(k, None)
 
     return closed_now
 
@@ -202,6 +280,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     TAKE_PROFIT_PCT = 0.04
     CAPITAL_RATIO   = 0.95
     TOP_PAIRS       = cfg.SCAN_SYMBOLS
+    MIN_BALANCE     = 0.10   # حد أدنى للرصيد ($0.10 بدل $1.00)
 
     add_log(status,
         f"⚙️ {cfg.RISK_MODE} | رافعة x{LEVERAGE} | مخاطرة {cfg.RISK_PER_TRADE*100:.0f}% | "
@@ -253,8 +332,10 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         active -= closed_by_trail
 
     # ── كم مركزاً يمكن فتحه الآن؟ ────────────────────────────────────────────
-    slots_available = cfg.MAX_POSITIONS - len(active)
-    if slots_available <= 0 or balance < 1:
+    free_slots = cfg.MAX_POSITIONS - len(active)
+    # حد 1 صفقة فقط لكل دورة — يمنع race condition (مراكز متعددة قبل أن تظهر في OKX)
+    slots_available = min(free_slots, 1)
+    if slots_available <= 0 or balance < MIN_BALANCE:
         add_log(status, f"مراكز مفتوحة: {len(active)}/{cfg.MAX_POSITIONS} — لا دخول جديد")
         return
 
@@ -299,8 +380,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         return
 
     # ── حجم المركز: RISK_PER_TRADE من رأس المال (Kelly-مُعايَر) ─────────────
-    # الإصلاح: بدل قسمة الرصيد على عدد الصفقات (= 100% مخاطرة!) نستخدم النسبة
-    # المضبوطة في الإعدادات. هذا يضمن عدم تجاوز Kelly وحماية رأس المال.
     risk_capital = balance * cfg.RISK_PER_TRADE
 
     trades_entered = 0
