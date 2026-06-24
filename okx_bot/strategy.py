@@ -331,8 +331,14 @@ def analyze(candles_15m, candles_1h=None) -> Dict:
     total = max(-100, min(100, total))
     details["Score"] = total
 
-    # RR=3:1 → WR breakeven = 25% فقط، عتبة 40 تعطي إشارات أكثر مع الحفاظ على الجودة
-    THRESHOLD = 40
+    # عتبة الإشارة تُقرأ من الإعدادات (config.SIGNAL_THRESHOLD) — كانت ثابتة 40
+    # وتتجاهل الإعدادات، فلم يُطبَّق التخفيض إلى 35 قط. الآن مربوطة فعلياً.
+    # RR=3:1 → WR breakeven = 25% فقط، فعتبة أقل = إشارات أكثر بنفس الجودة.
+    try:
+        import config as _cfg
+        THRESHOLD = getattr(_cfg, "SIGNAL_THRESHOLD", 40)
+    except Exception:
+        THRESHOLD = 40
     signal = None
     if total >= THRESHOLD:
         signal = "buy"
