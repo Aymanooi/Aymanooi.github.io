@@ -1,14 +1,14 @@
 {
-  "last_run": "2026-06-24 14:03:44 UTC",
+  "last_run": "2026-06-24 14:03:45 UTC",
   "mode": "Live 💰",
-  "balance": 3.1392,
+  "balance": 3.1396,
   "positions": [
     {
       "instId": "UNI-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 2.848,
       "size": 2.0,
-      "pnl": 0.0
+      "pnl": -0.002
     },
     {
       "instId": "RIVER-USDT-SWAP",
@@ -42,32 +42,32 @@
   "total_trades": 59,
   "logs": [
     {
-      "time": "2026-06-24 14:03:45 UTC",
+      "time": "2026-06-24 14:03:47 UTC",
       "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 14:03:44 UTC",
-      "msg": "📉 رأس المال الكلي: $4.63 | القمّة $7.02 | تراجع 34.1% | مُنظّم ×0.35",
+      "time": "2026-06-24 14:03:46 UTC",
+      "msg": "📉 رأس المال الكلي: $4.63 | القمّة $7.02 | تراجع 34.0% | مُنظّم ×0.35",
       "level": "info"
     },
     {
-      "time": "2026-06-24 14:03:44 UTC",
-      "msg": "💰 الرصيد: $3.1392 USDT",
+      "time": "2026-06-24 14:03:46 UTC",
+      "msg": "💰 الرصيد: $3.1396 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 14:03:44 UTC",
+      "time": "2026-06-24 14:03:45 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-24 14:03:44 UTC",
+      "time": "2026-06-24 14:03:45 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 14:03:44 UTC",
+      "time": "2026-06-24 14:03:45 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -480,14 +480,14 @@
     "PROS-USDT-SWAP": 0.728078775736396,
     "APR-USDT-SWAP": 0.0,
     "RIVER-USDT-SWAP": 0.2215585012336563,
-    "UNI-USDT-SWAP": 0.0
+    "UNI-USDT-SWAP": -0.0070224719101164
   },
   "pnl_peaks": {
     "TIA-USDT-SWAP": 0.0936000000000002,
     "PROS-USDT-SWAP": 0.3416000000000019,
     "APR-USDT-SWAP": 0.0,
     "RIVER-USDT-SWAP": 0.1109000000000002,
-    "UNI-USDT-SWAP": 0.0
+    "UNI-USDT-SWAP": -0.0020000000000007
   },
   "brain_stats": {
     "wins": 14,
@@ -510,5 +510,5 @@
     "updated": "2026-06-24 14:03:41 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 34.06
+  "drawdown": 34.05
 }
