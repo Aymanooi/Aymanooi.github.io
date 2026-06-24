@@ -121,13 +121,14 @@ async def run():
 
 def _trail_floor(peak):
     """
-    وقف متحرʳك مُعاد معايرته لرافعة x20:
-    +100% هامش = +5% سعر = 2×ATR — حركة ذات معنى حقيقي، ليست ضجيج.
-    يُسلَّح بعد +100% هامش فقط لتجنّب القص المبكّر على تقلبات السعر العادية.
+    وقف متحرك معاد معايرته لرافعة x20:
+    يُسلَّح بعد +30% هامش (= +1.5% سعر) — حركة حقيقية تفوق ضجيج الدقيقة.
+    يحمي التعادل عند 30-80%، يقفل 45% من القمة بعد 80%, ويقفل أكثر كلما ارتفع.
     """
-    if peak < 1.00: return None          # تسليح بعد +100% هامش (+5% سعر عند x20)
-    if peak < 2.00: return 0.0           # +100–200%: احمِ التعادل كحد أدنى
-    if peak < 4.00: return peak * 0.60   # +200–400%: اقفل 60% من القمّة
+    if peak < 0.30: return None          # تسليح بعد +30% هامش (+1.5% سعر عند x20)
+    if peak < 0.80: return 0.0           # +30–80%: احمِ التعادل
+    if peak < 1.80: return peak * 0.45   # +80–180%: اقفل 45% من القمّة
+    if peak < 4.00: return peak * 0.60   # +180–400%: اقفل 60%
     if peak < 8.00: return peak * 0.70   # +400–800%: اقفل 70%
     return peak * 0.80                   # +800%+: اقفل 80% (رابح جامح)
 
@@ -137,13 +138,13 @@ def _manage_open_positions(status, client, positions):
     مدير مخاطر برمجي كامل لكل مركز مفتوح:
     - HARD_STOP: قاطع دائرة بالنسبة — يُغلق عند خسارة 40% من الهامش.
     - ABS_LOSS_USD: قاطع مطلق — أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة.
-    - HARD_TAKE: سقف أمان للمكاسب الجامحة فقط (نادر).
-    - وقف متحرʳك متدرج (_trail_floor): يقفل مكسباً متزايداً مع ترك الكبار يركضون.
+    - HARD_TAKE: سقف أمان للمكاسب الجامحة (+200% هامش).
+    - _trail_floor: وقف متحرك يقفل مكسباً متزايداً.
     يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
     """
-    HARD_TAKE    = 2.00    # سقف أمان: جني ربح عند +200% على الهامش (نادر)
-    HARD_STOP    = -0.40   # خُفِّض من -0.50 → -0.40: أغلق عند خسارة 40% من الهامش
-    ABS_LOSS_USD = 0.40    # قاطع مطلق: أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة
+    HARD_TAKE    = 2.00    # جني ربح عند +200% هامش
+    HARD_STOP    = -0.40   # أغلق عند -40% هامش
+    ABS_LOSS_USD = 0.40    # أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة
 
     peaks      = status.setdefault("peaks", {})
     closed_now = set()
@@ -163,7 +164,7 @@ def _manage_open_positions(status, client, positions):
         peak = max(peaks.get(inst_id, ratio), ratio)
         peaks[inst_id] = peak
 
-        # ── قاطع الدائرة: نسبة أو قيمة مطلقة ─────────────────────────────────────
+        # ── قاطع الدائرة: نسبة أو قيمة مطلقة ───────────────────────────────
         close_reason = None
         if ratio <= HARD_STOP:
             close_reason = f"{ratio*100:.0f}% (نسبة)"
@@ -196,12 +197,12 @@ def _manage_open_positions(status, client, positions):
         if floor is not None and ratio <= floor:
             if client.close_position(inst_id):
                 add_log(status,
-                    f"\U0001f512 وقف متحرʳك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
+                    f"\U0001f512 وقف متحرك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
                     "success")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
             else:
-                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند الوقف المتحرʳك", "error")
+                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند الوقف المتحرك", "error")
 
     active_ids = {p["instId"] for p in positions} - closed_now
     for k in list(peaks.keys()):
@@ -266,17 +267,20 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             f"⏳ أُغلقت: {', '.join(newly_closed)} — "
             f"محظورة من الدخول {brain.COOLDOWN_HOURS} ساعات", "info")
 
-    # ── وقف الخسارة المتحرʳك ─────────────────────────────────────────────────
+    # ── وقف الخسارة المتحرك ──────────────────────────────────────────────────
     closed_by_trail = _manage_open_positions(status, client, positions)
     if closed_by_trail:
         active -= closed_by_trail
 
-    # ── كم مركزاً يمكن فتحه الآن؟ ────────────────────────────────────────────────
+    # ── كم مركزاً يمكن فتحه الآن؟ ───────────────────────────────────────────
     MIN_BALANCE = 0.10
-    slots_available = cfg.MAX_POSITIONS - len(active)
-    if slots_available <= 0 or balance < MIN_BALANCE:
+    # حد صلب: لا تتجاوز MAX_POSITIONS مهما كان توقيت استجابة OKX API
+    if len(active) >= cfg.MAX_POSITIONS or balance < MIN_BALANCE:
         add_log(status, f"مراكز مفتوحة: {len(active)}/{cfg.MAX_POSITIONS} — لا دخول جديد")
         return
+
+    # مركز واحد فقط لكل دورة — يمنع فتح مراكز متعددة قبل تحديث OKX
+    slots_available = 1
 
     pairs            = client.get_top_pairs(TOP_PAIRS)
     signals          = []
