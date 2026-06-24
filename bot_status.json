@@ -1,97 +1,150 @@
 {
-  "last_run": "2026-06-24 17:55:04 UTC",
+  "last_run": "2026-06-24 17:55:58 UTC",
   "mode": "Live 💰",
-  "balance": 3.1449,
-  "positions": [],
+  "balance": 0.2605,
+  "positions": [
+    {
+      "instId": "ENSO-USDT-SWAP",
+      "side": "بيع 📉",
+      "entry": 0.5798,
+      "size": 97.0,
+      "pnl": -0.0679
+    }
+  ],
   "total_trades": 97,
   "logs": [
     {
-      "time": "2026-06-24 17:55:57 UTC",
-      "msg": "⏭️ maker فشل ENSO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 17:55:55 UTC",
-      "msg": "🧠 Brain WR=29.6% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
+      "time": "2026-06-24 17:55:59 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:55:55 UTC",
-      "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
+      "time": "2026-06-24 17:55:59 UTC",
+      "msg": "📉 رأس المال الكلي: $3.06 | القمّة $7.02 | تراجع 56.4% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:55:04 UTC",
-      "msg": "📉 رأس المال الكلي: $3.14 | القمّة $7.02 | تراجع 55.3% | مُنظّم ×0.00",
+      "time": "2026-06-24 17:55:58 UTC",
+      "msg": "💰 الرصيد: $0.2605 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:55:04 UTC",
-      "msg": "💰 الرصيد: $3.1449 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:55:04 UTC",
+      "time": "2026-06-24 17:55:58 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:55:04 UTC",
+      "time": "2026-06-24 17:55:58 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:55:04 UTC",
+      "time": "2026-06-24 17:55:58 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
     {
-      "time": "2026-06-24 17:54:59 UTC",
-      "msg": "📤 maker بيع 📉 ENSO-USDT-SWAP @~0.5791 | درجة:-35 | رأس المال:$2.988 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
-      "level": "success"
+      "time": "2026-06-24 17:55:46 UTC",
+      "msg": "⏭️ maker فشل ENSO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 17:54:57 UTC",
-      "msg": "🧠 Brain WR=29.6% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
+      "time": "2026-06-24 17:55:44 UTC",
+      "msg": "🧠 Brain WR=30.6% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:57 UTC",
+      "time": "2026-06-24 17:55:44 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:12 UTC",
-      "msg": "⏳ أُغلقت: SPCX-USDT-SWAP — إعادة دخول بعد 30 ثانية",
+      "time": "2026-06-24 17:54:50 UTC",
+      "msg": "⏳ أُغلقت: ENSO-USDT-SWAP, SPCX-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:12 UTC",
+      "time": "2026-06-24 17:54:50 UTC",
       "msg": "🧠 Brain تعلّم: SPCX-USDT-SWAP → خسارة ❌ (فعلي)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:11 UTC",
+      "time": "2026-06-24 17:54:50 UTC",
+      "msg": "🧠 Brain تعلّم: ENSO-USDT-SWAP → ربح ✅ (فعلي)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:54:49 UTC",
       "msg": "📉 رأس المال الكلي: $3.14 | القمّة $7.02 | تراجع 55.3% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:10 UTC",
+      "time": "2026-06-24 17:54:49 UTC",
       "msg": "💰 الرصيد: $3.1449 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:10 UTC",
+      "time": "2026-06-24 17:54:48 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:10 UTC",
+      "time": "2026-06-24 17:54:48 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:54:10 UTC",
+      "time": "2026-06-24 17:54:48 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 17:54:42 UTC",
+      "msg": "📤 maker بيع 📉 ENSO-USDT-SWAP @~0.5802 | درجة:-35 | رأس المال:$2.398 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 17:54:41 UTC",
+      "msg": "⏭️ maker فشل NEAR-USDT-SWAP: Order quantity must be a multiple of the lot size. — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 17:54:40 UTC",
+      "msg": "🧠 Brain WR=30.0% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:54:40 UTC",
+      "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:54:06 UTC",
+      "msg": "🔒 وقف متحرك $ SPCX-USDT-SWAP: قمّة +$0.036 → $-0.009 (قُفِل $0.000)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 17:54:06 UTC",
+      "msg": "📉 رأس المال الكلي: $3.14 | القمّة $7.02 | تراجع 55.2% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:54:05 UTC",
+      "msg": "💰 الرصيد: $2.5243 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:54:05 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:54:05 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:54:05 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -359,51 +412,6 @@
       "time": "2026-06-24 17:52:42 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:52:42 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 17:52:36 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:52:35 UTC",
-      "msg": "📉 رأس المال الكلي: $3.18 | القمّة $7.02 | تراجع 54.7% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:52:35 UTC",
-      "msg": "💰 الرصيد: $2.5605 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:52:35 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:52:35 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:52:35 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 17:52:30 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:52:29 UTC",
-      "msg": "📉 رأس المال الكلي: $3.17 | القمّة $7.02 | تراجع 54.8% | مُنظّم ×0.00",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -415,8 +423,12 @@
       "prob": 0.37
     }
   ],
-  "peaks": {},
-  "pnl_peaks": {},
+  "peaks": {
+    "ENSO-USDT-SWAP": -0.0241462573301154
+  },
+  "pnl_peaks": {
+    "ENSO-USDT-SWAP": -0.0679000000000033
+  },
   "brain_stats": {
     "wins": 21,
     "losses": 50,
@@ -435,8 +447,8 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-24 17:54:59 UTC"
+    "updated": "2026-06-24 17:55:39 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 55.26
+  "drawdown": 56.39
 }
