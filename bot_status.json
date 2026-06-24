@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 06:33:09 UTC",
   "mode": "Live 💰",
-  "balance": 0.1236,
+  "balance": 0.1376,
   "positions": [
     {
       "instId": "PROS-USDT-SWAP",
@@ -40,8 +40,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 06:33:09 UTC",
-      "msg": "💰 الرصيد: $0.1236 USDT",
+      "time": "2026-06-24 06:33:10 UTC",
+      "msg": "💰 الرصيد: $0.1376 USDT",
       "level": "info"
     },
     {
