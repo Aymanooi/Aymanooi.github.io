@@ -43,7 +43,7 @@
       "side": "بيع 📉",
       "entry": 0.1991,
       "size": 114.0,
-      "pnl": 0.0
+      "pnl": -0.0114
     },
     {
       "instId": "EDGE-USDT-SWAP",
@@ -68,7 +68,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:43:03 UTC",
+      "time": "2026-06-24 08:43:04 UTC",
       "msg": "💰 الرصيد: $0.2805 USDT",
       "level": "info"
     },
