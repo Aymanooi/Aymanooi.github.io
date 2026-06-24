@@ -664,7 +664,7 @@
       "score": -49,
       "status": "win",
       "opened": "2026-06-24 13:07:15 UTC",
-      "exit": 0.2158
+      "exit": 0.2155
     },
     {
       "instId": "RAVE-USDT-SWAP",
@@ -730,6 +730,26 @@
       "exit": 0.224
     },
     {
+      "instId": "BSB-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 12,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.2961,
+      "score": -42,
+      "status": "open",
+      "opened": "2026-06-24 13:30:36 UTC"
+    },
+    {
       "instId": "SPCX-USDT-SWAP",
       "signal": "sell",
       "features": {
@@ -744,21 +764,21 @@
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 155.07,
+      "entry": 155.14,
       "score": -38,
       "status": "open",
-      "opened": "2026-06-24 13:31:51 UTC"
+      "opened": "2026-06-24 13:31:58 UTC"
     }
   ],
   "wins": 14,
   "losses": 20,
   "lr": 0.05,
-  "updated": "2026-06-24 13:31:51 UTC",
+  "updated": "2026-06-24 13:31:58 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
     "DOT-USDT-SWAP": "2026-06-23T19:01:09.998370+00:00",
-    "LIGHT-USDT-SWAP": "2026-06-24T13:30:28.309307+00:00",
+    "LIGHT-USDT-SWAP": "2026-06-24T13:30:47.173021+00:00",
     "AXS-USDT-SWAP": "2026-06-24T12:39:05.712655+00:00",
     "DYDX-USDT-SWAP": "2026-06-24T10:46:36.349457+00:00",
     "FARTCOIN-USDT-SWAP": "2026-06-24T01:05:58.159560+00:00",
@@ -804,6 +824,6 @@
     "BERA-USDT-SWAP": "2026-06-24T13:09:05.648693+00:00",
     "ETH-USDT-SWAP": "2026-06-24T13:23:01.012345+00:00",
     "SNX-USDT-SWAP": "2026-06-24T13:23:42.843437+00:00",
-    "XTZ-USDT-SWAP": "2026-06-24T13:30:28.765281+00:00"
+    "XTZ-USDT-SWAP": "2026-06-24T13:30:05.368657+00:00"
   }
 }
