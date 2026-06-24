@@ -1,86 +1,123 @@
 {
-  "last_run": "2026-06-24 10:31:26 UTC",
+  "last_run": "2026-06-24 10:32:03 UTC",
   "mode": "Live 💰",
-  "balance": 1.1105,
+  "balance": 0.6182,
   "positions": [
+    {
+      "instId": "DYDX-USDT-SWAP",
+      "side": "شراء 📈",
+      "entry": 0.14858625,
+      "size": 48.0,
+      "pnl": -0.0008
+    },
     {
       "instId": "ZBT-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.10616,
       "size": 16.0,
-      "pnl": -0.0002
+      "pnl": -0.0014
     },
     {
       "instId": "ALLO-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.39574,
       "size": 1.0,
-      "pnl": -0.0077
+      "pnl": -0.008
     },
     {
       "instId": "OP-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.1016901192842943,
       "size": 503.0,
-      "pnl": 0.0351
+      "pnl": 0.0251
     },
     {
       "instId": "AXS-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 1.031748139534884,
       "size": 430.0,
-      "pnl": -0.0236
+      "pnl": 0.0366
     }
   ],
   "total_trades": 16,
   "logs": [
     {
-      "time": "2026-06-24 10:32:09 UTC",
-      "msg": "✅ شراء 📈 DYDX-USDT-SWAP @ 0.14859 | درجة:36 | هامش:$0.200 (10.8% Kelly)",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 10:32:07 UTC",
-      "msg": "🧠 Kelly ديناميكي: WR=61.5% × مُنظّم 0.60 → 10.8% من رأس المال",
+      "time": "2026-06-24 10:32:04 UTC",
+      "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:32:07 UTC",
-      "msg": "⏳ تخطّى 13 عملة في فترة التهدئة",
+      "time": "2026-06-24 10:32:04 UTC",
+      "msg": "📉 رأس المال الكلي: $6.32 | القمّة $7.02 | تراجع 10.0% | مُنظّم ×0.60",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:31:28 UTC",
-      "msg": "⏳ أُغلقت: AGLD-USDT-SWAP — محظورة من الدخول 1 ساعات",
+      "time": "2026-06-24 10:32:04 UTC",
+      "msg": "💰 الرصيد: $0.6182 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:31:28 UTC",
-      "msg": "🧠 Brain تعلّم: AGLD-USDT-SWAP → خسارة ❌ (فعلي)",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:31:28 UTC",
-      "msg": "📉 رأس المال الكلي: $6.27 | القمّة $7.02 | تراجع 10.7% | مُنظّم ×0.60",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:31:27 UTC",
-      "msg": "💰 الرصيد: $1.1105 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:31:27 UTC",
+      "time": "2026-06-24 10:32:03 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:31:26 UTC",
+      "time": "2026-06-24 10:32:03 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:31:26 UTC",
+      "time": "2026-06-24 10:32:03 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 10:31:59 UTC",
+      "msg": "✅ شراء 📈 DYDX-USDT-SWAP @ 0.14859 | درجة:40 | هامش:$0.193 (10.8% Kelly)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 10:31:58 UTC",
+      "msg": "🧠 Kelly ديناميكي: WR=61.5% × مُنظّم 0.60 → 10.8% من رأس المال",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:58 UTC",
+      "msg": "⏳ تخطّى 13 عملة في فترة التهدئة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:17 UTC",
+      "msg": "⏳ أُغلقت: AGLD-USDT-SWAP — محظورة من الدخول 1 ساعات",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:17 UTC",
+      "msg": "🧠 Brain تعلّم: AGLD-USDT-SWAP → خسارة ❌ (فعلي)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:16 UTC",
+      "msg": "📉 رأس المال الكلي: $6.24 | القمّة $7.02 | تراجع 11.2% | مُنظّم ×0.60",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:16 UTC",
+      "msg": "💰 الرصيد: $1.0725 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:15 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:15 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:31:15 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -403,36 +440,6 @@
       "time": "2026-06-24 10:28:50 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=66.7% × مُنظّم 1.00 → 18.0% من رأس المال",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:28:50 UTC",
-      "msg": "⚖️ تركّز buy (3/5) — أُفضّل sell لتوازن المحفظة وتقليل خطر الترابط",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:28:50 UTC",
-      "msg": "⏳ تخطّى 12 عملة في فترة التهدئة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:28:07 UTC",
-      "msg": "📉 رأس المال الكلي: $6.33 | القمّة $7.02 | تراجع 9.8% | مُنظّم ×1.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:28:07 UTC",
-      "msg": "💰 الرصيد: $0.4590 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:28:07 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:28:07 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -440,14 +447,8 @@
     {
       "instId": "DYDX-USDT-SWAP",
       "signal": "buy",
-      "score": 36,
-      "prob": 0.72
-    },
-    {
-      "instId": "LDO-USDT-SWAP",
-      "signal": "sell",
-      "score": -42,
-      "prob": 0.3
+      "score": 40,
+      "prob": 0.75
     },
     {
       "instId": "LIT-USDT-SWAP",
@@ -466,19 +467,27 @@
       "signal": "buy",
       "score": 38,
       "prob": 0.7
+    },
+    {
+      "instId": "PIEVERSE-USDT-SWAP",
+      "signal": "buy",
+      "score": 35,
+      "prob": 0.67
     }
   ],
   "peaks": {
-    "AXS-USDT-SWAP": 0.0,
-    "OP-USDT-SWAP": 0.013734417394987701,
+    "AXS-USDT-SWAP": 0.016499331108192596,
+    "OP-USDT-SWAP": 0.009805526971828437,
     "ALLO-USDT-SWAP": 0.0045484408955365,
-    "ZBT-USDT-SWAP": -0.0009419743782968
+    "DYDX-USDT-SWAP": -0.002187521033855533,
+    "ZBT-USDT-SWAP": -0.0084777694046712
   },
   "pnl_peaks": {
-    "AXS-USDT-SWAP": 0.0,
-    "OP-USDT-SWAP": 0.0351499999999658,
+    "AXS-USDT-SWAP": 0.0366299999999873,
+    "OP-USDT-SWAP": 0.0250899999999627,
     "ALLO-USDT-SWAP": 0.0017999999999996,
-    "ZBT-USDT-SWAP": -0.0001599999999999
+    "DYDX-USDT-SWAP": -0.0007799999999998,
+    "ZBT-USDT-SWAP": -0.0014399999999999
   },
   "brain_stats": {
     "wins": 8,
@@ -498,8 +507,8 @@
       "RSIDivergence": 0.986
     },
     "kelly": 20.0,
-    "updated": "2026-06-24 10:30:48 UTC"
+    "updated": "2026-06-24 10:31:59 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 10.65
+  "drawdown": 10.02
 }
