@@ -492,8 +492,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             eff_leverage = max_lev
             add_log(status, f"ℹ️ {inst_id}: رافعة {LEVERAGE}x→{eff_leverage:g}x (حد العملة)", "info")
 
-        # رأس المال كاملاً (95% لاحتياطي رسوم)
-        risk_capital = balance * CAPITAL_RATIO
+        # حجم قابل للنجاة: نسبة محدودة من الرصيد (RISK_PER_TRADE) — الباكتيست أثبت
+        # أن رأس المال الكامل يُصفّي الحساب عند أول سلسلة خسائر حتى لو كان الإعداد رابحاً.
+        risk_capital = balance * cfg.RISK_PER_TRADE
 
         client.set_leverage(inst_id, eff_leverage)
         sz = client.calculate_contracts(inst_id, risk_capital, live_price, eff_leverage, CAPITAL_RATIO)
