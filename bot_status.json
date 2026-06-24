@@ -6,42 +6,37 @@
   "total_trades": 88,
   "logs": [
     {
-      "time": "2026-06-24 17:23:39 UTC",
-      "msg": "⏭️ maker فشل AERO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 17:23:37 UTC",
+      "time": "2026-06-24 17:23:30 UTC",
       "msg": "⏭️ maker فشل OPG-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 17:23:36 UTC",
+      "time": "2026-06-24 17:23:29 UTC",
       "msg": "⏭️ maker فشل MET-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 17:23:35 UTC",
+      "time": "2026-06-24 17:23:28 UTC",
       "msg": "⏭️ maker فشل MORPHO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 17:23:33 UTC",
+      "time": "2026-06-24 17:23:26 UTC",
       "msg": "🧠 Brain WR=29.4% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:23:33 UTC",
+      "time": "2026-06-24 17:23:26 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:23:33 UTC",
+      "time": "2026-06-24 17:23:26 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:22:45 UTC",
+      "time": "2026-06-24 17:22:44 UTC",
       "msg": "⏳ أُغلقت: ONDO-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
@@ -404,6 +399,11 @@
       "time": "2026-06-24 17:20:27 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:20:26 UTC",
+      "msg": "📉 رأس المال الكلي: $3.98 | القمّة $7.02 | تراجع 43.4% | مُنظّم ×0.00",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -424,12 +424,6 @@
       "instId": "OPG-USDT-SWAP",
       "signal": "sell",
       "score": -36,
-      "prob": 0.34
-    },
-    {
-      "instId": "AERO-USDT-SWAP",
-      "signal": "sell",
-      "score": -42,
       "prob": 0.34
     }
   ],
