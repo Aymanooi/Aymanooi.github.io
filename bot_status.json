@@ -8,7 +8,7 @@
       "side": "شراء 📈",
       "entry": 3.201,
       "size": 160.0,
-      "pnl": -0.08
+      "pnl": -0.096
     },
     {
       "instId": "ZRO-USDT-SWAP",
@@ -21,42 +21,37 @@
   "total_trades": 35,
   "logs": [
     {
-      "time": "2026-06-24 12:42:32 UTC",
+      "time": "2026-06-24 12:42:44 UTC",
       "msg": "📤 maker شراء 📈 SOON-USDT-SWAP @~0.162 | درجة:64 | هامش:$0.173 (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-24 12:42:31 UTC",
+      "time": "2026-06-24 12:42:43 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=48.0% × مُنظّم 0.35 → 3.5% من رأس المال",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:42:31 UTC",
+      "time": "2026-06-24 12:42:43 UTC",
       "msg": "⏳ تخطّى 18 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:42:03 UTC",
+      "time": "2026-06-24 12:42:04 UTC",
       "msg": "⏳ أُغلقت: OPG-USDT-SWAP — محظورة من الدخول 1 ساعات",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:42:03 UTC",
+      "time": "2026-06-24 12:42:04 UTC",
       "msg": "🧠 Brain تعلّم: OPG-USDT-SWAP → ربح ✅ (تقدير)",
       "level": "info"
     },
     {
       "time": "2026-06-24 12:42:03 UTC",
-      "msg": "🧹 أُلغيت 1 أوامر maker عالقة + نُظّفت من الدماغ",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 12:42:02 UTC",
       "msg": "📉 رأس المال الكلي: $5.35 | القمّة $7.02 | تراجع 23.8% | مُنظّم ×0.35",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:42:02 UTC",
+      "time": "2026-06-24 12:42:03 UTC",
       "msg": "💰 الرصيد: $1.7337 USDT",
       "level": "info"
     },
@@ -419,6 +414,11 @@
       "time": "2026-06-24 12:38:00 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
+    },
+    {
+      "time": "2026-06-24 12:38:00 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
     }
   ],
   "risk_mode": "rocket",
@@ -436,6 +436,12 @@
       "prob": 0.29
     },
     {
+      "instId": "MORPHO-USDT-SWAP",
+      "signal": "buy",
+      "score": 36,
+      "prob": 0.7
+    },
+    {
       "instId": "LIGHT-USDT-SWAP",
       "signal": "buy",
       "score": 45,
@@ -446,20 +452,14 @@
       "signal": "sell",
       "score": -36,
       "prob": 0.31
-    },
-    {
-      "instId": "ASTER-USDT-SWAP",
-      "signal": "sell",
-      "score": -38,
-      "prob": 0.32
     }
   ],
   "peaks": {
-    "ORDI-USDT-SWAP": -0.03128911138923588,
+    "ORDI-USDT-SWAP": -0.037558685446010834,
     "ZRO-USDT-SWAP": -0.04366673715373197
   },
   "pnl_peaks": {
-    "ORDI-USDT-SWAP": -0.0799999999999983,
+    "ORDI-USDT-SWAP": -0.0960000000000037,
     "ZRO-USDT-SWAP": -0.0412999999999997
   },
   "brain_stats": {
