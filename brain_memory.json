@@ -414,32 +414,12 @@
       "status": "loss",
       "opened": "2026-06-24 12:27:33 UTC",
       "exit": 0.1499
-    },
-    {
-      "instId": "GRAM-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 5,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": -15
-      },
-      "entry": 1.616,
-      "score": 43,
-      "status": "open",
-      "opened": "2026-06-24 12:28:28 UTC"
     }
   ],
   "wins": 10,
   "losses": 10,
   "lr": 0.05,
-  "updated": "2026-06-24 12:28:28 UTC",
+  "updated": "2026-06-24 12:28:35 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
