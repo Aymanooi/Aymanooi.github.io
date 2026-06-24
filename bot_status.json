@@ -1,25 +1,55 @@
 {
-  "last_run": "2026-06-24 16:55:29 UTC",
+  "last_run": "2026-06-24 16:55:32 UTC",
   "mode": "Live 💰",
-  "balance": 0.0953,
+  "balance": 0.1566,
   "positions": [
     {
       "instId": "SOON-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.1586,
       "size": 3.5,
-      "pnl": -0.0035
+      "pnl": -0.007
     },
     {
       "instId": "MORPHO-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 1.6639,
       "size": 36.0,
-      "pnl": 0.0468
+      "pnl": 0.1152
     }
   ],
   "total_trades": 83,
   "logs": [
+    {
+      "time": "2026-06-24 16:55:34 UTC",
+      "msg": "مراكز مفتوحة: 2/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:55:33 UTC",
+      "msg": "📉 رأس المال الكلي: $3.43 | القمّة $7.02 | تراجع 51.1% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:55:33 UTC",
+      "msg": "💰 الرصيد: $0.1566 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:55:33 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:55:32 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:55:32 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 16:55:30 UTC",
       "msg": "مراكز مفتوحة: 2/1 — لا دخول جديد",
@@ -389,36 +419,6 @@
       "time": "2026-06-24 16:51:02 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 16:51:01 UTC",
-      "msg": "📉 رأس المال الكلي: $3.17 | القمّة $7.02 | تراجع 54.9% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 16:51:01 UTC",
-      "msg": "💰 الرصيد: $1.9857 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 16:51:01 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 16:51:01 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 16:51:01 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 16:50:57 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -456,11 +456,11 @@
   ],
   "peaks": {
     "SOON-USDT-SWAP": 0.0,
-    "MORPHO-USDT-SWAP": 0.03240129605184384
+    "MORPHO-USDT-SWAP": 0.03839001859516636
   },
   "pnl_peaks": {
     "SOON-USDT-SWAP": 0.0,
-    "MORPHO-USDT-SWAP": 0.0972000000000053
+    "MORPHO-USDT-SWAP": 0.1152000000000033
   },
   "brain_stats": {
     "wins": 18,
@@ -483,5 +483,5 @@
     "updated": "2026-06-24 16:55:24 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 52.06
+  "drawdown": 51.13
 }
