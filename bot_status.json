@@ -8,13 +8,13 @@
       "side": "بيع 📉",
       "entry": 0.1258,
       "size": 43.0,
-      "pnl": 0.0215
+      "pnl": 0.0258
     }
   ],
   "total_trades": 75,
   "logs": [
     {
-      "time": "2026-06-24 16:20:34 UTC",
+      "time": "2026-06-24 16:20:35 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
@@ -24,12 +24,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 16:20:33 UTC",
+      "time": "2026-06-24 16:20:34 UTC",
       "msg": "💰 الرصيد: $2.9513 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 16:20:33 UTC",
+      "time": "2026-06-24 16:20:34 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -448,10 +448,10 @@
     }
   ],
   "peaks": {
-    "FARTCOIN-USDT-SWAP": 0.0794912559618433
+    "FARTCOIN-USDT-SWAP": 0.095389507154211
   },
   "pnl_peaks": {
-    "FARTCOIN-USDT-SWAP": 0.0215
+    "FARTCOIN-USDT-SWAP": 0.0257999999999995
   },
   "brain_stats": {
     "wins": 18,
