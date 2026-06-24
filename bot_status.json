@@ -1,14 +1,21 @@
 {
-  "last_run": "2026-06-24 06:28:34 UTC",
+  "last_run": "2026-06-24 06:28:42 UTC",
   "mode": "Live 💰",
-  "balance": 1.2813,
+  "balance": 1.0871,
   "positions": [
+    {
+      "instId": "AVNT-USDT-SWAP",
+      "side": "شراء 📈",
+      "entry": 0.1112,
+      "size": 34.0,
+      "pnl": -0.0034
+    },
     {
       "instId": "APT-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.6456,
       "size": 5.0,
-      "pnl": 0.0015
+      "pnl": 0.001
     },
     {
       "instId": "CRV-USDT-SWAP",
@@ -18,40 +25,60 @@
       "pnl": 1.0556
     }
   ],
-  "total_trades": 5,
+  "total_trades": 6,
   "logs": [
     {
-      "time": "2026-06-24 06:29:21 UTC",
-      "msg": "⏭️ فشل AVNT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 06:29:21 UTC",
-      "msg": "⚠️ AVNT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 06:29:19 UTC",
-      "msg": "🧠 Kelly ديناميكي: WR=50.0% → 18.0% من رأس المال",
+      "time": "2026-06-24 06:29:29 UTC",
+      "msg": "لا توجد إشارات كافية",
       "level": "info"
     },
     {
-      "time": "2026-06-24 06:28:35 UTC",
-      "msg": "💰 الرصيد: $1.2813 USDT",
+      "time": "2026-06-24 06:28:42 UTC",
+      "msg": "💰 الرصيد: $1.0871 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 06:28:34 UTC",
+      "time": "2026-06-24 06:28:42 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 06:28:34 UTC",
+      "time": "2026-06-24 06:28:42 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 06:28:34 UTC",
+      "time": "2026-06-24 06:28:42 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 06:28:38 UTC",
+      "msg": "✅ شراء 📈 AVNT-USDT-SWAP @ 0.111 | درجة:42 | هامش:$0.203 (18.0% Kelly)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 06:28:37 UTC",
+      "msg": "🧠 Kelly ديناميكي: WR=50.0% → 18.0% من رأس المال",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 06:28:03 UTC",
+      "msg": "💰 الرصيد: $1.1258 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 06:28:02 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 06:28:02 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 06:28:02 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -399,40 +426,14 @@
       "time": "2026-06-24 06:26:06 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 06:26:06 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 06:26:04 UTC",
-      "msg": "مراكز مفتوحة: 2/5 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 06:26:04 UTC",
-      "msg": "💰 الرصيد: $0.8096 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 06:26:03 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
-  "top_signals": [
-    {
-      "instId": "AVNT-USDT-SWAP",
-      "signal": "buy",
-      "score": 42,
-      "prob": 0.71
-    }
-  ],
+  "top_signals": [],
   "peaks": {
     "CRV-USDT-SWAP": 0.1402805611222457,
-    "APT-USDT-SWAP": 0.0402726146220589
+    "APT-USDT-SWAP": 0.0402726146220589,
+    "AVNT-USDT-SWAP": -0.017985611510789
   },
   "stopped": true
 }
