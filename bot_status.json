@@ -22,7 +22,7 @@
       "side": "شراء 📈",
       "entry": 0.4020888888888891,
       "size": 9.0,
-      "pnl": 0.0136
+      "pnl": 0.0127
     },
     {
       "instId": "APE-USDT-SWAP",
@@ -507,6 +507,6 @@
       "RSIDivergence": 1.0
     },
     "kelly": 20.0,
-    "updated": "2026-06-24 10:12:59 UTC"
+    "updated": "2026-06-24 10:12:51 UTC"
   }
 }
