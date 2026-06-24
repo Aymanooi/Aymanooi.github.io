@@ -101,6 +101,24 @@ class OKXClient:
             return None
         return pos
 
+    def get_pending_orders(self):
+        """قائمة الأوامر الحيّة (غير المنفّذة بعد) — تُستخدم لتنظيف أوامر maker العالقة."""
+        try:
+            result = self.trade_api.get_order_list(instType="SWAP")
+            if result["code"] != "0":
+                return []
+            return result.get("data", [])
+        except Exception:
+            return []
+
+    def cancel_order(self, inst_id, ord_id):
+        """يلغي أمراً واحداً بمعرّفه. يُرجع True عند النجاح."""
+        try:
+            result = self.trade_api.cancel_order(instId=inst_id, ordId=ord_id)
+            return result["code"] == "0"
+        except Exception:
+            return False
+
     def get_last_realized_pnl(self, inst_id):
         """
         الربح/الخسارة المحقّق فعلياً لآخر مركز مُغلق على هذه العملة.
@@ -174,6 +192,48 @@ class OKXClient:
             sz=str(sz),
             attachAlgoOrds=[{
                 "attachAlgoClOrdId": f"b{int(time.time() * 1000) % (10 ** 15)}",
+                "tpTriggerPx": str(tp_price),
+                "tpOrdPx": "-1",
+                "slTriggerPx": str(sl_price),
+                "slOrdPx": "-1",
+            }]
+        )
+        return result
+
+    def place_order_maker(self, inst_id, side, sz, ref_price,
+                          sl_override, tp_override, offset=0.0005):
+        """
+        أمر دخول maker (post_only) بسعر حدّي داخل الفرق السعري قليلاً، فلا يَعبر
+        السوق أبداً (مضمون maker وإلا ترفضه OKX) → يحذف رسوم taker (~2% على x20).
+
+        offset: مقدار الإزاحة داخل السوق (افتراضي 0.05%) — شراء أقل من السعر،
+        بيع أعلى منه. السلبية: قد لا يُنفَّذ لو ابتعد السعر — يُنظَّف في الدورة التالية.
+
+        تُرفَق أوامر SL/TP تلقائياً (تُفعَّل بعد التنفيذ).
+        """
+        info    = self.get_instrument_info(inst_id)
+        tick_sz = float(info.get("tickSz", 0)) if info else 0
+
+        if side == "buy":
+            limit_px = ref_price * (1 - offset)
+        else:
+            limit_px = ref_price * (1 + offset)
+
+        sl_price, tp_price = sl_override, tp_override
+        if tick_sz > 0:
+            limit_px = self._round_to_tick(limit_px, tick_sz)
+            sl_price = self._round_to_tick(sl_price, tick_sz)
+            tp_price = self._round_to_tick(tp_price, tick_sz)
+
+        result = self.trade_api.place_order(
+            instId=inst_id,
+            tdMode="cross",
+            side=side,
+            ordType="post_only",
+            px=str(limit_px),
+            sz=str(sz),
+            attachAlgoOrds=[{
+                "attachAlgoClOrdId": f"m{int(time.time() * 1000) % (10 ** 15)}",
                 "tpTriggerPx": str(tp_price),
                 "tpOrdPx": "-1",
                 "slTriggerPx": str(sl_price),
