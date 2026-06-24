@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 11:34:42 UTC",
   "mode": "Live 💰",
-  "balance": 3.425,
+  "balance": 3.4251,
   "positions": [
     {
       "instId": "PIEVERSE-USDT-SWAP",
@@ -53,7 +53,7 @@
     },
     {
       "time": "2026-06-24 11:34:43 UTC",
-      "msg": "💰 الرصيد: $3.4250 USDT",
+      "msg": "💰 الرصيد: $3.4251 USDT",
       "level": "info"
     },
     {
