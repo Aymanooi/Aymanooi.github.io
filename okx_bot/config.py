@@ -64,7 +64,7 @@ EMA_SLOW = 21
 RSI_PERIOD = 14
 RSI_BUY_MAX = 65
 RSI_SELL_MIN = 35
-TIMEFRAME = "15m"
+TIMEFRAME = "1m"   # سكالبينغ فريم الدقيقة (طلب المستخدم)
 SIGNAL_THRESHOLD = 35   # عتبة الدخول المتكرر — تتيح الدخول السريع المتتالي (طلب المستخدم)
 
 # === Bot Settings ===
