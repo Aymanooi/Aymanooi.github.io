@@ -1,20 +1,20 @@
 {
   "last_run": "2026-06-24 17:09:05 UTC",
   "mode": "Live 💰",
-  "balance": 0.7122,
+  "balance": 0.706,
   "positions": [
     {
       "instId": "ARKM-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.11458,
       "size": 599.0,
-      "pnl": 0.4792
+      "pnl": 0.4732
     }
   ],
   "total_trades": 86,
   "logs": [
     {
-      "time": "2026-06-24 17:09:07 UTC",
+      "time": "2026-06-24 17:09:06 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
@@ -24,8 +24,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:09:06 UTC",
-      "msg": "💰 الرصيد: $0.7122 USDT",
+      "time": "2026-06-24 17:09:05 UTC",
+      "msg": "💰 الرصيد: $0.7060 USDT",
       "level": "info"
     },
     {
