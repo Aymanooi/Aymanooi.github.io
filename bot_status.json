@@ -1,21 +1,21 @@
 {
   "last_run": "2026-06-24 01:58:11 UTC",
   "mode": "Live 💰",
-  "balance": 1.2489,
+  "balance": 1.2545,
   "positions": [
     {
       "instId": "LINK-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 7.597,
       "size": 3.0,
-      "pnl": 0.111
+      "pnl": 0.114
     },
     {
       "instId": "KITE-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.16283,
       "size": 5.0,
-      "pnl": 0.1605
+      "pnl": 0.1625
     },
     {
       "instId": "COAI-USDT-SWAP",
@@ -28,17 +28,17 @@
   "total_trades": 4,
   "logs": [
     {
-      "time": "2026-06-24 01:58:11 UTC",
+      "time": "2026-06-24 01:58:12 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 01:58:11 UTC",
-      "msg": "💰 الرصيد: $1.2489 USDT",
+      "time": "2026-06-24 01:58:12 UTC",
+      "msg": "💰 الرصيد: $1.2545 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 01:58:11 UTC",
+      "time": "2026-06-24 01:58:12 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20 | مسح: 100 عملة",
       "level": "info"
     },
@@ -439,7 +439,7 @@
   ],
   "peaks": {
     "COAI-USDT-SWAP": 0.2261152733042127,
-    "KITE-USDT-SWAP": 0.1971381195111466,
+    "KITE-USDT-SWAP": 0.1995946692869865,
     "LINK-USDT-SWAP": 0.1526918520468623
   }
 }
