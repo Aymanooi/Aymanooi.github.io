@@ -798,7 +798,7 @@
         "EMA": 25,
         "RSI": -5,
         "MACD": 20,
-        "BB": -5,
+        "BB": -15,
         "Stoch": -5,
         "Volume": 10,
         "Pattern": 10,
@@ -807,15 +807,15 @@
         "RSIDivergence": 15
       },
       "entry": 0.198,
-      "score": 62,
+      "score": 58,
       "status": "open",
-      "opened": "2026-06-24 13:34:10 UTC"
+      "opened": "2026-06-24 13:34:16 UTC"
     }
   ],
   "wins": 14,
   "losses": 22,
   "lr": 0.05,
-  "updated": "2026-06-24 13:34:10 UTC",
+  "updated": "2026-06-24 13:34:16 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
