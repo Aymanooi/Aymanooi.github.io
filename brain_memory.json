@@ -144,7 +144,7 @@
       "score": 35,
       "status": "win",
       "opened": "2026-06-24 09:31:17 UTC",
-      "exit": 0.4042
+      "exit": 0.4046
     },
     {
       "instId": "PROS-USDT-SWAP",
@@ -203,7 +203,7 @@
       "score": 42,
       "status": "loss",
       "opened": "2026-06-24 10:12:47 UTC",
-      "exit": 0.671
+      "exit": 0.6703
     },
     {
       "instId": "ARX-USDT-SWAP",
@@ -245,53 +245,13 @@
       "score": -42,
       "status": "win",
       "opened": "2026-06-24 10:23:31 UTC",
-      "exit": 0.6323
-    },
-    {
-      "instId": "AXS-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 1.0318,
-      "score": 45,
-      "status": "open",
-      "opened": "2026-06-24 10:27:31 UTC"
-    },
-    {
-      "instId": "ALLO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.39573,
-      "score": -38,
-      "status": "open",
-      "opened": "2026-06-24 10:28:11 UTC"
+      "exit": 0.6328
     }
   ],
   "wins": 8,
   "losses": 4,
   "lr": 0.05,
-  "updated": "2026-06-24 10:28:11 UTC",
+  "updated": "2026-06-24 10:28:10 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -318,10 +278,10 @@
     "GRASS-USDT-SWAP": "2026-06-24T10:21:35.693202+00:00",
     "ARX-USDT-SWAP": "2026-06-24T10:24:55.337967+00:00",
     "UNI-USDT-SWAP": "2026-06-24T10:24:54.982450+00:00",
-    "MASK-USDT-SWAP": "2026-06-24T10:26:48.166017+00:00",
-    "KGEN-USDT-SWAP": "2026-06-24T10:26:48.644958+00:00",
-    "ENSO-USDT-SWAP": "2026-06-24T10:26:49.090686+00:00",
-    "SOON-USDT-SWAP": "2026-06-24T10:26:49.541944+00:00",
-    "JTO-USDT-SWAP": "2026-06-24T10:26:49.946440+00:00"
+    "KGEN-USDT-SWAP": "2026-06-24T10:27:08.342500+00:00",
+    "MASK-USDT-SWAP": "2026-06-24T10:27:08.859176+00:00",
+    "ENSO-USDT-SWAP": "2026-06-24T10:27:09.368538+00:00",
+    "JTO-USDT-SWAP": "2026-06-24T10:27:09.859375+00:00",
+    "SOON-USDT-SWAP": "2026-06-24T10:27:10.351634+00:00"
   }
 }
