@@ -618,16 +618,16 @@
         "OBV": -10,
         "RSIDivergence": -15
       },
-      "entry": 0.6973,
+      "entry": 0.6969,
       "score": -48,
       "status": "open",
-      "opened": "2026-06-24 12:46:53 UTC"
+      "opened": "2026-06-24 12:47:24 UTC"
     }
   ],
   "wins": 13,
   "losses": 15,
   "lr": 0.05,
-  "updated": "2026-06-24 12:46:53 UTC",
+  "updated": "2026-06-24 12:47:24 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
