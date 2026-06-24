@@ -124,30 +124,12 @@
       "status": "win",
       "opened": "2026-06-24 08:30:55 UTC",
       "exit": 0.2133
-    },
-    {
-      "instId": "APE-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15
-      },
-      "entry": 0.13646,
-      "score": 42,
-      "status": "open",
-      "opened": "2026-06-24 09:12:28 UTC"
     }
   ],
   "wins": 5,
   "losses": 1,
   "lr": 0.05,
-  "updated": "2026-06-24 09:13:06 UTC",
+  "updated": "2026-06-24 09:13:16 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
