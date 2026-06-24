@@ -139,15 +139,13 @@ def _trail_floor(peak):
 def _manage_open_positions(status, client, positions):
     """
     مدير مخاطر برمجي كامل لكل مركز مفتوح:
-    - HARD_STOP: قاطع دائرة — يُغلق المركز عند خسارة كارثية (شبكة أمان لو فُتح
-      المركز بدون أمر وقف، فلا يصل إلى التصفية الكاملة).
-    - HARD_TAKE: سقف أمان للمكاسب الجامحة فقط (نادر) — لا يقصّ الرابح العادي.
-    - وقف متحرّك متدرّج (_trail_floor): يتتبّع أعلى ربح، يُسلَّح عند +25%،
-      ويرفع الأرضية كلما كبر الربح → يقفل مكسباً متزايداً مع ترك الكبار يركضون.
+    - HARD_STOP: قاطع دائرة — يُغلق المركز عند خسارة كارثية (شبكة أمان).
+    - HARD_TAKE: سقف أمان للمكاسب الجامحة فقط (نادر).
+    - وقف متحرّك متدرّج (_trail_floor): يقفل مكسباً متزايداً مع ترك الكبار يركضون.
     يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
     """
-    HARD_TAKE = 2.00    # سقف أمان: جني ربح فقط عند مكسب جامح +200% (نادر)
-    HARD_STOP = -0.50   # قاطع دائرة: أغلق عند خسارة 50% من الهامش (قبل التصفية)
+    HARD_TAKE = 2.00    # سقف أمان: جني ربح عند +200% على الهامش (نادر)
+    HARD_STOP = -0.50   # قاطع دائرة: أغلق عند خسارة 50% من الهامش
 
     peaks      = status.setdefault("peaks", {})
     closed_now = set()
@@ -161,7 +159,6 @@ def _manage_open_positions(status, client, positions):
         peak = max(peaks.get(inst_id, ratio), ratio)
         peaks[inst_id] = peak
 
-        # قاطع دائرة للخسارة الكارثية (حماية من التصفية الكاملة)
         if ratio <= HARD_STOP:
             if client.close_position(inst_id):
                 add_log(status,
@@ -171,7 +168,6 @@ def _manage_open_positions(status, client, positions):
                 peaks.pop(inst_id, None)
             continue
 
-        # سقف أمان للمكاسب الجامحة فقط
         if ratio >= HARD_TAKE:
             if client.close_position(inst_id):
                 add_log(status, f"🎯 جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
@@ -179,7 +175,6 @@ def _manage_open_positions(status, client, positions):
                 peaks.pop(inst_id, None)
             continue
 
-        # وقف متحرّك متدرّج: مُسلَّح وتراجع الربح إلى الأرضية أو دونها
         floor = _trail_floor(peak)
         if floor is not None and ratio <= floor:
             if client.close_position(inst_id):
@@ -189,7 +184,6 @@ def _manage_open_positions(status, client, positions):
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
 
-    # نظّف القمم للمراكز التي لم تعد مفتوحة
     active_ids = {p["instId"] for p in positions} - closed_now
     for k in list(peaks.keys()):
         if k not in active_ids:
@@ -207,16 +201,17 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     STOP_LOSS_PCT   = 0.02
     TAKE_PROFIT_PCT = 0.04
     CAPITAL_RATIO   = 0.95
-    TOP_PAIRS       = cfg.SCAN_SYMBOLS   # يأخذ قيمته من config (balanced=100)
+    TOP_PAIRS       = cfg.SCAN_SYMBOLS
 
-    add_log(status, f"⚙️ وضع المخاطرة: {cfg.RISK_MODE} | رافعة: x{LEVERAGE} | مسح: {TOP_PAIRS} عملة", "info")
+    add_log(status,
+        f"⚙️ {cfg.RISK_MODE} | رافعة x{LEVERAGE} | مخاطرة {cfg.RISK_PER_TRADE*100:.0f}% | "
+        f"مراكز {cfg.MAX_POSITIONS} | مسح {TOP_PAIRS} عملة", "info")
 
     client = OKXClient(key, secret, phrase, demo)
     balance = client.get_balance()
     status["balance"] = round(balance, 4)
     add_log(status, f"💰 الرصيد: ${balance:.4f} USDT")
 
-    # ── FIX: read previous positions BEFORE overwriting with current ──────────
     prev_open = {p["instId"] for p in status.get("positions", [])}
 
     positions = client.get_all_positions()
@@ -252,7 +247,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             f"⏳ أُغلقت: {', '.join(newly_closed)} — "
             f"محظورة من الدخول {brain.COOLDOWN_HOURS} ساعات", "info")
 
-    # ── وقف الخسارة المتحرّك: يقفل الأرباح قبل أن تعود الصفقة للخسارة ──────────
+    # ── وقف الخسارة المتحرّك ─────────────────────────────────────────────────
     closed_by_trail = _manage_open_positions(status, client, positions)
     if closed_by_trail:
         active -= closed_by_trail
@@ -288,9 +283,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             continue
 
     if skipped_cooldown:
-        add_log(status, f"⏳ تخطّى {skipped_cooldown} عملة في فترة التهدئة ({brain.COOLDOWN_HOURS}ساعة)", "info")
+        add_log(status, f"⏳ تخطّى {skipped_cooldown} عملة في فترة التهدئة", "info")
     if skipped_losers:
-        add_log(status, f"🚫 تخطّى {skipped_losers} عملة خاسرة (فلتر Nitro/Hyper)", "info")
+        add_log(status, f"🚫 تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
 
     signals.sort(key=lambda x: abs(x.get("adj_score", x["score"])), reverse=True)
     status["top_signals"] = [
@@ -303,8 +298,10 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    trades_planned = min(slots_available, len(signals))
-    risk_capital = balance / max(trades_planned, 1)
+    # ── حجم المركز: RISK_PER_TRADE من رأس المال (Kelly-مُعايَر) ─────────────
+    # الإصلاح: بدل قسمة الرصيد على عدد الصفقات (= 100% مخاطرة!) نستخدم النسبة
+    # المضبوطة في الإعدادات. هذا يضمن عدم تجاوز Kelly وحماية رأس المال.
+    risk_capital = balance * cfg.RISK_PER_TRADE
 
     trades_entered = 0
     for best in signals:
@@ -331,7 +328,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             sl_price = live_price * (0.97 if signal == "buy" else 1.03)
             tp_price = live_price * (1.06 if signal == "buy" else 0.94)
 
-        # حدّ الرافعة لأقصى ما تسمح به العملة
         eff_leverage = LEVERAGE
         max_lev = client.get_max_leverage(inst_id)
         if max_lev and max_lev < LEVERAGE:
@@ -341,7 +337,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         client.set_leverage(inst_id, eff_leverage)
         sz = client.calculate_contracts(inst_id, risk_capital, live_price, eff_leverage, CAPITAL_RATIO)
         if sz <= 0:
-            add_log(status, f"⏭️ {inst_id}: حجم صفر — التالي", "warning")
+            add_log(status, f"⏭️ {inst_id}: حجم صفر (رصيد صغير جداً؟) — التالي", "warning")
             continue
 
         result = client.place_order(inst_id, signal, sz, live_price,
@@ -351,7 +347,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             direction = "شراء 📈" if signal == "buy" else "بيع 📉"
             add_log(status,
                 f"✅ {direction} {inst_id} @ {live_price} | "
-                f"درجة:{score} | رأس المال:${risk_capital:.2f}", "success")
+                f"درجة:{score} | هامش:${risk_capital:.3f} ({cfg.RISK_PER_TRADE*100:.0f}%)", "success")
             brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
