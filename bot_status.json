@@ -6,27 +6,27 @@
   "total_trades": 94,
   "logs": [
     {
-      "time": "2026-06-24 17:38:17 UTC",
+      "time": "2026-06-24 17:38:21 UTC",
       "msg": "⏭️ maker فشل KGEN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 17:38:16 UTC",
+      "time": "2026-06-24 17:38:20 UTC",
       "msg": "ℹ️ KGEN-USDT-SWAP: رافعة 20x→10x (حد العملة)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:38:15 UTC",
+      "time": "2026-06-24 17:38:19 UTC",
       "msg": "⏭️ maker فشل SPCX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 17:38:14 UTC",
+      "time": "2026-06-24 17:38:18 UTC",
       "msg": "🧠 Brain WR=30.0% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:38:14 UTC",
+      "time": "2026-06-24 17:38:18 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
