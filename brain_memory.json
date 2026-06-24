@@ -1737,12 +1737,32 @@
       "status": "win",
       "opened": "2026-06-24 20:37:05 UTC",
       "exit": 6.868
+    },
+    {
+      "instId": "EGLD-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": -10,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 2.653,
+      "score": 48,
+      "status": "open",
+      "opened": "2026-06-24 20:56:49 UTC"
     }
   ],
   "wins": 24,
   "losses": 59,
   "lr": 0.05,
-  "updated": "2026-06-24 20:56:39 UTC",
+  "updated": "2026-06-24 20:56:49 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1766,7 +1786,7 @@
     "STX-USDT-SWAP": "2026-06-24T19:25:29.726777+00:00",
     "AERO-USDT-SWAP": "2026-06-24T16:28:22.462855+00:00",
     "APE-USDT-SWAP": "2026-06-24T10:21:35.188038+00:00",
-    "GRASS-USDT-SWAP": "2026-06-24T20:55:24.434291+00:00",
+    "GRASS-USDT-SWAP": "2026-06-24T20:55:15.332384+00:00",
     "ARX-USDT-SWAP": "2026-06-24T20:32:42.795439+00:00",
     "UNI-USDT-SWAP": "2026-06-24T14:29:29.721754+00:00",
     "MASK-USDT-SWAP": "2026-06-24T14:50:18.638216+00:00",
