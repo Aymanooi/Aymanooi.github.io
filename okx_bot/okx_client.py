@@ -46,6 +46,22 @@ class OKXClient:
                 return float(detail["availBal"])
         return 0.0
 
+    def get_total_equity(self):
+        """
+        رأس المال الكلي الحقيقي (USD) = الرصيد الحرّ + هامش المراكز + الربح غير المحقّق.
+        يُقرأ من حقل totalEq في حساب OKX. يُستخدم لمُنظّم منحنى رأس المال
+        (equity-curve throttle) — لأن availBal وحده يتقلّب مع قفل الهامش
+        فلا يعكس الأداء الحقيقي. يُرجع 0.0 عند أي فشل ليتخطّى المُنظّم بأمان.
+        """
+        try:
+            result = self.account_api.get_account_balance()
+            if result["code"] != "0" or not result["data"]:
+                return 0.0
+            te = result["data"][0].get("totalEq", "")
+            return float(te) if te not in ("", None) else 0.0
+        except Exception:
+            return 0.0
+
     def get_instrument_info(self, inst_id):
         result = self.public_api.get_instruments(instType="SWAP", instId=inst_id)
         if result["code"] != "0" or not result["data"]:
