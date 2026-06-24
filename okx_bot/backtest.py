@@ -1,45 +1,72 @@
 """
 backtest.py — محرّك اختبار رجعي (Backtesting) مثل Freqtrade
 ─────────────────────────────────────────────────────────────────────────────
-يختبر استراتيجية analyze() نفسها على بيانات تاريخية حقيقية من OKX، ويحاكي
-بدقّة نفس منطق البوت الحيّ:
-  • دخول عند الإشارة (نفس العتبة THRESHOLD في strategy.py)
+يختبر استراتيجية analyze() نفسها (11 مؤشراً) على بيانات تاريخية حقيقية من OKX،
+ويحاكي بدقّة نفس منطق الخروج في البوت الحيّ (run_once.py):
+  • دخول عند الإشارة (نفس العتبة THRESHOLD في config.py / strategy.py)
   • SL = 1.5×ATR  /  TP = 4.5×ATR  (RR = 3:1)
-  • وقف متحرّك متدرّج (_trail_floor) ونفس قاطع الدائرة −50%
+  • قاطع دائرة −40% هامش  +  وقف متحرّك متدرّج (_trail_floor مطابق للحيّ)
   • نفس الرافعة من config.py
 
 يطبع تقريراً: عدد الصفقات، معدّل الفوز، عامل الربح، أقصى تراجع، ومنحنى
 رأس المال التقريبي — حتى تعرف إن كانت الإعدادات تربح فعلاً قبل المخاطرة بالمال.
 
+⚠️ معزول تماماً عن البوت الحيّ: لا يفتح صفقات، لا يضع أوامر، لا يلمس الحساب.
+⚠️ بيانات الشموع عامّة — لا تشارك مفاتيح OKX أبداً، ولا حاجة لها هنا.
+
 التشغيل:
-    python okx_bot/backtest.py              # 30 عملة، 300 شمعة 15m
-    python okx_bot/backtest.py 50 300       # 50 عملة، 300 شمعة
+    python okx_bot/backtest.py              # 30 عملة، 1500 شمعة 15m
+    python okx_bot/backtest.py 50 2000      # 50 عملة، 2000 شمعة
 """
 import os
 import sys
+import time
 
 sys.path.insert(0, os.path.dirname(__file__))
 
 from strategy import analyze
 import config as cfg
 
-# نفس ثوابت المدير الحيّ في run_once.py
-HARD_STOP = -0.50   # قاطع دائرة عند −50% هامش
+# نفس ثوابت المدير الحيّ في run_once.py (محدَّثة لتطابق النسخة الحيّة الحالية)
+HARD_STOP = -0.40   # قاطع دائرة عند −40% هامش (مطابق للحيّ)
 HARD_TAKE = 2.00    # سقف أمان +200%
 WARMUP    = 60      # شمعات تهيئة قبل أول إشارة
 
 
 def _trail_floor(peak):
-    """نسخة طبق الأصل من run_once._trail_floor — حتى يطابق الباكتيست الواقع."""
-    if peak < 0.25:
-        return None
-    if peak < 0.50:
-        return peak - 0.15
-    if peak < 1.00:
-        return peak * 0.70
-    if peak < 2.00:
-        return peak * 0.80
-    return peak * 0.85
+    """نسخة طبق الأصل من run_once._trail_floor الحيّة — تسليح عند +30% هامش."""
+    if peak < 0.30: return None
+    if peak < 0.80: return 0.0
+    if peak < 1.80: return peak * 0.45
+    if peak < 4.00: return peak * 0.60
+    if peak < 8.00: return peak * 0.70
+    return peak * 0.80
+
+
+def fetch_history(client, inst_id, bar, total):
+    """
+    يجلب `total` شمعة تاريخية عبر ترقيم get_history_candlesticks (الأحدث أولاً)،
+    متجاوزاً سقف الـ300 لطلب واحد. يُرجع قائمة أقدم-أولاً (chronological).
+    """
+    out = []
+    after = ""
+    while len(out) < total:
+        params = dict(instId=inst_id, bar=bar, limit="100")
+        if after:
+            params["after"] = after
+        try:
+            r = client.market_api.get_history_candlesticks(**params)
+        except Exception:
+            break
+        if r.get("code") != "0" or not r.get("data"):
+            break
+        batch = r["data"]
+        out.extend(batch)
+        after = batch[-1][0]          # أقدم ts → الصفحة الأقدم تالياً
+        time.sleep(0.10)
+        if len(batch) < 100:
+            break
+    return list(reversed(out[:total]))   # أقدم-أولاً للمحاكاة الأمامية
 
 
 def simulate(chron15, chron1h, leverage):
@@ -47,7 +74,7 @@ def simulate(chron15, chron1h, leverage):
     يحاكي التداول على سلسلة شموع واحدة (مرتّبة من الأقدم للأحدث).
     chron15/chron1h: قوائم شموع OKX [ts, o, h, l, c, vol, ...] أقدم أولاً.
     يُرجع قائمة بنتائج الصفقات: كل عنصر = العائد على الهامش (٪، يشمل الرافعة).
-    شبكة الأمان: لا توجد عمليّات شبكة هنا — دالة نقيّة قابلة للاختبار.
+    دالة نقيّة قابلة للاختبار — لا عمليّات شبكة.
     """
     returns = []
     pos = None   # {'side','entry','sl','tp','peak'}
@@ -147,6 +174,7 @@ def report(all_returns, start_equity=10.0, risk_per_trade=1.0):
         streak = streak + 1 if r <= 0 else 0
         worst_streak = max(worst_streak, streak)
 
+    pf_str = "∞" if profit_factor == float("inf") else f"{profit_factor:.2f}"
     print("\n" + "═" * 56)
     print("📊  نتائج الاختبار الرجعي (Backtest)")
     print("═" * 56)
@@ -154,7 +182,7 @@ def report(all_returns, start_equity=10.0, risk_per_trade=1.0):
     print(f"  فوز / خسارة        : {len(wins)} / {len(losses)}")
     print(f"  معدّل الفوز         : {win_rate:.1f}%   (التعادل عند RR=3:1 هو 25%)")
     print(f"  متوسّط العائد/صفقة  : {avg*100:+.2f}% على الهامش")
-    print(f"  عامل الربح (PF)     : {profit_factor:.2f}   (>1 = رابح)")
+    print(f"  عامل الربح (PF)     : {pf_str}   (>1 = رابح)")
     print(f"  أطول سلسلة خسائر    : {worst_streak}")
     print(f"  أقصى تراجع (DD)     : {max_dd*100:.1f}%")
     print("─" * 56)
@@ -164,18 +192,19 @@ def report(all_returns, start_equity=10.0, risk_per_trade=1.0):
     verdict = "✅ الاستراتيجية رابحة في هذه الفترة" if profit_factor > 1 \
               else "❌ الاستراتيجية خاسرة في هذه الفترة — لا تخاطر بمال حقيقي"
     print(f"  {verdict}")
+    print("  ملاحظة: الأداء التاريخي لا يضمن المستقبل — هذا تحقّق، لا وعد.")
     print("═" * 56 + "\n")
 
 
 def main():
     n_symbols = int(sys.argv[1]) if len(sys.argv) > 1 else 30
-    n_bars    = int(sys.argv[2]) if len(sys.argv) > 2 else 300
+    n_bars    = int(sys.argv[2]) if len(sys.argv) > 2 else 1500
 
     from okx_client import OKXClient
     # بيانات الشموع عامّة — لا حاجة لمفاتيح حقيقية (لا تشارك مفاتيحك أبداً)
     client = OKXClient("public", "public", "public", is_demo="0")
 
-    print(f"⏳ جلب {n_bars} شمعة لأعلى {n_symbols} عملة من OKX...")
+    print(f"⏳ جلب {n_bars} شمعة تاريخية لأعلى {n_symbols} عملة من OKX (ترقيم)...")
     try:
         pairs = client.get_top_pairs(n_symbols)
     except Exception as e:
@@ -187,21 +216,20 @@ def main():
     tested = 0
     for sym in pairs:
         try:
-            raw15 = client.get_candles(sym, bar="15m", limit=n_bars)
-            raw1h = client.get_candles(sym, bar="1H", limit=n_bars)
-            if len(raw15) < WARMUP + 10:
+            chron15 = fetch_history(client, sym, "15m", n_bars)
+            chron1h = fetch_history(client, sym, "1H", max(n_bars // 4, 300))
+            if len(chron15) < WARMUP + 10:
                 continue
-            chron15 = list(reversed(raw15))
-            chron1h = list(reversed(raw1h))
             rets = simulate(chron15, chron1h, leverage)
             all_returns.extend(rets)
             tested += 1
             if rets:
-                print(f"  {sym:<22} {len(rets):>3} صفقة")
+                print(f"  {sym:<22} {len(rets):>4} صفقة | {len(chron15)} شمعة")
         except Exception:
             continue
 
-    print(f"\n✔️ اكتُمل الاختبار على {tested} عملة | رافعة x{leverage} | عتبة {cfg.SIGNAL_THRESHOLD}")
+    print(f"\n✔️ اكتُمل الاختبار على {tested} عملة | رافعة x{leverage} | "
+          f"عتبة {cfg.SIGNAL_THRESHOLD} | مؤشرات: 11")
     report(all_returns)
 
 
