@@ -330,12 +330,32 @@
       "status": "loss",
       "opened": "2026-06-24 10:49:52 UTC",
       "exit": 0.3971
+    },
+    {
+      "instId": "FIL-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.7712,
+      "score": -58,
+      "status": "open",
+      "opened": "2026-06-24 11:46:20 UTC"
     }
   ],
   "wins": 9,
   "losses": 7,
   "lr": 0.05,
-  "updated": "2026-06-24 11:45:16 UTC",
+  "updated": "2026-06-24 11:46:20 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
