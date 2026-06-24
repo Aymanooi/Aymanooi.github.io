@@ -1,39 +1,76 @@
 {
-  "last_run": "2026-06-24 13:46:17 UTC",
+  "last_run": "2026-06-24 13:47:01 UTC",
   "mode": "Live 💰",
-  "balance": 3.6828,
+  "balance": 3.4163,
   "positions": [
+    {
+      "instId": "RIVER-USDT-SWAP",
+      "side": "بيع 📉",
+      "entry": 4.179,
+      "size": 13.0,
+      "pnl": 0.0338
+    },
     {
       "instId": "APR-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.19765,
       "size": 1.0,
-      "pnl": -0.0115
+      "pnl": -0.0085
     },
     {
       "instId": "BSB-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.2962,
       "size": 1.0,
-      "pnl": 0.062
+      "pnl": 0.067
     },
     {
       "instId": "PROS-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.4691800000000001,
       "size": 20.0,
-      "pnl": 0.3396
+      "pnl": 0.3196
     },
     {
       "instId": "TIA-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.3698,
       "size": 9.0,
-      "pnl": 0.0657
+      "pnl": 0.0603
     }
   ],
   "total_trades": 56,
   "logs": [
+    {
+      "time": "2026-06-24 13:47:02 UTC",
+      "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 13:47:02 UTC",
+      "msg": "📉 رأس المال الكلي: $4.68 | القمّة $7.02 | تراجع 33.3% | مُنظّم ×0.35",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 13:47:02 UTC",
+      "msg": "💰 الرصيد: $3.4163 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 13:47:01 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 13:47:01 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 13:47:01 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 13:46:52 UTC",
       "msg": "📤 maker بيع 📉 RIVER-USDT-SWAP @~4.167 | درجة:-52 | هامش:$0.292 (بانتظار التنفيذ)",
@@ -403,36 +440,6 @@
       "time": "2026-06-24 13:42:45 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
-    },
-    {
-      "time": "2026-06-24 13:42:43 UTC",
-      "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 13:42:42 UTC",
-      "msg": "📉 رأس المال الكلي: $4.73 | القمّة $7.02 | تراجع 32.7% | مُنظّم ×0.35",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 13:42:42 UTC",
-      "msg": "💰 الرصيد: $2.7982 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 13:42:41 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 13:42:41 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 13:42:41 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
     }
   ],
   "risk_mode": "rocket",
@@ -454,13 +461,15 @@
     "TIA-USDT-SWAP": 0.5624661979448353,
     "PROS-USDT-SWAP": 0.7238160194381726,
     "BSB-USDT-SWAP": 0.2937204591492248,
-    "APR-USDT-SWAP": 0.0
+    "APR-USDT-SWAP": 0.0,
+    "RIVER-USDT-SWAP": 0.1244316822206293
   },
   "pnl_peaks": {
     "TIA-USDT-SWAP": 0.0936000000000002,
     "PROS-USDT-SWAP": 0.3396000000000021,
     "BSB-USDT-SWAP": 0.0870000000000004,
-    "APR-USDT-SWAP": 0.0
+    "APR-USDT-SWAP": 0.0,
+    "RIVER-USDT-SWAP": 0.0338000000000009
   },
   "brain_stats": {
     "wins": 14,
@@ -480,8 +489,8 @@
       "RSIDivergence": 0.962
     },
     "kelly": 6.1,
-    "updated": "2026-06-24 13:45:37 UTC"
+    "updated": "2026-06-24 13:46:52 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 33.45
+  "drawdown": 33.29
 }
