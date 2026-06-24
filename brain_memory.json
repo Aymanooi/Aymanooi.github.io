@@ -1212,32 +1212,12 @@
       "status": "loss",
       "opened": "2026-06-24 16:06:58 UTC",
       "exit": 0.1833
-    },
-    {
-      "instId": "SOON-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 0,
-        "RSIDivergence": 15
-      },
-      "entry": 0.1626,
-      "score": 57,
-      "status": "open",
-      "opened": "2026-06-24 16:12:34 UTC"
     }
   ],
   "wins": 18,
   "losses": 40,
   "lr": 0.05,
-  "updated": "2026-06-24 16:12:34 UTC",
+  "updated": "2026-06-24 16:12:39 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
