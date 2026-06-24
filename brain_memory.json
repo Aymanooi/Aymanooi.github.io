@@ -67,12 +67,30 @@
       "status": "win",
       "opened": "2026-06-23 22:46:58 UTC",
       "exit": 0.13
+    },
+    {
+      "instId": "JTO-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 5,
+        "MACD": -10,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15
+      },
+      "entry": 0.6596,
+      "score": 42,
+      "status": "open",
+      "opened": "2026-06-24 03:19:18 UTC"
     }
   ],
   "wins": 3,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-24 03:17:41 UTC",
+  "updated": "2026-06-24 03:19:18 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -81,6 +99,7 @@
     "AXS-USDT-SWAP": "2026-06-23T22:36:08.186765+00:00",
     "DYDX-USDT-SWAP": "2026-06-23T22:55:56.756667+00:00",
     "FARTCOIN-USDT-SWAP": "2026-06-24T01:05:58.159560+00:00",
-    "COAI-USDT-SWAP": "2026-06-24T03:07:52.402339+00:00"
+    "COAI-USDT-SWAP": "2026-06-24T03:07:52.402339+00:00",
+    "LINK-USDT-SWAP": "2026-06-24T03:18:28.520083+00:00"
   }
 }
