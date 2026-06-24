@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-24 10:09:15 UTC",
   "mode": "Live 💰",
-  "balance": 5.3093,
+  "balance": 5.3084,
   "positions": [
     {
       "instId": "GRASS-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.4489800000000002,
       "size": 25.0,
-      "pnl": -0.002
+      "pnl": 0.0005
     },
     {
       "instId": "MASK-USDT-SWAP",
@@ -22,7 +22,7 @@
       "side": "شراء 📈",
       "entry": 0.1365063796477497,
       "size": 1022.0,
-      "pnl": -0.063
+      "pnl": -0.062
     },
     {
       "instId": "SOON-USDT-SWAP",
@@ -35,112 +35,112 @@
   "total_trades": 10,
   "logs": [
     {
-      "time": "2026-06-24 10:10:02 UTC",
+      "time": "2026-06-24 10:10:17 UTC",
       "msg": "⏭️ فشل TRUMP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:10:02 UTC",
+      "time": "2026-06-24 10:10:16 UTC",
       "msg": "⚠️ TRUMP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:10:01 UTC",
+      "time": "2026-06-24 10:10:15 UTC",
       "msg": "⏭️ فشل ENSO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:10:01 UTC",
+      "time": "2026-06-24 10:10:15 UTC",
       "msg": "⚠️ ENSO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:10:00 UTC",
+      "time": "2026-06-24 10:10:13 UTC",
       "msg": "⏭️ فشل JUP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:10:00 UTC",
+      "time": "2026-06-24 10:10:13 UTC",
       "msg": "⚠️ JUP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:58 UTC",
+      "time": "2026-06-24 10:10:12 UTC",
       "msg": "⏭️ فشل OP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:58 UTC",
+      "time": "2026-06-24 10:10:12 UTC",
       "msg": "⚠️ OP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:57 UTC",
-      "msg": "⏭️ فشل PIEVERSE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 10:09:57 UTC",
-      "msg": "⚠️ PIEVERSE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 10:09:56 UTC",
+      "time": "2026-06-24 10:10:10 UTC",
       "msg": "⏭️ فشل SPX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:55 UTC",
+      "time": "2026-06-24 10:10:10 UTC",
       "msg": "⚠️ SPX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:54 UTC",
+      "time": "2026-06-24 10:10:09 UTC",
       "msg": "⏭️ فشل GRAM-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:54 UTC",
+      "time": "2026-06-24 10:10:08 UTC",
       "msg": "⚠️ GRAM-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:53 UTC",
+      "time": "2026-06-24 10:10:07 UTC",
       "msg": "⏭️ فشل AGLD-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:53 UTC",
+      "time": "2026-06-24 10:10:07 UTC",
       "msg": "⚠️ AGLD-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:52 UTC",
+      "time": "2026-06-24 10:10:05 UTC",
+      "msg": "⏭️ فشل ARX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 10:10:05 UTC",
+      "msg": "⚠️ ARX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 10:10:04 UTC",
       "msg": "⏭️ فشل NEAR-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:52 UTC",
+      "time": "2026-06-24 10:10:04 UTC",
       "msg": "⚠️ NEAR-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:51 UTC",
+      "time": "2026-06-24 10:10:02 UTC",
       "msg": "⏭️ فشل JTO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:50 UTC",
+      "time": "2026-06-24 10:10:02 UTC",
       "msg": "⚠️ JTO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 10:09:49 UTC",
+      "time": "2026-06-24 10:10:01 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=85.7% → 18.0% من رأس المال",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:09:49 UTC",
+      "time": "2026-06-24 10:10:01 UTC",
       "msg": "⏳ تخطّى 3 عملة في فترة التهدئة",
       "level": "info"
     },
@@ -155,8 +155,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:09:15 UTC",
-      "msg": "💰 الرصيد: $5.3093 USDT",
+      "time": "2026-06-24 10:09:16 UTC",
+      "msg": "💰 الرصيد: $5.3084 USDT",
       "level": "info"
     },
     {
@@ -450,6 +450,12 @@
       "prob": 0.27
     },
     {
+      "instId": "ARX-USDT-SWAP",
+      "signal": "sell",
+      "score": -45,
+      "prob": 0.28
+    },
+    {
       "instId": "AGLD-USDT-SWAP",
       "signal": "buy",
       "score": 42,
@@ -460,12 +466,6 @@
       "signal": "buy",
       "score": 38,
       "prob": 0.7
-    },
-    {
-      "instId": "SPX-USDT-SWAP",
-      "signal": "buy",
-      "score": 45,
-      "prob": 0.71
     }
   ],
   "peaks": {
