@@ -1,7 +1,7 @@
 {
-  "last_run": "2026-06-24 10:55:26 UTC",
+  "last_run": "2026-06-24 10:55:28 UTC",
   "mode": "Live 💰",
-  "balance": 2.3079,
+  "balance": 2.3094,
   "positions": [
     {
       "instId": "EDGE-USDT-SWAP",
@@ -36,7 +36,7 @@
       "side": "شراء 📈",
       "entry": 0.2138,
       "size": 1.0,
-      "pnl": 0.032
+      "pnl": 0.034
     },
     {
       "instId": "ZBT-USDT-SWAP",
@@ -50,38 +50,38 @@
       "side": "بيع 📉",
       "entry": 0.39574,
       "size": 1.0,
-      "pnl": -0.022
+      "pnl": -0.0224
     }
   ],
   "total_trades": 17,
   "logs": [
     {
-      "time": "2026-06-24 10:55:27 UTC",
+      "time": "2026-06-24 10:55:29 UTC",
       "msg": "مراكز مفتوحة: 7/5 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:55:27 UTC",
+      "time": "2026-06-24 10:55:29 UTC",
       "msg": "📉 رأس المال الكلي: $6.24 | القمّة $7.02 | تراجع 11.1% | مُنظّم ×0.60",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:55:26 UTC",
-      "msg": "💰 الرصيد: $2.3079 USDT",
+      "time": "2026-06-24 10:55:28 UTC",
+      "msg": "💰 الرصيد: $2.3094 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:55:26 UTC",
+      "time": "2026-06-24 10:55:28 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:55:26 UTC",
+      "time": "2026-06-24 10:55:28 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 10:55:26 UTC",
+      "time": "2026-06-24 10:55:28 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -493,7 +493,7 @@
     "ALLO-USDT-SWAP": 0.0080861171476221,
     "ZBT-USDT-SWAP": -0.0056518462697808,
     "LDO-USDT-SWAP": 0.0274133542197008,
-    "JUP-USDT-SWAP": 0.30400736987563337,
+    "JUP-USDT-SWAP": 0.3130755064456731,
     "EDGE-USDT-SWAP": 0.013857394809774251,
     "PIEVERSE-USDT-SWAP": 0.0,
     "PROVE-USDT-SWAP": 0.0014756517461784445
@@ -502,7 +502,7 @@
     "ALLO-USDT-SWAP": 0.0031999999999999,
     "ZBT-USDT-SWAP": -0.0009599999999998,
     "LDO-USDT-SWAP": 0.0084000000000004,
-    "JUP-USDT-SWAP": 0.033,
+    "JUP-USDT-SWAP": 0.0340000000000001,
     "EDGE-USDT-SWAP": 0.0109999999999988,
     "PIEVERSE-USDT-SWAP": 0.0,
     "PROVE-USDT-SWAP": 0.0026999999999827
@@ -528,5 +528,5 @@
     "updated": "2026-06-24 10:55:17 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 11.1
+  "drawdown": 11.07
 }
