@@ -1,172 +1,180 @@
 {
-  "last_run": "2026-06-24 21:16:53 UTC",
+  "last_run": "2026-06-24 21:18:00 UTC",
   "mode": "Live 💰",
-  "balance": 10.2456,
-  "positions": [],
+  "balance": 0.1467,
+  "positions": [
+    {
+      "instId": "PROS-USDT-SWAP",
+      "side": "شراء 📈",
+      "entry": 0.4551,
+      "size": 350.0,
+      "pnl": 0.07
+    }
+  ],
   "total_trades": 115,
   "logs": [
     {
-      "time": "2026-06-24 21:17:55 UTC",
-      "msg": "⏭️ maker فشل 0G-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:54 UTC",
-      "msg": "⏭️ maker فشل O-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:52 UTC",
-      "msg": "⏭️ maker فشل LIGHT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:51 UTC",
-      "msg": "ℹ️ LIGHT-USDT-SWAP: رافعة 20x→10x (حد العملة)",
+      "time": "2026-06-24 21:18:02 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:17:51 UTC",
-      "msg": "⏭️ maker فشل VIRTUAL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:49 UTC",
-      "msg": "⏭️ maker فشل FARTCOIN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:48 UTC",
-      "msg": "⏭️ maker فشل PROS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:47 UTC",
-      "msg": "⏭️ maker فشل PROVE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:45 UTC",
-      "msg": "⏭️ maker فشل TIA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 21:17:44 UTC",
-      "msg": "🧠 Brain WR=27.9% | مُنظّم ×0.35 | رأس المال الكامل (95%)",
+      "time": "2026-06-24 21:18:01 UTC",
+      "msg": "📉 رأس المال الكلي: $10.26 | القمّة $13.21 | تراجع 22.3% | مُنظّم ×0.35",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:17:44 UTC",
-      "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
+      "time": "2026-06-24 21:18:01 UTC",
+      "msg": "💰 الرصيد: $0.1467 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:17:44 UTC",
-      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:16:55 UTC",
-      "msg": "⏳ أُغلقت: EIGEN-USDT-SWAP — إعادة دخول بعد 30 ثانية",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:16:55 UTC",
-      "msg": "🧠 Brain تعلّم: EIGEN-USDT-SWAP → خسارة ❌ (تقدير)",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:16:54 UTC",
-      "msg": "📉 رأس المال الكلي: $10.23 | القمّة $13.21 | تراجع 22.5% | مُنظّم ×0.35",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:16:54 UTC",
-      "msg": "💰 الرصيد: $10.2456 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:16:53 UTC",
+      "time": "2026-06-24 21:18:00 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:53 UTC",
+      "time": "2026-06-24 21:18:00 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:53 UTC",
+      "time": "2026-06-24 21:18:00 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
     {
-      "time": "2026-06-24 21:16:50 UTC",
-      "msg": "📤 maker شراء 📈 EIGEN-USDT-SWAP @~0.2311 | درجة:45 | رأس المال:$9.733 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
-      "level": "success"
+      "time": "2026-06-24 21:17:50 UTC",
+      "msg": "⏭️ maker فشل 0G-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 21:16:49 UTC",
+      "time": "2026-06-24 21:17:49 UTC",
+      "msg": "⏭️ maker فشل O-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 21:17:48 UTC",
+      "msg": "⏭️ maker فشل FIL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 21:17:46 UTC",
+      "msg": "⏭️ maker فشل VIRTUAL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 21:17:45 UTC",
       "msg": "⏭️ maker فشل ASTER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 21:16:48 UTC",
-      "msg": "⏭️ maker فشل MORPHO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "time": "2026-06-24 21:17:43 UTC",
+      "msg": "⏭️ maker فشل PROVE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 21:16:47 UTC",
-      "msg": "⏭️ maker فشل AVAX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "time": "2026-06-24 21:17:42 UTC",
+      "msg": "⏭️ maker فشل FARTCOIN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 21:16:46 UTC",
-      "msg": "⏭️ maker فشل PROS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "time": "2026-06-24 21:17:40 UTC",
+      "msg": "⏭️ maker فشل TIA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 21:16:45 UTC",
+      "time": "2026-06-24 21:17:39 UTC",
       "msg": "🧠 Brain WR=28.2% | مُنظّم ×0.35 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:45 UTC",
+      "time": "2026-06-24 21:17:39 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:45 UTC",
-      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
+      "time": "2026-06-24 21:16:50 UTC",
+      "msg": "🧹 أُلغيت 1 أوامر maker عالقة + نُظّفت من الدماغ",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:11 UTC",
-      "msg": "⏳ أُغلقت: ETHFI-USDT-SWAP — إعادة دخول بعد 30 ثانية",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:16:10 UTC",
+      "time": "2026-06-24 21:16:49 UTC",
       "msg": "📉 رأس المال الكلي: $10.23 | القمّة $13.21 | تراجع 22.5% | مُنظّم ×0.35",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:10 UTC",
-      "msg": "💰 الرصيد: $10.2456 USDT",
+      "time": "2026-06-24 21:16:49 UTC",
+      "msg": "💰 الرصيد: $0.9405 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:10 UTC",
+      "time": "2026-06-24 21:16:48 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:10 UTC",
+      "time": "2026-06-24 21:16:48 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 21:16:10 UTC",
+      "time": "2026-06-24 21:16:48 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 21:16:45 UTC",
+      "msg": "📤 maker شراء 📈 AVAX-USDT-SWAP @~6.335 | درجة:40 | رأس المال:$9.733 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 21:16:44 UTC",
+      "msg": "⏭️ maker فشل PROS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 21:16:42 UTC",
+      "msg": "🧠 Brain WR=28.2% | مُنظّم ×0.35 | رأس المال الكامل (95%)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:16:42 UTC",
+      "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:16:42 UTC",
+      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:54 UTC",
+      "msg": "⏳ أُغلقت: ETHFI-USDT-SWAP — إعادة دخول بعد 30 ثانية",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:53 UTC",
+      "msg": "📉 رأس المال الكلي: $10.23 | القمّة $13.21 | تراجع 22.5% | مُنظّم ×0.35",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:53 UTC",
+      "msg": "💰 الرصيد: $10.2456 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:52 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:52 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:52 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -411,8 +419,14 @@
     {
       "instId": "TIA-USDT-SWAP",
       "signal": "buy",
-      "score": 59,
-      "prob": 0.71
+      "score": 65,
+      "prob": 0.73
+    },
+    {
+      "instId": "FARTCOIN-USDT-SWAP",
+      "signal": "buy",
+      "score": 46,
+      "prob": 0.68
     },
     {
       "instId": "PROVE-USDT-SWAP",
@@ -421,15 +435,9 @@
       "prob": 0.66
     },
     {
-      "instId": "PROS-USDT-SWAP",
+      "instId": "ASTER-USDT-SWAP",
       "signal": "buy",
-      "score": 42,
-      "prob": 0.66
-    },
-    {
-      "instId": "FARTCOIN-USDT-SWAP",
-      "signal": "buy",
-      "score": 42,
+      "score": 38,
       "prob": 0.65
     },
     {
@@ -451,11 +459,11 @@
     "total_closed": 86,
     "win_rate": 27.9,
     "weights": {
-      "EMA": 0.722,
-      "RSI": 1.071,
-      "MACD": 0.667,
+      "EMA": 0.708,
+      "RSI": 1.075,
+      "MACD": 0.645,
       "BB": 1.077,
-      "Stoch": 1.004,
+      "Stoch": 1.017,
       "Volume": 0.966,
       "Pattern": 0.935,
       "HTF_1h": 0.718,
@@ -463,8 +471,8 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-24 21:16:50 UTC"
+    "updated": "2026-06-24 21:17:48 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 22.53
+  "drawdown": 22.32
 }
