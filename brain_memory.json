@@ -1611,12 +1611,32 @@
       "status": "loss",
       "opened": "2026-06-24 19:09:48 UTC",
       "exit": 0.1677
+    },
+    {
+      "instId": "JUP-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.2024,
+      "score": -65,
+      "status": "open",
+      "opened": "2026-06-24 19:36:32 UTC"
     }
   ],
   "wins": 23,
   "losses": 54,
   "lr": 0.05,
-  "updated": "2026-06-24 19:36:27 UTC",
+  "updated": "2026-06-24 19:36:32 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
