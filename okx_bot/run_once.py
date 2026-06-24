@@ -55,7 +55,7 @@ def _refresh_state_from_github():
                 content = b64.b64decode(data['content'])
                 with open(path, 'wb') as f:
                     f.write(content)
-            print(f'🔄 {fname} محدَّث من GitHub')
+            print(f'\U0001f504 {fname} محدَث من GitHub')
         except Exception:
             pass
 
@@ -80,14 +80,14 @@ async def run():
     _refresh_state_from_github()
     status = load_status()
     status["last_run"]  = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    status["mode"]      = "Demo 🧪" if demo != "0" else "Live 💰"
+    status["mode"]      = "Demo \U0001f9ea" if demo != "0" else "Live \U0001f4b0"
     status["risk_mode"] = os.environ.get("RISK_MODE", "rocket").strip().lower()
     status.pop("stopped", None)   # امسح علامة الإيقاف القديمة عند كل تشغيل طبيعي
 
     # ── مفتاح إيقاف طارئ: إذا وُجد bot_stop.json أغلق كل الصفقات وانتهِ ──────
     STOP_FILE = os.path.join(os.path.dirname(__file__), "..", "bot_stop.json")
     if os.path.exists(STOP_FILE):
-        add_log(status, "🛑 bot_stop.json — إيقاف طارئ: إغلاق جميع الصفقات", "warning")
+        add_log(status, "\U0001f6d1 bot_stop.json — إيقاف طارئ: إغلاق جميع الصفقات", "warning")
         from okx_client import OKXClient as _OKXClient
         _client = _OKXClient(key, secret, phrase, demo)
         _positions = _client.get_all_positions()
@@ -100,7 +100,7 @@ async def run():
                 else:
                     add_log(status, f"❌ فشل إغلاق: {_p['instId']}", "error")
         add_log(status,
-            f"🛑 البوت متوقف — {len(_closed)} صفقة مغلقة: {', '.join(_closed) or 'لا يوجد'}",
+            f"\U0001f6d1 البوت متوقف — {len(_closed)} صفقة مغلقة: {', '.join(_closed) or 'لا يوجد'}",
             "warning")
         status["stopped"] = True
         status["positions"] = []
@@ -109,7 +109,7 @@ async def run():
 
     memory = brain.load_memory()
 
-    add_log(status, "🚀 تشغيل Snowball v22 + Brain...", "success")
+    add_log(status, "\U0001f680 تشغيل Snowball v22 + Brain...", "success")
     add_log(status, f"الوضع: {status['mode']}", "info")
 
     await _fallback_mscs(status, memory, key, secret, phrase, demo)
@@ -121,9 +121,9 @@ async def run():
 
 def _trail_floor(peak):
     """
-    وقف متحرّك مُعاد معايرته لرافعة x20:
+    وقف متحرʳك مُعاد معايرته لرافعة x20:
     +100% هامش = +5% سعر = 2×ATR — حركة ذات معنى حقيقي، ليست ضجيج.
-    يُسلَّح بعد +100% هامش فقط لتجنّب القص المبكر على تقلبات السعر العادية.
+    يُسلَّح بعد +100% هامش فقط لتجنّب القص المبكّر على تقلبات السعر العادية.
     """
     if peak < 1.00: return None          # تسليح بعد +100% هامش (+5% سعر عند x20)
     if peak < 2.00: return 0.0           # +100–200%: احمِ التعادل كحد أدنى
@@ -135,13 +135,15 @@ def _trail_floor(peak):
 def _manage_open_positions(status, client, positions):
     """
     مدير مخاطر برمجي كامل لكل مركز مفتوح:
-    - HARD_STOP: قاطع دائرة — يُغلق المركز عند خسارة كارثية (شبكة أمان).
+    - HARD_STOP: قاطع دائرة بالنسبة — يُغلق عند خسارة 40% من الهامش.
+    - ABS_LOSS_USD: قاطع مطلق — أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة.
     - HARD_TAKE: سقف أمان للمكاسب الجامحة فقط (نادر).
-    - وقف متحرّك متدرّج (_trail_floor): يقفل مكسباً متزايداً مع ترك الكبار يركضون.
+    - وقف متحرʳك متدرج (_trail_floor): يقفل مكسباً متزايداً مع ترك الكبار يركضون.
     يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
     """
-    HARD_TAKE = 2.00    # سقف أمان: جني ربح عند +200% على الهامش (نادر)
-    HARD_STOP = -0.50   # قاطع دائرة: أغلق عند خسارة 50% من الهامش
+    HARD_TAKE    = 2.00    # سقف أمان: جني ربح عند +200% على الهامش (نادر)
+    HARD_STOP    = -0.40   # خُفِّض من -0.50 → -0.40: أغلق عند خسارة 40% من الهامش
+    ABS_LOSS_USD = 0.40    # قاطع مطلق: أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة
 
     peaks      = status.setdefault("peaks", {})
     closed_now = set()
@@ -149,36 +151,57 @@ def _manage_open_positions(status, client, positions):
         inst_id = p["instId"]
         try:
             ratio = float(p.get("uplRatio", 0))
+            upl   = float(p.get("upl", 0))
+            imr   = float(p.get("imr", 0))
+            # احسب من upl/imr مباشرةً — OKX cross-margin قد يُعطي uplRatio مختلفاً
+            if imr > 0:
+                ratio = min(ratio, upl / imr)   # استخدم الأسوأ (الأكثر سلبيةً)
         except (ValueError, TypeError):
+            upl   = 0.0
             ratio = 0.0
 
         peak = max(peaks.get(inst_id, ratio), ratio)
         peaks[inst_id] = peak
 
+        # ── قاطع الدائرة: نسبة أو قيمة مطلقة ─────────────────────────────────────
+        close_reason = None
         if ratio <= HARD_STOP:
+            close_reason = f"{ratio*100:.0f}% (نسبة)"
+        elif upl <= -ABS_LOSS_USD:
+            close_reason = f"${abs(upl):.2f} (مطلق)"
+
+        if close_reason:
             if client.close_position(inst_id):
                 add_log(status,
-                    f"🛑 وقف طارئ {inst_id} عند {ratio*100:.0f}% — حماية رأس المال",
+                    f"\U0001f6d1 وقف طارئ {inst_id} عند {close_reason} — حماية رأس المال",
                     "warning")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+            else:
+                add_log(status,
+                    f"⚠️ فشل إغلاق {inst_id} عند {close_reason} — سيُعاد في الجولة القادمة",
+                    "error")
             continue
 
         if ratio >= HARD_TAKE:
             if client.close_position(inst_id):
-                add_log(status, f"🎯 جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
+                add_log(status, f"\U0001f3af جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+            else:
+                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند جني الربح", "error")
             continue
 
         floor = _trail_floor(peak)
         if floor is not None and ratio <= floor:
             if client.close_position(inst_id):
                 add_log(status,
-                    f"🔒 وقف متحرّك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
+                    f"\U0001f512 وقف متحرʳك {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
                     "success")
                 closed_now.add(inst_id)
                 peaks.pop(inst_id, None)
+            else:
+                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند الوقف المتحرʳك", "error")
 
     active_ids = {p["instId"] for p in positions} - closed_now
     for k in list(peaks.keys()):
@@ -206,7 +229,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     client = OKXClient(key, secret, phrase, demo)
     balance = client.get_balance()
     status["balance"] = round(balance, 4)
-    add_log(status, f"💰 الرصيد: ${balance:.4f} USDT")
+    add_log(status, f"\U0001f4b0 الرصيد: ${balance:.4f} USDT")
 
     prev_open = {p["instId"] for p in status.get("positions", [])}
 
@@ -214,7 +237,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     active    = {p["instId"] for p in positions if float(p.get("pos", 0)) != 0}
     status["positions"] = [
         {"instId": p["instId"],
-         "side":   "شراء 📈" if float(p.get("pos",0))>0 else "بيع 📉",
+         "side":   "شراء \U0001f4c8" if float(p.get("pos",0))>0 else "بيع \U0001f4c9",
          "entry":  float(p.get("avgPx",0)),
          "size":   abs(float(p.get("pos",0))),
          "pnl":    round(float(p.get("upl",0)),4)}
@@ -236,21 +259,19 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                 if result is not None:
                     src = "(فعلي)" if realized is not None else "(تقدير)"
                     outcome = "ربح ✅" if result == 1 else "خسارة ❌"
-                    add_log(status, f"🧠 Brain تعلّم: {closed_id} → {outcome} {src}", "info")
+                    add_log(status, f"\U0001f9e0 Brain تعلّم: {closed_id} → {outcome} {src}", "info")
             except Exception:
                 pass
         add_log(status,
             f"⏳ أُغلقت: {', '.join(newly_closed)} — "
             f"محظورة من الدخول {brain.COOLDOWN_HOURS} ساعات", "info")
 
-    # ── وقف الخسارة المتحرّك ─────────────────────────────────────────────────
+    # ── وقف الخسارة المتحرʳك ─────────────────────────────────────────────────
     closed_by_trail = _manage_open_positions(status, client, positions)
     if closed_by_trail:
         active -= closed_by_trail
 
-    # ── كم مركزاً يمكن فتحه الآن؟ ────────────────────────────────────────────
-    # كانت العتبة $1 وتمنع الدخول عندما يكون الرصيد الحر < $1 (مثل $0.89)
-    # خُفِّضت إلى $0.10 حتى يتمكّن البوت من الدخول بأي رصيد متاح
+    # ── كم مركزاً يمكن فتحه الآن؟ ────────────────────────────────────────────────
     MIN_BALANCE = 0.10
     slots_available = cfg.MAX_POSITIONS - len(active)
     if slots_available <= 0 or balance < MIN_BALANCE:
@@ -284,7 +305,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     if skipped_cooldown:
         add_log(status, f"⏳ تخطّى {skipped_cooldown} عملة في فترة التهدئة", "info")
     if skipped_losers:
-        add_log(status, f"🚫 تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
+        add_log(status, f"\U0001f6ab تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
 
     signals.sort(key=lambda x: abs(x.get("adj_score", x["score"])), reverse=True)
     status["top_signals"] = [
@@ -301,7 +322,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     wr = brain.current_win_rate(memory)
     kelly_frac = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
     add_log(status,
-        f"🧠 Kelly ديناميكي: WR={wr*100:.1f}% → {kelly_frac*100:.1f}% من رأس المال", "info")
+        f"\U0001f9e0 Kelly ديناميكي: WR={wr*100:.1f}% → {kelly_frac*100:.1f}% من رأس المال", "info")
 
     trades_entered = 0
     for best in signals:
@@ -354,7 +375,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                                     STOP_LOSS_PCT, TAKE_PROFIT_PCT,
                                     sl_override=sl_price, tp_override=tp_price)
         if result["code"] == "0":
-            direction = "شراء 📈" if signal == "buy" else "بيع 📉"
+            direction = "شراء \U0001f4c8" if signal == "buy" else "بيع \U0001f4c9"
             add_log(status,
                 f"✅ {direction} {inst_id} @ {live_price} | "
                 f"درجة:{score} | هامش:${risk_capital:.3f} ({kelly_frac*100:.1f}% Kelly)", "success")
@@ -372,7 +393,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
             result2 = client.place_order_no_sltp(inst_id, signal, sz)
             if result2["code"] == "0":
-                direction = "شراء 📈" if signal == "buy" else "بيع 📉"
+                direction = "شراء \U0001f4c8" if signal == "buy" else "بيع \U0001f4c9"
                 add_log(status,
                     f"✅ {direction} {inst_id} @ {live_price} | "
                     f"درجة:{score} | (بدون SL/TP)", "success")
