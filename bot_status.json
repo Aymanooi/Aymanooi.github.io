@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-24 13:16:51 UTC",
   "mode": "Live 💰",
-  "balance": 2.5119,
+  "balance": 2.5114,
   "positions": [
     {
       "instId": "ETH-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 1657.89,
       "size": 0.04,
-      "pnl": -0.0121
+      "pnl": -0.0123
     },
     {
       "instId": "XLM-USDT-SWAP",
@@ -66,8 +66,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 13:16:51 UTC",
-      "msg": "💰 الرصيد: $2.5119 USDT",
+      "time": "2026-06-24 13:16:52 UTC",
+      "msg": "💰 الرصيد: $2.5114 USDT",
       "level": "info"
     },
     {
