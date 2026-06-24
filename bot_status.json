@@ -1,18 +1,43 @@
 {
-  "last_run": "2026-06-24 07:58:25 UTC",
+  "last_run": "2026-06-24 07:58:59 UTC",
   "mode": "Live 💰",
-  "balance": 0.5695,
+  "balance": 0.6955,
   "positions": [
     {
       "instId": "PIEVERSE-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.6741708333333335,
       "size": 24.0,
-      "pnl": 0.017
+      "pnl": 0.137
     }
   ],
   "total_trades": 6,
   "logs": [
+    {
+      "time": "2026-06-24 07:59:00 UTC",
+      "msg": "مراكز مفتوحة: 1/5 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 07:58:59 UTC",
+      "msg": "💰 الرصيد: $0.6955 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 07:58:59 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 07:58:59 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 07:58:59 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 07:58:25 UTC",
       "msg": "مراكز مفتوحة: 1/5 — لا دخول جديد",
@@ -385,31 +410,6 @@
     },
     {
       "time": "2026-06-24 07:56:25 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 07:56:21 UTC",
-      "msg": "مراكز مفتوحة: 1/5 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 07:56:21 UTC",
-      "msg": "💰 الرصيد: $0.6451 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 07:56:20 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 07:56:20 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 07:56:20 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     }
