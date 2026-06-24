@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-24 11:53:12 UTC",
+  "last_run": "2026-06-24 11:53:15 UTC",
   "mode": "Live 💰",
   "balance": 3.6248,
   "positions": [
@@ -15,7 +15,7 @@
       "side": "بيع 📉",
       "entry": 0.2443,
       "size": 3.0,
-      "pnl": 0.0012
+      "pnl": 0.0009
     },
     {
       "instId": "PROVE-USDT-SWAP",
@@ -29,7 +29,7 @@
       "side": "شراء 📈",
       "entry": 0.2138,
       "size": 1.0,
-      "pnl": 0.069
+      "pnl": 0.07
     }
   ],
   "total_trades": 24,
@@ -50,32 +50,32 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:53:14 UTC",
+      "time": "2026-06-24 11:53:17 UTC",
       "msg": "⏳ أُغلقت: UNI-USDT-SWAP — محظورة من الدخول 1 ساعات",
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:53:13 UTC",
+      "time": "2026-06-24 11:53:16 UTC",
       "msg": "📉 رأس المال الكلي: $5.87 | القمّة $7.02 | تراجع 16.4% | مُنظّم ×0.60",
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:53:13 UTC",
+      "time": "2026-06-24 11:53:16 UTC",
       "msg": "💰 الرصيد: $3.6248 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:53:13 UTC",
+      "time": "2026-06-24 11:53:15 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:53:12 UTC",
+      "time": "2026-06-24 11:53:15 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:53:12 UTC",
+      "time": "2026-06-24 11:53:15 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -471,13 +471,13 @@
   "peaks": {
     "JUP-USDT-SWAP": 0.6340579710144937,
     "PROVE-USDT-SWAP": 0.0014756517461784445,
-    "API3-USDT-SWAP": 0.0163733115022502,
+    "API3-USDT-SWAP": 0.0122799836266885,
     "AR-USDT-SWAP": 0.0301507537688428
   },
   "pnl_peaks": {
     "JUP-USDT-SWAP": 0.0700000000000001,
     "PROVE-USDT-SWAP": 0.0026999999999827,
-    "API3-USDT-SWAP": 0.0012,
+    "API3-USDT-SWAP": 0.0009,
     "AR-USDT-SWAP": 0.0059999999999998
   },
   "brain_stats": {
