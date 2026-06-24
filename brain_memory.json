@@ -1,17 +1,17 @@
 {
   "weights": {
-    "EMA": 0.7683856290041406,
-    "RSI": 1.0361768326830614,
-    "MACD": 0.8122758378171492,
-    "BB": 1.0165580751771552,
-    "Stoch": 0.9632460212627757,
+    "EMA": 0.788333991510492,
+    "RSI": 1.0495712169628453,
+    "MACD": 0.7861210893477515,
+    "BB": 1.0206050332437555,
+    "Stoch": 0.9677058127425839,
     "Volume": 0.9574266071799375,
-    "Pattern": 0.951144756444903,
-    "HTF_1h": 0.7828135791174912,
-    "OBV": 0.8741252748937715,
-    "RSIDivergence": 0.9252834586237909
+    "Pattern": 0.933241563902589,
+    "HTF_1h": 0.7613107486041508,
+    "OBV": 0.8660313587605715,
+    "RSIDivergence": 0.939326393094101
   },
-  "bias": -0.051079478214356315,
+  "bias": -0.03288602981998222,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -1004,46 +1004,46 @@
       "exit": 2.181
     },
     {
-      "instId": "APR-USDT-SWAP",
-      "signal": "buy",
+      "instId": "OP-USDT-SWAP",
+      "signal": "sell",
       "features": {
-        "EMA": 25,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
         "Stoch": 0,
         "Volume": 0,
         "Pattern": 0,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 15
+        "HTF_1h": -5,
+        "OBV": -10,
+        "RSIDivergence": -15
       },
-      "entry": 0.1972,
-      "score": 49,
-      "status": "loss",
-      "opened": "2026-06-24 14:51:10 UTC",
-      "exit": 0.1972
+      "entry": 0.10023,
+      "score": -43,
+      "status": "win",
+      "opened": "2026-06-24 14:51:03 UTC",
+      "exit": 0.10026
     },
     {
-      "instId": "APR-USDT-SWAP",
-      "signal": "buy",
+      "instId": "DOT-USDT-SWAP",
+      "signal": "sell",
       "features": {
-        "EMA": 25,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": 0,
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 5,
         "Volume": 0,
         "Pattern": -10,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 15
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
       },
-      "entry": 0.1972,
-      "score": 43,
-      "status": "loss",
+      "entry": 0.8901,
+      "score": -42,
+      "status": "win",
       "opened": "2026-06-24 14:52:08 UTC",
-      "exit": 0.1972
+      "exit": 0.8904
     },
     {
       "instId": "AGLD-USDT-SWAP",
@@ -1063,38 +1063,59 @@
       "entry": 0.1481,
       "score": -46,
       "status": "loss",
-      "opened": "2026-06-24 14:54:17 UTC",
-      "exit": 0.1482
+      "opened": "2026-06-24 14:53:15 UTC",
+      "exit": 0.1481
     },
     {
-      "instId": "OP-USDT-SWAP",
+      "instId": "ARKM-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
         "RSI": 5,
-        "MACD": -20,
+        "MACD": -15,
         "BB": 5,
         "Stoch": 0,
         "Volume": 0,
         "Pattern": 0,
-        "HTF_1h": -5,
+        "HTF_1h": -15,
         "OBV": -10,
-        "RSIDivergence": -15
+        "RSIDivergence": 0
       },
-      "entry": 0.10002,
-      "score": -43,
+      "entry": 0.11889,
+      "score": -42,
+      "status": "win",
+      "opened": "2026-06-24 14:54:25 UTC",
+      "exit": 0.11881
+    },
+    {
+      "instId": "APR-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 25,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 15
+      },
+      "entry": 0.1976,
+      "score": 62,
       "status": "open",
-      "opened": "2026-06-24 14:55:19 UTC"
+      "opened": "2026-06-24 14:55:22 UTC"
     }
   ],
-  "wins": 16,
-  "losses": 35,
+  "wins": 19,
+  "losses": 33,
   "lr": 0.05,
-  "updated": "2026-06-24 14:55:19 UTC",
+  "updated": "2026-06-24 14:55:22 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
-    "DOT-USDT-SWAP": "2026-06-23T19:01:09.998370+00:00",
+    "DOT-USDT-SWAP": "2026-06-24T14:52:24.159988+00:00",
     "LIGHT-USDT-SWAP": "2026-06-24T13:30:47.173021+00:00",
     "AXS-USDT-SWAP": "2026-06-24T13:43:17.303421+00:00",
     "DYDX-USDT-SWAP": "2026-06-24T10:46:36.349457+00:00",
@@ -1107,7 +1128,7 @@
     "PROS-USDT-SWAP": "2026-06-24T14:29:30.087431+00:00",
     "PIEVERSE-USDT-SWAP": "2026-06-24T11:45:58.020758+00:00",
     "EDGE-USDT-SWAP": "2026-06-24T13:46:31.845782+00:00",
-    "OP-USDT-SWAP": "2026-06-24T10:49:14.765416+00:00",
+    "OP-USDT-SWAP": "2026-06-24T14:51:08.632629+00:00",
     "AT-USDT-SWAP": "2026-06-24T13:35:14.607862+00:00",
     "ZRO-USDT-SWAP": "2026-06-24T12:45:14.320686+00:00",
     "JUP-USDT-SWAP": "2026-06-24T12:39:06.070952+00:00",
@@ -1117,12 +1138,12 @@
     "GRASS-USDT-SWAP": "2026-06-24T10:21:35.693202+00:00",
     "ARX-USDT-SWAP": "2026-06-24T10:24:55.337967+00:00",
     "UNI-USDT-SWAP": "2026-06-24T14:29:29.721754+00:00",
-    "MASK-USDT-SWAP": "2026-06-24T14:50:18.638216+00:00",
+    "MASK-USDT-SWAP": "2026-06-24T14:50:13.444242+00:00",
     "SOON-USDT-SWAP": "2026-06-24T13:45:43.961720+00:00",
     "KGEN-USDT-SWAP": "2026-06-24T10:26:39.737484+00:00",
     "ENSO-USDT-SWAP": "2026-06-24T10:26:40.076790+00:00",
     "JTO-USDT-SWAP": "2026-06-24T12:31:09.911377+00:00",
-    "AGLD-USDT-SWAP": "2026-06-24T14:54:24.597429+00:00",
+    "AGLD-USDT-SWAP": "2026-06-24T14:53:19.229241+00:00",
     "ZBT-USDT-SWAP": "2026-06-24T11:05:26.580169+00:00",
     "LDO-USDT-SWAP": "2026-06-24T13:33:22.939962+00:00",
     "ALLO-USDT-SWAP": "2026-06-24T11:50:25.452043+00:00",
@@ -1144,10 +1165,11 @@
     "XTZ-USDT-SWAP": "2026-06-24T13:30:05.368657+00:00",
     "SPCX-USDT-SWAP": "2026-06-24T13:35:15.100760+00:00",
     "BAND-USDT-SWAP": "2026-06-24T13:33:05.787192+00:00",
-    "APR-USDT-SWAP": "2026-06-24T14:52:39.785435+00:00",
+    "APR-USDT-SWAP": "2026-06-24T14:29:30.423765+00:00",
     "WLD-USDT-SWAP": "2026-06-24T13:40:28.984353+00:00",
     "MET-USDT-SWAP": "2026-06-24T13:47:19.108323+00:00",
     "BSB-USDT-SWAP": "2026-06-24T14:02:57.015782+00:00",
-    "TIA-USDT-SWAP": "2026-06-24T14:29:30.758329+00:00"
+    "TIA-USDT-SWAP": "2026-06-24T14:29:30.758329+00:00",
+    "ARKM-USDT-SWAP": "2026-06-24T14:54:35.875935+00:00"
   }
 }
