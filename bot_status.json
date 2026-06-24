@@ -8,13 +8,13 @@
       "side": "شراء 📈",
       "entry": 1.6715,
       "size": 36.0,
-      "pnl": 0.0
+      "pnl": -0.0036
     }
   ],
   "total_trades": 84,
   "logs": [
     {
-      "time": "2026-06-24 16:58:26 UTC",
+      "time": "2026-06-24 16:58:27 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
@@ -448,10 +448,10 @@
     }
   ],
   "peaks": {
-    "MORPHO-USDT-SWAP": 0.0
+    "MORPHO-USDT-SWAP": -0.0011966016513101458
   },
   "pnl_peaks": {
-    "MORPHO-USDT-SWAP": 0.0
+    "MORPHO-USDT-SWAP": -0.0035999999999996
   },
   "brain_stats": {
     "wins": 18,
