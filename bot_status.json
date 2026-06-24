@@ -1,26 +1,26 @@
 {
   "last_run": "2026-06-24 07:42:59 UTC",
   "mode": "Live 💰",
-  "balance": 0.2419,
+  "balance": 0.2671,
   "positions": [
     {
       "instId": "PIEVERSE-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.6741708333333335,
       "size": 24.0,
-      "pnl": -0.295
+      "pnl": -0.271
     }
   ],
   "total_trades": 6,
   "logs": [
     {
-      "time": "2026-06-24 07:42:59 UTC",
+      "time": "2026-06-24 07:43:00 UTC",
       "msg": "مراكز مفتوحة: 1/5 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 07:42:59 UTC",
-      "msg": "💰 الرصيد: $0.2419 USDT",
+      "time": "2026-06-24 07:43:00 UTC",
+      "msg": "💰 الرصيد: $0.2671 USDT",
       "level": "info"
     },
     {
