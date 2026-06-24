@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 08:56:09 UTC",
   "mode": "Live 💰",
-  "balance": 0.4013,
+  "balance": 0.4025,
   "positions": [
     {
       "instId": "JUP-USDT-SWAP",
@@ -68,8 +68,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:56:09 UTC",
-      "msg": "💰 الرصيد: $0.4013 USDT",
+      "time": "2026-06-24 08:56:10 UTC",
+      "msg": "💰 الرصيد: $0.4025 USDT",
       "level": "info"
     },
     {
