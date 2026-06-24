@@ -29,7 +29,7 @@
       "side": "بيع 📉",
       "entry": 0.1691,
       "size": 5.0,
-      "pnl": -0.03
+      "pnl": -0.035
     },
     {
       "instId": "JTO-USDT-SWAP",
@@ -525,7 +525,7 @@
       "RSIDivergence": 1.0
     },
     "kelly": 20.0,
-    "updated": "2026-06-24 10:24:06 UTC"
+    "updated": "2026-06-24 10:24:05 UTC"
   },
   "equity_peak": 7.0227,
   "drawdown": 5.23
