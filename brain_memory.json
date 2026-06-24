@@ -1821,12 +1821,32 @@
       "status": "win",
       "opened": "2026-06-24 21:53:07 UTC",
       "exit": 0.3188
+    },
+    {
+      "instId": "SNX-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": -5,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 5,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.2207,
+      "score": 41,
+      "status": "open",
+      "opened": "2026-06-24 22:21:46 UTC"
     }
   ],
   "wins": 25,
   "losses": 62,
   "lr": 0.05,
-  "updated": "2026-06-24 22:09:37 UTC",
+  "updated": "2026-06-24 22:21:46 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1856,7 +1876,7 @@
     "MASK-USDT-SWAP": "2026-06-24T14:50:18.638216+00:00",
     "SOON-USDT-SWAP": "2026-06-24T17:15:13.191525+00:00",
     "KGEN-USDT-SWAP": "2026-06-24T17:41:18.794344+00:00",
-    "ENSO-USDT-SWAP": "2026-06-24T18:01:15.309024+00:00",
+    "ENSO-USDT-SWAP": "2026-06-24T22:20:58.422597+00:00",
     "JTO-USDT-SWAP": "2026-06-24T20:15:00.830747+00:00",
     "AGLD-USDT-SWAP": "2026-06-24T20:57:22.784954+00:00",
     "ZBT-USDT-SWAP": "2026-06-24T20:58:16.003670+00:00",
