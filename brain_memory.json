@@ -1508,12 +1508,12 @@
       "exit": 0.58
     },
     {
-      "instId": "ONDO-USDT-SWAP",
+      "instId": "XRP-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
         "RSI": 12,
-        "MACD": -20,
+        "MACD": -15,
         "BB": 5,
         "Stoch": 10,
         "Volume": 0,
@@ -1522,16 +1522,16 @@
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.2938,
-      "score": -36,
+      "entry": 1.0495,
+      "score": -35,
       "status": "open",
-      "opened": "2026-06-24 18:02:00 UTC"
+      "opened": "2026-06-24 18:02:05 UTC"
     }
   ],
   "wins": 21,
   "losses": 51,
   "lr": 0.05,
-  "updated": "2026-06-24 18:02:00 UTC",
+  "updated": "2026-06-24 18:02:05 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T17:22:23.299979+00:00",
