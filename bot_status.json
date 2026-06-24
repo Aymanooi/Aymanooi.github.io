@@ -1,18 +1,48 @@
 {
-  "last_run": "2026-06-24 16:45:26 UTC",
+  "last_run": "2026-06-24 16:45:36 UTC",
   "mode": "Live 💰",
-  "balance": 1.9101,
+  "balance": 1.9017,
   "positions": [
     {
       "instId": "ONDO-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.2981,
       "size": 8.0,
-      "pnl": 0.04
+      "pnl": 0.032
     }
   ],
   "total_trades": 81,
   "logs": [
+    {
+      "time": "2026-06-24 16:45:37 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:45:37 UTC",
+      "msg": "📉 رأس المال الكلي: $3.09 | القمّة $7.02 | تراجع 56.0% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:45:36 UTC",
+      "msg": "💰 الرصيد: $1.9017 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:45:36 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:45:36 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 16:45:36 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 16:45:27 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -382,36 +412,6 @@
       "time": "2026-06-24 16:42:43 UTC",
       "msg": "⏭️ maker فشل UNI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
-    },
-    {
-      "time": "2026-06-24 16:42:41 UTC",
-      "msg": "⏭️ maker فشل LIT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 16:42:40 UTC",
-      "msg": "⏭️ maker فشل APE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 16:42:39 UTC",
-      "msg": "⏭️ maker فشل DOT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 16:42:37 UTC",
-      "msg": "⏭️ maker فشل TRUMP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 16:42:36 UTC",
-      "msg": "⏭️ maker فشل PI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 16:42:35 UTC",
-      "msg": "⏭️ maker فشل AXS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
     }
   ],
   "risk_mode": "rocket",
@@ -471,8 +471,8 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-24 16:45:20 UTC"
+    "updated": "2026-06-24 16:45:27 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 55.9
+  "drawdown": 56.01
 }
