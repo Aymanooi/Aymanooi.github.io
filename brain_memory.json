@@ -748,7 +748,7 @@
       "score": -42,
       "status": "loss",
       "opened": "2026-06-24 13:30:36 UTC",
-      "exit": 0.2967
+      "exit": 0.2951
     },
     {
       "instId": "SPCX-USDT-SWAP",
@@ -944,7 +944,7 @@
       "signal": "sell",
       "features": {
         "EMA": -10,
-        "RSI": 0,
+        "RSI": 5,
         "MACD": -15,
         "BB": 5,
         "Stoch": 0,
@@ -955,7 +955,7 @@
         "RSIDivergence": 0
       },
       "entry": 0.15012,
-      "score": -38,
+      "score": -36,
       "status": "open",
       "opened": "2026-06-24 14:03:07 UTC"
     }
@@ -1020,6 +1020,6 @@
     "APR-USDT-SWAP": "2026-06-24T13:34:19.836729+00:00",
     "WLD-USDT-SWAP": "2026-06-24T13:40:28.984353+00:00",
     "MET-USDT-SWAP": "2026-06-24T13:47:19.108323+00:00",
-    "BSB-USDT-SWAP": "2026-06-24T14:02:26.545815+00:00"
+    "BSB-USDT-SWAP": "2026-06-24T14:02:39.017880+00:00"
   }
 }
