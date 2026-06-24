@@ -16,7 +16,12 @@ from datetime import datetime, timezone
 MEMORY_FILE = os.path.join(os.path.dirname(__file__), "..", "brain_memory.json")
 
 # Feature keys produced by strategy.analyze() -> details
-FEATURE_KEYS = ["EMA", "RSI", "MACD", "BB", "Stoch", "Volume", "Pattern", "HTF_1h"]
+# OBV and RSIDivergence added — logistic regression will learn their weights over time
+FEATURE_KEYS = [
+    "EMA", "RSI", "MACD", "BB", "Stoch",
+    "Volume", "Pattern", "HTF_1h",
+    "OBV", "RSIDivergence",
+]
 
 DEFAULT_MEMORY = {
     "weights": {k: 1.0 for k in FEATURE_KEYS},   # learned multipliers
@@ -77,6 +82,7 @@ def kelly_fraction(win_rate, rr=3.0, cap=0.20, half=True):
     rr   = reward:risk (TP/SL = 3.0/1.0 = 3).
     half = True → half-Kelly (safer), False → full Kelly (turbo mode).
     Returns capital fraction to risk per trade.
+    Minimum 5% so the bot always does something.
     """
     if win_rate <= 0:
         return 0.05
