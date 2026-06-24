@@ -28,27 +28,27 @@
   "total_trades": 39,
   "logs": [
     {
-      "time": "2026-06-24 12:45:52 UTC",
+      "time": "2026-06-24 12:45:54 UTC",
       "msg": "📤 maker شراء 📈 RENDER-USDT-SWAP @~1.594 | درجة:38 | هامش:$0.232 (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-24 12:45:50 UTC",
+      "time": "2026-06-24 12:45:52 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=46.4% × مُنظّم 0.35 → 3.5% من رأس المال",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:45:50 UTC",
+      "time": "2026-06-24 12:45:52 UTC",
       "msg": "⏳ تخطّى 21 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:45:16 UTC",
-      "msg": "⏳ أُغلقت: ZRO-USDT-SWAP, ASTER-USDT-SWAP — محظورة من الدخول 1 ساعات",
+      "time": "2026-06-24 12:45:15 UTC",
+      "msg": "⏳ أُغلقت: ASTER-USDT-SWAP, ZRO-USDT-SWAP — محظورة من الدخول 1 ساعات",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:45:16 UTC",
+      "time": "2026-06-24 12:45:15 UTC",
       "msg": "🧠 Brain تعلّم: ASTER-USDT-SWAP → خسارة ❌ (فعلي)",
       "level": "info"
     },
@@ -63,7 +63,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:45:14 UTC",
+      "time": "2026-06-24 12:45:13 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -455,10 +455,10 @@
       "prob": 0.3
     },
     {
-      "instId": "INJ-USDT-SWAP",
+      "instId": "PROS-USDT-SWAP",
       "signal": "sell",
-      "score": -35,
-      "prob": 0.34
+      "score": -38,
+      "prob": 0.33
     }
   ],
   "peaks": {
