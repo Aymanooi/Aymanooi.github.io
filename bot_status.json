@@ -35,22 +35,17 @@
   "total_trades": 30,
   "logs": [
     {
-      "time": "2026-06-24 12:32:48 UTC",
-      "msg": "📤 maker شراء 📈 AXS-USDT-SWAP @~1.0452 | درجة:45 | هامش:$0.484 (بانتظار التنفيذ)",
+      "time": "2026-06-24 12:32:49 UTC",
+      "msg": "📤 maker شراء 📈 AXS-USDT-SWAP @~1.0456 | درجة:58 | هامش:$0.484 (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-24 12:32:47 UTC",
-      "msg": "⏭️ O-USDT-SWAP: حجم صفر (رصيد صغير جداً؟) — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 12:32:46 UTC",
+      "time": "2026-06-24 12:32:48 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=47.6% × مُنظّم 0.35 → 3.5% من رأس المال",
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:32:46 UTC",
+      "time": "2026-06-24 12:32:48 UTC",
       "msg": "⏳ تخطّى 11 عملة في فترة التهدئة",
       "level": "info"
     },
@@ -65,7 +60,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 12:32:05 UTC",
+      "time": "2026-06-24 12:32:06 UTC",
       "msg": "💰 الرصيد: $4.8396 USDT",
       "level": "info"
     },
@@ -433,21 +428,32 @@
       "time": "2026-06-24 12:29:23 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
       "level": "info"
+    },
+    {
+      "time": "2026-06-24 12:29:23 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
     {
+      "instId": "AXS-USDT-SWAP",
+      "signal": "buy",
+      "score": 58,
+      "prob": 0.75
+    },
+    {
+      "instId": "ASTER-USDT-SWAP",
+      "signal": "sell",
+      "score": -49,
+      "prob": 0.27
+    },
+    {
       "instId": "O-USDT-SWAP",
       "signal": "buy",
       "score": 44,
       "prob": 0.71
-    },
-    {
-      "instId": "AXS-USDT-SWAP",
-      "signal": "buy",
-      "score": 45,
-      "prob": 0.7
     },
     {
       "instId": "KITE-USDT-SWAP",
@@ -460,12 +466,6 @@
       "signal": "sell",
       "score": -36,
       "prob": 0.31
-    },
-    {
-      "instId": "ASTER-USDT-SWAP",
-      "signal": "sell",
-      "score": -38,
-      "prob": 0.32
     }
   ],
   "peaks": {
