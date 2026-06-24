@@ -1,18 +1,60 @@
 {
-  "last_run": "2026-06-24 21:15:35 UTC",
+  "last_run": "2026-06-24 21:15:47 UTC",
   "mode": "Live 💰",
-  "balance": 9.342,
-  "positions": [
-    {
-      "instId": "ETHFI-USDT-SWAP",
-      "side": "شراء 📈",
-      "entry": 0.3395,
-      "size": 55.0,
-      "pnl": -0.0715
-    }
-  ],
-  "total_trades": 114,
+  "balance": 10.2456,
+  "positions": [],
+  "total_trades": 115,
   "logs": [
+    {
+      "time": "2026-06-24 21:16:29 UTC",
+      "msg": "📤 maker شراء 📈 AVAX-USDT-SWAP @~6.335 | درجة:43 | رأس المال:$9.733 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 21:16:28 UTC",
+      "msg": "🧠 Brain WR=28.2% | مُنظّم ×0.35 | رأس المال الكامل (95%)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:16:28 UTC",
+      "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:16:28 UTC",
+      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:48 UTC",
+      "msg": "⏳ أُغلقت: ETHFI-USDT-SWAP — إعادة دخول بعد 30 ثانية",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:48 UTC",
+      "msg": "📉 رأس المال الكلي: $10.23 | القمّة $13.21 | تراجع 22.5% | مُنظّم ×0.35",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:47 UTC",
+      "msg": "💰 الرصيد: $10.2456 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:47 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:47 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 21:15:47 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 21:15:36 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -362,89 +404,39 @@
       "time": "2026-06-24 21:14:23 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:23 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:23 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 21:14:10 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:10 UTC",
-      "msg": "📉 رأس المال الكلي: $10.31 | القمّة $13.21 | تراجع 22.0% | مُنظّم ×0.35",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:10 UTC",
-      "msg": "💰 الرصيد: $9.3890 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:09 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:09 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:09 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 21:14:05 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 21:14:04 UTC",
-      "msg": "📉 رأس المال الكلي: $10.31 | القمّة $13.21 | تراجع 22.0% | مُنظّم ×0.35",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
     {
-      "instId": "ETHFI-USDT-SWAP",
+      "instId": "AVAX-USDT-SWAP",
       "signal": "buy",
-      "score": 48,
-      "prob": 0.72
+      "score": 43,
+      "prob": 0.74
     },
     {
-      "instId": "DYDX-USDT-SWAP",
+      "instId": "MORPHO-USDT-SWAP",
       "signal": "buy",
-      "score": 37,
+      "score": 46,
       "prob": 0.69
     },
     {
-      "instId": "CC-USDT-SWAP",
+      "instId": "O-USDT-SWAP",
       "signal": "buy",
-      "score": 51,
+      "score": 58,
       "prob": 0.68
     },
     {
-      "instId": "PENDLE-USDT-SWAP",
+      "instId": "TIA-USDT-SWAP",
       "signal": "buy",
-      "score": 36,
-      "prob": 0.66
+      "score": 48,
+      "prob": 0.68
     },
     {
-      "instId": "BAND-USDT-SWAP",
+      "instId": "0G-USDT-SWAP",
       "signal": "buy",
-      "score": 36,
-      "prob": 0.66
+      "score": 42,
+      "prob": 0.67
     }
   ],
   "peaks": {
@@ -471,8 +463,8 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-24 21:15:32 UTC"
+    "updated": "2026-06-24 21:15:36 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 22.34
+  "drawdown": 22.53
 }
