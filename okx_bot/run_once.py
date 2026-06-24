@@ -323,9 +323,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     import config as cfg
 
     LEVERAGE        = cfg.LEVERAGE
-    STOP_LOSS_PCT   = 0.02
-    TAKE_PROFIT_PCT = 0.04
-    CAPITAL_RATIO   = 0.95
+    STOP_LOSS_PCT   = cfg.STOP_LOSS_PCT
+    TAKE_PROFIT_PCT = cfg.TAKE_PROFIT_PCT
+    CAPITAL_RATIO   = cfg.CAPITAL_RATIO
     TOP_PAIRS       = cfg.SCAN_SYMBOLS
 
     add_log(status,
@@ -382,7 +382,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                 pass
         add_log(status,
             f"⏳ أُغلقت: {', '.join(newly_closed)} — "
-            f"محظورة من الدخول {brain.COOLDOWN_HOURS} ساعات", "info")
+            f"إعادة دخول بعد {brain.COOLDOWN_SECONDS} ثانية", "info")
 
     # ── وقف الخسارة المتحرك ──────────────────────────────────────────────────
     closed_by_trail = _manage_open_positions(status, client, positions)
@@ -447,11 +447,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         return
 
     # ── حارس التركّز الاتجاهي: وازن المحفظة بين شراء وبيع لتقليل خطر الترابط ─
-    # خطر الترابط = أكبر قاتل للحسابات الرافعة: لو كل المراكز باتجاه واحد،
-    # حركة سوق معاكسة واحدة تُصفّيها معاً. حين يطغى اتجاه نُفضّل الإشارة المعاكسة.
     long_ct  = sum(1 for p in positions if float(p.get("pos", 0)) > 0)
     short_ct = sum(1 for p in positions if float(p.get("pos", 0)) < 0)
-    skew_cap = max(2, int(cfg.MAX_POSITIONS * 0.6))   # مثال: 3 من 5
+    skew_cap = max(2, int(cfg.MAX_POSITIONS * 0.6))
     dominant = None
     if long_ct >= skew_cap and long_ct > short_ct:
         dominant = "buy"
@@ -465,13 +463,12 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             add_log(status,
                 f"⚖️ تركّز {dominant} ({dom_ct}/{cfg.MAX_POSITIONS}) — "
                 f"أُفضّل {opposite} لتوازن المحفظة وتقليل خطر الترابط", "info")
-            signals = balancing   # اختر من الاتجاه المعاكس فقط هذه الدورة
+            signals = balancing
 
-    # ── Kelly ديناميكي × مُنظّم منحنى رأس المال ─────────────────────────────
+    # ── إحصائيات Brain (بدون Kelly — نستخدم رأس المال الكامل) ──────────────────
     wr = brain.current_win_rate(memory)
-    kelly_frac = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY) * eq_throttle
     add_log(status,
-        f"\U0001f9e0 Kelly ديناميكي: WR={wr*100:.1f}% × مُنظّم {eq_throttle:.2f} → {kelly_frac*100:.1f}% من رأس المال", "info")
+        f"\U0001f9e0 Brain WR={wr*100:.1f}% | مُنظّم ×{eq_throttle:.2f} | رأس المال الكامل ({CAPITAL_RATIO*100:.0f}%)", "info")
 
     trades_entered = 0
     for best in signals:
@@ -485,18 +482,13 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         ticker     = client.get_ticker(inst_id)
         live_price = float(ticker["last"]) if ticker else best["price"]
 
-        # SL/TP من السعر الحي + ATR → RR=3:1
-        atr_val = best.get("atr", 0)
-        if atr_val > 0:
-            if signal == "buy":
-                sl_price = live_price - 1.5 * atr_val
-                tp_price = live_price + 4.5 * atr_val
-            else:
-                sl_price = live_price + 1.5 * atr_val
-                tp_price = live_price - 4.5 * atr_val
+        # SL ثابت 0.5% | TP ثابت 1% من السعر الحي
+        if signal == "buy":
+            sl_price = live_price * (1 - STOP_LOSS_PCT)
+            tp_price = live_price * (1 + TAKE_PROFIT_PCT)
         else:
-            sl_price = live_price * (0.97 if signal == "buy" else 1.03)
-            tp_price = live_price * (1.06 if signal == "buy" else 0.94)
+            sl_price = live_price * (1 + STOP_LOSS_PCT)
+            tp_price = live_price * (1 - TAKE_PROFIT_PCT)
 
         eff_leverage = LEVERAGE
         max_lev = client.get_max_leverage(inst_id)
@@ -504,15 +496,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             eff_leverage = max_lev
             add_log(status, f"ℹ️ {inst_id}: رافعة {LEVERAGE}x→{eff_leverage:g}x (حد العملة)", "info")
 
-        # حجم دقيق بناءً على ATR الفعلي: Kelly fraction / (رافعة × SL%)
-        if atr_val > 0 and live_price > 0:
-            sl_pct = (1.5 * atr_val) / live_price
-            risk_capital = min(
-                (kelly_frac * balance) / max(eff_leverage * sl_pct, 0.001),
-                balance * cfg.RISK_PER_TRADE
-            )
-        else:
-            risk_capital = balance * cfg.RISK_PER_TRADE
+        # رأس المال كاملاً (95% لاحتياطي رسوم)
+        risk_capital = balance * CAPITAL_RATIO
 
         client.set_leverage(inst_id, eff_leverage)
         sz = client.calculate_contracts(inst_id, risk_capital, live_price, eff_leverage, CAPITAL_RATIO)
@@ -529,7 +514,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             if result["code"] == "0":
                 add_log(status,
                     f"\U0001f4e4 maker {direction} {inst_id} @~{live_price} | "
-                    f"درجة:{score} | هامش:${risk_capital:.3f} (بانتظار التنفيذ)", "success")
+                    f"درجة:{score} | رأس المال:${risk_capital:.3f} | SL:{STOP_LOSS_PCT*100:.1f}% TP:{TAKE_PROFIT_PCT*100:.1f}% (بانتظار التنفيذ)", "success")
                 brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
                 status["total_trades"] = status.get("total_trades", 0) + 1
                 trades_entered += 1
@@ -550,7 +535,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         if result["code"] == "0":
             add_log(status,
                 f"✅ {direction} {inst_id} @ {live_price} | "
-                f"درجة:{score} | هامش:${risk_capital:.3f} ({kelly_frac*100:.1f}% Kelly)", "success")
+                f"درجة:{score} | رأس المال:${risk_capital:.3f} | SL:{STOP_LOSS_PCT*100:.1f}% TP:{TAKE_PROFIT_PCT*100:.1f}%", "success")
             brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1

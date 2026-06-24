@@ -113,8 +113,8 @@ def should_trade_symbol(memory, inst_id, rr=3.0, min_trades=5):
     return wr > (1 / (1 + rr))   # breakeven WR = 25%
 
 
-# ساعة واحدة تكفي لتغيّر اتجاه 4 شمعات 15m — بعدها يُعاد الفحص من الصفر
-COOLDOWN_HOURS = 1
+# 30 ثانية — إعادة دخول سريعة بعد الخروج من العملة مباشرة
+COOLDOWN_SECONDS = 30
 
 def mark_exited(memory, inst_id):
     """Record that a position on inst_id was just closed — starts cooldown timer."""
@@ -122,15 +122,15 @@ def mark_exited(memory, inst_id):
         memory["exited"] = {}
     memory["exited"][inst_id] = datetime.now(timezone.utc).isoformat()
 
-def can_reenter(memory, inst_id, cooldown_hours=COOLDOWN_HOURS):
+def can_reenter(memory, inst_id, cooldown_seconds=COOLDOWN_SECONDS):
     """True if cooldown has passed (or symbol never exited before)."""
     exited = memory.get("exited", {})
     if inst_id not in exited:
         return True
     try:
         exited_at = datetime.fromisoformat(exited[inst_id])
-        elapsed_h = (datetime.now(timezone.utc) - exited_at).total_seconds() / 3600
-        return elapsed_h >= cooldown_hours
+        elapsed_s = (datetime.now(timezone.utc) - exited_at).total_seconds()
+        return elapsed_s >= cooldown_seconds
     except Exception:
         return True
 

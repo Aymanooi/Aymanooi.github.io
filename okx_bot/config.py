@@ -19,7 +19,7 @@ IS_DEMO = "1"
 #   "nitro"   = نيترو: رافعة 20×، مخاطرة 15%، فلتر الخاسرين
 #   "hyper"   = هايبر: رافعة 20×، مخاطرة 12%، 2 مراكز + فلتر
 #   "ultra"   = ألترا: رافعة 20×، مخاطرة 10%، 5 مراكز + فلتر
-#   "rocket"  = روكيت: مخاطرة 10% (الأمثل بعد الرسوم حسب الباكتيست)، 5 مراكز + فلتر
+#   "rocket"  = روكيت: رأس المال كاملاً، عملة واحدة، SL 0.5%، TP 1%
 RISK_MODE = os.getenv("RISK_MODE", "rocket").strip().lower()
 
 _RISK_PRESETS = {
@@ -31,14 +31,9 @@ _RISK_PRESETS = {
     "nitro":      {"leverage": 20, "risk_per_trade": 0.15, "kelly_cap": 0.35, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 1},
     "hyper":      {"leverage": 20, "risk_per_trade": 0.12, "kelly_cap": 0.45, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 2},
     "ultra":      {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.50, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 5},
-    # rocket: الحجم الأمثل المُثبَت بالباكتيست على بيانات OKX حقيقية.
-    # النتيجة: الاستراتيجية لها حافة موجبة (PF=1.32، +3.5%/صفقة صافٍ بعد الرسوم على x20)،
-    # لكن مخاطرة 18% تتجاوز الحجم الأمثل: بعد الرسوم أعطت $10→$11 بتراجع 76%،
-    # بينما 10% أعطت $10→$18 بتراجع 51%. المبالغة في الرهان (Kelly drag) = أكبر سبب
-    # لتصفير حساب رابح. لذا: 10% مخاطرة + رافعة 20× + 5 مراكز + Brain فلتر + 100 عملة.
-    # مُنظّم منحنى رأس المال يخفّض التراجع أكثر. نفس الحافة، بقاء أطول = تراكم أكبر.
-    # ⚠️ تراجع محتمل ~40-50% في الدورات السيئة — ادخل بعيون مفتوحة.
-    "rocket":     {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.10, "half_kelly": False, "symbols": 100, "filter_losers": True,  "max_positions": 5},
+    # rocket: عملة واحدة، رأس المال كاملاً، وقف 0.5%، هدف 1%، رافعة x20.
+    # إعادة الدخول فور الخروج (30 ثانية) — استراتيجية مركّزة عالية السرعة.
+    "rocket":     {"leverage": 20, "risk_per_trade": 1.0,  "kelly_cap": 1.0,  "half_kelly": False, "symbols": 100, "filter_losers": True,  "max_positions": 1},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
@@ -50,9 +45,9 @@ HALF_KELLY     = _preset["half_kelly"]       # True=نصف Kelly (أمان), Fal
 SCAN_SYMBOLS   = _preset["symbols"]          # عدد العملات المُمسوحة
 FILTER_LOSERS  = _preset["filter_losers"]    # True=يحذف العملات الخاسرة (Brain)
 MAX_POSITIONS  = _preset["max_positions"]    # عدد المراكز المتزامنة
-CAPITAL_RATIO  = 0.95
-STOP_LOSS_PCT  = 0.02
-TAKE_PROFIT_PCT = 0.04
+CAPITAL_RATIO   = 0.95
+STOP_LOSS_PCT   = 0.005   # وقف الخسارة: 0.5% من السعر
+TAKE_PROFIT_PCT = 0.01    # هدف الربح: 1% من السعر
 
 # === Order Mode ===
 # "maker" = أوامر حدّية post-only تحذف رسوم taker (~2% على x20) — الباكتيست أثبت
