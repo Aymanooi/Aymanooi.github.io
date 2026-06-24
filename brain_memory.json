@@ -1445,30 +1445,30 @@
       "exit": 0.1566
     },
     {
-      "instId": "SPCX-USDT-SWAP",
+      "instId": "KGEN-USDT-SWAP",
       "signal": "sell",
       "features": {
-        "EMA": -25,
-        "RSI": 0,
-        "MACD": -10,
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
         "BB": 5,
         "Stoch": 5,
         "Volume": 0,
         "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
+        "HTF_1h": -15,
+        "OBV": 10,
+        "RSIDivergence": -15
       },
-      "entry": 155.6,
-      "score": -36,
+      "entry": 0.1643,
+      "score": -37,
       "status": "open",
-      "opened": "2026-06-24 17:36:49 UTC"
+      "opened": "2026-06-24 17:37:35 UTC"
     }
   ],
   "wins": 21,
   "losses": 48,
   "lr": 0.05,
-  "updated": "2026-06-24 17:36:49 UTC",
+  "updated": "2026-06-24 17:37:35 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T17:22:23.299979+00:00",
