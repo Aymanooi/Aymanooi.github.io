@@ -1382,30 +1382,30 @@
       "exit": 0.1919
     },
     {
-      "instId": "THETA-USDT-SWAP",
+      "instId": "CRV-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
-        "RSI": 12,
+        "RSI": 5,
         "MACD": -20,
         "BB": 5,
-        "Stoch": 5,
+        "Stoch": 0,
         "Volume": 0,
         "Pattern": 0,
         "HTF_1h": -15,
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.1378,
-      "score": -35,
+      "entry": 0.1915,
+      "score": -42,
       "status": "open",
-      "opened": "2026-06-24 17:16:32 UTC"
+      "opened": "2026-06-24 17:16:38 UTC"
     }
   ],
   "wins": 19,
   "losses": 47,
   "lr": 0.05,
-  "updated": "2026-06-24 17:16:32 UTC",
+  "updated": "2026-06-24 17:16:38 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T16:51:16.749639+00:00",
@@ -1433,7 +1433,7 @@
     "ARX-USDT-SWAP": "2026-06-24T10:24:55.337967+00:00",
     "UNI-USDT-SWAP": "2026-06-24T14:29:29.721754+00:00",
     "MASK-USDT-SWAP": "2026-06-24T14:50:18.638216+00:00",
-    "SOON-USDT-SWAP": "2026-06-24T17:15:36.757994+00:00",
+    "SOON-USDT-SWAP": "2026-06-24T17:15:13.191525+00:00",
     "KGEN-USDT-SWAP": "2026-06-24T10:26:39.737484+00:00",
     "ENSO-USDT-SWAP": "2026-06-24T10:26:40.076790+00:00",
     "JTO-USDT-SWAP": "2026-06-24T12:31:09.911377+00:00",
