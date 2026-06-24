@@ -981,32 +981,12 @@
       "status": "loss",
       "opened": "2026-06-24 14:04:18 UTC",
       "exit": 0.1257
-    },
-    {
-      "instId": "MASK-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": 0,
-        "MACD": -5,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.4052,
-      "score": 65,
-      "status": "open",
-      "opened": "2026-06-24 14:40:42 UTC"
     }
   ],
   "wins": 16,
   "losses": 31,
   "lr": 0.05,
-  "updated": "2026-06-24 14:41:21 UTC",
+  "updated": "2026-06-24 14:41:25 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
