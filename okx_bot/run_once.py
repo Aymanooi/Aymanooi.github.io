@@ -114,6 +114,9 @@ async def run():
 
     await _fallback_mscs(status, memory, key, secret, phrase, demo)
 
+    # ── حفظ إحصائيات Brain في الحالة للعرض في لوحة التحكم ────────────────────
+    status["brain_stats"] = brain.stats(memory)
+
     brain.save_memory(memory)
     save_status(status)
     print("✅ Done.")
@@ -283,8 +286,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     MIN_BALANCE     = 0.10   # حد أدنى للرصيد ($0.10 بدل $1.00)
 
     add_log(status,
-        f"⚙️ {cfg.RISK_MODE} | رافعة x{LEVERAGE} | مخاطرة {cfg.RISK_PER_TRADE*100:.0f}% | "
-        f"مراكز {cfg.MAX_POSITIONS} | مسح {TOP_PAIRS} عملة", "info")
+        f"⚙️ {cfg.RISK_MODE} | رافعة x{LEVERAGE} | مراكز {cfg.MAX_POSITIONS} | مسح {TOP_PAIRS} عملة", "info")
 
     client = OKXClient(key, secret, phrase, demo)
     balance = client.get_balance()
@@ -379,8 +381,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    # ── حجم المركز: RISK_PER_TRADE من رأس المال (Kelly-مُعايَر) ─────────────
-    risk_capital = balance * cfg.RISK_PER_TRADE
+    # ── حجم المركز: Kelly من Brain (مُعايَر ديناميكياً بمعدل الفوز الفعلي) ──
+    # WR=50% (افتراضي <5 صفقات) → Kelly = cap (18%)
+    # WR=35% → Kelly = 13.3% (يُقلّل المخاطرة تلقائياً في فترات التراجع)
+    # WR=60% → Kelly = min(46.7%, cap=18%) = 18%
+    wr           = brain.current_win_rate(memory)
+    kelly        = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
+    risk_capital = balance * kelly
+    add_log(status,
+        f"📊 Brain WR:{wr*100:.0f}% → Kelly:{kelly*100:.1f}% → هامش/صفقة:${risk_capital:.3f}", "info")
 
     trades_entered = 0
     for best in signals:
@@ -426,7 +435,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             direction = "شراء 📈" if signal == "buy" else "بيع 📉"
             add_log(status,
                 f"✅ {direction} {inst_id} @ {live_price} | "
-                f"درجة:{score} | هامش:${risk_capital:.3f} ({cfg.RISK_PER_TRADE*100:.0f}%)", "success")
+                f"درجة:{score} | Kelly:{kelly*100:.1f}% هامش:${risk_capital:.3f}", "success")
             brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
@@ -444,7 +453,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                 direction = "شراء 📈" if signal == "buy" else "بيع 📉"
                 add_log(status,
                     f"✅ {direction} {inst_id} @ {live_price} | "
-                    f"درجة:{score} | (بدون SL/TP)", "success")
+                    f"درجة:{score} | Kelly:{kelly*100:.1f}% (بدون SL/TP)", "success")
                 brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
                 status["total_trades"] = status.get("total_trades", 0) + 1
                 trades_entered += 1
