@@ -288,6 +288,35 @@ def _manage_open_positions(status, client, positions):
     return closed_now
 
 
+def _cancel_stale_maker_orders(status, client, memory, active):
+    """
+    يلغي أوامر maker الحدّية التي لم تُنفَّذ من الدورات السابقة، ويحذف سجلّاتها
+    الوهمية (status=open) من ذاكرة الدماغ — حتى لا يتعلّم الدماغ من صفقة لم تحدث.
+    يجب أن يُستدعى قبل خطوة كشف الصفقات المُغلقة (newly_closed) لتفادي تعلّم خاطئ.
+    """
+    pending = client.get_pending_orders()
+    cancelled = []
+    for od in pending:
+        inst_id = od.get("instId", "")
+        ord_id  = od.get("ordId", "")
+        # لا تُلغِ أمراً لعملة لها مركز مفتوح فعلاً (قد يكون أمراً خوارزمياً)
+        if inst_id in active or not ord_id:
+            continue
+        if client.cancel_order(inst_id, ord_id):
+            cancelled.append(inst_id)
+
+    # احذف الفتح الوهمي من الدماغ (الأمر لم يُنفَّذ → لا صفقة حقيقية)
+    for sym in cancelled:
+        for t in reversed(memory.get("trades", [])):
+            if t["instId"] == sym and t["status"] == "open":
+                memory["trades"].remove(t)
+                break
+
+    if cancelled:
+        add_log(status,
+            f"\U0001f9f9 أُلغيت {len(cancelled)} أوامر maker عالقة + نُظّفت من الدماغ", "info")
+
+
 async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     from okx_client import OKXClient
     from strategy import analyze
@@ -301,7 +330,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
     add_log(status,
         f"⚙️ {cfg.RISK_MODE} | رافعة x{LEVERAGE} | مخاطرة {cfg.RISK_PER_TRADE*100:.0f}% | "
-        f"مراكز {cfg.MAX_POSITIONS} | مسح {TOP_PAIRS} عملة", "info")
+        f"مراكز {cfg.MAX_POSITIONS} | مسح {TOP_PAIRS} عملة | أوامر {cfg.ORDER_MODE}", "info")
 
     client = OKXClient(key, secret, phrase, demo)
     balance = client.get_balance()
@@ -328,6 +357,10 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
          "pnl":    round(float(p.get("upl",0)),4)}
         for p in positions if float(p.get("pos",0)) != 0
     ]
+
+    # ── نظّف أوامر maker العالقة أولاً (قبل كشف الصفقات المُغلقة) ────────────
+    if cfg.ORDER_MODE == "maker":
+        _cancel_stale_maker_orders(status, client, memory, active)
 
     # ── Detect closed positions → cooldown + brain learning ───────────────────
     believed_open = prev_open | brain.open_instruments(memory)
@@ -487,11 +520,34 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             add_log(status, f"⏭️ {inst_id}: حجم صفر (رصيد صغير جداً؟) — التالي", "warning")
             continue
 
+        direction = "شراء \U0001f4c8" if signal == "buy" else "بيع \U0001f4c9"
+
+        # ── وضع الأمر: maker (post-only، رسوم أقل) أو taker (سوق، فوري) ──────
+        if cfg.ORDER_MODE == "maker":
+            result = client.place_order_maker(inst_id, signal, sz, live_price,
+                                              sl_price, tp_price, offset=cfg.MAKER_OFFSET)
+            if result["code"] == "0":
+                add_log(status,
+                    f"\U0001f4e4 maker {direction} {inst_id} @~{live_price} | "
+                    f"درجة:{score} | هامش:${risk_capital:.3f} (بانتظار التنفيذ)", "success")
+                brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
+                status["total_trades"] = status.get("total_trades", 0) + 1
+                trades_entered += 1
+            else:
+                detail = ""
+                try:
+                    detail = result["data"][0].get("sMsg", "")
+                except (KeyError, IndexError, TypeError):
+                    pass
+                err_msg = detail or result.get("msg", "خطأ غير معروف")
+                add_log(status, f"⏭️ maker فشل {inst_id}: {err_msg} — التالي", "warning")
+            continue
+
+        # ── taker (أوامر سوق) ──────────────────────────────────────────────
         result = client.place_order(inst_id, signal, sz, live_price,
                                     STOP_LOSS_PCT, TAKE_PROFIT_PCT,
                                     sl_override=sl_price, tp_override=tp_price)
         if result["code"] == "0":
-            direction = "شراء \U0001f4c8" if signal == "buy" else "بيع \U0001f4c9"
             add_log(status,
                 f"✅ {direction} {inst_id} @ {live_price} | "
                 f"درجة:{score} | هامش:${risk_capital:.3f} ({kelly_frac*100:.1f}% Kelly)", "success")
@@ -509,7 +565,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
             result2 = client.place_order_no_sltp(inst_id, signal, sz)
             if result2["code"] == "0":
-                direction = "شراء \U0001f4c8" if signal == "buy" else "بيع \U0001f4c9"
                 add_log(status,
                     f"✅ {direction} {inst_id} @ {live_price} | "
                     f"درجة:{score} | (بدون SL/TP)", "success")
