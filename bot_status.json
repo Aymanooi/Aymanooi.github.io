@@ -6,17 +6,27 @@
   "total_trades": 106,
   "logs": [
     {
-      "time": "2026-06-24 20:08:36 UTC",
-      "msg": "📤 maker بيع 📉 JTO-USDT-SWAP @~0.653 | درجة:-53 | رأس المال:$12.088 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
+      "time": "2026-06-24 20:08:39 UTC",
+      "msg": "📤 maker بيع 📉 DOT-USDT-SWAP @~0.8776 | درجة:-52 | رأس المال:$12.088 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-24 20:08:34 UTC",
+      "time": "2026-06-24 20:08:38 UTC",
+      "msg": "⏭️ maker فشل ARKM-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 20:08:36 UTC",
+      "msg": "⏭️ maker فشل JTO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 20:08:35 UTC",
       "msg": "🧠 Brain WR=29.9% | مُنظّم ×1.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:08:34 UTC",
+      "time": "2026-06-24 20:08:35 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
@@ -394,16 +404,6 @@
       "time": "2026-06-24 20:00:41 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
-    },
-    {
-      "time": "2026-06-24 20:00:38 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 20:00:38 UTC",
-      "msg": "📉 رأس المال الكلي: $12.75 | القمّة $13.12 | تراجع 2.8% | مُنظّم ×1.00",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -427,13 +427,13 @@
       "prob": 0.26
     },
     {
-      "instId": "BARD-USDT-SWAP",
+      "instId": "APT-USDT-SWAP",
       "signal": "sell",
       "score": -52,
       "prob": 0.26
     },
     {
-      "instId": "SPX-USDT-SWAP",
+      "instId": "BARD-USDT-SWAP",
       "signal": "sell",
       "score": -52,
       "prob": 0.26
