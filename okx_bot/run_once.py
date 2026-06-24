@@ -81,7 +81,7 @@ async def run():
     status = load_status()
     status["last_run"]  = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     status["mode"]      = "Demo 🧪" if demo != "0" else "Live 💰"
-    status["risk_mode"] = os.environ.get("RISK_MODE", "safe").strip().lower()
+    status["risk_mode"] = os.environ.get("RISK_MODE", "rocket").strip().lower()
 
     # ── مفتاح إيقاف طارئ: إذا وُجد bot_stop.json أغلق كل الصفقات وانتهِ ──────
     STOP_FILE = os.path.join(os.path.dirname(__file__), "..", "bot_stop.json")
@@ -120,20 +120,15 @@ async def run():
 
 def _trail_floor(peak):
     """
-    أرضية الوقف المتحرّك المتدرّج (ratcheting) كدالة في أعلى ربح (uplRatio).
-    تتشدّد كلما كبر الربح فتقفل مكسباً أكبر، لكنها تترك الرابحين الكبار يركضون
-    بدل قصّهم مبكراً — وهذا جوهر التراكم: قِلّة من الصفقات الكبيرة تصنع الفرق.
-    تُرجع None إذا لم يُسلَّح التتبّع بعد.
+    وقف متحرّك مُعاد معايرته لرافعة x20:
+    +100% هامش = +5% سعر = 2×ATR — حركة ذات معنى حقيقي، ليست ضجيج.
+    يُسلَّح بعد +100% هامش فقط لتجنّب القص المبكر على تقلبات السعر العادية.
     """
-    if peak < 0.25:
-        return None              # غير مُسلَّح: لم يبلغ +25% بعد
-    if peak < 0.50:
-        return peak - 0.15       # +25–50%: تنازل حتى 15 نقطة من القمّة
-    if peak < 1.00:
-        return peak * 0.70       # +50–100%: احتفظ بـ70% من القمّة
-    if peak < 2.00:
-        return peak * 0.80       # +100–200%: اقفل 80% من المكسب الكبير
-    return peak * 0.85           # +200%+: اقفل 85% (رابح جامح — احمِ المكسب)
+    if peak < 1.00: return None          # تسليح بعد +100% هامش (+5% سعر عند x20)
+    if peak < 2.00: return 0.0           # +100–200%: احمِ التعادل كحد أدنى
+    if peak < 4.00: return peak * 0.60   # +200–400%: اقفل 60% من القمّة
+    if peak < 8.00: return peak * 0.70   # +400–800%: اقفل 70%
+    return peak * 0.80                   # +800%+: اقفل 80% (رابح جامح)
 
 
 def _manage_open_positions(status, client, positions):
@@ -298,10 +293,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    # ── حجم المركز: RISK_PER_TRADE من رأس المال (Kelly-مُعايَر) ─────────────
-    # الإصلاح: بدل قسمة الرصيد على عدد الصفقات (= 100% مخاطرة!) نستخدم النسبة
-    # المضبوطة في الإعدادات. هذا يضمن عدم تجاوز Kelly وحماية رأس المال.
-    risk_capital = balance * cfg.RISK_PER_TRADE
+    # ── Kelly ديناميكي: يتعلّم من سجل الصفقات الفعلي تلقائياً ───────────────
+    wr = brain.current_win_rate(memory)
+    kelly_frac = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
+    add_log(status,
+        f"🧠 Kelly ديناميكي: WR={wr*100:.1f}% → {kelly_frac*100:.1f}% من رأس المال", "info")
 
     trades_entered = 0
     for best in signals:
@@ -334,6 +330,17 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             eff_leverage = max_lev
             add_log(status, f"ℹ️ {inst_id}: رافعة {LEVERAGE}x→{eff_leverage:g}x (حد العملة)", "info")
 
+        # حجم دقيق بناءً على ATR الفعلي: Kelly fraction / (رافعة × SL%)
+        # يضمن أن الخسارة القصوى لكل صفقة = kelly_frac من رأس المال بالضبط
+        if atr_val > 0 and live_price > 0:
+            sl_pct = (1.5 * atr_val) / live_price
+            risk_capital = min(
+                (kelly_frac * balance) / max(eff_leverage * sl_pct, 0.001),
+                balance * cfg.RISK_PER_TRADE
+            )
+        else:
+            risk_capital = balance * cfg.RISK_PER_TRADE
+
         client.set_leverage(inst_id, eff_leverage)
         sz = client.calculate_contracts(inst_id, risk_capital, live_price, eff_leverage, CAPITAL_RATIO)
         if sz <= 0:
@@ -347,7 +354,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             direction = "شراء 📈" if signal == "buy" else "بيع 📉"
             add_log(status,
                 f"✅ {direction} {inst_id} @ {live_price} | "
-                f"درجة:{score} | هامش:${risk_capital:.3f} ({cfg.RISK_PER_TRADE*100:.0f}%)", "success")
+                f"درجة:{score} | هامش:${risk_capital:.3f} ({kelly_frac*100:.1f}% Kelly)", "success")
             brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
