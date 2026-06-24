@@ -82,6 +82,7 @@ async def run():
     status["last_run"]  = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     status["mode"]      = "Demo 🧪" if demo != "0" else "Live 💰"
     status["risk_mode"] = os.environ.get("RISK_MODE", "rocket").strip().lower()
+    status.pop("stopped", None)   # امسح علامة الإيقاف القديمة عند كل تشغيل طبيعي
 
     # ── مفتاح إيقاف طارئ: إذا وُجد bot_stop.json أغلق كل الصفقات وانتهِ ──────
     STOP_FILE = os.path.join(os.path.dirname(__file__), "..", "bot_stop.json")
@@ -248,8 +249,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         active -= closed_by_trail
 
     # ── كم مركزاً يمكن فتحه الآن؟ ────────────────────────────────────────────
+    # كانت العتبة $1 وتمنع الدخول عندما يكون الرصيد الحر < $1 (مثل $0.89)
+    # خُفِّضت إلى $0.10 حتى يتمكّن البوت من الدخول بأي رصيد متاح
+    MIN_BALANCE = 0.10
     slots_available = cfg.MAX_POSITIONS - len(active)
-    if slots_available <= 0 or balance < 1:
+    if slots_available <= 0 or balance < MIN_BALANCE:
         add_log(status, f"مراكز مفتوحة: {len(active)}/{cfg.MAX_POSITIONS} — لا دخول جديد")
         return
 
@@ -331,7 +335,6 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             add_log(status, f"ℹ️ {inst_id}: رافعة {LEVERAGE}x→{eff_leverage:g}x (حد العملة)", "info")
 
         # حجم دقيق بناءً على ATR الفعلي: Kelly fraction / (رافعة × SL%)
-        # يضمن أن الخسارة القصوى لكل صفقة = kelly_frac من رأس المال بالضبط
         if atr_val > 0 and live_price > 0:
             sl_pct = (1.5 * atr_val) / live_price
             risk_capital = min(
