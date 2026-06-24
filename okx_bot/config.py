@@ -20,7 +20,7 @@ IS_DEMO = "1"
 #   "hyper"   = هايبر: رافعة 20×، مخاطرة 12%، 2 مراكز + فلتر
 #   "ultra"   = ألترا: رافعة 20×، مخاطرة 10%، 5 مراكز + فلتر
 #   "rocket"  = روكيت: Kelly-مثالي 18%، 5 مراكز + فلتر → $10→$1M في ~2.5 سنة
-RISK_MODE = os.getenv("RISK_MODE", "safe").strip().lower()
+RISK_MODE = os.getenv("RISK_MODE", "rocket").strip().lower()
 
 _RISK_PRESETS = {
     "safe":       {"leverage": 5,  "risk_per_trade": 0.02, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 10,  "filter_losers": False, "max_positions": 1},
