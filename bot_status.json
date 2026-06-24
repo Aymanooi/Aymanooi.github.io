@@ -8,7 +8,7 @@
       "side": "شراء 📈",
       "entry": 0.226088524590164,
       "size": 61.0,
-      "pnl": 3.24
+      "pnl": 3.301
     },
     {
       "instId": "KITE-USDT-SWAP",
@@ -21,42 +21,42 @@
   "total_trades": 4,
   "logs": [
     {
-      "time": "2026-06-24 03:19:50 UTC",
-      "msg": "⏭️ فشل ASTER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 03:19:50 UTC",
-      "msg": "⚠️ ASTER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 03:19:49 UTC",
+      "time": "2026-06-24 03:19:54 UTC",
       "msg": "⏭️ فشل JTO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 03:19:49 UTC",
+      "time": "2026-06-24 03:19:54 UTC",
       "msg": "⚠️ JTO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 03:19:47 UTC",
+      "time": "2026-06-24 03:19:52 UTC",
+      "msg": "⏭️ فشل ASTER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 03:19:52 UTC",
+      "msg": "⚠️ ASTER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 03:19:50 UTC",
       "msg": "⏳ تخطّى 2 عملة في فترة التهدئة (1ساعة)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 03:19:03 UTC",
+      "time": "2026-06-24 03:19:04 UTC",
       "msg": "⏳ أُغلقت: LINK-USDT-SWAP — محظورة من الدخول 1 ساعات",
       "level": "info"
     },
     {
-      "time": "2026-06-24 03:19:02 UTC",
+      "time": "2026-06-24 03:19:03 UTC",
       "msg": "💰 الرصيد: $4.5062 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 03:19:02 UTC",
+      "time": "2026-06-24 03:19:03 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20 | مسح: 100 عملة",
       "level": "info"
     },
@@ -424,16 +424,16 @@
   "risk_mode": "balanced",
   "top_signals": [
     {
-      "instId": "JTO-USDT-SWAP",
-      "signal": "buy",
-      "score": 55,
-      "prob": 0.75
-    },
-    {
       "instId": "ASTER-USDT-SWAP",
       "signal": "buy",
       "score": 49,
       "prob": 0.75
+    },
+    {
+      "instId": "JTO-USDT-SWAP",
+      "signal": "buy",
+      "score": 42,
+      "prob": 0.7
     }
   ],
   "peaks": {
