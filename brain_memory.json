@@ -1340,33 +1340,33 @@
       "exit": 1.552
     },
     {
-      "instId": "SOON-USDT-SWAP",
+      "instId": "LIT-USDT-SWAP",
       "signal": "sell",
       "features": {
-        "EMA": -25,
+        "EMA": -10,
         "RSI": 5,
         "MACD": -20,
-        "BB": 15,
-        "Stoch": 10,
-        "Volume": -5,
-        "Pattern": -10,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 0,
         "HTF_1h": -15,
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.1569,
-      "score": -65,
+      "entry": 1.5044,
+      "score": -37,
       "status": "open",
-      "opened": "2026-06-24 16:51:58 UTC"
+      "opened": "2026-06-24 16:51:55 UTC"
     }
   ],
   "wins": 18,
   "losses": 46,
   "lr": 0.05,
-  "updated": "2026-06-24 16:51:58 UTC",
+  "updated": "2026-06-24 16:51:55 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
-    "ONDO-USDT-SWAP": "2026-06-24T16:51:22.822059+00:00",
+    "ONDO-USDT-SWAP": "2026-06-24T16:51:16.749639+00:00",
     "DOT-USDT-SWAP": "2026-06-23T19:01:09.998370+00:00",
     "LIGHT-USDT-SWAP": "2026-06-24T13:30:47.173021+00:00",
     "AXS-USDT-SWAP": "2026-06-24T13:43:17.303421+00:00",
