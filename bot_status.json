@@ -6,47 +6,47 @@
   "total_trades": 72,
   "logs": [
     {
-      "time": "2026-06-24 16:04:13 UTC",
+      "time": "2026-06-24 16:04:16 UTC",
       "msg": "⏭️ maker فشل TRUMP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 16:04:11 UTC",
+      "time": "2026-06-24 16:04:14 UTC",
+      "msg": "⏭️ maker فشل ZRO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 16:04:13 UTC",
       "msg": "⏭️ maker فشل RENDER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 16:04:10 UTC",
+      "time": "2026-06-24 16:04:12 UTC",
       "msg": "⏭️ maker فشل PIEVERSE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 16:04:09 UTC",
-      "msg": "⏭️ maker فشل ENSO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 16:04:07 UTC",
+      "time": "2026-06-24 16:04:10 UTC",
       "msg": "⏭️ maker فشل BAND-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 16:04:06 UTC",
+      "time": "2026-06-24 16:04:09 UTC",
       "msg": "⏭️ maker فشل RIVER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 16:04:05 UTC",
+      "time": "2026-06-24 16:04:07 UTC",
       "msg": "⏭️ maker فشل FARTCOIN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 16:04:03 UTC",
+      "time": "2026-06-24 16:04:06 UTC",
       "msg": "🧠 Brain WR=32.1% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 16:04:03 UTC",
+      "time": "2026-06-24 16:04:06 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
@@ -427,15 +427,15 @@
       "prob": 0.32
     },
     {
-      "instId": "ENSO-USDT-SWAP",
-      "signal": "sell",
-      "score": -42,
-      "prob": 0.34
-    },
-    {
       "instId": "PIEVERSE-USDT-SWAP",
       "signal": "sell",
       "score": -36,
+      "prob": 0.34
+    },
+    {
+      "instId": "RENDER-USDT-SWAP",
+      "signal": "sell",
+      "score": -39,
       "prob": 0.34
     }
   ],
