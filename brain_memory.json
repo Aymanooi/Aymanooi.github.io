@@ -1779,12 +1779,32 @@
       "status": "loss",
       "opened": "2026-06-24 20:58:08 UTC",
       "exit": 0.10584
+    },
+    {
+      "instId": "AVAX-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 25,
+        "RSI": 0,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 6.335,
+      "score": 43,
+      "status": "open",
+      "opened": "2026-06-24 21:16:29 UTC"
     }
   ],
   "wins": 24,
   "losses": 61,
   "lr": 0.05,
-  "updated": "2026-06-24 21:15:36 UTC",
+  "updated": "2026-06-24 21:16:29 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1855,6 +1875,7 @@
     "WIF-USDT-SWAP": "2026-06-24T20:13:06.238405+00:00",
     "0G-USDT-SWAP": "2026-06-24T20:21:33.454610+00:00",
     "ETC-USDT-SWAP": "2026-06-24T20:37:10.996458+00:00",
-    "SYRUP-USDT-SWAP": "2026-06-24T21:03:57.798989+00:00"
+    "SYRUP-USDT-SWAP": "2026-06-24T21:03:57.798989+00:00",
+    "ETHFI-USDT-SWAP": "2026-06-24T21:15:48.506208+00:00"
   }
 }
