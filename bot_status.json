@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 14:00:05 UTC",
   "mode": "Live 💰",
-  "balance": 3.1684,
+  "balance": 3.1673,
   "positions": [
     {
       "instId": "RIVER-USDT-SWAP",
@@ -22,27 +22,27 @@
       "side": "بيع 📉",
       "entry": 0.2962,
       "size": 1.0,
-      "pnl": 0.024
+      "pnl": 0.023
     },
     {
       "instId": "PROS-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.4691800000000001,
       "size": 20.0,
-      "pnl": 0.3156
+      "pnl": 0.3136
     },
     {
       "instId": "TIA-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.3698,
       "size": 9.0,
-      "pnl": 0.0459
+      "pnl": 0.0468
     }
   ],
   "total_trades": 57,
   "logs": [
     {
-      "time": "2026-06-24 14:00:06 UTC",
+      "time": "2026-06-24 14:00:07 UTC",
       "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
       "level": "info"
     },
@@ -52,8 +52,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 14:00:05 UTC",
-      "msg": "💰 الرصيد: $3.1684 USDT",
+      "time": "2026-06-24 14:00:06 UTC",
+      "msg": "💰 الرصيد: $3.1673 USDT",
       "level": "info"
     },
     {
@@ -492,5 +492,5 @@
     "updated": "2026-06-24 13:59:58 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 33.48
+  "drawdown": 33.51
 }
