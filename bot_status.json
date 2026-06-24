@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 11:11:49 UTC",
   "mode": "Live 💰",
-  "balance": 3.3744,
+  "balance": 3.3733,
   "positions": [
     {
       "instId": "PIEVERSE-USDT-SWAP",
@@ -47,13 +47,13 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:11:49 UTC",
+      "time": "2026-06-24 11:11:50 UTC",
       "msg": "📉 رأس المال الكلي: $6.34 | القمّة $7.02 | تراجع 9.7% | مُنظّم ×1.00",
       "level": "info"
     },
     {
       "time": "2026-06-24 11:11:49 UTC",
-      "msg": "💰 الرصيد: $3.3744 USDT",
+      "msg": "💰 الرصيد: $3.3733 USDT",
       "level": "info"
     },
     {
@@ -510,5 +510,5 @@
     "updated": "2026-06-24 11:11:44 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 9.69
+  "drawdown": 9.7
 }
