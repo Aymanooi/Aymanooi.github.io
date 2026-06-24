@@ -1,18 +1,58 @@
 {
-  "last_run": "2026-06-24 18:11:29 UTC",
+  "last_run": "2026-06-24 18:11:35 UTC",
   "mode": "Live 💰",
-  "balance": 0.974,
+  "balance": 11.7358,
   "positions": [
     {
       "instId": "LIGHT-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.1254231822971549,
-      "size": 949.0,
-      "pnl": 1.0659
+      "size": 81.0,
+      "pnl": 0.0991
     }
   ],
   "total_trades": 100,
   "logs": [
+    {
+      "time": "2026-06-24 18:12:12 UTC",
+      "msg": "لا توجد إشارات كافية",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 18:12:12 UTC",
+      "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 18:11:36 UTC",
+      "msg": "🔒 وقف متحرك $ LIGHT-USDT-SWAP: قمّة +$1.066 → $0.099 (قُفِل $0.693)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-24 18:11:35 UTC",
+      "msg": "📉 رأس المال الكلي: $12.96 | القمّة $13.12 | تراجع 1.2% | مُنظّم ×1.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 18:11:35 UTC",
+      "msg": "💰 الرصيد: $11.7358 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 18:11:35 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 18:11:35 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 18:11:35 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 18:11:30 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -372,75 +412,12 @@
       "time": "2026-06-24 18:09:37 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
-    },
-    {
-      "time": "2026-06-24 18:09:32 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 18:09:31 UTC",
-      "msg": "📉 رأس المال الكلي: $12.91 | القمّة $13.12 | تراجع 1.6% | مُنظّم ×1.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 18:09:31 UTC",
-      "msg": "💰 الرصيد: $0.8696 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 18:09:30 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 18:09:30 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 18:09:30 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 18:08:55 UTC",
-      "msg": "⏭️ maker فشل API3-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 18:08:54 UTC",
-      "msg": "ℹ️ API3-USDT-SWAP: رافعة 20x→10x (حد العملة)",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
-  "top_signals": [
-    {
-      "instId": "LIGHT-USDT-SWAP",
-      "signal": "sell",
-      "score": -48,
-      "prob": 0.3
-    },
-    {
-      "instId": "JUP-USDT-SWAP",
-      "signal": "sell",
-      "score": -48,
-      "prob": 0.3
-    },
-    {
-      "instId": "API3-USDT-SWAP",
-      "signal": "sell",
-      "score": -45,
-      "prob": 0.32
-    }
-  ],
-  "peaks": {
-    "LIGHT-USDT-SWAP": 0.0895514111971618
-  },
-  "pnl_peaks": {
-    "LIGHT-USDT-SWAP": 1.0659000000000116
-  },
+  "top_signals": [],
+  "peaks": {},
+  "pnl_peaks": {},
   "brain_stats": {
     "wins": 22,
     "losses": 52,
@@ -459,8 +436,8 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-24 18:11:21 UTC"
+    "updated": "2026-06-24 18:11:30 UTC"
   },
   "equity_peak": 13.1179,
-  "drawdown": 0.88
+  "drawdown": 1.17
 }
