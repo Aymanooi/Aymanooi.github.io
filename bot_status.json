@@ -1,14 +1,14 @@
 {
-  "last_run": "2026-06-24 09:46:49 UTC",
+  "last_run": "2026-06-24 09:47:01 UTC",
   "mode": "Live 💰",
-  "balance": 0.9492,
+  "balance": 1.0309,
   "positions": [
     {
       "instId": "PROS-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.475180952380953,
       "size": 210.0,
-      "pnl": 0.059
+      "pnl": 0.101
     },
     {
       "instId": "MASK-USDT-SWAP",
@@ -22,7 +22,7 @@
       "side": "شراء 📈",
       "entry": 0.1365063796477497,
       "size": 1022.0,
-      "pnl": -0.0344
+      "pnl": -0.018
     },
     {
       "instId": "SOON-USDT-SWAP",
@@ -35,32 +35,32 @@
   "total_trades": 8,
   "logs": [
     {
-      "time": "2026-06-24 09:47:33 UTC",
+      "time": "2026-06-24 09:47:40 UTC",
       "msg": "لا توجد إشارات كافية",
       "level": "info"
     },
     {
-      "time": "2026-06-24 09:47:33 UTC",
+      "time": "2026-06-24 09:47:40 UTC",
       "msg": "⏳ تخطّى 10 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 09:46:49 UTC",
-      "msg": "💰 الرصيد: $0.9492 USDT",
+      "time": "2026-06-24 09:47:01 UTC",
+      "msg": "💰 الرصيد: $1.0309 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 09:46:49 UTC",
+      "time": "2026-06-24 09:47:01 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 09:46:49 UTC",
+      "time": "2026-06-24 09:47:01 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 09:46:49 UTC",
+      "time": "2026-06-24 09:47:01 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -441,6 +441,6 @@
     "SOON-USDT-SWAP": 0.1715686274509819,
     "APE-USDT-SWAP": 0.03854944099587691,
     "MASK-USDT-SWAP": 0.06500302980222498,
-    "PROS-USDT-SWAP": 0.011825069146616
+    "PROS-USDT-SWAP": 0.0202429149797823
   }
 }
