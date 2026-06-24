@@ -1359,12 +1359,32 @@
       "status": "loss",
       "opened": "2026-06-24 16:51:55 UTC",
       "exit": 1.5096
+    },
+    {
+      "instId": "MORPHO-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": 15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 10,
+        "Pattern": 0,
+        "HTF_1h": 5,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1.6647,
+      "score": 43,
+      "status": "open",
+      "opened": "2026-06-24 16:54:17 UTC"
     }
   ],
   "wins": 18,
   "losses": 47,
   "lr": 0.05,
-  "updated": "2026-06-24 16:54:48 UTC",
+  "updated": "2026-06-24 16:54:49 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T16:51:16.749639+00:00",
@@ -1429,6 +1449,6 @@
     "LQTY-USDT-SWAP": "2026-06-24T16:10:43.103337+00:00",
     "PI-USDT-SWAP": "2026-06-24T16:24:04.211533+00:00",
     "LIT-USDT-SWAP": "2026-06-24T16:52:05.687515+00:00",
-    "MORPHO-USDT-SWAP": "2026-06-24T16:53:48.389553+00:00"
+    "MORPHO-USDT-SWAP": "2026-06-24T16:53:32.138593+00:00"
   }
 }
