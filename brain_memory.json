@@ -1004,22 +1004,22 @@
       "exit": 2.181
     },
     {
-      "instId": "PI-USDT-SWAP",
-      "signal": "sell",
+      "instId": "MASK-USDT-SWAP",
+      "signal": "buy",
       "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -15,
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": -5,
         "BB": 5,
         "Stoch": 0,
         "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 0.1261,
-      "score": -45,
+      "entry": 0.403,
+      "score": 36,
       "status": "open",
       "opened": "2026-06-24 14:52:08 UTC"
     }
@@ -1054,7 +1054,7 @@
     "GRASS-USDT-SWAP": "2026-06-24T10:21:35.693202+00:00",
     "ARX-USDT-SWAP": "2026-06-24T10:24:55.337967+00:00",
     "UNI-USDT-SWAP": "2026-06-24T14:29:29.721754+00:00",
-    "MASK-USDT-SWAP": "2026-06-24T14:50:07.770822+00:00",
+    "MASK-USDT-SWAP": "2026-06-24T14:50:07.463113+00:00",
     "SOON-USDT-SWAP": "2026-06-24T13:45:43.961720+00:00",
     "KGEN-USDT-SWAP": "2026-06-24T10:26:39.737484+00:00",
     "ENSO-USDT-SWAP": "2026-06-24T10:26:40.076790+00:00",
