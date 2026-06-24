@@ -983,7 +983,7 @@
       "exit": 0.1257
     },
     {
-      "instId": "AGLD-USDT-SWAP",
+      "instId": "ARKM-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
@@ -992,13 +992,13 @@
         "BB": 5,
         "Stoch": 0,
         "Volume": 0,
-        "Pattern": 0,
+        "Pattern": -10,
         "HTF_1h": -15,
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.1482,
-      "score": -37,
+      "entry": 0.11878,
+      "score": -53,
       "status": "open",
       "opened": "2026-06-24 14:40:24 UTC"
     }
