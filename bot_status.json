@@ -1,7 +1,7 @@
 {
-  "last_run": "2026-06-24 10:25:22 UTC",
+  "last_run": "2026-06-24 10:25:26 UTC",
   "mode": "Live 💰",
-  "balance": 4.1405,
+  "balance": 4.1416,
   "positions": [
     {
       "instId": "ENSO-USDT-SWAP",
@@ -22,14 +22,14 @@
       "side": "شراء 📈",
       "entry": 0.6717,
       "size": 2.0,
-      "pnl": -0.0036
+      "pnl": -0.0032
     },
     {
       "instId": "MASK-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.4020888888888891,
       "size": 9.0,
-      "pnl": 0.0217
+      "pnl": 0.0226
     },
     {
       "instId": "SOON-USDT-SWAP",
@@ -41,6 +41,36 @@
   ],
   "total_trades": 13,
   "logs": [
+    {
+      "time": "2026-06-24 10:25:27 UTC",
+      "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:25:27 UTC",
+      "msg": "📉 رأس المال الكلي: $6.49 | القمّة $7.02 | تراجع 7.5% | مُنظّم ×1.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:25:27 UTC",
+      "msg": "💰 الرصيد: $4.1416 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:25:26 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:25:26 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 10:25:26 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 10:25:23 UTC",
       "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
@@ -410,36 +440,6 @@
       "time": "2026-06-24 10:23:40 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:23:40 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 10:23:31 UTC",
-      "msg": "✅ بيع 📉 ENSO-USDT-SWAP @ 0.6337 | درجة:-42 | هامش:$0.924 (18.0% Kelly)",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 10:23:30 UTC",
-      "msg": "🧠 Kelly ديناميكي: WR=66.7% × مُنظّم 1.00 → 18.0% من رأس المال",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:23:30 UTC",
-      "msg": "⚖️ تركّز buy (3/5) — أُفضّل sell لتوازن المحفظة وتقليل خطر الترابط",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:23:30 UTC",
-      "msg": "⏳ تخطّى 6 عملة في فترة التهدئة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 10:22:45 UTC",
-      "msg": "⏳ أُغلقت: ARX-USDT-SWAP — محظورة من الدخول 1 ساعات",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -483,7 +483,7 @@
     "ENSO-USDT-SWAP": 0.0189453741711376
   },
   "pnl_peaks": {
-    "MASK-USDT-SWAP": 0.0216999999999983,
+    "MASK-USDT-SWAP": 0.0225999999999982,
     "SOON-USDT-SWAP": 0.025,
     "JTO-USDT-SWAP": 0.0036,
     "KGEN-USDT-SWAP": -0.025,
@@ -507,8 +507,8 @@
       "RSIDivergence": 1.0
     },
     "kelly": 20.0,
-    "updated": "2026-06-24 10:25:18 UTC"
+    "updated": "2026-06-24 10:25:23 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 7.55
+  "drawdown": 7.53
 }
