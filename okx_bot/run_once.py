@@ -155,6 +155,35 @@ def _trail_floor_pnl(peak_pnl):
     return peak_pnl * 0.75                  # $5+: اقفل 75% (الفارس الجامح)
 
 
+def _equity_throttle(status, total_eq):
+    """
+    مُنظّم المخاطر حسب منحنى رأس المال (Equity-Curve Risk Throttle).
+
+    كبرى صناديق التحوّط الكمّية لا تكتفي بضبط حجم كل صفقة، بل تتداول منحنى
+    رأس مالها نفسه: تقلّص الحجم كلما تراجع رأس المال عن قمّته، وتعيده كاملاً
+    عند التعافي. النجاة في فترات التراجع = استمرار التراكم نحو المليون.
+
+    يتتبّع أعلى رأس مال (equity_peak) ويُرجع مُعامل ضرب لـ Kelly:
+      تراجع <10%  → ×1.00 (حجم كامل)
+      10–20%      → ×0.60
+      20–35%      → ×0.35
+      >35%        → 0.0 (أوقف الدخول الجديد حتى يتعافى رأس المال)
+
+    دفاعي بحت: يقلّل المخاطرة فقط ولا يزيدها أبداً.
+    عند تعذّر القياس (total_eq=0) يُرجع 1.0 فلا يعطّل التداول.
+    """
+    if total_eq <= 0:
+        return 1.0
+    peak = max(status.get("equity_peak", total_eq), total_eq)
+    status["equity_peak"] = round(peak, 4)
+    dd = (peak - total_eq) / peak if peak > 0 else 0.0
+    status["drawdown"] = round(dd * 100, 2)
+    if dd < 0.10: return 1.00
+    if dd < 0.20: return 0.60
+    if dd < 0.35: return 0.35
+    return 0.0
+
+
 def _manage_open_positions(status, client, positions):
     """
     مدير مخاطر برمجي كامل لكل مركز مفتوح (طبقات الحماية بالترتيب):
@@ -279,6 +308,14 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     status["balance"] = round(balance, 4)
     add_log(status, f"\U0001f4b0 الرصيد: ${balance:.4f} USDT")
 
+    # ── مُنظّم منحنى رأس المال: يقيس التراجع عن القمّة ويضبط حجم المخاطرة ────
+    total_eq    = client.get_total_equity()
+    eq_throttle = _equity_throttle(status, total_eq)
+    if total_eq > 0:
+        add_log(status,
+            f"\U0001f4c9 رأس المال الكلي: ${total_eq:.2f} | القمّة ${status.get('equity_peak', total_eq):.2f} | "
+            f"تراجع {status.get('drawdown', 0):.1f}% | مُنظّم ×{eq_throttle:.2f}", "info")
+
     prev_open = {p["instId"] for p in status.get("positions", [])}
 
     positions = client.get_all_positions()
@@ -326,6 +363,13 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, f"مراكز مفتوحة: {len(active)}/{cfg.MAX_POSITIONS} — لا دخول جديد")
         return
 
+    # مُنظّم منحنى رأس المال: تراجع حادّ (>35%) → أوقف الدخول الجديد مؤقتاً
+    if eq_throttle <= 0:
+        add_log(status,
+            "\U0001f6e1️ مُنظّم منحنى رأس المال: تراجع حادّ (>35%) — إيقاف مؤقت للدخول الجديد لحماية رأس المال",
+            "warning")
+        return
+
     # مركز واحد فقط لكل دورة — يمنع فتح مراكز متعددة قبل تحديث OKX
     slots_available = 1
 
@@ -369,11 +413,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, "لا توجد إشارات كافية")
         return
 
-    # ── Kelly ديناميكي: يتعلّم من سجل الصفقات الفعلي تلقائياً ───────────────
+    # ── Kelly ديناميكي × مُنظّم منحنى رأس المال ─────────────────────────────
     wr = brain.current_win_rate(memory)
-    kelly_frac = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY)
+    kelly_frac = brain.kelly_fraction(wr, rr=3.0, cap=cfg.KELLY_CAP, half=cfg.HALF_KELLY) * eq_throttle
     add_log(status,
-        f"\U0001f9e0 Kelly ديناميكي: WR={wr*100:.1f}% → {kelly_frac*100:.1f}% من رأس المال", "info")
+        f"\U0001f9e0 Kelly ديناميكي: WR={wr*100:.1f}% × مُنظّم {eq_throttle:.2f} → {kelly_frac*100:.1f}% من رأس المال", "info")
 
     trades_entered = 0
     for best in signals:
