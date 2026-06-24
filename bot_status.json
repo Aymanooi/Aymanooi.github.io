@@ -3,25 +3,30 @@
   "mode": "Live 💰",
   "balance": 3.3244,
   "positions": [],
-  "total_trades": 96,
+  "total_trades": 95,
   "logs": [
     {
-      "time": "2026-06-24 17:42:59 UTC",
-      "msg": "📤 maker بيع 📉 KGEN-USDT-SWAP @~0.1644 | درجة:-37 | رأس المال:$3.158 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
-      "level": "success"
+      "time": "2026-06-24 17:43:05 UTC",
+      "msg": "⏭️ maker فشل AGLD-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 17:42:58 UTC",
+      "time": "2026-06-24 17:43:03 UTC",
+      "msg": "⏭️ maker فشل KGEN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 17:43:02 UTC",
       "msg": "ℹ️ KGEN-USDT-SWAP: رافعة 20x→10x (حد العملة)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:42:58 UTC",
+      "time": "2026-06-24 17:43:02 UTC",
       "msg": "🧠 Brain WR=30.0% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:42:58 UTC",
+      "time": "2026-06-24 17:43:02 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
@@ -41,7 +46,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:42:11 UTC",
+      "time": "2026-06-24 17:42:10 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -399,11 +404,6 @@
       "time": "2026-06-24 17:40:41 UTC",
       "msg": "مراكز مفتوحة: 2/1 — لا دخول جديد",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:40:40 UTC",
-      "msg": "📉 رأس المال الكلي: $3.51 | القمّة $7.02 | تراجع 50.1% | مُنظّم ×0.00",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -413,6 +413,12 @@
       "signal": "sell",
       "score": -37,
       "prob": 0.35
+    },
+    {
+      "instId": "AGLD-USDT-SWAP",
+      "signal": "sell",
+      "score": -35,
+      "prob": 0.37
     }
   ],
   "peaks": {},
