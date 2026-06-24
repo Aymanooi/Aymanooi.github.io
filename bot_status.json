@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 13:29:02 UTC",
   "mode": "Live 💰",
-  "balance": 3.5326,
+  "balance": 3.5386,
   "positions": [
     {
       "instId": "BAND-USDT-SWAP",
@@ -53,7 +53,7 @@
     },
     {
       "time": "2026-06-24 13:29:02 UTC",
-      "msg": "💰 الرصيد: $3.5326 USDT",
+      "msg": "💰 الرصيد: $3.5386 USDT",
       "level": "info"
     },
     {
