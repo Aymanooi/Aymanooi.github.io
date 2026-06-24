@@ -435,12 +435,32 @@
       "status": "loss",
       "opened": "2026-06-24 12:30:59 UTC",
       "exit": 0.6924
+    },
+    {
+      "instId": "AXS-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1.0448,
+      "score": 45,
+      "status": "open",
+      "opened": "2026-06-24 12:33:57 UTC"
     }
   ],
   "wins": 10,
   "losses": 11,
   "lr": 0.05,
-  "updated": "2026-06-24 12:33:42 UTC",
+  "updated": "2026-06-24 12:33:57 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -480,6 +500,6 @@
     "XRP-USDT-SWAP": "2026-06-24T11:51:04.810047+00:00",
     "PROVE-USDT-SWAP": "2026-06-24T12:26:17.446387+00:00",
     "ICP-USDT-SWAP": "2026-06-24T12:26:58.109627+00:00",
-    "AR-USDT-SWAP": "2026-06-24T12:32:06.532643+00:00"
+    "AR-USDT-SWAP": "2026-06-24T12:32:23.257590+00:00"
   }
 }
