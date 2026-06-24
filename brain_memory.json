@@ -790,12 +790,32 @@
       "status": "loss",
       "opened": "2026-06-24 13:32:04 UTC",
       "exit": 0.2553
+    },
+    {
+      "instId": "APR-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 25,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 10,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 15
+      },
+      "entry": 0.1978,
+      "score": 62,
+      "status": "open",
+      "opened": "2026-06-24 13:34:01 UTC"
     }
   ],
   "wins": 14,
   "losses": 22,
   "lr": 0.05,
-  "updated": "2026-06-24 13:33:27 UTC",
+  "updated": "2026-06-24 13:34:01 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
