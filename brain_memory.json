@@ -107,28 +107,28 @@
       "exit": 0.1114
     },
     {
-      "instId": "ZRO-USDT-SWAP",
+      "instId": "JUP-USDT-SWAP",
       "signal": "buy",
       "features": {
         "EMA": 10,
-        "RSI": 0,
+        "RSI": -5,
         "MACD": 15,
         "BB": -5,
-        "Stoch": 0,
+        "Stoch": -5,
         "Volume": 0,
         "Pattern": 10,
-        "HTF_1h": -5
+        "HTF_1h": 15
       },
-      "entry": 0.9352,
-      "score": 35,
+      "entry": 0.2105,
+      "score": 42,
       "status": "open",
-      "opened": "2026-06-24 08:30:29 UTC"
+      "opened": "2026-06-24 08:30:55 UTC"
     }
   ],
   "wins": 4,
   "losses": 1,
   "lr": 0.05,
-  "updated": "2026-06-24 08:30:29 UTC",
+  "updated": "2026-06-24 08:30:55 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
