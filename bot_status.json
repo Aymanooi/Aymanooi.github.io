@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 04:24:55 UTC",
   "mode": "Live 💰",
-  "balance": 6.4016,
+  "balance": 6.4134,
   "positions": [
     {
       "instId": "JTO-USDT-SWAP",
@@ -34,7 +34,7 @@
     },
     {
       "time": "2026-06-24 04:24:56 UTC",
-      "msg": "💰 الرصيد: $6.4016 USDT",
+      "msg": "💰 الرصيد: $6.4134 USDT",
       "level": "info"
     },
     {
