@@ -19,7 +19,7 @@ IS_DEMO = "1"
 #   "nitro"   = نيترو: رافعة 20×، مخاطرة 15%، فلتر الخاسرين
 #   "hyper"   = هايبر: رافعة 20×، مخاطرة 12%، 2 مراكز + فلتر
 #   "ultra"   = ألترا: رافعة 20×، مخاطرة 10%، 5 مراكز + فلتر
-#   "rocket"  = روكيت: Kelly-مثالي 18%، 5 مراكز + فلتر → $10→$1M في ~2.5 سنة
+#   "rocket"  = روكيت: مخاطرة 10% (الأمثل بعد الرسوم حسب الباكتيست)، 5 مراكز + فلتر
 RISK_MODE = os.getenv("RISK_MODE", "rocket").strip().lower()
 
 _RISK_PRESETS = {
@@ -31,11 +31,14 @@ _RISK_PRESETS = {
     "nitro":      {"leverage": 20, "risk_per_trade": 0.15, "kelly_cap": 0.35, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 1},
     "hyper":      {"leverage": 20, "risk_per_trade": 0.12, "kelly_cap": 0.45, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 2},
     "ultra":      {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.50, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 5},
-    # rocket: الحجم الأمثل رياضياً (Kelly = 13.7% عند WR=35% و RR=3:1)
-    # 18% مخاطرة × رافعة 20× × SL≈3.75% ≈ 13.5% من رأس المال = قريب من Kelly الكامل
-    # 5 مراكز متزامنة + Brain فلتر + 100 عملة → هدف: $10 → $1M في ~2.5 سنة
-    # ⚠️ تراجع محتمل ~60-70% في الدورات السيئة — ادخل بعيون مفتوحة
-    "rocket":     {"leverage": 20, "risk_per_trade": 0.18, "kelly_cap": 0.18, "half_kelly": False, "symbols": 100, "filter_losers": True,  "max_positions": 5},
+    # rocket: الحجم الأمثل المُثبَت بالباكتيست على بيانات OKX حقيقية.
+    # النتيجة: الاستراتيجية لها حافة موجبة (PF=1.32، +3.5%/صفقة صافٍ بعد الرسوم على x20)،
+    # لكن مخاطرة 18% تتجاوز الحجم الأمثل: بعد الرسوم أعطت $10→$11 بتراجع 76%،
+    # بينما 10% أعطت $10→$18 بتراجع 51%. المبالغة في الرهان (Kelly drag) = أكبر سبب
+    # لتصفير حساب رابح. لذا: 10% مخاطرة + رافعة 20× + 5 مراكز + Brain فلتر + 100 عملة.
+    # مُنظّم منحنى رأس المال يخفّض التراجع أكثر. نفس الحافة، بقاء أطول = تراكم أكبر.
+    # ⚠️ تراجع محتمل ~40-50% في الدورات السيئة — ادخل بعيون مفتوحة.
+    "rocket":     {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.10, "half_kelly": False, "symbols": 100, "filter_losers": True,  "max_positions": 5},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
