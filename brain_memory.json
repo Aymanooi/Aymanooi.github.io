@@ -497,33 +497,33 @@
       "score": 39,
       "status": "win",
       "opened": "2026-06-24 12:39:37 UTC",
-      "exit": 0.9481
+      "exit": 0.9486
     },
     {
-      "instId": "ORDI-USDT-SWAP",
-      "signal": "buy",
+      "instId": "OPG-USDT-SWAP",
+      "signal": "sell",
       "features": {
-        "EMA": 25,
-        "RSI": -5,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -5,
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 0,
         "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 3.202,
-      "score": 38,
+      "entry": 0.1693,
+      "score": -41,
       "status": "open",
-      "opened": "2026-06-24 12:40:28 UTC"
+      "opened": "2026-06-24 12:40:31 UTC"
     }
   ],
   "wins": 11,
   "losses": 13,
   "lr": 0.05,
-  "updated": "2026-06-24 12:40:28 UTC",
+  "updated": "2026-06-24 12:40:31 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -542,7 +542,7 @@
     "EDGE-USDT-SWAP": "2026-06-24T12:39:06.753857+00:00",
     "OP-USDT-SWAP": "2026-06-24T10:49:14.765416+00:00",
     "AT-USDT-SWAP": "2026-06-24T12:27:41.798744+00:00",
-    "ZRO-USDT-SWAP": "2026-06-24T12:39:59.833327+00:00",
+    "ZRO-USDT-SWAP": "2026-06-24T12:39:49.404793+00:00",
     "JUP-USDT-SWAP": "2026-06-24T12:39:06.070952+00:00",
     "STX-USDT-SWAP": "2026-06-24T09:04:33.084261+00:00",
     "AERO-USDT-SWAP": "2026-06-24T12:39:07.089606+00:00",
