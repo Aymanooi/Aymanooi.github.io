@@ -500,30 +500,30 @@
       "exit": 0.9486
     },
     {
-      "instId": "OPG-USDT-SWAP",
-      "signal": "sell",
+      "instId": "SOON-USDT-SWAP",
+      "signal": "buy",
       "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
+        "EMA": 25,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": 5,
+        "Volume": 10,
+        "Pattern": 0,
+        "HTF_1h": 15,
         "OBV": -10,
-        "RSIDivergence": 0
+        "RSIDivergence": -15
       },
-      "entry": 0.1694,
-      "score": -41,
+      "entry": 0.1623,
+      "score": 57,
       "status": "open",
-      "opened": "2026-06-24 12:41:16 UTC"
+      "opened": "2026-06-24 12:42:02 UTC"
     }
   ],
   "wins": 11,
   "losses": 13,
   "lr": 0.05,
-  "updated": "2026-06-24 12:41:16 UTC",
+  "updated": "2026-06-24 12:42:02 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
