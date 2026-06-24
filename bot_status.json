@@ -8,7 +8,7 @@
       "side": "بيع 📉",
       "entry": 0.1678,
       "size": 4.3,
-      "pnl": 0.0258
+      "pnl": 0.0215
     }
   ],
   "total_trades": 105,
@@ -417,10 +417,10 @@
   "risk_mode": "rocket",
   "top_signals": [],
   "peaks": {
-    "STX-USDT-SWAP": 0.0107270560190706
+    "STX-USDT-SWAP": 0.0089392133492254
   },
   "pnl_peaks": {
-    "STX-USDT-SWAP": 0.0258000000000007
+    "STX-USDT-SWAP": 0.0215
   },
   "brain_stats": {
     "wins": 23,
