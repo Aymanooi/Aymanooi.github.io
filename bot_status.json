@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-24 01:11:37 UTC",
+  "last_run": "2026-06-24 01:11:42 UTC",
   "mode": "Live 💰",
   "balance": 0.0,
   "positions": [
@@ -8,25 +8,50 @@
       "side": "شراء 📈",
       "entry": 7.597,
       "size": 3.0,
-      "pnl": 0.042
+      "pnl": 0.045
     },
     {
       "instId": "KITE-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.16283,
       "size": 5.0,
-      "pnl": -0.005
+      "pnl": -0.004
     },
     {
       "instId": "COAI-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.3508663753641282,
       "size": 2403.0,
-      "pnl": -0.2803
+      "pnl": -0.3043
     }
   ],
   "total_trades": 4,
   "logs": [
+    {
+      "time": "2026-06-24 01:11:43 UTC",
+      "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 01:11:43 UTC",
+      "msg": "💰 الرصيد: $0.0000 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 01:11:42 UTC",
+      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20 | مسح: 100 عملة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 01:11:42 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 01:11:42 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 01:11:38 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
@@ -401,31 +426,6 @@
       "time": "2026-06-24 01:08:26 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
-    },
-    {
-      "time": "2026-06-24 01:08:15 UTC",
-      "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 01:08:15 UTC",
-      "msg": "💰 الرصيد: $0.1704 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 01:08:15 UTC",
-      "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20 | مسح: 100 عملة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 01:08:15 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 01:08:15 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
     }
   ],
   "risk_mode": "balanced",
@@ -440,6 +440,6 @@
   "peaks": {
     "COAI-USDT-SWAP": 0.2261152733042127,
     "KITE-USDT-SWAP": 0.0908923417060747,
-    "LINK-USDT-SWAP": 0.0368566539423432
+    "LINK-USDT-SWAP": 0.0394892720810835
   }
 }
