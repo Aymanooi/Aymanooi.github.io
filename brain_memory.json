@@ -351,12 +351,32 @@
       "status": "loss",
       "opened": "2026-06-24 11:46:29 UTC",
       "exit": 2.919
+    },
+    {
+      "instId": "API3-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": -15,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": -10,
+        "Pattern": 0,
+        "HTF_1h": -5,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.2442,
+      "score": -37,
+      "status": "open",
+      "opened": "2026-06-24 11:50:37 UTC"
     }
   ],
   "wins": 9,
   "losses": 8,
   "lr": 0.05,
-  "updated": "2026-06-24 11:49:16 UTC",
+  "updated": "2026-06-24 11:50:37 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
