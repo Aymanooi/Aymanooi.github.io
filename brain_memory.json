@@ -266,7 +266,7 @@
       "score": 48,
       "status": "loss",
       "opened": "2026-06-24 10:27:11 UTC",
-      "exit": 0.1501
+      "exit": 0.1498
     },
     {
       "instId": "OP-USDT-SWAP",
@@ -289,50 +289,30 @@
       "opened": "2026-06-24 10:27:53 UTC"
     },
     {
-      "instId": "ZBT-USDT-SWAP",
-      "signal": "sell",
+      "instId": "DYDX-USDT-SWAP",
+      "signal": "buy",
       "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 0,
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -5,
         "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.10616,
-      "score": -43,
-      "status": "open",
-      "opened": "2026-06-24 10:31:27 UTC"
-    },
-    {
-      "instId": "LDO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
+        "Pattern": 10,
+        "HTF_1h": 5,
+        "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 0.2553,
-      "score": -42,
+      "entry": 0.14859,
+      "score": 36,
       "status": "open",
-      "opened": "2026-06-24 10:32:17 UTC"
+      "opened": "2026-06-24 10:32:09 UTC"
     }
   ],
   "wins": 8,
   "losses": 5,
   "lr": 0.05,
-  "updated": "2026-06-24 10:32:17 UTC",
+  "updated": "2026-06-24 10:32:16 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -364,6 +344,6 @@
     "KGEN-USDT-SWAP": "2026-06-24T10:26:39.737484+00:00",
     "ENSO-USDT-SWAP": "2026-06-24T10:26:40.076790+00:00",
     "JTO-USDT-SWAP": "2026-06-24T10:26:40.412286+00:00",
-    "AGLD-USDT-SWAP": "2026-06-24T10:30:57.199221+00:00"
+    "AGLD-USDT-SWAP": "2026-06-24T10:31:28.305086+00:00"
   }
 }
