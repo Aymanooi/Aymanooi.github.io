@@ -1655,11 +1655,11 @@
       "exit": 6.267
     },
     {
-      "instId": "THETA-USDT-SWAP",
+      "instId": "DOT-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
-        "RSI": 0,
+        "RSI": -5,
         "MACD": 10,
         "BB": -5,
         "Stoch": -10,
@@ -1669,20 +1669,20 @@
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.1391,
-      "score": -45,
+      "entry": 0.8782,
+      "score": -52,
       "status": "open",
-      "opened": "2026-06-24 20:20:21 UTC"
+      "opened": "2026-06-24 20:20:25 UTC"
     }
   ],
   "wins": 23,
   "losses": 56,
   "lr": 0.05,
-  "updated": "2026-06-24 20:20:21 UTC",
+  "updated": "2026-06-24 20:20:25 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
-    "DOT-USDT-SWAP": "2026-06-24T20:19:19.585905+00:00",
+    "DOT-USDT-SWAP": "2026-06-24T20:14:02.846224+00:00",
     "LIGHT-USDT-SWAP": "2026-06-24T18:11:40.162356+00:00",
     "AXS-USDT-SWAP": "2026-06-24T17:16:05.253928+00:00",
     "DYDX-USDT-SWAP": "2026-06-24T10:46:36.349457+00:00",
