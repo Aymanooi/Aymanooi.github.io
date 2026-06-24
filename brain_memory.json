@@ -1380,12 +1380,32 @@
       "status": "win",
       "opened": "2026-06-24 17:04:14 UTC",
       "exit": 0.1919
+    },
+    {
+      "instId": "ENSO-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 12,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.5872,
+      "score": -42,
+      "status": "open",
+      "opened": "2026-06-24 17:15:42 UTC"
     }
   ],
   "wins": 19,
   "losses": 47,
   "lr": 0.05,
-  "updated": "2026-06-24 17:15:05 UTC",
+  "updated": "2026-06-24 17:15:42 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T16:51:16.749639+00:00",
