@@ -186,19 +186,21 @@ def _equity_throttle(status, total_eq):
 
 def _manage_open_positions(status, client, positions):
     """
-    مدير مخاطر برمجي كامل لكل مركز مفتوح (طبقات الحماية بالترتيب):
-    1. قاطع دائرة: نسبة (-40%) أو خسارة مطلقة ($0.40) — أيّهما أولاً.
-    2. HARD_TAKE: سقف أمان للمكاسب الجامحة (+200% هامش).
-    3. وقف متحرك بالدولار (_trail_floor_pnl): الأساسي — يُسلَّح من $0.03.
-    4. وقف متحرك نسبي (_trail_floor): احتياطي — يُسلَّح من +30% هامش.
-    يُرجع مجموعة العملات التي أُغلقت هذه الدورة.
-    """
-    HARD_TAKE    = 2.00    # جني ربح عند +200% هامش
-    HARD_STOP    = -0.40   # أغلق عند -40% هامش
-    ABS_LOSS_USD = 0.40    # أغلق إذا تجاوزت الخسارة $0.40 مهما كانت النسبة
+    إدارة المراكز — وضع "اترك الصفقة تركض حتى SL/TP الحقيقي" (طلب المستخدم).
 
-    peaks      = status.setdefault("peaks", {})
-    pnl_peaks  = status.setdefault("pnl_peaks", {})
+    أوامر SL (0.5%) و TP (1%) مربوطة على منصّة OKX نفسها وقت الفتح، فهي التي
+    تُغلق الصفقة بدقّة عند ضرب السعر. لذا عُطِّلت كل عمليات الإغلاق المبكر من
+    جانب بايثون (قاطع $0.40 + الوقفان المتحركان) لأنها كانت تغلق قبل بلوغ
+    0.5%/1% (مثلاً $0.40 = حركة 0.16% فقط على x20).
+
+    تبقى فقط شبكة أمان كارثية لا تتدخّل أبداً قبل الوقف الحقيقي، وتعمل فقط لو
+    فشل ربط أمر SL على المنصّة:
+      • HARD_STOP = -40% هامش (= -2% سعر) ≫ وقفك 0.5% (-10% هامش)
+      • HARD_TAKE = +200% هامش (= +10% سعر) ≫ هدفك 1% (+20% هامش)
+    """
+    HARD_TAKE = 2.00    # شبكة أمان للمكاسب الجامحة (لا تتدخّل قبل TP 1%)
+    HARD_STOP = -0.40   # شبكة أمان كارثية (لا تتدخّل قبل SL 0.5%)
+
     closed_now = set()
     for p in positions:
         inst_id = p["instId"]
@@ -206,84 +208,21 @@ def _manage_open_positions(status, client, positions):
             ratio = float(p.get("uplRatio", 0))
             upl   = float(p.get("upl", 0))
             imr   = float(p.get("imr", 0))
-            # احسب من upl/imr مباشرةً — OKX cross-margin قد يُعطي uplRatio مختلفاً
             if imr > 0:
-                ratio = min(ratio, upl / imr)   # استخدم الأسوأ (الأكثر سلبيةً)
+                ratio = min(ratio, upl / imr)
         except (ValueError, TypeError):
-            upl   = 0.0
             ratio = 0.0
 
-        peak = max(peaks.get(inst_id, ratio), ratio)
-        peaks[inst_id] = peak
-        peak_pnl = max(pnl_peaks.get(inst_id, upl), upl)
-        pnl_peaks[inst_id] = peak_pnl
-
-        # ── 1. قاطع الدائرة: نسبة أو قيمة مطلقة ───────────────────────────
-        close_reason = None
-        if ratio <= HARD_STOP:
-            close_reason = f"{ratio*100:.0f}% (نسبة)"
-        elif upl <= -ABS_LOSS_USD:
-            close_reason = f"${abs(upl):.2f} (مطلق)"
-
-        if close_reason:
+        # شبكة أمان كارثية فقط — تعمل لو فشل أمر SL/TP على المنصّة
+        if ratio <= HARD_STOP or ratio >= HARD_TAKE:
+            label = f"{ratio*100:.0f}%"
             if client.close_position(inst_id):
                 add_log(status,
-                    f"\U0001f6d1 وقف طارئ {inst_id} عند {close_reason} — حماية رأس المال",
+                    f"\U0001f6d1 شبكة أمان {inst_id} عند {label} هامش — أمر المنصّة فشل غالباً",
                     "warning")
                 closed_now.add(inst_id)
-                peaks.pop(inst_id, None)
-                pnl_peaks.pop(inst_id, None)
             else:
-                add_log(status,
-                    f"⚠️ فشل إغلاق {inst_id} عند {close_reason} — سيُعاد في الجولة القادمة",
-                    "error")
-            continue
-
-        # ── 2. سقف المكسب الجامح ───────────────────────────────────────────
-        if ratio >= HARD_TAKE:
-            if client.close_position(inst_id):
-                add_log(status, f"\U0001f3af جني ربح {inst_id} عند +{ratio*100:.0f}%", "success")
-                closed_now.add(inst_id)
-                peaks.pop(inst_id, None)
-                pnl_peaks.pop(inst_id, None)
-            else:
-                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند جني الربح", "error")
-            continue
-
-        # ── 3. وقف متحرك بالدولار (الأساسي) ────────────────────────────────
-        floor_pnl = _trail_floor_pnl(peak_pnl)
-        if floor_pnl is not None and upl <= floor_pnl:
-            if client.close_position(inst_id):
-                add_log(status,
-                    f"\U0001f512 وقف متحرك $ {inst_id}: قمّة +${peak_pnl:.3f} → ${upl:.3f} (قُفِل ${floor_pnl:.3f})",
-                    "success")
-                closed_now.add(inst_id)
-                peaks.pop(inst_id, None)
-                pnl_peaks.pop(inst_id, None)
-            else:
-                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند الوقف الدولاري", "error")
-            continue
-
-        # ── 4. وقف متحرك نسبي (احتياطي) ────────────────────────────────────
-        floor = _trail_floor(peak)
-        if floor is not None and ratio <= floor:
-            if client.close_position(inst_id):
-                add_log(status,
-                    f"\U0001f512 وقف متحرك % {inst_id}: قمّة +{peak*100:.0f}% → +{ratio*100:.0f}% (ربح مقفول)",
-                    "success")
-                closed_now.add(inst_id)
-                peaks.pop(inst_id, None)
-                pnl_peaks.pop(inst_id, None)
-            else:
-                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند الوقف المتحرك", "error")
-
-    active_ids = {p["instId"] for p in positions} - closed_now
-    for k in list(peaks.keys()):
-        if k not in active_ids:
-            peaks.pop(k, None)
-    for k in list(pnl_peaks.keys()):
-        if k not in active_ids:
-            pnl_peaks.pop(k, None)
+                add_log(status, f"⚠️ فشل إغلاق {inst_id} عند شبكة الأمان", "error")
 
     return closed_now
 
