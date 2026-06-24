@@ -708,30 +708,30 @@
       "exit": 0.2151
     },
     {
-      "instId": "MORPHO-USDT-SWAP",
+      "instId": "SNX-USDT-SWAP",
       "signal": "buy",
       "features": {
-        "EMA": 10,
-        "RSI": 0,
+        "EMA": -10,
+        "RSI": 5,
         "MACD": 15,
         "BB": 5,
-        "Stoch": 5,
+        "Stoch": 10,
         "Volume": 0,
         "Pattern": 0,
         "HTF_1h": -5,
         "OBV": 10,
-        "RSIDivergence": 0
+        "RSIDivergence": 15
       },
-      "entry": 1.6512,
-      "score": 45,
+      "entry": 0.2247,
+      "score": 48,
       "status": "open",
-      "opened": "2026-06-24 13:23:12 UTC"
+      "opened": "2026-06-24 13:23:18 UTC"
     }
   ],
   "wins": 13,
   "losses": 19,
   "lr": 0.05,
-  "updated": "2026-06-24 13:23:12 UTC",
+  "updated": "2026-06-24 13:23:18 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -780,6 +780,6 @@
     "RENDER-USDT-SWAP": "2026-06-24T13:06:38.250877+00:00",
     "ORDI-USDT-SWAP": "2026-06-24T13:07:27.582346+00:00",
     "BERA-USDT-SWAP": "2026-06-24T13:09:05.648693+00:00",
-    "ETH-USDT-SWAP": "2026-06-24T13:22:35.337828+00:00"
+    "ETH-USDT-SWAP": "2026-06-24T13:22:41.548520+00:00"
   }
 }
