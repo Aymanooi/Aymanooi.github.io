@@ -2,11 +2,13 @@
 backtest.py — محرّك اختبار رجعي (Backtesting) مثل Freqtrade
 ─────────────────────────────────────────────────────────────────────────────
 يختبر استراتيجية analyze() نفسها (11 مؤشراً) على بيانات تاريخية حقيقية من OKX،
-ويحاكي بدقّة نفس منطق الخروج في البوت الحيّ (run_once.py):
+ويحاكي بدقّة نفس منطق الخروج في البوت الحيّ (run_once.py)، **مع حساب الرسوم
+والانزلاق** فيكون العائد المعروض هو الصافي الحقيقي:
   • دخول عند الإشارة (نفس العتبة THRESHOLD في config.py / strategy.py)
   • SL = 1.5×ATR  /  TP = 4.5×ATR  (RR = 3:1)
   • قاطع دائرة −40% هامش  +  وقف متحرّك متدرّج (_trail_floor مطابق للحيّ)
   • نفس الرافعة من config.py
+  • خصم رسوم + انزلاق لكل صفقة (قابل للضبط عبر BT_FEE / BT_SLIP)
 
 يطبع تقريراً: عدد الصفقات، معدّل الفوز، عامل الربح، أقصى تراجع، ومنحنى
 رأس المال التقريبي — حتى تعرف إن كانت الإعدادات تربح فعلاً قبل المخاطرة بالمال.
@@ -31,6 +33,10 @@ import config as cfg
 HARD_STOP = -0.40   # قاطع دائرة عند −40% هامش (مطابق للحيّ)
 HARD_TAKE = 2.00    # سقف أمان +200%
 WARMUP    = 60      # شمعات تهيئة قبل أول إشارة
+
+# تكاليف التداول (قابلة للضبط) — جوهرية على x20: تُخصَم من كل صفقة
+FEE_SIDE  = float(os.getenv("BT_FEE",  "0.0005"))   # رسوم taker لكل جانب (0.05%)
+SLIP_SIDE = float(os.getenv("BT_SLIP", "0.0002"))   # انزلاق مُقدَّر لكل جانب (0.02%)
 
 
 def _trail_floor(peak):
@@ -73,9 +79,12 @@ def simulate(chron15, chron1h, leverage):
     """
     يحاكي التداول على سلسلة شموع واحدة (مرتّبة من الأقدم للأحدث).
     chron15/chron1h: قوائم شموع OKX [ts, o, h, l, c, vol, ...] أقدم أولاً.
-    يُرجع قائمة بنتائج الصفقات: كل عنصر = العائد على الهامش (٪، يشمل الرافعة).
+    يُرجع قائمة بنتائج الصفقات الصافية (٪ على الهامش، يشمل الرافعة ويخصم التكاليف).
     دالة نقيّة قابلة للاختبار — لا عمليّات شبكة.
     """
+    # تكلفة الدورة الكاملة على الهامش = (رسوم+انزلاق) × جانبين × رافعة
+    fee_rt = (FEE_SIDE + SLIP_SIDE) * 2 * leverage
+
     returns = []
     pos = None   # {'side','entry','sl','tp','peak'}
 
@@ -122,7 +131,8 @@ def simulate(chron15, chron1h, leverage):
                     exit_ret = ratio_cls
 
             if exit_ret is not None:
-                returns.append(max(exit_ret, -1.0))   # لا تخسر أكثر من الهامش
+                # اخصم تكلفة الدورة، ولا تخسر أكثر من الهامش
+                returns.append(max(exit_ret - fee_rt, -1.0))
                 pos = None
 
         # ── البحث عن دخول جديد عندما لا يوجد مركز ──────────────────────
@@ -142,8 +152,11 @@ def simulate(chron15, chron1h, leverage):
     return returns
 
 
-def report(all_returns, start_equity=10.0, risk_per_trade=1.0):
-    """يحسب ويطبع مقاييس الأداء من قائمة عوائد الصفقات (٪ على الهامش)."""
+def report(all_returns, start_equity=10.0, risk_per_trade=None):
+    """يحسب ويطبع مقاييس الأداء من قائمة عوائد الصفقات الصافية (٪ على الهامش)."""
+    if risk_per_trade is None:
+        risk_per_trade = cfg.RISK_PER_TRADE   # حاكِ حجم البوت الحيّ الفعلي
+
     n = len(all_returns)
     if n == 0:
         print("⚠️  لا توجد صفقات في فترة الاختبار — جرّب عملات أكثر أو عتبة أقل.")
@@ -176,21 +189,21 @@ def report(all_returns, start_equity=10.0, risk_per_trade=1.0):
 
     pf_str = "∞" if profit_factor == float("inf") else f"{profit_factor:.2f}"
     print("\n" + "═" * 56)
-    print("📊  نتائج الاختبار الرجعي (Backtest)")
+    print("📊  نتائج الاختبار الرجعي (Backtest) — صافٍ بعد الرسوم")
     print("═" * 56)
     print(f"  عدد الصفقات        : {n}")
     print(f"  فوز / خسارة        : {len(wins)} / {len(losses)}")
     print(f"  معدّل الفوز         : {win_rate:.1f}%   (التعادل عند RR=3:1 هو 25%)")
-    print(f"  متوسّط العائد/صفقة  : {avg*100:+.2f}% على الهامش")
+    print(f"  متوسّط العائد/صفقة  : {avg*100:+.2f}% على الهامش (صافٍ)")
     print(f"  عامل الربح (PF)     : {pf_str}   (>1 = رابح)")
     print(f"  أطول سلسلة خسائر    : {worst_streak}")
     print(f"  أقصى تراجع (DD)     : {max_dd*100:.1f}%")
     print("─" * 56)
     print(f"  رأس مال تقريبي      : ${start_equity:.2f} → ${equity:.2f}")
-    print(f"  (افتراض: كل صفقة تخاطر بـ{risk_per_trade*100:.0f}% من الرصيد — توضيحي)")
+    print(f"  (مخاطرة {risk_per_trade*100:.0f}%/صفقة — مطابقة لإعداد {cfg.RISK_MODE})")
     print("═" * 56)
-    verdict = "✅ الاستراتيجية رابحة في هذه الفترة" if profit_factor > 1 \
-              else "❌ الاستراتيجية خاسرة في هذه الفترة — لا تخاطر بمال حقيقي"
+    verdict = "✅ الاستراتيجية رابحة بعد الرسوم في هذه الفترة" if profit_factor > 1 \
+              else "❌ الاستراتيجية خاسرة بعد الرسوم — لا تخاطر بمال حقيقي"
     print(f"  {verdict}")
     print("  ملاحظة: الأداء التاريخي لا يضمن المستقبل — هذا تحقّق، لا وعد.")
     print("═" * 56 + "\n")
@@ -204,7 +217,10 @@ def main():
     # بيانات الشموع عامّة — لا حاجة لمفاتيح حقيقية (لا تشارك مفاتيحك أبداً)
     client = OKXClient("public", "public", "public", is_demo="0")
 
+    fee_rt = (FEE_SIDE + SLIP_SIDE) * 2 * cfg.LEVERAGE
     print(f"⏳ جلب {n_bars} شمعة تاريخية لأعلى {n_symbols} عملة من OKX (ترقيم)...")
+    print(f"   تكلفة الدورة المخصومة: {fee_rt*100:.2f}% من الهامش/صفقة "
+          f"(رسوم {FEE_SIDE*100:.3f}% + انزلاق {SLIP_SIDE*100:.3f}% × جانبين × x{cfg.LEVERAGE})")
     try:
         pairs = client.get_top_pairs(n_symbols)
     except Exception as e:
