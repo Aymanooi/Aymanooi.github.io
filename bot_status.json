@@ -1,72 +1,87 @@
 {
-  "last_run": "2026-06-24 20:50:27 UTC",
+  "last_run": "2026-06-24 20:50:28 UTC",
   "mode": "Live 💰",
   "balance": 12.9047,
   "positions": [],
   "total_trades": 111,
   "logs": [
     {
-      "time": "2026-06-24 20:51:21 UTC",
-      "msg": "⏭️ maker فشل OPG-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 20:51:20 UTC",
+      "time": "2026-06-24 20:51:30 UTC",
       "msg": "⏭️ maker فشل XLM-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:51:19 UTC",
+      "time": "2026-06-24 20:51:28 UTC",
+      "msg": "⏭️ maker فشل ETHFI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 20:51:27 UTC",
+      "msg": "⏭️ maker فشل OPG-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 20:51:25 UTC",
+      "msg": "⏭️ maker فشل PENDLE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 20:51:24 UTC",
+      "msg": "⏭️ maker فشل RIVER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 20:51:22 UTC",
       "msg": "⏭️ maker فشل GRASS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:51:17 UTC",
+      "time": "2026-06-24 20:51:21 UTC",
       "msg": "⏭️ maker فشل SPCX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:51:16 UTC",
+      "time": "2026-06-24 20:51:19 UTC",
       "msg": "🧠 Brain WR=28.9% | مُنظّم ×1.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:51:16 UTC",
+      "time": "2026-06-24 20:51:19 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:51:16 UTC",
+      "time": "2026-06-24 20:51:19 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:50:29 UTC",
+      "time": "2026-06-24 20:50:30 UTC",
       "msg": "⏳ أُغلقت: TIA-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:50:28 UTC",
+      "time": "2026-06-24 20:50:29 UTC",
       "msg": "📉 رأس المال الكلي: $12.89 | القمّة $13.12 | تراجع 1.8% | مُنظّم ×1.00",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:50:27 UTC",
+      "time": "2026-06-24 20:50:28 UTC",
       "msg": "💰 الرصيد: $12.9047 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:50:27 UTC",
+      "time": "2026-06-24 20:50:28 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:50:27 UTC",
+      "time": "2026-06-24 20:50:28 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:50:27 UTC",
+      "time": "2026-06-24 20:50:28 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -389,21 +404,6 @@
       "time": "2026-06-24 20:49:12 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 20:49:12 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 20:49:12 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 20:49:02 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -411,20 +411,26 @@
     {
       "instId": "SPCX-USDT-SWAP",
       "signal": "sell",
-      "score": -46,
-      "prob": 0.26
+      "score": -54,
+      "prob": 0.22
     },
     {
       "instId": "GRASS-USDT-SWAP",
       "signal": "buy",
-      "score": 41,
-      "prob": 0.69
+      "score": 44,
+      "prob": 0.71
     },
     {
-      "instId": "XLM-USDT-SWAP",
+      "instId": "RIVER-USDT-SWAP",
       "signal": "buy",
-      "score": 42,
-      "prob": 0.64
+      "score": 38,
+      "prob": 0.68
+    },
+    {
+      "instId": "PENDLE-USDT-SWAP",
+      "signal": "buy",
+      "score": 52,
+      "prob": 0.67
     },
     {
       "instId": "OPG-USDT-SWAP",
