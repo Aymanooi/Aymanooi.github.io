@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 13:41:03 UTC",
   "mode": "Live 💰",
-  "balance": 3.01,
+  "balance": 3.0087,
   "positions": [
     {
       "instId": "AXS-USDT-SWAP",
@@ -53,7 +53,7 @@
     },
     {
       "time": "2026-06-24 13:41:04 UTC",
-      "msg": "💰 الرصيد: $3.0100 USDT",
+      "msg": "💰 الرصيد: $3.0087 USDT",
       "level": "info"
     },
     {
