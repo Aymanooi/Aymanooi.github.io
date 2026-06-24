@@ -1736,13 +1736,33 @@
       "score": 58,
       "status": "loss",
       "opened": "2026-06-24 20:36:57 UTC",
-      "exit": 0.3668
+      "exit": 0.3669
+    },
+    {
+      "instId": "TIA-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -12,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.3616,
+      "score": 39,
+      "status": "open",
+      "opened": "2026-06-24 20:38:12 UTC"
     }
   ],
   "wins": 23,
   "losses": 60,
   "lr": 0.05,
-  "updated": "2026-06-24 20:38:01 UTC",
+  "updated": "2026-06-24 20:38:12 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1758,7 +1778,7 @@
     "AVNT-USDT-SWAP": "2026-06-24T06:43:47.220201+00:00",
     "PROS-USDT-SWAP": "2026-06-24T14:29:30.087431+00:00",
     "PIEVERSE-USDT-SWAP": "2026-06-24T11:45:58.020758+00:00",
-    "EDGE-USDT-SWAP": "2026-06-24T20:37:08.326497+00:00",
+    "EDGE-USDT-SWAP": "2026-06-24T20:37:05.901466+00:00",
     "OP-USDT-SWAP": "2026-06-24T14:53:35.129831+00:00",
     "AT-USDT-SWAP": "2026-06-24T19:07:22.284406+00:00",
     "ZRO-USDT-SWAP": "2026-06-24T15:33:44.889586+00:00",
