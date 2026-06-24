@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 03:40:35 UTC",
   "mode": "Live 💰",
-  "balance": 4.8068,
+  "balance": 4.8602,
   "positions": [
     {
       "instId": "JTO-USDT-SWAP",
@@ -15,14 +15,14 @@
       "side": "شراء 📈",
       "entry": 0.226088524590164,
       "size": 61.0,
-      "pnl": 7.388
+      "pnl": 7.449
     },
     {
       "instId": "KITE-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.16283,
       "size": 5.0,
-      "pnl": 0.048
+      "pnl": 0.0415
     }
   ],
   "total_trades": 4,
@@ -33,12 +33,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 03:40:35 UTC",
-      "msg": "💰 الرصيد: $4.8068 USDT",
+      "time": "2026-06-24 03:40:36 UTC",
+      "msg": "💰 الرصيد: $4.8602 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 03:40:35 UTC",
+      "time": "2026-06-24 03:40:36 UTC",
       "msg": "⚙️ وضع المخاطرة: balanced | رافعة: x20 | مسح: 100 عملة",
       "level": "info"
     },
