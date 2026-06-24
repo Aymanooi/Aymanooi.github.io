@@ -6,77 +6,77 @@
   "total_trades": 107,
   "logs": [
     {
-      "time": "2026-06-24 20:30:04 UTC",
+      "time": "2026-06-24 20:30:07 UTC",
       "msg": "⏭️ maker فشل AR-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:30:03 UTC",
+      "time": "2026-06-24 20:30:05 UTC",
       "msg": "⏭️ maker فشل ETH-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:30:02 UTC",
+      "time": "2026-06-24 20:30:04 UTC",
       "msg": "⏭️ maker فشل WIF-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:30:00 UTC",
+      "time": "2026-06-24 20:30:02 UTC",
       "msg": "⏭️ maker فشل XLM-USDT-SWAP: Order quantity must be a multiple of the lot size. — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:59 UTC",
+      "time": "2026-06-24 20:30:01 UTC",
       "msg": "⏭️ maker فشل THETA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:58 UTC",
+      "time": "2026-06-24 20:29:59 UTC",
       "msg": "⏭️ maker فشل BERA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:56 UTC",
+      "time": "2026-06-24 20:29:58 UTC",
       "msg": "⏭️ maker فشل CRV-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:55 UTC",
+      "time": "2026-06-24 20:29:56 UTC",
       "msg": "⏭️ maker فشل FIL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:54 UTC",
+      "time": "2026-06-24 20:29:55 UTC",
       "msg": "⏭️ maker فشل XRP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:52 UTC",
+      "time": "2026-06-24 20:29:53 UTC",
       "msg": "⏭️ maker فشل LINK-USDT-SWAP: Order quantity must be a multiple of the lot size. — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:51 UTC",
+      "time": "2026-06-24 20:29:52 UTC",
       "msg": "⏭️ maker فشل SUSHI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:49 UTC",
+      "time": "2026-06-24 20:29:50 UTC",
       "msg": "⏭️ maker فشل ARX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-24 20:29:48 UTC",
+      "time": "2026-06-24 20:29:49 UTC",
       "msg": "🧠 Brain WR=28.7% | مُنظّم ×1.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:29:48 UTC",
+      "time": "2026-06-24 20:29:49 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-24 20:29:48 UTC",
+      "time": "2026-06-24 20:29:49 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
