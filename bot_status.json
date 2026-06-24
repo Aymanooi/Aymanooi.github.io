@@ -1,10 +1,48 @@
 {
-  "last_run": "2026-06-24 17:02:44 UTC",
+  "last_run": "2026-06-24 17:04:08 UTC",
   "mode": "Live 💰",
-  "balance": 3.8017,
-  "positions": [],
+  "balance": 0.4166,
+  "positions": [
+    {
+      "instId": "ARKM-USDT-SWAP",
+      "side": "بيع 📉",
+      "entry": 0.11458,
+      "size": 599.0,
+      "pnl": 0.1917
+    }
+  ],
   "total_trades": 84,
   "logs": [
+    {
+      "time": "2026-06-24 17:04:09 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:04:08 UTC",
+      "msg": "📉 رأس المال الكلي: $3.83 | القمّة $7.02 | تراجع 45.4% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:04:08 UTC",
+      "msg": "💰 الرصيد: $0.4166 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:04:08 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:04:08 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:04:08 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-24 17:04:01 UTC",
       "msg": "⏭️ maker فشل AGLD-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
@@ -374,36 +412,6 @@
       "time": "2026-06-24 17:01:15 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:01:14 UTC",
-      "msg": "📉 رأس المال الكلي: $3.70 | القمّة $7.02 | تراجع 47.3% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:01:14 UTC",
-      "msg": "💰 الرصيد: $0.6718 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:01:14 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:01:14 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:01:14 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 17:00:59 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -439,8 +447,12 @@
       "prob": 0.33
     }
   ],
-  "peaks": {},
-  "pnl_peaks": {},
+  "peaks": {
+    "ARKM-USDT-SWAP": 0.0558561703613192
+  },
+  "pnl_peaks": {
+    "ARKM-USDT-SWAP": 0.1916800000000005
+  },
   "brain_stats": {
     "wins": 18,
     "losses": 47,
@@ -459,8 +471,8 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-24 17:02:10 UTC"
+    "updated": "2026-06-24 17:04:01 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 45.92
+  "drawdown": 45.4
 }
