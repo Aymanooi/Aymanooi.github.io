@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 11:35:21 UTC",
   "mode": "Live 💰",
-  "balance": 3.3686,
+  "balance": 3.3685,
   "positions": [
     {
       "instId": "PIEVERSE-USDT-SWAP",
@@ -36,7 +36,7 @@
       "side": "بيع 📉",
       "entry": 0.39574,
       "size": 1.0,
-      "pnl": 0.039
+      "pnl": 0.0388
     }
   ],
   "total_trades": 17,
@@ -52,12 +52,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:35:21 UTC",
-      "msg": "💰 الرصيد: $3.3686 USDT",
+      "time": "2026-06-24 11:35:22 UTC",
+      "msg": "💰 الرصيد: $3.3685 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 11:35:21 UTC",
+      "time": "2026-06-24 11:35:22 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 10% | مراكز 5 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -510,5 +510,5 @@
     "updated": "2026-06-24 11:35:09 UTC"
   },
   "equity_peak": 7.0227,
-  "drawdown": 9.79
+  "drawdown": 9.8
 }
