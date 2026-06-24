@@ -1,7 +1,7 @@
 {
-  "last_run": "2026-06-24 08:25:24 UTC",
+  "last_run": "2026-06-24 08:25:43 UTC",
   "mode": "Live 💰",
-  "balance": 0.2298,
+  "balance": 0.4719,
   "positions": [
     {
       "instId": "COAI-USDT-SWAP",
@@ -15,112 +15,107 @@
       "side": "بيع 📉",
       "entry": 0.1991,
       "size": 114.0,
-      "pnl": 0.0
+      "pnl": 0.0114
     },
     {
       "instId": "EDGE-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.3898333333333335,
       "size": 15.0,
-      "pnl": -0.035
+      "pnl": 0.19
     },
     {
       "instId": "OP-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.1010801777777778,
       "size": 225.0,
-      "pnl": 0.0045
+      "pnl": 0.0067
     }
   ],
-  "total_trades": 10,
+  "total_trades": 6,
   "logs": [
     {
-      "time": "2026-06-24 08:26:11 UTC",
+      "time": "2026-06-24 08:26:16 UTC",
       "msg": "لا توجد إشارات كافية",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:26:11 UTC",
+      "time": "2026-06-24 08:26:16 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:25:24 UTC",
-      "msg": "💰 الرصيد: $0.2298 USDT",
+      "time": "2026-06-24 08:25:43 UTC",
+      "msg": "💰 الرصيد: $0.4719 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:25:24 UTC",
+      "time": "2026-06-24 08:25:43 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:25:24 UTC",
+      "time": "2026-06-24 08:25:43 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:25:24 UTC",
+      "time": "2026-06-24 08:25:43 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
     {
-      "time": "2026-06-24 08:25:16 UTC",
-      "msg": "✅ شراء 📈 COAI-USDT-SWAP @ 0.3574 | درجة:38 | هامش:$1.201 (18.0% Kelly)",
-      "level": "success"
+      "time": "2026-06-24 08:25:36 UTC",
+      "msg": "⏭️ فشل CRV-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 08:25:15 UTC",
-      "msg": "ℹ️ COAI-USDT-SWAP: رافعة 20x→10x (حد العملة)",
-      "level": "info"
+      "time": "2026-06-24 08:25:36 UTC",
+      "msg": "⚠️ CRV-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 08:25:14 UTC",
-      "msg": "✅ بيع 📉 CRV-USDT-SWAP @ 0.1992 | درجة:-42 | هامش:$1.201 (18.0% Kelly)",
-      "level": "success"
+      "time": "2026-06-24 08:25:35 UTC",
+      "msg": "⏭️ فشل EDGE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — جرب التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 08:25:13 UTC",
-      "msg": "✅ شراء 📈 EDGE-USDT-SWAP @ 0.3893 | درجة:43 | هامش:$1.201 (18.0% Kelly)",
-      "level": "success"
+      "time": "2026-06-24 08:25:35 UTC",
+      "msg": "⚠️ EDGE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — محاولة بدون SL/TP",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 08:25:11 UTC",
-      "msg": "✅ شراء 📈 OP-USDT-SWAP @ 0.10107 | درجة:43 | هامش:$1.201 (18.0% Kelly)",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-24 08:25:10 UTC",
+      "time": "2026-06-24 08:25:34 UTC",
       "msg": "🧠 Kelly ديناميكي: WR=80.0% → 18.0% من رأس المال",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:25:10 UTC",
+      "time": "2026-06-24 08:25:34 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:24:21 UTC",
+      "time": "2026-06-24 08:25:01 UTC",
       "msg": "⏳ أُغلقت: PIEVERSE-USDT-SWAP — محظورة من الدخول 1 ساعات",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:24:21 UTC",
+      "time": "2026-06-24 08:25:00 UTC",
       "msg": "💰 الرصيد: $6.6730 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:24:20 UTC",
+      "time": "2026-06-24 08:25:00 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:24:20 UTC",
+      "time": "2026-06-24 08:25:00 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-24 08:24:20 UTC",
+      "time": "2026-06-24 08:25:00 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -433,14 +428,19 @@
       "time": "2026-06-24 08:22:27 UTC",
       "msg": "💰 الرصيد: $0.0000 USDT",
       "level": "info"
+    },
+    {
+      "time": "2026-06-24 08:22:27 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 18% | مراكز 5 | مسح 100 عملة",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [],
   "peaks": {
     "COAI-USDT-SWAP": -0.0055928411633099,
-    "CRV-USDT-SWAP": 0.0,
-    "EDGE-USDT-SWAP": -0.0119709277469071,
-    "OP-USDT-SWAP": 0.0039220790184569
+    "CRV-USDT-SWAP": 0.0100452034153675,
+    "EDGE-USDT-SWAP": 0.0649850363403104,
+    "OP-USDT-SWAP": 0.0059007063259786
   }
 }
