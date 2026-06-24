@@ -726,13 +726,33 @@
       "score": 48,
       "status": "loss",
       "opened": "2026-06-24 13:23:18 UTC",
-      "exit": 0.224
+      "exit": 0.2244
+    },
+    {
+      "instId": "BAND-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -25,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -5,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.1496,
+      "score": -43,
+      "status": "open",
+      "opened": "2026-06-24 13:23:59 UTC"
     }
   ],
   "wins": 13,
   "losses": 20,
   "lr": 0.05,
-  "updated": "2026-06-24 13:24:08 UTC",
+  "updated": "2026-06-24 13:24:13 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -782,6 +802,6 @@
     "ORDI-USDT-SWAP": "2026-06-24T13:07:27.582346+00:00",
     "BERA-USDT-SWAP": "2026-06-24T13:09:05.648693+00:00",
     "ETH-USDT-SWAP": "2026-06-24T13:22:41.548520+00:00",
-    "SNX-USDT-SWAP": "2026-06-24T13:23:30.858273+00:00"
+    "SNX-USDT-SWAP": "2026-06-24T13:23:24.673960+00:00"
   }
 }
