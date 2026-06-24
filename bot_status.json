@@ -3,17 +3,32 @@
   "mode": "Live 💰",
   "balance": 3.4923,
   "positions": [],
-  "total_trades": 93,
+  "total_trades": 92,
   "logs": [
     {
-      "time": "2026-06-24 17:35:29 UTC",
-      "msg": "📤 maker بيع 📉 KGEN-USDT-SWAP @~0.165 | درجة:-37 | رأس المال:$3.318 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
-      "level": "success"
+      "time": "2026-06-24 17:35:33 UTC",
+      "msg": "⏭️ maker فشل AGLD-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-24 17:35:28 UTC",
+      "time": "2026-06-24 17:35:32 UTC",
+      "msg": "⏭️ maker فشل SUSHI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 17:35:31 UTC",
+      "msg": "⏭️ maker فشل KGEN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 17:35:30 UTC",
       "msg": "ℹ️ KGEN-USDT-SWAP: رافعة 20x→10x (حد العملة)",
       "level": "info"
+    },
+    {
+      "time": "2026-06-24 17:35:30 UTC",
+      "msg": "⏭️ maker فشل ONDO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-24 17:35:28 UTC",
@@ -26,7 +41,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:34:43 UTC",
+      "time": "2026-06-24 17:34:44 UTC",
       "msg": "⏳ أُغلقت: KGEN-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
@@ -36,7 +51,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:34:42 UTC",
+      "time": "2026-06-24 17:34:43 UTC",
       "msg": "💰 الرصيد: $3.4923 USDT",
       "level": "info"
     },
@@ -389,25 +404,16 @@
       "time": "2026-06-24 17:32:49 UTC",
       "msg": "⏭️ maker فشل API3-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
-    },
-    {
-      "time": "2026-06-24 17:32:48 UTC",
-      "msg": "ℹ️ API3-USDT-SWAP: رافعة 20x→10x (حد العملة)",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 17:32:47 UTC",
-      "msg": "⏭️ maker فشل KGEN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-24 17:32:46 UTC",
-      "msg": "ℹ️ KGEN-USDT-SWAP: رافعة 20x→10x (حد العملة)",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
+    {
+      "instId": "ONDO-USDT-SWAP",
+      "signal": "sell",
+      "score": -37,
+      "prob": 0.33
+    },
     {
       "instId": "KGEN-USDT-SWAP",
       "signal": "sell",
