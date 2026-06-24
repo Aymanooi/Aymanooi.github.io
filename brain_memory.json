@@ -85,24 +85,6 @@
       "score": 41,
       "status": "open",
       "opened": "2026-06-24 06:18:22 UTC"
-    },
-    {
-      "instId": "AVNT-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 5,
-        "Pattern": 0,
-        "HTF_1h": 15
-      },
-      "entry": 0.1112,
-      "score": 42,
-      "status": "open",
-      "opened": "2026-06-24 06:29:02 UTC"
     }
   ],
   "wins": 3,
