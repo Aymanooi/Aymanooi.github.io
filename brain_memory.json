@@ -66,13 +66,31 @@
       "score": 48,
       "status": "win",
       "opened": "2026-06-23 22:46:58 UTC",
-      "exit": 0.1299
+      "exit": 0.13
+    },
+    {
+      "instId": "LINK-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": 15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 10,
+        "Pattern": 0,
+        "HTF_1h": -5
+      },
+      "entry": 7.597,
+      "score": 55,
+      "status": "open",
+      "opened": "2026-06-24 01:06:52 UTC"
     }
   ],
   "wins": 3,
   "losses": 0,
   "lr": 0.05,
-  "updated": "2026-06-24 01:06:47 UTC",
+  "updated": "2026-06-24 01:06:52 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -80,6 +98,6 @@
     "LIGHT-USDT-SWAP": "2026-06-23T22:36:07.841979+00:00",
     "AXS-USDT-SWAP": "2026-06-23T22:36:08.186765+00:00",
     "DYDX-USDT-SWAP": "2026-06-23T22:55:56.756667+00:00",
-    "FARTCOIN-USDT-SWAP": "2026-06-24T01:06:11.906100+00:00"
+    "FARTCOIN-USDT-SWAP": "2026-06-24T01:06:00.950315+00:00"
   }
 }
