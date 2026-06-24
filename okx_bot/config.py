@@ -64,7 +64,7 @@ RSI_PERIOD = 14
 RSI_BUY_MAX = 65
 RSI_SELL_MIN = 35
 TIMEFRAME = "15m"
-SIGNAL_THRESHOLD = 35   # خُفِّض من 40 إلى 35 — Brain يفلتر الجودة بعد 5 صفقات
+SIGNAL_THRESHOLD = 55   # رُفِعت 35→55: انتقائية قصوى — أقوى الإشارات فقط، رسوم أقل، نزيف أبطأ
 
 # === Bot Settings ===
 SCAN_INTERVAL   = 60
