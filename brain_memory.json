@@ -353,7 +353,7 @@
       "exit": 2.919
     },
     {
-      "instId": "ADA-USDT-SWAP",
+      "instId": "APT-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
@@ -361,14 +361,14 @@
         "MACD": -15,
         "BB": -5,
         "Stoch": -5,
-        "Volume": 0,
+        "Volume": -5,
         "Pattern": 0,
-        "HTF_1h": -15,
+        "HTF_1h": -5,
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.149,
-      "score": -72,
+      "entry": 0.6426,
+      "score": -61,
       "status": "open",
       "opened": "2026-06-24 11:50:55 UTC"
     }
@@ -411,7 +411,7 @@
     "AGLD-USDT-SWAP": "2026-06-24T10:30:57.199221+00:00",
     "ZBT-USDT-SWAP": "2026-06-24T11:05:26.580169+00:00",
     "LDO-USDT-SWAP": "2026-06-24T11:37:45.920676+00:00",
-    "RAVE-USDT-SWAP": "2026-06-24T11:50:08.258372+00:00",
-    "ALLO-USDT-SWAP": "2026-06-24T11:50:08.778415+00:00"
+    "ALLO-USDT-SWAP": "2026-06-24T11:50:09.495440+00:00",
+    "RAVE-USDT-SWAP": "2026-06-24T11:50:10.027373+00:00"
   }
 }
