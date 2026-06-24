@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-24 17:01:19 UTC",
   "mode": "Live 💰",
-  "balance": 0.5966,
+  "balance": 0.6,
   "positions": [
     {
       "instId": "MORPHO-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 1.6715,
       "size": 36.0,
-      "pnl": 0.396
+      "pnl": 0.3996
     }
   ],
   "total_trades": 84,
@@ -24,8 +24,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 17:01:20 UTC",
-      "msg": "💰 الرصيد: $0.5966 USDT",
+      "time": "2026-06-24 17:01:19 UTC",
+      "msg": "💰 الرصيد: $0.6000 USDT",
       "level": "info"
     },
     {
