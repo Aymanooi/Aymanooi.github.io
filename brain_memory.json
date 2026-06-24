@@ -1107,12 +1107,32 @@
       "status": "loss",
       "opened": "2026-06-24 14:55:50 UTC",
       "exit": 0.1974
+    },
+    {
+      "instId": "PIEVERSE-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": -5,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.6598,
+      "score": -53,
+      "status": "open",
+      "opened": "2026-06-24 15:11:40 UTC"
     }
   ],
   "wins": 17,
   "losses": 36,
   "lr": 0.05,
-  "updated": "2026-06-24 15:11:37 UTC",
+  "updated": "2026-06-24 15:11:40 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
