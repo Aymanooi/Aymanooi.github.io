@@ -1571,7 +1571,7 @@
       "exit": 1.627
     },
     {
-      "instId": "SPX-USDT-SWAP",
+      "instId": "DOT-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
@@ -1585,16 +1585,16 @@
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.3228,
+      "entry": 0.8593,
       "score": -58,
       "status": "open",
-      "opened": "2026-06-24 18:41:01 UTC"
+      "opened": "2026-06-24 18:41:03 UTC"
     }
   ],
   "wins": 23,
   "losses": 52,
   "lr": 0.05,
-  "updated": "2026-06-24 18:41:01 UTC",
+  "updated": "2026-06-24 18:41:03 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
