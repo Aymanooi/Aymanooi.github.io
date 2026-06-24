@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-24 13:44:27 UTC",
   "mode": "Live 💰",
-  "balance": 1.1372,
+  "balance": 1.1339,
   "positions": [
     {
       "instId": "SOON-USDT-SWAP",
@@ -22,7 +22,7 @@
       "side": "بيع 📉",
       "entry": 0.2962,
       "size": 1.0,
-      "pnl": 0.086
+      "pnl": 0.087
     },
     {
       "instId": "PROS-USDT-SWAP",
@@ -42,18 +42,18 @@
   "total_trades": 55,
   "logs": [
     {
-      "time": "2026-06-24 13:44:28 UTC",
+      "time": "2026-06-24 13:44:29 UTC",
       "msg": "مراكز مفتوحة: 5/5 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-24 13:44:27 UTC",
+      "time": "2026-06-24 13:44:28 UTC",
       "msg": "📉 رأس المال الكلي: $4.71 | القمّة $7.02 | تراجع 32.9% | مُنظّم ×0.35",
       "level": "info"
     },
     {
-      "time": "2026-06-24 13:44:27 UTC",
-      "msg": "💰 الرصيد: $1.1372 USDT",
+      "time": "2026-06-24 13:44:28 UTC",
+      "msg": "💰 الرصيد: $1.1339 USDT",
       "level": "info"
     },
     {
@@ -472,14 +472,14 @@
   "peaks": {
     "TIA-USDT-SWAP": 0.5624661979448353,
     "PROS-USDT-SWAP": 0.7110277505435048,
-    "BSB-USDT-SWAP": 0.2903443619176227,
+    "BSB-USDT-SWAP": 0.2937204591492248,
     "APR-USDT-SWAP": 0.0,
     "SOON-USDT-SWAP": 0.0124921923797605
   },
   "pnl_peaks": {
     "TIA-USDT-SWAP": 0.0936000000000002,
     "PROS-USDT-SWAP": 0.3336000000000017,
-    "BSB-USDT-SWAP": 0.086,
+    "BSB-USDT-SWAP": 0.0870000000000004,
     "APR-USDT-SWAP": 0.0,
     "SOON-USDT-SWAP": 0.0235999999999974
   },
