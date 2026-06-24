@@ -6,9 +6,24 @@
   "total_trades": 67,
   "logs": [
     {
-      "time": "2026-06-24 15:08:41 UTC",
-      "msg": "📤 maker شراء 📈 SNX-USDT-SWAP @~0.2263 | درجة:45 | رأس المال:$3.937 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
+      "time": "2026-06-24 15:08:44 UTC",
+      "msg": "📤 maker بيع 📉 AGLD-USDT-SWAP @~0.1477 | درجة:-46 | رأس المال:$3.937 | SL:0.5% TP:1.0% (بانتظار التنفيذ)",
       "level": "success"
+    },
+    {
+      "time": "2026-06-24 15:08:43 UTC",
+      "msg": "⏭️ maker فشل LIT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 15:08:42 UTC",
+      "msg": "⏭️ maker فشل STX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-24 15:08:41 UTC",
+      "msg": "⏭️ maker فشل SNX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-24 15:08:40 UTC",
@@ -46,7 +61,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-24 15:08:04 UTC",
+      "time": "2026-06-24 15:08:03 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -389,21 +404,6 @@
       "time": "2026-06-24 15:05:59 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
-    },
-    {
-      "time": "2026-06-24 15:05:45 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 15:05:44 UTC",
-      "msg": "📉 رأس المال الكلي: $4.30 | القمّة $7.02 | تراجع 38.7% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-24 15:05:44 UTC",
-      "msg": "💰 الرصيد: $1.3409 USDT",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
