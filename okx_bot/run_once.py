@@ -83,6 +83,29 @@ async def run():
     status["mode"]      = "Demo 🧪" if demo != "0" else "Live 💰"
     status["risk_mode"] = os.environ.get("RISK_MODE", "safe").strip().lower()
 
+    # ── مفتاح إيقاف طارئ: إذا وُجد bot_stop.json أغلق كل الصفقات وانتهِ ──────
+    STOP_FILE = os.path.join(os.path.dirname(__file__), "..", "bot_stop.json")
+    if os.path.exists(STOP_FILE):
+        add_log(status, "🛑 bot_stop.json — إيقاف طارئ: إغلاق جميع الصفقات", "warning")
+        from okx_client import OKXClient as _OKXClient
+        _client = _OKXClient(key, secret, phrase, demo)
+        _positions = _client.get_all_positions()
+        _closed = []
+        for _p in _positions:
+            if float(_p.get("pos", 0)) != 0:
+                if _client.close_position(_p["instId"]):
+                    _closed.append(_p["instId"])
+                    add_log(status, f"✅ أُغلق: {_p['instId']}", "success")
+                else:
+                    add_log(status, f"❌ فشل إغلاق: {_p['instId']}", "error")
+        add_log(status,
+            f"🛑 البوت متوقف — {len(_closed)} صفقة مغلقة: {', '.join(_closed) or 'لا يوجد'}",
+            "warning")
+        status["stopped"] = True
+        status["positions"] = []
+        save_status(status)
+        sys.exit(0)
+
     memory = brain.load_memory()
 
     add_log(status, "🚀 تشغيل Snowball v22 + Brain...", "success")
