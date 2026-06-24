@@ -1106,13 +1106,33 @@
       "score": 62,
       "status": "loss",
       "opened": "2026-06-24 14:55:50 UTC",
-      "exit": 0.1974
+      "exit": 0.1972
+    },
+    {
+      "instId": "APR-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 15
+      },
+      "entry": 0.1975,
+      "score": 56,
+      "status": "open",
+      "opened": "2026-06-24 15:09:18 UTC"
     }
   ],
   "wins": 17,
   "losses": 36,
   "lr": 0.05,
-  "updated": "2026-06-24 15:09:16 UTC",
+  "updated": "2026-06-24 15:09:18 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -1166,7 +1186,7 @@
     "XTZ-USDT-SWAP": "2026-06-24T13:30:05.368657+00:00",
     "SPCX-USDT-SWAP": "2026-06-24T13:35:15.100760+00:00",
     "BAND-USDT-SWAP": "2026-06-24T13:33:05.787192+00:00",
-    "APR-USDT-SWAP": "2026-06-24T15:08:11.716437+00:00",
+    "APR-USDT-SWAP": "2026-06-24T15:07:38.938525+00:00",
     "WLD-USDT-SWAP": "2026-06-24T13:40:28.984353+00:00",
     "MET-USDT-SWAP": "2026-06-24T13:47:19.108323+00:00",
     "BSB-USDT-SWAP": "2026-06-24T14:02:57.015782+00:00",
