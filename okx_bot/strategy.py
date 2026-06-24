@@ -1,6 +1,6 @@
 """
 Multi-Signal Confluence System (MSCS)
-8 indicators + multi-timeframe + dynamic ATR-based SL/TP + market regime detection
+11 indicators + multi-timeframe + dynamic ATR-based SL/TP + market regime detection
 """
 import numpy as np
 from typing import List, Optional, Dict, Tuple
@@ -152,6 +152,73 @@ def detect_pattern(opens: List[float], highs: List[float],
     return 0
 
 
+def obv_trend(closes: List[float], volumes: List[float], period: int = 10) -> float:
+    """
+    On Balance Volume direction.
+    Returns +1 if OBV is rising (buying pressure), -1 if falling (selling pressure), 0 flat.
+    OBV rising while price consolidates = accumulation = bullish.
+    """
+    if len(closes) < period + 5:
+        return 0.0
+    obv_vals = [0.0]
+    for i in range(1, len(closes)):
+        if closes[i] > closes[i - 1]:
+            obv_vals.append(obv_vals[-1] + volumes[i])
+        elif closes[i] < closes[i - 1]:
+            obv_vals.append(obv_vals[-1] - volumes[i])
+        else:
+            obv_vals.append(obv_vals[-1])
+    recent  = float(np.mean(obv_vals[-5:]))
+    earlier = float(np.mean(obv_vals[-(period + 5):-5]))
+    total_vol = sum(abs(v) for v in volumes[-period:])
+    if total_vol == 0:
+        return 0.0
+    ratio = (recent - earlier) / total_vol
+    if ratio > 0.02:
+        return 1.0
+    elif ratio < -0.02:
+        return -1.0
+    return 0.0
+
+
+def rsi_divergence(closes: List[float], highs: List[float], lows: List[float],
+                   lookback: int = 20) -> int:
+    """
+    Detect RSI divergence — one of the most reliable reversal signals.
+    Bullish divergence: price makes lower low, RSI makes higher low → reversal up likely.
+    Bearish divergence: price makes higher high, RSI makes lower high → reversal down likely.
+    Returns +1 bullish, -1 bearish, 0 none.
+    """
+    needed = lookback + 14
+    if len(closes) < needed:
+        return 0
+
+    window_closes = closes[-(needed):]
+    rsi_vals = [rsi(window_closes[:i + 1], 14) for i in range(14, len(window_closes))]
+    if len(rsi_vals) < lookback:
+        return 0
+
+    half = max(lookback // 2, 5)
+
+    # Bullish: price lower low but RSI higher low
+    p_rec  = min(lows[-half:])
+    p_prev = min(lows[-lookback:-half])
+    r_rec  = min(rsi_vals[-half:])
+    r_prev = min(rsi_vals[-lookback:-half])
+    if p_rec < p_prev * 0.998 and r_rec > r_prev + 2.0:
+        return 1
+
+    # Bearish: price higher high but RSI lower high
+    h_rec  = max(highs[-half:])
+    h_prev = max(highs[-lookback:-half])
+    rh_rec  = max(rsi_vals[-half:])
+    rh_prev = max(rsi_vals[-lookback:-half])
+    if h_rec > h_prev * 1.002 and rh_rec < rh_prev - 2.0:
+        return -1
+
+    return 0
+
+
 # ─── Master Scoring Engine ─────────────────────────────────────────────────────
 
 def parse_candles(raw):
@@ -168,7 +235,7 @@ def parse_candles(raw):
 
 def analyze(candles_15m, candles_1h=None) -> Dict:
     """
-    Full multi-indicator analysis.
+    Full multi-indicator analysis (11 indicators).
     Returns: {signal, score, atr, sl_price, tp_price, details}
     score range: -100 to +100
     """
@@ -326,6 +393,20 @@ def analyze(candles_15m, candles_1h=None) -> Dict:
                 "sl_price": 0.0, "tp_price": 0.0, "price": price, "details": details,
             }
         total += htf
+    else:
+        details["HTF_1h"] = 0
+
+    # ── 10. OBV Trend  (max ±10) ─────────────────────────────
+    obv_dir = obv_trend(closes, volumes)
+    obv_score = int(obv_dir * 10)
+    details["OBV"] = obv_score
+    total += obv_score
+
+    # ── 11. RSI Divergence  (max ±15 — high-probability reversal) ────────────
+    div = rsi_divergence(closes, highs, lows)
+    div_score = div * 15
+    details["RSIDivergence"] = div_score
+    total += div_score
 
     # ── Clamp & Decide ───────────────────────────────────────
     total = max(-100, min(100, total))
