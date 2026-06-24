@@ -138,16 +138,16 @@
         "Pattern": 0,
         "HTF_1h": 15
       },
-      "entry": 0.402,
+      "entry": 0.4019,
       "score": 35,
       "status": "open",
-      "opened": "2026-06-24 09:31:15 UTC"
+      "opened": "2026-06-24 09:31:17 UTC"
     }
   ],
   "wins": 5,
   "losses": 1,
   "lr": 0.05,
-  "updated": "2026-06-24 09:31:15 UTC",
+  "updated": "2026-06-24 09:31:17 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
