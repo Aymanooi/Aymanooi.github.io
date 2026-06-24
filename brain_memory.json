@@ -124,24 +124,6 @@
       "status": "win",
       "opened": "2026-06-24 08:30:55 UTC",
       "exit": 0.2133
-    },
-    {
-      "instId": "APT-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 15,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 5,
-        "Pattern": 0,
-        "HTF_1h": 15
-      },
-      "entry": 0.6454,
-      "score": 35,
-      "status": "open",
-      "opened": "2026-06-24 09:10:39 UTC"
     }
   ],
   "wins": 5,
