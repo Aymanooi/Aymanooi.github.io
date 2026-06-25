@@ -438,22 +438,22 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             sl_price = round(live_price + sl_dist, 8)
             tp_price = round(live_price - tp_dist, 8)
 
-        # ── رافعة متغيّرة حسب العملة — تثبّت خسارة الهامش عند SL ──────────────
-        # عملة هادئة (SL ضيّق) → رافعة أعلى؛ عملة متذبذبة (SL واسع) → رافعة أقل،
-        # فتبقى مخاطرة كل صفقة متماثلة (~TARGET_SL_MARGIN من الهامش). مُقيَّدة بين
-        # LEV_MIN وسقف المستخدم LEVERAGE (x20) ثم حدّ العملة على OKX.
+        # ── رافعة متدرّجة حسب الرصيد — x5 للانطلاق ثم x2 بعد $20 (طلب المستخدم) ──
+        # برصيد صغير: رافعة أعلى لتجاوز الحد الأدنى للصفقة وتسريع المرحلة الأولى.
+        # بعد النمو: نعود إلى x2 (الرافعة المثلى رياضياً = أعلى نمو هندسي وأقل خطر).
+        base_lev = cfg.leverage_for_balance(balance)
         if cfg.VARIABLE_RISK and sl_move > 0:
             desired_lev = cfg.TARGET_SL_MARGIN / sl_move
-            eff_leverage = max(float(cfg.LEV_MIN), min(desired_lev, float(LEVERAGE)))
+            eff_leverage = max(float(cfg.LEV_MIN), min(desired_lev, float(base_lev)))
         else:
-            eff_leverage = float(LEVERAGE)
+            eff_leverage = float(base_lev)
         max_lev = client.get_max_leverage(inst_id)
         if max_lev and max_lev < eff_leverage:
             eff_leverage = float(max_lev)
         eff_leverage = max(1, int(round(eff_leverage)))
         add_log(status,
-            f"\U0001f3af {inst_id}: رافعة متغيّرة x{eff_leverage} | "
-            f"SL {sl_move*100:.2f}% TP {tp_move*100:.2f}% (ATR {atr_val:.6f})", "info")
+            f"\U0001f3af {inst_id}: رافعة x{eff_leverage} (رصيد ${balance:.2f}) | "
+            f"SL {sl_move*100:.2f}% TP {tp_move*100:.2f}%", "info")
 
         # رأس المال كاملاً (95% لاحتياطي رسوم) — طلب المستخدم الصريح
         risk_capital = balance * CAPITAL_RATIO
