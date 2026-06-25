@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-25 05:07:09 UTC",
   "mode": "Live 💰",
-  "balance": 1.3278,
+  "balance": 1.3242,
   "positions": [
     {
       "instId": "ALLO-USDT-SWAP",
@@ -14,7 +14,7 @@
   "total_trades": 120,
   "logs": [
     {
-      "time": "2026-06-25 05:07:10 UTC",
+      "time": "2026-06-25 05:07:11 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
@@ -25,11 +25,11 @@
     },
     {
       "time": "2026-06-25 05:07:10 UTC",
-      "msg": "💰 الرصيد: $1.3278 USDT",
+      "msg": "💰 الرصيد: $1.3242 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-25 05:07:09 UTC",
+      "time": "2026-06-25 05:07:10 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 100% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -474,5 +474,5 @@
     "updated": "2026-06-25 05:06:51 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 30.42
+  "drawdown": 30.44
 }
