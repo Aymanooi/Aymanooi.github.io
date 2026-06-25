@@ -1,408 +1,408 @@
 {
-  "last_run": "2026-06-25 14:31:28 UTC",
+  "last_run": "2026-06-25 14:31:13 UTC",
   "mode": "Live 💰",
   "balance": 5.3851,
   "positions": [],
   "total_trades": 134,
   "logs": [
     {
-      "time": "2026-06-25 14:33:22 UTC",
+      "time": "2026-06-25 14:33:33 UTC",
       "msg": "⏭️ maker فشل CC-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:33:21 UTC",
+      "time": "2026-06-25 14:33:32 UTC",
       "msg": "🎯 CC-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:33:21 UTC",
+      "time": "2026-06-25 14:33:31 UTC",
       "msg": "⏭️ maker فشل BAND-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:33:20 UTC",
+      "time": "2026-06-25 14:33:30 UTC",
       "msg": "🎯 BAND-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:33:20 UTC",
+      "time": "2026-06-25 14:33:29 UTC",
       "msg": "⏭️ maker فشل ATOM-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:33:19 UTC",
+      "time": "2026-06-25 14:33:28 UTC",
       "msg": "🎯 ATOM-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:33:18 UTC",
+      "time": "2026-06-25 14:33:27 UTC",
       "msg": "⏭️ maker فشل API3-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:33:17 UTC",
+      "time": "2026-06-25 14:33:26 UTC",
       "msg": "🎯 API3-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:33:17 UTC",
+      "time": "2026-06-25 14:33:26 UTC",
       "msg": "⏭️ maker فشل IMX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:33:16 UTC",
+      "time": "2026-06-25 14:33:25 UTC",
       "msg": "🎯 IMX-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:33:16 UTC",
-      "msg": "⏭️ maker فشل VIRTUAL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "time": "2026-06-25 14:33:24 UTC",
+      "msg": "⏭️ maker فشل PROS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:33:15 UTC",
-      "msg": "🎯 VIRTUAL-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "time": "2026-06-25 14:33:23 UTC",
+      "msg": "🎯 PROS-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:33:14 UTC",
-      "msg": "⏭️ maker فشل LDO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:13 UTC",
-      "msg": "🎯 LDO-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:13 UTC",
-      "msg": "⏭️ maker فشل DOT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:12 UTC",
-      "msg": "🎯 DOT-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:12 UTC",
-      "msg": "⏭️ maker فشل TRUMP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:11 UTC",
-      "msg": "🎯 TRUMP-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:10 UTC",
-      "msg": "⏭️ maker فشل PI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:09 UTC",
-      "msg": "🎯 PI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:09 UTC",
-      "msg": "⏭️ maker فشل WIF-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:08 UTC",
-      "msg": "🎯 WIF-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:08 UTC",
-      "msg": "⏭️ maker فشل ARX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:07 UTC",
-      "msg": "🎯 ARX-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:06 UTC",
-      "msg": "⏭️ maker فشل AR-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:06 UTC",
-      "msg": "🎯 AR-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:05 UTC",
-      "msg": "⏭️ maker فشل NEAR-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:04 UTC",
-      "msg": "🎯 NEAR-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:04 UTC",
-      "msg": "⏭️ maker فشل MET-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:03 UTC",
-      "msg": "🎯 MET-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:03 UTC",
-      "msg": "⏭️ maker فشل PROVE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:02 UTC",
-      "msg": "🎯 PROVE-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:01 UTC",
+      "time": "2026-06-25 14:33:23 UTC",
       "msg": "⏭️ maker فشل STX-USDT-SWAP: Order quantity must be a multiple of the lot size. — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:33:00 UTC",
+      "time": "2026-06-25 14:33:22 UTC",
       "msg": "🎯 STX-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:33:00 UTC",
+      "time": "2026-06-25 14:33:20 UTC",
+      "msg": "⏭️ maker فشل VIRTUAL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:20 UTC",
+      "msg": "🎯 VIRTUAL-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:19 UTC",
+      "msg": "⏭️ maker فشل LDO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:18 UTC",
+      "msg": "🎯 LDO-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:17 UTC",
+      "msg": "⏭️ maker فشل DOT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:16 UTC",
+      "msg": "🎯 DOT-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:16 UTC",
+      "msg": "⏭️ maker فشل TRUMP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:15 UTC",
+      "msg": "🎯 TRUMP-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:15 UTC",
+      "msg": "⏭️ maker فشل PI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:14 UTC",
+      "msg": "🎯 PI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:13 UTC",
+      "msg": "⏭️ maker فشل WIF-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:12 UTC",
+      "msg": "🎯 WIF-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:12 UTC",
+      "msg": "⏭️ maker فشل ADA-USDT-SWAP: Order quantity must be a multiple of the lot size. — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:11 UTC",
+      "msg": "🎯 ADA-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:10 UTC",
+      "msg": "⏭️ maker فشل NEAR-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:09 UTC",
+      "msg": "🎯 NEAR-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:09 UTC",
+      "msg": "⏭️ maker فشل MET-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:07 UTC",
+      "msg": "🎯 MET-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:06 UTC",
+      "msg": "⏭️ maker فشل PROVE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:05 UTC",
+      "msg": "🎯 PROVE-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:04 UTC",
+      "msg": "⏭️ maker فشل MASK-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:33:03 UTC",
+      "msg": "🎯 MASK-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:33:03 UTC",
       "msg": "⏭️ maker فشل COAI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:59 UTC",
+      "time": "2026-06-25 14:33:01 UTC",
       "msg": "🎯 COAI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:58 UTC",
+      "time": "2026-06-25 14:33:00 UTC",
+      "msg": "⏭️ maker فشل BEAT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-25 14:32:59 UTC",
+      "msg": "🎯 BEAT-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:32:59 UTC",
       "msg": "⏭️ maker فشل MORPHO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:58 UTC",
+      "time": "2026-06-25 14:32:57 UTC",
       "msg": "🎯 MORPHO-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:57 UTC",
+      "time": "2026-06-25 14:32:56 UTC",
       "msg": "⏭️ maker فشل INJ-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:56 UTC",
+      "time": "2026-06-25 14:32:55 UTC",
       "msg": "🎯 INJ-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:56 UTC",
+      "time": "2026-06-25 14:32:54 UTC",
       "msg": "⏭️ maker فشل LQTY-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:55 UTC",
+      "time": "2026-06-25 14:32:53 UTC",
       "msg": "🎯 LQTY-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:55 UTC",
+      "time": "2026-06-25 14:32:53 UTC",
       "msg": "⏭️ maker فشل ETC-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:54 UTC",
+      "time": "2026-06-25 14:32:52 UTC",
       "msg": "🎯 ETC-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:53 UTC",
+      "time": "2026-06-25 14:32:51 UTC",
       "msg": "⏭️ maker فشل XTZ-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:52 UTC",
+      "time": "2026-06-25 14:32:50 UTC",
       "msg": "🎯 XTZ-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:52 UTC",
+      "time": "2026-06-25 14:32:49 UTC",
       "msg": "⏭️ maker فشل RENDER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:51 UTC",
+      "time": "2026-06-25 14:32:48 UTC",
       "msg": "🎯 RENDER-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:51 UTC",
+      "time": "2026-06-25 14:32:48 UTC",
       "msg": "⏭️ maker فشل ORDI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:50 UTC",
+      "time": "2026-06-25 14:32:47 UTC",
       "msg": "🎯 ORDI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:49 UTC",
+      "time": "2026-06-25 14:32:46 UTC",
       "msg": "⏭️ maker فشل ICP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:48 UTC",
+      "time": "2026-06-25 14:32:45 UTC",
       "msg": "🎯 ICP-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:48 UTC",
+      "time": "2026-06-25 14:32:45 UTC",
       "msg": "⏭️ maker فشل BARD-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:47 UTC",
+      "time": "2026-06-25 14:32:44 UTC",
       "msg": "🎯 BARD-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:47 UTC",
+      "time": "2026-06-25 14:32:43 UTC",
       "msg": "⏭️ maker فشل ENSO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:46 UTC",
+      "time": "2026-06-25 14:32:42 UTC",
       "msg": "🎯 ENSO-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:45 UTC",
+      "time": "2026-06-25 14:32:42 UTC",
       "msg": "⏭️ maker فشل THETA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:44 UTC",
+      "time": "2026-06-25 14:32:41 UTC",
       "msg": "🎯 THETA-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:44 UTC",
+      "time": "2026-06-25 14:32:40 UTC",
       "msg": "⏭️ maker فشل AXS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:43 UTC",
+      "time": "2026-06-25 14:32:39 UTC",
       "msg": "🎯 AXS-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:43 UTC",
+      "time": "2026-06-25 14:32:39 UTC",
       "msg": "⏭️ maker فشل SUSHI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:42 UTC",
+      "time": "2026-06-25 14:32:38 UTC",
       "msg": "🎯 SUSHI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:41 UTC",
+      "time": "2026-06-25 14:32:37 UTC",
       "msg": "⏭️ maker فشل ARKM-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:40 UTC",
+      "time": "2026-06-25 14:32:36 UTC",
       "msg": "🎯 ARKM-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:40 UTC",
+      "time": "2026-06-25 14:32:36 UTC",
       "msg": "⏭️ maker فشل UNI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:39 UTC",
+      "time": "2026-06-25 14:32:35 UTC",
       "msg": "🎯 UNI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:39 UTC",
+      "time": "2026-06-25 14:32:34 UTC",
       "msg": "⏭️ maker فشل TIA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:38 UTC",
+      "time": "2026-06-25 14:32:33 UTC",
       "msg": "🎯 TIA-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:37 UTC",
+      "time": "2026-06-25 14:32:33 UTC",
       "msg": "⏭️ maker فشل ASTER-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:36 UTC",
+      "time": "2026-06-25 14:32:32 UTC",
       "msg": "🎯 ASTER-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:36 UTC",
+      "time": "2026-06-25 14:32:31 UTC",
       "msg": "⏭️ maker فشل CRV-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:35 UTC",
+      "time": "2026-06-25 14:32:29 UTC",
       "msg": "🎯 CRV-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:35 UTC",
+      "time": "2026-06-25 14:32:29 UTC",
       "msg": "⏭️ maker فشل DYDX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:34 UTC",
+      "time": "2026-06-25 14:32:28 UTC",
       "msg": "🎯 DYDX-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-25 14:32:33 UTC",
+      "time": "2026-06-25 14:32:27 UTC",
       "msg": "⏭️ maker فشل FIL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-25 14:32:32 UTC",
+      "time": "2026-06-25 14:32:26 UTC",
       "msg": "🎯 FIL-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:32:32 UTC",
-      "msg": "⏭️ maker فشل ONDO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:32:31 UTC",
-      "msg": "🎯 ONDO-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:32:30 UTC",
-      "msg": "⏭️ maker فشل SUI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:32:30 UTC",
-      "msg": "🎯 SUI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     }
   ],
@@ -433,9 +433,9 @@
       "prob": 0.3
     },
     {
-      "instId": "LIGHT-USDT-SWAP",
+      "instId": "AR-USDT-SWAP",
       "signal": "sell",
-      "score": -52,
+      "score": -48,
       "prob": 0.31
     }
   ],
