@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-25 14:35:18 UTC",
+  "last_run": "2026-06-25 14:35:27 UTC",
   "mode": "Live 💰",
   "balance": 0.2151,
   "positions": [
@@ -13,6 +13,36 @@
   ],
   "total_trades": 135,
   "logs": [
+    {
+      "time": "2026-06-25 14:35:28 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:35:27 UTC",
+      "msg": "📉 رأس المال الكلي: $5.22 | القمّة $13.21 | تراجع 60.5% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:35:27 UTC",
+      "msg": "💰 الرصيد: $0.2151 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:35:27 UTC",
+      "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:35:27 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-25 14:35:27 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-25 14:35:20 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -382,36 +412,6 @@
       "time": "2026-06-25 14:33:36 UTC",
       "msg": "🎯 PROS-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:35 UTC",
-      "msg": "⏭️ maker فشل VIRTUAL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:34 UTC",
-      "msg": "🎯 VIRTUAL-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:34 UTC",
-      "msg": "⏭️ maker فشل LDO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:33 UTC",
-      "msg": "🎯 LDO-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-25 14:33:33 UTC",
-      "msg": "⏭️ maker فشل DOT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-25 14:33:32 UTC",
-      "msg": "🎯 DOT-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -471,7 +471,7 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-25 14:35:09 UTC"
+    "updated": "2026-06-25 14:35:19 UTC"
   },
   "equity_peak": 13.2074,
   "drawdown": 60.47
