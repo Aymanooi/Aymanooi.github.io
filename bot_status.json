@@ -24,7 +24,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-25 21:16:57 UTC",
+      "time": "2026-06-25 21:16:58 UTC",
       "msg": "💰 الرصيد: $0.7007 USDT",
       "level": "info"
     },
@@ -471,7 +471,7 @@
       "RSIDivergence": 0.869
     },
     "kelly": 5.0,
-    "updated": "2026-06-25 21:16:54 UTC"
+    "updated": "2026-06-25 21:16:47 UTC"
   },
   "equity_peak": 13.2074,
   "drawdown": 62.04
