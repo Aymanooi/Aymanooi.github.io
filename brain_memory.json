@@ -1841,33 +1841,13 @@
       "score": 38,
       "status": "win",
       "opened": "2026-06-24 22:25:55 UTC",
-      "exit": 0.6187
-    },
-    {
-      "instId": "XTZ-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": -10,
-        "Pattern": 10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2136,
-      "score": -37,
-      "status": "open",
-      "opened": "2026-06-25 01:38:05 UTC"
+      "exit": 0.6181
     }
   ],
   "wins": 26,
   "losses": 62,
   "lr": 0.05,
-  "updated": "2026-06-25 01:38:05 UTC",
+  "updated": "2026-06-25 01:38:32 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1911,7 +1891,7 @@
     "THETA-USDT-SWAP": "2026-06-24T12:34:34.936452+00:00",
     "API3-USDT-SWAP": "2026-06-24T12:39:07.416006+00:00",
     "OPG-USDT-SWAP": "2026-06-24T18:07:36.944321+00:00",
-    "ASTER-USDT-SWAP": "2026-06-25T01:37:30.289806+00:00",
+    "ASTER-USDT-SWAP": "2026-06-25T01:37:38.196420+00:00",
     "SUI-USDT-SWAP": "2026-06-24T12:47:47.892189+00:00",
     "RENDER-USDT-SWAP": "2026-06-24T16:30:43.562877+00:00",
     "ORDI-USDT-SWAP": "2026-06-24T13:07:27.582346+00:00",
