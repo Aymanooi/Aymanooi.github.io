@@ -1926,32 +1926,12 @@
       "status": "loss",
       "opened": "2026-06-25 10:14:17 UTC",
       "exit": 0.4588
-    },
-    {
-      "instId": "KGEN-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1704,
-      "score": -45,
-      "status": "open",
-      "opened": "2026-06-25 10:25:59 UTC"
     }
   ],
   "wins": 26,
   "losses": 66,
   "lr": 0.05,
-  "updated": "2026-06-25 10:25:59 UTC",
+  "updated": "2026-06-25 10:26:27 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -2026,6 +2006,6 @@
     "ETHFI-USDT-SWAP": "2026-06-24T21:15:53.960969+00:00",
     "IP-USDT-SWAP": "2026-06-24T21:53:15.434936+00:00",
     "SLX-USDT-SWAP": "2026-06-25T06:16:23.606933+00:00",
-    "KAITO-USDT-SWAP": "2026-06-25T10:25:15.298455+00:00"
+    "KAITO-USDT-SWAP": "2026-06-25T10:25:46.895774+00:00"
   }
 }
