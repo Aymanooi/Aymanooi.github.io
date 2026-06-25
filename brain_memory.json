@@ -1946,27 +1946,7 @@
       "score": 59,
       "status": "loss",
       "opened": "2026-06-25 10:35:46 UTC",
-      "exit": 0.3373
-    },
-    {
-      "instId": "SPX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -25,
-        "RSI": 0,
-        "MACD": -10,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -5,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.3371,
-      "score": -35,
-      "status": "open",
-      "opened": "2026-06-25 10:37:07 UTC"
+      "exit": 0.3371
     }
   ],
   "wins": 26,
@@ -2049,6 +2029,6 @@
     "SLX-USDT-SWAP": "2026-06-25T06:16:23.606933+00:00",
     "KAITO-USDT-SWAP": "2026-06-25T10:25:51.317481+00:00",
     "UP-USDT-SWAP": "2026-06-25T10:35:10.762008+00:00",
-    "SPX-USDT-SWAP": "2026-06-25T10:36:00.903008+00:00"
+    "SPX-USDT-SWAP": "2026-06-25T10:36:05.284311+00:00"
   }
 }
