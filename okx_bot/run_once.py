@@ -418,19 +418,42 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         ticker     = client.get_ticker(inst_id)
         live_price = float(ticker["last"]) if ticker else best["price"]
 
-        # SL ثابت 0.5% | TP ثابت 1% من السعر الحي
-        if signal == "buy":
-            sl_price = live_price * (1 - STOP_LOSS_PCT)
-            tp_price = live_price * (1 + TAKE_PROFIT_PCT)
+        # ── SL/TP متغيّران حسب تقلّب العملة (ATR) — طلب المستخدم ──────────────
+        # كل عملة تأخذ وقفاً وهدفاً يناسبان تذبذبها: SL=1.5×ATR، TP=4.5×ATR.
+        # نسبة الربح/الخسارة 3:1 → التعادل عند فوز 25% فقط (الثابت 0.5/1% طلب 66%+).
+        atr_val = float(best.get("atr", 0.0) or 0.0)
+        if cfg.VARIABLE_RISK and atr_val > 0 and live_price > 0:
+            sl_dist = cfg.ATR_SL_MULT * atr_val
+            tp_dist = cfg.ATR_TP_MULT * atr_val
         else:
-            sl_price = live_price * (1 + STOP_LOSS_PCT)
-            tp_price = live_price * (1 - TAKE_PROFIT_PCT)
+            # احتياط: لو تعذّر ATR ارجع للنسب الثابتة
+            sl_dist = live_price * STOP_LOSS_PCT
+            tp_dist = live_price * TAKE_PROFIT_PCT
+        sl_move = (sl_dist / live_price) if live_price > 0 else STOP_LOSS_PCT
+        tp_move = (tp_dist / live_price) if live_price > 0 else TAKE_PROFIT_PCT
+        if signal == "buy":
+            sl_price = round(live_price - sl_dist, 8)
+            tp_price = round(live_price + tp_dist, 8)
+        else:
+            sl_price = round(live_price + sl_dist, 8)
+            tp_price = round(live_price - tp_dist, 8)
 
-        eff_leverage = LEVERAGE
+        # ── رافعة متغيّرة حسب العملة — تثبّت خسارة الهامش عند SL ──────────────
+        # عملة هادئة (SL ضيّق) → رافعة أعلى؛ عملة متذبذبة (SL واسع) → رافعة أقل،
+        # فتبقى مخاطرة كل صفقة متماثلة (~TARGET_SL_MARGIN من الهامش). مُقيَّدة بين
+        # LEV_MIN وسقف المستخدم LEVERAGE (x20) ثم حدّ العملة على OKX.
+        if cfg.VARIABLE_RISK and sl_move > 0:
+            desired_lev = cfg.TARGET_SL_MARGIN / sl_move
+            eff_leverage = max(float(cfg.LEV_MIN), min(desired_lev, float(LEVERAGE)))
+        else:
+            eff_leverage = float(LEVERAGE)
         max_lev = client.get_max_leverage(inst_id)
-        if max_lev and max_lev < LEVERAGE:
-            eff_leverage = max_lev
-            add_log(status, f"ℹ️ {inst_id}: رافعة {LEVERAGE}x→{eff_leverage:g}x (حد العملة)", "info")
+        if max_lev and max_lev < eff_leverage:
+            eff_leverage = float(max_lev)
+        eff_leverage = max(1, int(round(eff_leverage)))
+        add_log(status,
+            f"\U0001f3af {inst_id}: رافعة متغيّرة x{eff_leverage} | "
+            f"SL {sl_move*100:.2f}% TP {tp_move*100:.2f}% (ATR {atr_val:.6f})", "info")
 
         # رأس المال كاملاً (95% لاحتياطي رسوم) — طلب المستخدم الصريح
         risk_capital = balance * CAPITAL_RATIO
@@ -449,8 +472,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                                               sl_price, tp_price, offset=cfg.MAKER_OFFSET)
             if result["code"] == "0":
                 add_log(status,
-                    f"\U0001f4e4 maker {direction} {inst_id} @~{live_price} | "
-                    f"درجة:{score} | رأس المال:${risk_capital:.3f} | SL:{STOP_LOSS_PCT*100:.1f}% TP:{TAKE_PROFIT_PCT*100:.1f}% (بانتظار التنفيذ)", "success")
+                    f"\U0001f4e4 maker {direction} {inst_id} @~{live_price} x{eff_leverage} | "
+                    f"درجة:{score} | رأس المال:${risk_capital:.3f} | SL:{sl_move*100:.2f}% TP:{tp_move*100:.2f}% (بانتظار التنفيذ)", "success")
                 brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
                 status["total_trades"] = status.get("total_trades", 0) + 1
                 trades_entered += 1
@@ -466,12 +489,12 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
         # ── taker (أوامر سوق) ──────────────────────────────────────────────
         result = client.place_order(inst_id, signal, sz, live_price,
-                                    STOP_LOSS_PCT, TAKE_PROFIT_PCT,
+                                    sl_move, tp_move,
                                     sl_override=sl_price, tp_override=tp_price)
         if result["code"] == "0":
             add_log(status,
-                f"✅ {direction} {inst_id} @ {live_price} | "
-                f"درجة:{score} | رأس المال:${risk_capital:.3f} | SL:{STOP_LOSS_PCT*100:.1f}% TP:{TAKE_PROFIT_PCT*100:.1f}%", "success")
+                f"✅ {direction} {inst_id} @ {live_price} x{eff_leverage} | "
+                f"درجة:{score} | رأس المال:${risk_capital:.3f} | SL:{sl_move*100:.2f}% TP:{tp_move*100:.2f}%", "success")
             brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
             status["total_trades"] = status.get("total_trades", 0) + 1
             trades_entered += 1
