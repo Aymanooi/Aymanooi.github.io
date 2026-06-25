@@ -1949,30 +1949,30 @@
       "exit": 0.3371
     },
     {
-      "instId": "ARX-USDT-SWAP",
+      "instId": "INJ-USDT-SWAP",
       "signal": "sell",
       "features": {
-        "EMA": -10,
-        "RSI": 0,
+        "EMA": 10,
+        "RSI": -5,
         "MACD": 10,
-        "BB": -5,
+        "BB": -15,
         "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 0,
+        "Volume": -10,
+        "Pattern": 10,
         "HTF_1h": -15,
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.249,
-      "score": -42,
+      "entry": 4.25,
+      "score": -36,
       "status": "open",
-      "opened": "2026-06-25 10:48:23 UTC"
+      "opened": "2026-06-25 10:48:53 UTC"
     }
   ],
   "wins": 26,
   "losses": 67,
   "lr": 0.05,
-  "updated": "2026-06-25 10:48:23 UTC",
+  "updated": "2026-06-25 10:48:53 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
