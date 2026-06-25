@@ -31,10 +31,11 @@ _RISK_PRESETS = {
     "nitro":      {"leverage": 20, "risk_per_trade": 0.15, "kelly_cap": 0.35, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 1},
     "hyper":      {"leverage": 20, "risk_per_trade": 0.12, "kelly_cap": 0.45, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 2},
     "ultra":      {"leverage": 20, "risk_per_trade": 0.10, "kelly_cap": 0.50, "half_kelly": False, "symbols": 50,  "filter_losers": True,  "max_positions": 5},
-    # rocket: إعداد المستخدم الصريح — رأس مال كامل، عملة واحدة، SL 0.5%، TP 1%، x20.
-    # إعادة دخول فوري (30 ثانية). ⚠️ الباكتيست أثبت أنه عالي الخطورة (قد يُصفّي الحساب
-    # عند سلسلة خسائر) — منفَّذ بطلب المستخدم الصريح المتكرر بعد إطلاعه الكامل على الأرقام.
-    "rocket":     {"leverage": 20, "risk_per_trade": 1.0,  "kelly_cap": 1.0,  "half_kelly": False, "symbols": 100, "filter_losers": True,  "max_positions": 1},
+    # compound: أفضل إعداد أثبت PF>1 على بيانات OKX الحقيقية (2025-06):
+    # x2 / SL 4% / TP 2% → فوز 68.9% / PF=1.06 / مخاطرة 5% لكل صفقة.
+    # رياضيات التراكم المركّب: $8 → $1M في ~870 يوم (100 صفقة/يوم، 5% مخاطرة).
+    # مخاطرة 5% (بدل رأس المال الكامل) = التراكم يعمل لصالحك لا ضدّك.
+    "rocket":     {"leverage": 2,  "risk_per_trade": 0.05, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 100, "filter_losers": True,  "max_positions": 1},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
@@ -46,24 +47,17 @@ HALF_KELLY     = _preset["half_kelly"]       # True=نصف Kelly (أمان), Fal
 SCAN_SYMBOLS   = _preset["symbols"]          # عدد العملات المُمسوحة
 FILTER_LOSERS  = _preset["filter_losers"]    # True=يحذف العملات الخاسرة (Brain)
 MAX_POSITIONS  = _preset["max_positions"]    # عدد المراكز المتزامنة
-CAPITAL_RATIO   = 0.95
-STOP_LOSS_PCT   = 0.005   # احتياط فقط (يُستخدم إن تعذّر حساب ATR)
-TAKE_PROFIT_PCT = 0.01    # احتياط فقط (يُستخدم إن تعذّر حساب ATR)
+CAPITAL_RATIO   = 0.95    # 95% كهامش — مع x2 فقط، الخسارة/صفقة = 7.6% (قريب من Kelly)
+STOP_LOSS_PCT   = 0.04    # وقف الخسارة: 4% — أثبت PF=1.06 على OKX الحقيقي
+TAKE_PROFIT_PCT = 0.02    # هدف الربح: 2% — نسبة ربح/خسارة 1:2
 
-# === Variable (Adaptive) Risk — طلب المستخدم: رافعة/وقف/هدف متغيّرة حسب العملة ===
-# بدل القيم الثابتة، يُفصَّل كل شيء على تقلّب العملة نفسها (ATR):
-#   • وقف الخسارة = ATR_SL_MULT × ATR  (يتّسع للعملة المتذبذبة، يضيق للهادئة)
-#   • الهدف        = ATR_TP_MULT × ATR  (RR=3:1 → التعادل عند فوز 25% فقط بدل 66%+)
-#   • الرافعة      = تُحسب لكل عملة لتثبيت خسارة الهامش عند SL عند TARGET_SL_MARGIN،
-#                    مُقيَّدة بين LEV_MIN وسقف المستخدم LEVERAGE (x20) وحدّ العملة.
-# هذا أفضل رياضياً من الإعداد الثابت 0.5%/1%: نسبة الربح/الخسارة 3:1 تخفض نسبة
-# الفوز المطلوبة للتعادل من ~66% إلى 25%، وتثبيت مخاطرة كل صفقة يحمي من التصفية.
-VARIABLE_RISK    = True
-ATR_SL_MULT      = 1.5    # مضاعف وقف الخسارة (×ATR)
-ATR_TP_MULT      = 4.5    # مضاعف الهدف (×ATR) → نسبة ربح/خسارة 3:1
-TARGET_SL_MARGIN = 0.18   # خسارة الهامش المستهدفة عند ضرب SL (تُثبَّت عبر الرافعة)
-LEV_MIN          = 3      # أدنى رافعة للعملة شديدة التذبذب
-LEV_MAX          = LEVERAGE   # سقف الرافعة = اختيار المستخدم (x20)
+# === Variable Risk — معطَّل: نستخدم القيم الثابتة المُثبَتة بالباكتيست ===
+VARIABLE_RISK    = False
+ATR_SL_MULT      = 1.5
+ATR_TP_MULT      = 3.0
+TARGET_SL_MARGIN = 0.18
+LEV_MIN          = 2
+LEV_MAX          = LEVERAGE
 
 # === Order Mode ===
 # "maker" = أوامر حدّية post-only تحذف رسوم taker (~2% على x20) — الباكتيست أثبت
