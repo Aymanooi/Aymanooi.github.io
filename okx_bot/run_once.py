@@ -355,9 +355,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             if cfg.FILTER_LOSERS and not brain.should_trade_symbol(memory, inst_id):
                 skipped_losers += 1
                 continue
-            # سكالبينغ فريم الدقيقة: 1m للدخول + 5m كإطار أعلى للسياق (طلب المستخدم)
-            c15 = client.get_candles(inst_id, bar="1m", limit=100)
-            c1h = client.get_candles(inst_id, bar="5m", limit=60)
+            # 15m للإشارة + 1H للإطار الأعلى — مطابق للباكتيست الذي أثبت PF=1.06
+            c15 = client.get_candles(inst_id, bar="15m", limit=100)
+            c1h = client.get_candles(inst_id, bar="1H",  limit=60)
             r   = analyze(c15, c1h)
             if r["signal"]:
                 adj, prob = brain.adjusted_score(r["details"], memory)
