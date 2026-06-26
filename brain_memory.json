@@ -940,27 +940,6 @@
       "filled": true,
       "opened": "2026-06-26 20:03:05 UTC",
       "exit": 0.1322
-    },
-    {
-      "instId": "SNDK-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 2090.8,
-      "score": -36,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-26 21:44:33 UTC"
     }
   ],
   "wins": 16,
