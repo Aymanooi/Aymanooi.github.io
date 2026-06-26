@@ -14,15 +14,27 @@ class OKXClient:
         self.market_api = Market.MarketAPI(flag=flag)
         self.public_api = PublicData.PublicAPI(flag=flag)
 
-    def get_top_pairs(self, count=50):
+    def get_top_pairs(self, count=50, min_usd_vol=0):
+        """أعلى العملات سيولةً بالدولار خلال 24 ساعة.
+
+        السيولة بالدولار ≈ volCcy24h (حجم بعملة الأساس) × السعر.
+        min_usd_vol: لا تُرجِع إلا العملات التي تتجاوز سيولتها هذا الحدّ بالدولار
+        (طلب المستخدم: ≥ $10M). السيولة العالية تقلّل الانزلاق ومشاكل حجم اللوت.
+        """
         result = self.market_api.get_tickers(instType="SWAP")
         if result["code"] != "0":
             return []
-        tickers = [t for t in result["data"] if t["instId"].endswith("-USDT-SWAP")]
-        # فلتر: السعر > $0.10 لتجنّب العملات الصغيرة جداً التي ترفضها OKX
-        tickers = [t for t in tickers if float(t.get("last", 0)) >= 0.10]
-        tickers.sort(key=lambda x: float(x.get("volCcy24h", 0)), reverse=True)
-        return [t["instId"] for t in tickers[:count]]
+        rows = []
+        for t in result["data"]:
+            if not t["instId"].endswith("-USDT-SWAP"):
+                continue
+            last    = float(t.get("last", 0) or 0)
+            vol_ccy = float(t.get("volCcy24h", 0) or 0)
+            usd_vol = vol_ccy * last
+            if usd_vol >= min_usd_vol:
+                rows.append((t["instId"], usd_vol))
+        rows.sort(key=lambda x: x[1], reverse=True)
+        return [inst for inst, _ in rows[:count]]
 
     def get_candles(self, inst_id, bar="15m", limit=60):
         result = self.market_api.get_candlesticks(instId=inst_id, bar=bar, limit=str(limit))

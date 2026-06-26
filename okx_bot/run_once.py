@@ -362,7 +362,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     # مركز واحد فقط لكل دورة — يمنع فتح مراكز متعددة قبل تحديث OKX
     slots_available = 1
 
-    pairs            = client.get_top_pairs(TOP_PAIRS)
+    pairs            = client.get_top_pairs(TOP_PAIRS, min_usd_vol=cfg.MIN_USD_VOL_24H)
     signals          = []
     skipped_losers   = 0
     skipped_cooldown = 0
