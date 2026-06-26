@@ -894,33 +894,12 @@
       "status": "open",
       "filled": true,
       "opened": "2026-06-26 17:31:46 UTC"
-    },
-    {
-      "instId": "BSB-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -10,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.3043,
-      "score": -35,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-26 17:35:38 UTC"
     }
   ],
   "wins": 16,
   "losses": 23,
   "lr": 0.05,
-  "updated": "2026-06-26 17:35:38 UTC",
+  "updated": "2026-06-26 17:36:52 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
