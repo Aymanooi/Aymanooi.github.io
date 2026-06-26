@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 16:06:57 UTC",
   "mode": "Live 💰",
-  "balance": 0.3187,
+  "balance": 0.3186,
   "positions": [
     {
       "instId": "ALLO-USDT-SWAP",
@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 2.455,
       "size": 0.2,
-      "pnl": -0.1308
+      "pnl": -0.1306
     },
     {
       "instId": "ENSO-USDT-SWAP",
@@ -39,7 +39,7 @@
     },
     {
       "time": "2026-06-26 16:06:58 UTC",
-      "msg": "💰 الرصيد: $0.3187 USDT",
+      "msg": "💰 الرصيد: $0.3186 USDT",
       "level": "info"
     },
     {
@@ -488,5 +488,5 @@
     "updated": "2026-06-26 16:06:51 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 61.73
+  "drawdown": 61.72
 }
