@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-26 16:34:46 UTC",
   "mode": "Live 💰",
-  "balance": 0.3023,
+  "balance": 0.3017,
   "positions": [
     {
       "instId": "ALLO-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.40904,
       "size": 1.0,
-      "pnl": -0.1466
+      "pnl": -0.1468
     },
     {
       "instId": "BEAT-USDT-SWAP",
@@ -38,8 +38,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 16:34:46 UTC",
-      "msg": "💰 الرصيد: $0.3023 USDT",
+      "time": "2026-06-26 16:34:47 UTC",
+      "msg": "💰 الرصيد: $0.3017 USDT",
       "level": "info"
     },
     {
@@ -488,5 +488,5 @@
     "updated": "2026-06-26 16:34:29 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 61.98
+  "drawdown": 61.97
 }
