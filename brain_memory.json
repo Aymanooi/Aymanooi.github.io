@@ -2052,26 +2052,6 @@
       "status": "loss",
       "opened": "2026-06-26 02:15:02 UTC",
       "exit": 0.3678
-    },
-    {
-      "instId": "ENSO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.5976,
-      "score": -42,
-      "status": "open",
-      "opened": "2026-06-26 14:27:30 UTC"
     }
   ],
   "wins": 26,
@@ -2156,6 +2136,6 @@
     "UP-USDT-SWAP": "2026-06-25T10:35:10.762008+00:00",
     "SPX-USDT-SWAP": "2026-06-25T10:46:10.489134+00:00",
     "INJ-USDT-SWAP": "2026-06-25T10:58:15.386630+00:00",
-    "ETHW-USDT-SWAP": "2026-06-26T14:26:53.831174+00:00"
+    "ETHW-USDT-SWAP": "2026-06-26T14:26:33.004644+00:00"
   }
 }
