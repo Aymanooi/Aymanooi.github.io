@@ -1,170 +1,182 @@
 {
-  "last_run": "2026-06-26 03:02:10 UTC",
+  "last_run": "2026-06-26 03:01:17 UTC",
   "mode": "Live 💰",
-  "balance": 0.5314,
-  "positions": [
-    {
-      "instId": "ETHW-USDT-SWAP",
-      "side": "بيع 📉",
-      "entry": 0.2258,
-      "size": 435.0,
-      "pnl": 0.0
-    }
-  ],
-  "total_trades": 138,
+  "balance": 5.4445,
+  "positions": [],
+  "total_trades": 137,
   "logs": [
     {
-      "time": "2026-06-26 03:02:11 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
+      "time": "2026-06-26 03:02:12 UTC",
+      "msg": "⏭️ maker فشل AGLD-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-26 03:02:11 UTC",
-      "msg": "📉 رأس المال الكلي: $5.44 | القمّة $13.21 | تراجع 58.8% | مُنظّم ×0.00",
+      "msg": "🎯 AGLD-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
       "time": "2026-06-26 03:02:10 UTC",
-      "msg": "💰 الرصيد: $0.5314 USDT",
-      "level": "info"
+      "msg": "⏭️ maker فشل KGEN-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-26 03:02:10 UTC",
-      "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "msg": "🎯 KGEN-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:02:10 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:02:10 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
+      "time": "2026-06-26 03:02:09 UTC",
+      "msg": "⏭️ maker فشل RAY-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-26 03:02:08 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "msg": "🎯 RAY-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
       "time": "2026-06-26 03:02:08 UTC",
-      "msg": "📉 رأس المال الكلي: $5.44 | القمّة $13.21 | تراجع 58.8% | مُنظّم ×0.00",
-      "level": "info"
+      "msg": "⏭️ maker فشل ETHW-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-26 03:02:08 UTC",
-      "msg": "💰 الرصيد: $0.5314 USDT",
+      "time": "2026-06-26 03:02:07 UTC",
+      "msg": "🎯 ETHW-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
       "time": "2026-06-26 03:02:07 UTC",
-      "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "msg": "⏭️ maker فشل STX-USDT-SWAP: Order quantity must be a multiple of the lot size. — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 03:02:06 UTC",
+      "msg": "🎯 STX-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:02:07 UTC",
-      "msg": "الوضع: Live 💰",
+      "time": "2026-06-26 03:02:05 UTC",
+      "msg": "⏭️ maker فشل TIA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 03:02:04 UTC",
+      "msg": "🎯 TIA-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:02:07 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
+      "time": "2026-06-26 03:02:04 UTC",
+      "msg": "⏭️ maker فشل PROS-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 03:02:03 UTC",
+      "msg": "🎯 PROS-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 03:02:03 UTC",
+      "msg": "⏭️ maker فشل BERA-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 03:02:02 UTC",
+      "msg": "🎯 BERA-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 03:02:02 UTC",
+      "msg": "⏭️ maker فشل LQTY-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-26 03:02:01 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:02:01 UTC",
-      "msg": "⏳ أُغلقت: PI-USDT-SWAP — إعادة دخول بعد 30 ثانية",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:02:01 UTC",
-      "msg": "🧠 Brain تعلّم: PI-USDT-SWAP → خسارة ❌ (فعلي)",
+      "msg": "🎯 LQTY-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
       "time": "2026-06-26 03:02:00 UTC",
-      "msg": "📉 رأس المال الكلي: $5.44 | القمّة $13.21 | تراجع 58.8% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:02:00 UTC",
-      "msg": "💰 الرصيد: $0.5314 USDT",
-      "level": "info"
+      "msg": "⏭️ maker فشل PI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-26 03:01:59 UTC",
-      "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:01:59 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:01:59 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-26 03:01:53 UTC",
-      "msg": "📤 maker شراء 📈 PI-USDT-SWAP @~0.1271 x2 | درجة:65 | رأس المال:$0.840 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-26 03:01:52 UTC",
       "msg": "🎯 PI-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:52 UTC",
+      "time": "2026-06-26 03:01:59 UTC",
       "msg": "🧠 Brain WR=26.5% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:52 UTC",
+      "time": "2026-06-26 03:01:59 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:52 UTC",
+      "time": "2026-06-26 03:01:59 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:16 UTC",
+      "time": "2026-06-26 03:01:18 UTC",
       "msg": "⏳ أُغلقت: GRASS-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:15 UTC",
+      "time": "2026-06-26 03:01:17 UTC",
       "msg": "📉 رأس المال الكلي: $5.44 | القمّة $13.21 | تراجع 58.8% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:15 UTC",
-      "msg": "💰 الرصيد: $0.8847 USDT",
+      "time": "2026-06-26 03:01:17 UTC",
+      "msg": "💰 الرصيد: $5.4445 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:15 UTC",
+      "time": "2026-06-26 03:01:17 UTC",
       "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:15 UTC",
+      "time": "2026-06-26 03:01:17 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-26 03:01:15 UTC",
+      "time": "2026-06-26 03:01:17 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-26 03:01:14 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 03:01:14 UTC",
+      "msg": "📉 رأس المال الكلي: $5.42 | القمّة $13.21 | تراجع 58.9% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 03:01:13 UTC",
+      "msg": "💰 الرصيد: $0.8815 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 03:01:13 UTC",
+      "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 03:01:13 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 03:01:13 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -392,26 +404,6 @@
       "time": "2026-06-26 03:00:03 UTC",
       "msg": "💰 الرصيد: $0.8185 USDT",
       "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:00:03 UTC",
-      "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:00:03 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 03:00:03 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-26 03:00:01 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -423,28 +415,28 @@
       "prob": 0.71
     },
     {
-      "instId": "INJ-USDT-SWAP",
-      "signal": "buy",
-      "score": 36,
-      "prob": 0.64
-    },
-    {
       "instId": "LQTY-USDT-SWAP",
       "signal": "sell",
       "score": -38,
       "prob": 0.31
     },
     {
-      "instId": "RAY-USDT-SWAP",
+      "instId": "BERA-USDT-SWAP",
       "signal": "sell",
-      "score": -48,
-      "prob": 0.31
+      "score": -36,
+      "prob": 0.32
     },
     {
       "instId": "PROS-USDT-SWAP",
       "signal": "sell",
       "score": -38,
       "prob": 0.34
+    },
+    {
+      "instId": "TIA-USDT-SWAP",
+      "signal": "sell",
+      "score": -36,
+      "prob": 0.35
     }
   ],
   "peaks": {
@@ -471,8 +463,8 @@
       "RSIDivergence": 0.874
     },
     "kelly": 5.0,
-    "updated": "2026-06-26 03:01:59 UTC"
+    "updated": "2026-06-26 03:01:14 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 58.84
+  "drawdown": 58.83
 }
