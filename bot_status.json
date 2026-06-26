@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 16:45:18 UTC",
   "mode": "Live 💰",
-  "balance": 0.0455,
+  "balance": 0.0457,
   "positions": [
     {
       "instId": "COAI-USDT-SWAP",
@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 2.455,
       "size": 0.2,
-      "pnl": 0.0642
+      "pnl": 0.064
     },
     {
       "instId": "ENSO-USDT-SWAP",
@@ -38,8 +38,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 16:45:18 UTC",
-      "msg": "💰 الرصيد: $0.0455 USDT",
+      "time": "2026-06-26 16:45:19 UTC",
+      "msg": "💰 الرصيد: $0.0457 USDT",
       "level": "info"
     },
     {
