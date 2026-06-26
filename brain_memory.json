@@ -985,31 +985,31 @@
       "opened": "2026-06-26 23:43:53 UTC"
     },
     {
-      "instId": "RE-USDT-SWAP",
+      "instId": "FOGO-USDT-SWAP",
       "signal": "sell",
       "features": {
-        "EMA": -10,
-        "RSI": 0,
+        "EMA": 10,
+        "RSI": -5,
         "MACD": -10,
-        "BB": 5,
-        "Stoch": 10,
+        "BB": -5,
+        "Stoch": 0,
         "Volume": 0,
         "Pattern": -10,
         "HTF_1h": -5,
         "OBV": -10,
         "RSIDivergence": -15
       },
-      "entry": 0.55634,
-      "score": -47,
+      "entry": 0.01133,
+      "score": -53,
       "status": "open",
       "filled": false,
-      "opened": "2026-06-26 23:50:49 UTC"
+      "opened": "2026-06-26 23:51:31 UTC"
     }
   ],
   "wins": 17,
   "losses": 27,
   "lr": 0.05,
-  "updated": "2026-06-26 23:50:49 UTC",
+  "updated": "2026-06-26 23:51:31 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
