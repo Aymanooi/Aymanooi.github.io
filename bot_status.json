@@ -1,67 +1,57 @@
 {
-  "last_run": "2026-06-26 23:40:19 UTC",
+  "last_run": "2026-06-26 23:40:51 UTC",
   "mode": "Live 💰",
-  "balance": 4.7639,
+  "balance": 0.0301,
   "positions": [
     {
       "instId": "SUI-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.693,
       "size": 1.0,
-      "pnl": 0.0048
+      "pnl": 0.005
     },
     {
       "instId": "SNDK-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 2092.57,
       "size": 0.001,
-      "pnl": -0.026
+      "pnl": -0.0262
     }
   ],
-  "total_trades": 152,
+  "total_trades": 151,
   "logs": [
     {
-      "time": "2026-06-26 23:40:50 UTC",
-      "msg": "📤 maker شراء 📈 TAO-USDT-SWAP @~214.2 x10 | درجة:36 | رأس المال:$4.716 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-26 23:40:50 UTC",
-      "msg": "🎯 TAO-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
+      "time": "2026-06-26 23:40:53 UTC",
+      "msg": "مراكز مفتوحة: 2/3 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:40:49 UTC",
-      "msg": "🧠 Brain WR=37.2% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 3 مراكز",
+      "time": "2026-06-26 23:40:53 UTC",
+      "msg": "🧹 أُلغيت 1 أوامر maker عالقة + نُظّفت من الدماغ",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:40:49 UTC",
-      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 23:40:20 UTC",
+      "time": "2026-06-26 23:40:52 UTC",
       "msg": "📉 رأس المال الكلي: $5.04 | القمّة $13.21 | تراجع 61.8% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:40:19 UTC",
-      "msg": "💰 الرصيد: $4.7639 USDT",
+      "time": "2026-06-26 23:40:52 UTC",
+      "msg": "💰 الرصيد: $0.0301 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:40:19 UTC",
+      "time": "2026-06-26 23:40:51 UTC",
       "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:40:19 UTC",
+      "time": "2026-06-26 23:40:51 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:40:19 UTC",
+      "time": "2026-06-26 23:40:51 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -419,39 +409,43 @@
       "time": "2026-06-26 23:37:18 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
+    },
+    {
+      "time": "2026-06-26 23:37:18 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-26 23:37:07 UTC",
+      "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
     {
-      "instId": "TAO-USDT-SWAP",
+      "instId": "SUI-USDT-SWAP",
       "signal": "buy",
       "score": 36,
-      "prob": 0.72
+      "prob": 0.75
     },
     {
-      "instId": "FOGO-USDT-SWAP",
-      "signal": "sell",
-      "score": -41,
-      "prob": 0.27
-    },
-    {
-      "instId": "ZEC-USDT-SWAP",
+      "instId": "DYDX-USDT-SWAP",
       "signal": "buy",
-      "score": 42,
-      "prob": 0.7
-    },
-    {
-      "instId": "XAG-USDT-SWAP",
-      "signal": "buy",
-      "score": 38,
+      "score": 37,
       "prob": 0.69
+    },
+    {
+      "instId": "DRAM-USDT-SWAP",
+      "signal": "sell",
+      "score": -37,
+      "prob": 0.31
     },
     {
       "instId": "MU-USDT-SWAP",
       "signal": "sell",
       "score": -36,
-      "prob": 0.32
+      "prob": 0.34
     }
   ],
   "peaks": {
