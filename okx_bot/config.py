@@ -35,7 +35,7 @@ _RISK_PRESETS = {
     # x2 / SL 4% / TP 2% → فوز 68.9% / PF=1.06 / مخاطرة 5% لكل صفقة.
     # رياضيات التراكم المركّب: $8 → $1M في ~870 يوم (100 صفقة/يوم، 5% مخاطرة).
     # مخاطرة 5% (بدل رأس المال الكامل) = التراكم يعمل لصالحك لا ضدّك.
-    "rocket":     {"leverage": 2,  "risk_per_trade": 0.05, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 100, "filter_losers": True,  "max_positions": 1},
+    "rocket":     {"leverage": 2,  "risk_per_trade": 0.05, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 100, "filter_losers": True,  "max_positions": 3},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 

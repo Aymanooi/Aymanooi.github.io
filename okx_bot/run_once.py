@@ -404,7 +404,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     # ── إحصائيات Brain (بدون Kelly — نستخدم رأس المال الكامل) ──────────────────
     wr = brain.current_win_rate(memory)
     add_log(status,
-        f"\U0001f9e0 Brain WR={wr*100:.1f}% | مُنظّم ×{eq_throttle:.2f} | رأس المال الكامل ({CAPITAL_RATIO*100:.0f}%)", "info")
+        f"\U0001f9e0 Brain WR={wr*100:.1f}% | مُنظّم ×{eq_throttle:.2f} | رأس المال الكامل ({CAPITAL_RATIO*100:.0f}%) موزّع على {cfg.MAX_POSITIONS} مراكز", "info")
 
     trades_entered = 0
     for best in signals:
@@ -448,11 +448,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             f"\U0001f3af {inst_id}: رافعة x{eff_leverage} | "
             f"SL {sl_move*100:.2f}% TP {tp_move*100:.2f}%", "info")
 
-        # رأس المال كاملاً (95% لاحتياطي رسوم) — طلب المستخدم الصريح
-        risk_capital = balance * CAPITAL_RATIO
+        # رأس المال كاملاً موزّعاً على المراكز المتاحة — طلب المستخدم (2-3 عملات)
+        # نقسم رأس المال الكامل على الخانات المتبقّية فيُملأ كل مركز بحصّة متساوية
+        # عبر الدورات: خانة 1 = 1/3 من الحرّ، خانة 2 = 1/2 من المتبقّي، خانة 3 = الكل.
+        slots_remaining = max(1, cfg.MAX_POSITIONS - len(active))
+        alloc_ratio  = CAPITAL_RATIO / slots_remaining
+        risk_capital = balance * alloc_ratio
 
         client.set_leverage(inst_id, eff_leverage)
-        sz = client.calculate_contracts(inst_id, risk_capital, live_price, eff_leverage, CAPITAL_RATIO)
+        sz = client.calculate_contracts(inst_id, balance, live_price, eff_leverage, alloc_ratio)
         if sz <= 0:
             add_log(status, f"⏭️ {inst_id}: حجم صفر (رصيد صغير جداً؟) — التالي", "warning")
             continue
