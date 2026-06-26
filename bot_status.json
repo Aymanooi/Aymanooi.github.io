@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-26 14:57:39 UTC",
   "mode": "Live 💰",
-  "balance": 1.1702,
+  "balance": 1.171,
   "positions": [
     {
       "instId": "SOL-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 70.79,
       "size": 0.06,
-      "pnl": -0.0174
+      "pnl": -0.018
     },
     {
       "instId": "UNI-USDT-SWAP",
@@ -28,7 +28,7 @@
   "total_trades": 139,
   "logs": [
     {
-      "time": "2026-06-26 14:57:40 UTC",
+      "time": "2026-06-26 14:57:41 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
       "level": "info"
     },
@@ -39,11 +39,11 @@
     },
     {
       "time": "2026-06-26 14:57:40 UTC",
-      "msg": "💰 الرصيد: $1.1702 USDT",
+      "msg": "💰 الرصيد: $1.1710 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 14:57:39 UTC",
+      "time": "2026-06-26 14:57:40 UTC",
       "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -485,8 +485,8 @@
       "RSIDivergence": 0.861
     },
     "kelly": 5.0,
-    "updated": "2026-06-26 14:57:17 UTC"
+    "updated": "2026-06-26 14:57:37 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 62.01
+  "drawdown": 62.0
 }
