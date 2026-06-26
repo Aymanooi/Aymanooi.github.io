@@ -2075,21 +2075,21 @@
       "exit": 0.472
     },
     {
-      "instId": "SOL-USDT-SWAP",
+      "instId": "UNI-USDT-SWAP",
       "signal": "buy",
       "features": {
         "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
+        "RSI": 0,
+        "MACD": 20,
         "BB": -5,
         "Stoch": -5,
         "Volume": 0,
-        "Pattern": 10,
+        "Pattern": 0,
         "HTF_1h": 15,
         "OBV": 10,
         "RSIDivergence": 15
       },
-      "entry": 70.83,
+      "entry": 2.891,
       "score": 57,
       "status": "open",
       "opened": "2026-06-26 14:48:14 UTC"
