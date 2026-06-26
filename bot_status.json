@@ -6,47 +6,42 @@
   "total_trades": 141,
   "logs": [
     {
-      "time": "2026-06-26 17:12:41 UTC",
-      "msg": "📤 maker شراء 📈 ETH-USDT-SWAP @~1586.18 x2 | درجة:38 | رأس المال:$1.707 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
+      "time": "2026-06-26 17:12:54 UTC",
+      "msg": "📤 maker شراء 📈 ETHW-USDT-SWAP @~0.2355 x2 | درجة:58 | رأس المال:$1.707 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-26 17:12:40 UTC",
-      "msg": "🎯 ETH-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
+      "time": "2026-06-26 17:12:53 UTC",
+      "msg": "🎯 ETHW-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:12:40 UTC",
+      "time": "2026-06-26 17:12:52 UTC",
       "msg": "🧠 Brain WR=26.3% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 3 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:12:40 UTC",
+      "time": "2026-06-26 17:12:52 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:12:40 UTC",
-      "msg": "⏳ تخطّى 3 عملة في فترة التهدئة",
+      "time": "2026-06-26 17:12:07 UTC",
+      "msg": "⏳ أُغلقت: COAI-USDT-SWAP, ETHW-USDT-SWAP, ENSO-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:12:06 UTC",
-      "msg": "⏳ أُغلقت: ENSO-USDT-SWAP, ETHW-USDT-SWAP, COAI-USDT-SWAP — إعادة دخول بعد 30 ثانية",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 17:12:04 UTC",
+      "time": "2026-06-26 17:12:05 UTC",
       "msg": "📉 رأس المال الكلي: $5.17 | القمّة $13.21 | تراجع 60.9% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:12:04 UTC",
+      "time": "2026-06-26 17:12:05 UTC",
       "msg": "💰 الرصيد: $5.1714 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:12:04 UTC",
+      "time": "2026-06-26 17:12:05 UTC",
       "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -404,10 +399,21 @@
       "time": "2026-06-26 17:09:52 UTC",
       "msg": "📉 رأس المال الكلي: $5.15 | القمّة $13.21 | تراجع 61.0% | مُنظّم ×0.00",
       "level": "info"
+    },
+    {
+      "time": "2026-06-26 17:09:51 UTC",
+      "msg": "💰 الرصيد: $0.2456 USDT",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
+    {
+      "instId": "ETHW-USDT-SWAP",
+      "signal": "buy",
+      "score": 58,
+      "prob": 0.68
+    },
     {
       "instId": "ETH-USDT-SWAP",
       "signal": "buy",
@@ -428,12 +434,6 @@
     },
     {
       "instId": "TIA-USDT-SWAP",
-      "signal": "buy",
-      "score": 39,
-      "prob": 0.6
-    },
-    {
-      "instId": "AVAX-USDT-SWAP",
       "signal": "buy",
       "score": 39,
       "prob": 0.6
