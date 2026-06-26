@@ -2073,6 +2073,26 @@
       "status": "loss",
       "opened": "2026-06-26 14:27:01 UTC",
       "exit": 0.472
+    },
+    {
+      "instId": "CC-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.15008,
+      "score": 36,
+      "status": "open",
+      "opened": "2026-06-26 16:48:44 UTC"
     }
   ],
   "wins": 26,
@@ -2159,6 +2179,6 @@
     "INJ-USDT-SWAP": "2026-06-25T10:58:15.386630+00:00",
     "ETHW-USDT-SWAP": "2026-06-26T14:26:25.493155+00:00",
     "SOL-USDT-SWAP": "2026-06-26T16:01:01.750748+00:00",
-    "BEAT-USDT-SWAP": "2026-06-26T16:47:49.994822+00:00"
+    "BEAT-USDT-SWAP": "2026-06-26T16:48:04.487724+00:00"
   }
 }
