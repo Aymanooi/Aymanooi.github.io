@@ -2075,30 +2075,30 @@
       "exit": 0.472
     },
     {
-      "instId": "XPL-USDT-SWAP",
+      "instId": "ALLO-USDT-SWAP",
       "signal": "buy",
       "features": {
         "EMA": 10,
         "RSI": -5,
         "MACD": 15,
         "BB": -5,
-        "Stoch": -5,
+        "Stoch": 0,
         "Volume": 0,
         "Pattern": 10,
         "HTF_1h": 15,
         "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 0.10581,
-      "score": 42,
+      "entry": 0.40924,
+      "score": 58,
       "status": "open",
-      "opened": "2026-06-26 16:01:02 UTC"
+      "opened": "2026-06-26 16:01:03 UTC"
     }
   ],
   "wins": 26,
   "losses": 73,
   "lr": 0.05,
-  "updated": "2026-06-26 16:01:02 UTC",
+  "updated": "2026-06-26 16:01:03 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -2178,6 +2178,6 @@
     "SPX-USDT-SWAP": "2026-06-25T10:46:10.489134+00:00",
     "INJ-USDT-SWAP": "2026-06-25T10:58:15.386630+00:00",
     "ETHW-USDT-SWAP": "2026-06-26T14:26:25.493155+00:00",
-    "SOL-USDT-SWAP": "2026-06-26T16:00:12.199283+00:00"
+    "SOL-USDT-SWAP": "2026-06-26T16:00:15.142804+00:00"
   }
 }
