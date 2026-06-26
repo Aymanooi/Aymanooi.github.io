@@ -2075,30 +2075,30 @@
       "exit": 0.472
     },
     {
-      "instId": "BEAT-USDT-SWAP",
+      "instId": "SUSHI-USDT-SWAP",
       "signal": "buy",
       "features": {
-        "EMA": 25,
+        "EMA": 10,
         "RSI": -5,
         "MACD": 20,
         "BB": -5,
-        "Stoch": 0,
-        "Volume": 5,
-        "Pattern": 10,
-        "HTF_1h": 5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
         "OBV": 10,
         "RSIDivergence": 15
       },
-      "entry": 2.4562,
-      "score": 72,
+      "entry": 0.1498,
+      "score": 46,
       "status": "open",
-      "opened": "2026-06-26 15:37:11 UTC"
+      "opened": "2026-06-26 15:37:44 UTC"
     }
   ],
   "wins": 26,
   "losses": 73,
   "lr": 0.05,
-  "updated": "2026-06-26 15:37:34 UTC",
+  "updated": "2026-06-26 15:37:44 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -2124,7 +2124,7 @@
     "APE-USDT-SWAP": "2026-06-24T10:21:35.188038+00:00",
     "GRASS-USDT-SWAP": "2026-06-26T03:01:16.172148+00:00",
     "ARX-USDT-SWAP": "2026-06-24T20:32:42.795439+00:00",
-    "UNI-USDT-SWAP": "2026-06-26T15:36:37.322971+00:00",
+    "UNI-USDT-SWAP": "2026-06-26T15:37:09.748147+00:00",
     "MASK-USDT-SWAP": "2026-06-25T06:17:23.372532+00:00",
     "SOON-USDT-SWAP": "2026-06-26T02:14:26.488175+00:00",
     "KGEN-USDT-SWAP": "2026-06-25T14:31:08.049931+00:00",
