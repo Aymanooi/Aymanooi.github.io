@@ -1,72 +1,72 @@
 {
-  "last_run": "2026-06-26 21:33:42 UTC",
+  "last_run": "2026-06-26 21:34:13 UTC",
   "mode": "Live 💰",
   "balance": 4.2814,
   "positions": [],
   "total_trades": 150,
   "logs": [
     {
-      "time": "2026-06-26 21:34:25 UTC",
+      "time": "2026-06-26 21:34:46 UTC",
       "msg": "📤 maker شراء 📈 JUP-USDT-SWAP @~0.2274 x10 | درجة:36 | رأس المال:$1.413 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-26 21:34:24 UTC",
+      "time": "2026-06-26 21:34:45 UTC",
       "msg": "🎯 JUP-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:34:24 UTC",
+      "time": "2026-06-26 21:34:45 UTC",
       "msg": "🧠 Brain WR=37.2% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 3 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:34:24 UTC",
+      "time": "2026-06-26 21:34:45 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:45 UTC",
-      "msg": "⏳ أُغلقت: TRUMP-USDT-SWAP, ETHW-USDT-SWAP, THETA-USDT-SWAP — إعادة دخول بعد 30 ثانية",
+      "time": "2026-06-26 21:34:15 UTC",
+      "msg": "⏳ أُغلقت: TRUMP-USDT-SWAP, THETA-USDT-SWAP, ETHW-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:45 UTC",
-      "msg": "🧠 Brain تعلّم: THETA-USDT-SWAP → خسارة ❌ (فعلي)",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 21:33:45 UTC",
+      "time": "2026-06-26 21:34:15 UTC",
       "msg": "🧠 Brain تعلّم: ETHW-USDT-SWAP → خسارة ❌ (فعلي)",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:44 UTC",
+      "time": "2026-06-26 21:34:15 UTC",
+      "msg": "🧠 Brain تعلّم: THETA-USDT-SWAP → خسارة ❌ (فعلي)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 21:34:14 UTC",
       "msg": "🧠 Brain تعلّم: TRUMP-USDT-SWAP → خسارة ❌ (فعلي)",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:43 UTC",
+      "time": "2026-06-26 21:34:14 UTC",
       "msg": "📉 رأس المال الكلي: $4.28 | القمّة $13.21 | تراجع 67.6% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:43 UTC",
+      "time": "2026-06-26 21:34:13 UTC",
       "msg": "💰 الرصيد: $4.2814 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:42 UTC",
+      "time": "2026-06-26 21:34:13 UTC",
       "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:42 UTC",
+      "time": "2026-06-26 21:34:13 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-26 21:33:42 UTC",
+      "time": "2026-06-26 21:34:13 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -419,12 +419,6 @@
       "signal": "sell",
       "score": -39,
       "prob": 0.27
-    },
-    {
-      "instId": "ALLO-USDT-SWAP",
-      "signal": "sell",
-      "score": -42,
-      "prob": 0.33
     },
     {
       "instId": "ZEC-USDT-SWAP",
