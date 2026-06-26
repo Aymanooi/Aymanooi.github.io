@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 15:26:07 UTC",
   "mode": "Live 💰",
-  "balance": 1.2239,
+  "balance": 1.2232,
   "positions": [
     {
       "instId": "SOL-USDT-SWAP",
@@ -38,8 +38,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 15:26:07 UTC",
-      "msg": "💰 الرصيد: $1.2239 USDT",
+      "time": "2026-06-26 15:26:08 UTC",
+      "msg": "💰 الرصيد: $1.2232 USDT",
       "level": "info"
     },
     {
