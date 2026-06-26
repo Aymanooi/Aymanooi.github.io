@@ -1,92 +1,122 @@
 {
-  "last_run": "2026-06-26 22:03:28 UTC",
+  "last_run": "2026-06-26 22:04:03 UTC",
   "mode": "Live 💰",
-  "balance": 0.1175,
+  "balance": 0.1089,
   "positions": [
     {
       "instId": "SNDK-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 2092.57,
       "size": 0.001,
-      "pnl": -0.0102
+      "pnl": -0.0097
     },
     {
       "instId": "JUP-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.2273,
       "size": 10.0,
-      "pnl": 0.18
+      "pnl": 0.17
     }
   ],
-  "total_trades": 150,
+  "total_trades": 151,
   "logs": [
     {
-      "time": "2026-06-26 22:04:15 UTC",
-      "msg": "⏭️ MU-USDT-SWAP: حجم صفر (رصيد صغير جداً؟) — التالي",
-      "level": "warning"
+      "time": "2026-06-26 22:04:42 UTC",
+      "msg": "📤 maker شراء 📈 SUI-USDT-SWAP @~0.6933 x10 | درجة:36 | رأس المال:$0.108 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
+      "level": "success"
     },
     {
-      "time": "2026-06-26 22:04:14 UTC",
-      "msg": "🎯 MU-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
+      "time": "2026-06-26 22:04:41 UTC",
+      "msg": "🎯 SUI-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 22:04:14 UTC",
-      "msg": "⏭️ ARX-USDT-SWAP: حجم صفر (رصيد صغير جداً؟) — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-26 22:04:13 UTC",
-      "msg": "🎯 ARX-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 22:04:13 UTC",
-      "msg": "⏭️ DRAM-USDT-SWAP: حجم صفر (رصيد صغير جداً؟) — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-26 22:04:12 UTC",
-      "msg": "🎯 DRAM-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 22:04:12 UTC",
-      "msg": "⏭️ maker فشل DYDX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-26 22:04:11 UTC",
-      "msg": "🎯 DYDX-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 22:04:11 UTC",
+      "time": "2026-06-26 22:04:40 UTC",
       "msg": "🧠 Brain WR=37.2% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 3 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-26 22:03:29 UTC",
-      "msg": "📉 رأس المال الكلي: $4.44 | القمّة $13.21 | تراجع 66.4% | مُنظّم ×0.00",
+      "time": "2026-06-26 22:04:03 UTC",
+      "msg": "📉 رأس المال الكلي: $4.43 | القمّة $13.21 | تراجع 66.5% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-26 22:03:29 UTC",
-      "msg": "💰 الرصيد: $0.1175 USDT",
+      "time": "2026-06-26 22:04:03 UTC",
+      "msg": "💰 الرصيد: $0.1089 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 22:03:28 UTC",
+      "time": "2026-06-26 22:04:03 UTC",
       "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-26 22:03:28 UTC",
+      "time": "2026-06-26 22:04:03 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-26 22:03:28 UTC",
+      "time": "2026-06-26 22:04:03 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-26 22:03:53 UTC",
+      "msg": "⏭️ MU-USDT-SWAP: حجم صفر (رصيد صغير جداً؟) — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 22:03:53 UTC",
+      "msg": "🎯 MU-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:52 UTC",
+      "msg": "⏭️ DRAM-USDT-SWAP: حجم صفر (رصيد صغير جداً؟) — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 22:03:52 UTC",
+      "msg": "🎯 DRAM-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:51 UTC",
+      "msg": "⏭️ maker فشل DYDX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 22:03:51 UTC",
+      "msg": "🎯 DYDX-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:50 UTC",
+      "msg": "🧠 Brain WR=37.2% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 3 مراكز",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:21 UTC",
+      "msg": "📉 رأس المال الكلي: $4.46 | القمّة $13.21 | تراجع 66.2% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:21 UTC",
+      "msg": "💰 الرصيد: $0.1358 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:21 UTC",
+      "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:21 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 22:03:21 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -389,40 +419,16 @@
       "time": "2026-06-26 21:58:10 UTC",
       "msg": "💰 الرصيد: $0.0971 USDT",
       "level": "info"
-    },
-    {
-      "time": "2026-06-26 21:58:09 UTC",
-      "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 21:58:09 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 21:58:09 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-26 21:58:00 UTC",
-      "msg": "مراكز مفتوحة: 2/3 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 21:57:59 UTC",
-      "msg": "📉 رأس المال الكلي: $4.42 | القمّة $13.21 | تراجع 66.5% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 21:57:59 UTC",
-      "msg": "💰 الرصيد: $0.0980 USDT",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
+    {
+      "instId": "SUI-USDT-SWAP",
+      "signal": "buy",
+      "score": 36,
+      "prob": 0.75
+    },
     {
       "instId": "DYDX-USDT-SWAP",
       "signal": "buy",
@@ -434,12 +440,6 @@
       "signal": "sell",
       "score": -37,
       "prob": 0.31
-    },
-    {
-      "instId": "ARX-USDT-SWAP",
-      "signal": "buy",
-      "score": 37,
-      "prob": 0.67
     },
     {
       "instId": "MU-USDT-SWAP",
@@ -472,8 +472,8 @@
       "RSIDivergence": 0.994
     },
     "kelly": 8.1,
-    "updated": "2026-06-26 22:02:49 UTC"
+    "updated": "2026-06-26 22:03:53 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 66.37
+  "drawdown": 66.45
 }
