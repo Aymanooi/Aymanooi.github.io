@@ -1,55 +1,75 @@
 {
-  "last_run": "2026-06-26 23:49:48 UTC",
+  "last_run": "2026-06-26 23:50:01 UTC",
   "mode": "Live 💰",
-  "balance": 4.1809,
+  "balance": 4.1773,
   "positions": [
     {
       "instId": "TAO-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 214.4,
       "size": 4.0,
-      "pnl": -0.004
+      "pnl": -0.008
     }
   ],
   "total_trades": 156,
   "logs": [
     {
-      "time": "2026-06-26 23:50:33 UTC",
-      "msg": "📤 maker شراء 📈 ZEC-USDT-SWAP @~418.74 x10 | درجة:48 | رأس المال:$2.070 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
+      "time": "2026-06-26 23:50:48 UTC",
+      "msg": "📤 maker شراء 📈 ZEC-USDT-SWAP @~419.03 x10 | درجة:42 | رأس المال:$2.068 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-26 23:50:31 UTC",
+      "time": "2026-06-26 23:50:48 UTC",
       "msg": "🎯 ZEC-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:50:31 UTC",
+      "time": "2026-06-26 23:50:47 UTC",
+      "msg": "⏭️ maker فشل RE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 23:50:46 UTC",
+      "msg": "🎯 RE-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 23:50:46 UTC",
+      "msg": "⏭️ maker فشل FOGO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-26 23:50:45 UTC",
+      "msg": "🎯 FOGO-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-26 23:50:44 UTC",
       "msg": "🧠 Brain WR=38.6% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 3 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:49:48 UTC",
+      "time": "2026-06-26 23:50:02 UTC",
       "msg": "📉 رأس المال الكلي: $5.03 | القمّة $13.21 | تراجع 61.9% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:49:48 UTC",
-      "msg": "💰 الرصيد: $4.1809 USDT",
+      "time": "2026-06-26 23:50:02 UTC",
+      "msg": "💰 الرصيد: $4.1773 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:49:48 UTC",
+      "time": "2026-06-26 23:50:01 UTC",
       "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:49:48 UTC",
+      "time": "2026-06-26 23:50:01 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-26 23:49:48 UTC",
+      "time": "2026-06-26 23:50:01 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -392,47 +412,27 @@
       "time": "2026-06-26 23:44:56 UTC",
       "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
-    },
-    {
-      "time": "2026-06-26 23:44:56 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 23:44:56 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-26 23:44:53 UTC",
-      "msg": "⏭️ maker فشل XAU-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-26 23:44:52 UTC",
-      "msg": "🎯 XAU-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
     {
-      "instId": "ZEC-USDT-SWAP",
-      "signal": "buy",
-      "score": 48,
-      "prob": 0.72
-    },
-    {
       "instId": "FOGO-USDT-SWAP",
       "signal": "sell",
-      "score": -41,
-      "prob": 0.27
+      "score": -53,
+      "prob": 0.23
     },
     {
       "instId": "RE-USDT-SWAP",
       "signal": "sell",
       "score": -47,
       "prob": 0.27
+    },
+    {
+      "instId": "ZEC-USDT-SWAP",
+      "signal": "buy",
+      "score": 42,
+      "prob": 0.7
     },
     {
       "instId": "XAU-USDT-SWAP",
@@ -468,5 +468,5 @@
     "updated": "2026-06-26 23:49:43 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 61.9
+  "drawdown": 61.93
 }
