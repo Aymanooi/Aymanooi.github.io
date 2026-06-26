@@ -1,21 +1,21 @@
 {
   "last_run": "2026-06-26 16:09:52 UTC",
   "mode": "Live 💰",
-  "balance": 0.2898,
+  "balance": 0.2897,
   "positions": [
     {
       "instId": "ALLO-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.40904,
       "size": 1.0,
-      "pnl": -0.0621
+      "pnl": -0.0623
     },
     {
       "instId": "BEAT-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 2.455,
       "size": 0.2,
-      "pnl": -0.1152
+      "pnl": -0.1154
     },
     {
       "instId": "ENSO-USDT-SWAP",
@@ -33,13 +33,13 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 16:09:52 UTC",
+      "time": "2026-06-26 16:09:53 UTC",
       "msg": "📉 رأس المال الكلي: $5.00 | القمّة $13.21 | تراجع 62.2% | مُنظّم ×0.00",
       "level": "info"
     },
     {
       "time": "2026-06-26 16:09:52 UTC",
-      "msg": "💰 الرصيد: $0.2898 USDT",
+      "msg": "💰 الرصيد: $0.2897 USDT",
       "level": "info"
     },
     {
