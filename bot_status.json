@@ -1,7 +1,7 @@
 {
-  "last_run": "2026-06-26 16:46:14 UTC",
+  "last_run": "2026-06-26 16:46:15 UTC",
   "mode": "Live 💰",
-  "balance": 0.0523,
+  "balance": 0.052,
   "positions": [
     {
       "instId": "COAI-USDT-SWAP",
@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 2.455,
       "size": 0.2,
-      "pnl": 0.0744
+      "pnl": 0.0734
     },
     {
       "instId": "ENSO-USDT-SWAP",
@@ -28,7 +28,7 @@
   "total_trades": 139,
   "logs": [
     {
-      "time": "2026-06-26 16:46:15 UTC",
+      "time": "2026-06-26 16:46:16 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
       "level": "info"
     },
@@ -39,21 +39,21 @@
     },
     {
       "time": "2026-06-26 16:46:15 UTC",
-      "msg": "💰 الرصيد: $0.0523 USDT",
+      "msg": "💰 الرصيد: $0.0520 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 16:46:14 UTC",
+      "time": "2026-06-26 16:46:15 UTC",
       "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-26 16:46:14 UTC",
+      "time": "2026-06-26 16:46:15 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-26 16:46:14 UTC",
+      "time": "2026-06-26 16:46:15 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -488,5 +488,5 @@
     "updated": "2026-06-26 16:46:10 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 61.59
+  "drawdown": 61.6
 }
