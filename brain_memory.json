@@ -916,12 +916,33 @@
       "status": "open",
       "filled": true,
       "opened": "2026-06-26 17:39:38 UTC"
+    },
+    {
+      "instId": "O-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -5,
+        "OBV": -10,
+        "RSIDivergence": -15
+      },
+      "entry": 0.4252,
+      "score": -39,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-26 19:59:53 UTC"
     }
   ],
   "wins": 16,
   "losses": 24,
   "lr": 0.05,
-  "updated": "2026-06-26 19:58:44 UTC",
+  "updated": "2026-06-26 19:59:53 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -977,7 +998,7 @@
     "BAND-USDT-SWAP": "2026-06-24T13:33:05.787192+00:00",
     "APR-USDT-SWAP": "2026-06-24T15:10:57.463139+00:00",
     "WLD-USDT-SWAP": "2026-06-25T11:12:33.665948+00:00",
-    "MET-USDT-SWAP": "2026-06-24T13:47:19.108323+00:00",
+    "MET-USDT-SWAP": "2026-06-26T19:59:19.398444+00:00",
     "BSB-USDT-SWAP": "2026-06-24T16:29:45.004968+00:00",
     "TIA-USDT-SWAP": "2026-06-24T20:50:56.321891+00:00",
     "AVAX-USDT-SWAP": "2026-06-24T21:16:52.766082+00:00",
