@@ -47,7 +47,7 @@ HALF_KELLY     = _preset["half_kelly"]       # True=نصف Kelly (أمان), Fal
 SCAN_SYMBOLS   = _preset["symbols"]          # عدد العملات المُمسوحة
 FILTER_LOSERS  = _preset["filter_losers"]    # True=يحذف العملات الخاسرة (Brain)
 MAX_POSITIONS  = _preset["max_positions"]    # عدد المراكز المتزامنة
-CAPITAL_RATIO   = 0.95    # 95% كهامش — مع x2 فقط، الخسارة/صفقة = 7.6% (قريب من Kelly)
+CAPITAL_RATIO   = 0.99    # رأس المال الكامل — 99% هامش (1% محجوز لرسم الفتح فقط، وإلا OKX يرفض الأمر كله)
 STOP_LOSS_PCT   = 0.04    # وقف الخسارة: 4% — أثبت PF=1.06 على OKX الحقيقي
 TAKE_PROFIT_PCT = 0.02    # هدف الربح: 2% — نسبة ربح/خسارة 1:2
 
