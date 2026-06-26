@@ -961,12 +961,33 @@
       "status": "open",
       "filled": true,
       "opened": "2026-06-26 22:04:42 UTC"
+    },
+    {
+      "instId": "TAO-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 214.2,
+      "score": 36,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-26 23:40:59 UTC"
     }
   ],
   "wins": 16,
   "losses": 27,
   "lr": 0.05,
-  "updated": "2026-06-26 23:40:53 UTC",
+  "updated": "2026-06-26 23:40:59 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -986,7 +1007,7 @@
     "OP-USDT-SWAP": "2026-06-25T09:02:58.863919+00:00",
     "AT-USDT-SWAP": "2026-06-25T16:12:48.086949+00:00",
     "ZRO-USDT-SWAP": "2026-06-24T15:33:44.889586+00:00",
-    "JUP-USDT-SWAP": "2026-06-26T23:40:53.252894+00:00",
+    "JUP-USDT-SWAP": "2026-06-26T23:40:18.794043+00:00",
     "STX-USDT-SWAP": "2026-06-24T19:25:29.726777+00:00",
     "AERO-USDT-SWAP": "2026-06-26T14:27:07.160535+00:00",
     "APE-USDT-SWAP": "2026-06-24T10:21:35.188038+00:00",
