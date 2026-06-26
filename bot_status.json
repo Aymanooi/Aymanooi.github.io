@@ -6,28 +6,23 @@
   "total_trades": 139,
   "logs": [
     {
-      "time": "2026-06-26 14:27:13 UTC",
+      "time": "2026-06-26 14:27:19 UTC",
       "msg": "📤 maker شراء 📈 AERO-USDT-SWAP @~0.472 x2 | درجة:39 | رأس المال:$4.795 | SL:4.00% TP:2.00% (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-26 14:27:12 UTC",
+      "time": "2026-06-26 14:27:18 UTC",
       "msg": "🎯 AERO-USDT-SWAP: رافعة x2 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-26 14:27:12 UTC",
+      "time": "2026-06-26 14:27:17 UTC",
       "msg": "🧠 Brain WR=26.5% | مُنظّم ×0.00 | رأس المال الكامل (95%)",
       "level": "info"
     },
     {
-      "time": "2026-06-26 14:27:12 UTC",
+      "time": "2026-06-26 14:27:17 UTC",
       "msg": "🚫 تخطّى 1 عملة خاسرة (Brain فلتر)",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-26 14:27:12 UTC",
-      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
@@ -404,6 +399,11 @@
       "time": "2026-06-26 14:24:09 UTC",
       "msg": "💰 الرصيد: $0.0892 USDT",
       "level": "info"
+    },
+    {
+      "time": "2026-06-26 14:24:09 UTC",
+      "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -421,12 +421,6 @@
       "prob": 0.28
     },
     {
-      "instId": "ENSO-USDT-SWAP",
-      "signal": "sell",
-      "score": -42,
-      "prob": 0.28
-    },
-    {
       "instId": "UNI-USDT-SWAP",
       "signal": "buy",
       "score": 53,
@@ -437,6 +431,12 @@
       "signal": "buy",
       "score": 48,
       "prob": 0.66
+    },
+    {
+      "instId": "OP-USDT-SWAP",
+      "signal": "buy",
+      "score": 37,
+      "prob": 0.61
     }
   ],
   "peaks": {
