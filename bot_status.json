@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 0.10571,
       "size": 4.0,
-      "pnl": 0.0688
+      "pnl": 0.0696
     },
     {
       "instId": "COAI-USDT-SWAP",
@@ -45,7 +45,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:00:39 UTC",
+      "time": "2026-06-26 17:00:40 UTC",
       "msg": "💰 الرصيد: $0.2400 USDT",
       "level": "info"
     },
@@ -495,5 +495,5 @@
     "updated": "2026-06-26 17:00:30 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 61.1
+  "drawdown": 61.09
 }
