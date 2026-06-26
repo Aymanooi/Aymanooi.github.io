@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 14:28:56 UTC",
   "mode": "Live 💰",
-  "balance": 4.7476,
+  "balance": 4.7477,
   "positions": [
     {
       "instId": "ENSO-USDT-SWAP",
@@ -24,12 +24,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 14:28:56 UTC",
-      "msg": "💰 الرصيد: $4.7476 USDT",
+      "time": "2026-06-26 14:28:57 UTC",
+      "msg": "💰 الرصيد: $4.7477 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 14:28:56 UTC",
+      "time": "2026-06-26 14:28:57 UTC",
       "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -465,7 +465,7 @@
       "RSIDivergence": 0.861
     },
     "kelly": 5.0,
-    "updated": "2026-06-26 14:28:49 UTC"
+    "updated": "2026-06-26 14:28:53 UTC"
   },
   "equity_peak": 13.2074,
   "drawdown": 61.83
