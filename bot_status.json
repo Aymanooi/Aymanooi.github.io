@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 16:42:50 UTC",
   "mode": "Live 💰",
-  "balance": 0.0267,
+  "balance": 0.0266,
   "positions": [
     {
       "instId": "COAI-USDT-SWAP",
@@ -39,7 +39,7 @@
     },
     {
       "time": "2026-06-26 16:42:51 UTC",
-      "msg": "💰 الرصيد: $0.0267 USDT",
+      "msg": "💰 الرصيد: $0.0266 USDT",
       "level": "info"
     },
     {
