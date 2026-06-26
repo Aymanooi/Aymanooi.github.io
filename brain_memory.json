@@ -961,33 +961,12 @@
       "status": "open",
       "filled": true,
       "opened": "2026-06-26 22:04:42 UTC"
-    },
-    {
-      "instId": "TAO-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 214.1,
-      "score": 36,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-26 23:41:49 UTC"
     }
   ],
   "wins": 16,
   "losses": 27,
   "lr": 0.05,
-  "updated": "2026-06-26 23:41:49 UTC",
+  "updated": "2026-06-26 23:41:52 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
