@@ -992,24 +992,24 @@
         "RSI": 0,
         "MACD": -10,
         "BB": 5,
-        "Stoch": 5,
+        "Stoch": 10,
         "Volume": 0,
-        "Pattern": 10,
+        "Pattern": 0,
         "HTF_1h": 15,
         "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 418.74,
-      "score": 48,
+      "entry": 419.03,
+      "score": 42,
       "status": "open",
       "filled": false,
-      "opened": "2026-06-26 23:50:33 UTC"
+      "opened": "2026-06-26 23:50:48 UTC"
     }
   ],
   "wins": 17,
   "losses": 27,
   "lr": 0.05,
-  "updated": "2026-06-26 23:50:33 UTC",
+  "updated": "2026-06-26 23:50:48 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
