@@ -297,6 +297,12 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         for p in positions if float(p.get("pos",0)) != 0
     ]
 
+    # ── أكّد تنفيذ أوامر maker: أي مركز ظهر نشطاً فعلاً → علّمه filled ────────
+    # هذا يميّز الصفقة الحقيقية عن أمر maker لم يُنفَّذ (الذي يُسمّم الدماغ كخسارة وهمية)
+    for p in positions:
+        if float(p.get("pos", 0)) != 0:
+            brain.mark_filled(memory, p["instId"], float(p.get("avgPx", 0)) or None)
+
     # ── نظّف أوامر maker العالقة أولاً (قبل كشف الصفقات المُغلقة) ────────────
     if cfg.ORDER_MODE == "maker":
         _cancel_stale_maker_orders(status, client, memory, active)
@@ -305,7 +311,16 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     believed_open = prev_open | brain.open_instruments(memory)
     newly_closed  = believed_open - active
     if newly_closed:
+        phantom_discarded = []
+        learned_ids       = []
         for closed_id in newly_closed:
+            # حارس الصفقات الوهمية: أمر maker سُجّل لكنه لم يُنفَّذ قطّ (filled=False).
+            # لا نتعلّم منه كخسارة — نحذفه بهدوء حتى لا يُسمّم الدماغ ومعدّل الفوز.
+            if brain.open_instruments(memory) and not brain.is_filled(memory, closed_id) \
+               and closed_id not in prev_open:
+                if brain.discard_open(memory, closed_id):
+                    phantom_discarded.append(closed_id)
+                    continue
             brain.mark_exited(memory, closed_id)
             try:
                 realized = client.get_last_realized_pnl(closed_id)
@@ -316,12 +331,18 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                 if result is not None:
                     src = "(فعلي)" if realized is not None else "(تقدير)"
                     outcome = "ربح ✅" if result == 1 else "خسارة ❌"
+                    learned_ids.append(closed_id)
                     add_log(status, f"\U0001f9e0 Brain تعلّم: {closed_id} → {outcome} {src}", "info")
             except Exception:
                 pass
-        add_log(status,
-            f"⏳ أُغلقت: {', '.join(newly_closed)} — "
-            f"إعادة دخول بعد {brain.COOLDOWN_SECONDS} ثانية", "info")
+        if phantom_discarded:
+            add_log(status,
+                f"\U0001f47b حُذف {len(phantom_discarded)} أمر maker لم يُنفَّذ "
+                f"(ليست خسائر — لا تُسمّم الدماغ)", "info")
+        if learned_ids:
+            add_log(status,
+                f"⏳ أُغلقت: {', '.join(learned_ids)} — "
+                f"إعادة دخول بعد {brain.COOLDOWN_SECONDS} ثانية", "info")
 
     # ── وقف الخسارة المتحرك ──────────────────────────────────────────────────
     closed_by_trail = _manage_open_positions(status, client, positions)

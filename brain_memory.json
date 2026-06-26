@@ -1,17 +1,17 @@
 {
   "weights": {
-    "EMA": 0.6598415146203725,
-    "RSI": 1.0662281462970542,
-    "MACD": 0.674220296240348,
-    "BB": 1.0693695655850302,
-    "Stoch": 0.9974435956113711,
-    "Volume": 0.9440781209607778,
-    "Pattern": 0.9255075287291502,
-    "HTF_1h": 0.7128070213422736,
-    "OBV": 0.789224869006687,
-    "RSIDivergence": 0.8611180053538382
+    "EMA": 0.8431039868460908,
+    "RSI": 1.0370302453048674,
+    "MACD": 0.8770289536344168,
+    "BB": 1.01691997897135,
+    "Stoch": 0.9871202896680878,
+    "Volume": 0.9770535917202324,
+    "Pattern": 0.9280454391988826,
+    "HTF_1h": 0.8239539953227406,
+    "OBV": 0.8940643020567015,
+    "RSIDivergence": 0.9936925220235406
   },
-  "bias": -0.10535859136072388,
+  "bias": -0.015298149704521473,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -30,7 +30,8 @@
       "score": -47,
       "status": "win",
       "opened": "2026-06-23 04:01:50 UTC",
-      "exit": 0.31
+      "exit": 0.31,
+      "filled": true
     },
     {
       "instId": "DOT-USDT-SWAP",
@@ -49,7 +50,8 @@
       "score": -48,
       "status": "win",
       "opened": "2026-06-23 12:07:46 UTC",
-      "exit": 0.8983
+      "exit": 0.8983,
+      "filled": true
     },
     {
       "instId": "FARTCOIN-USDT-SWAP",
@@ -68,7 +70,8 @@
       "score": 48,
       "status": "win",
       "opened": "2026-06-23 22:46:58 UTC",
-      "exit": 0.13
+      "exit": 0.13,
+      "filled": true
     },
     {
       "instId": "APT-USDT-SWAP",
@@ -87,7 +90,8 @@
       "score": 41,
       "status": "win",
       "opened": "2026-06-24 06:18:22 UTC",
-      "exit": 0.6484
+      "exit": 0.6484,
+      "filled": true
     },
     {
       "instId": "AVNT-USDT-SWAP",
@@ -106,7 +110,8 @@
       "score": 42,
       "status": "loss",
       "opened": "2026-06-24 06:28:38 UTC",
-      "exit": 0.1114
+      "exit": 0.1114,
+      "filled": true
     },
     {
       "instId": "JUP-USDT-SWAP",
@@ -125,7 +130,8 @@
       "score": 42,
       "status": "win",
       "opened": "2026-06-24 08:30:55 UTC",
-      "exit": 0.2133
+      "exit": 0.2133,
+      "filled": true
     },
     {
       "instId": "MASK-USDT-SWAP",
@@ -144,7 +150,8 @@
       "score": 35,
       "status": "win",
       "opened": "2026-06-24 09:31:17 UTC",
-      "exit": 0.4042
+      "exit": 0.4042,
+      "filled": true
     },
     {
       "instId": "PROS-USDT-SWAP",
@@ -163,7 +170,8 @@
       "score": -35,
       "status": "win",
       "opened": "2026-06-24 09:46:06 UTC",
-      "exit": 0.474
+      "exit": 0.474,
+      "filled": true
     },
     {
       "instId": "GRASS-USDT-SWAP",
@@ -182,7 +190,8 @@
       "score": 36,
       "status": "loss",
       "opened": "2026-06-24 09:49:11 UTC",
-      "exit": 0.4417
+      "exit": 0.4417,
+      "filled": true
     },
     {
       "instId": "JTO-USDT-SWAP",
@@ -203,28 +212,8 @@
       "score": 42,
       "status": "loss",
       "opened": "2026-06-24 10:12:47 UTC",
-      "exit": 0.6699
-    },
-    {
-      "instId": "ARX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2945,
-      "score": -45,
-      "status": "loss",
-      "opened": "2026-06-24 10:22:25 UTC",
-      "exit": 0.2947
+      "exit": 0.6699,
+      "filled": true
     },
     {
       "instId": "ENSO-USDT-SWAP",
@@ -245,7 +234,8 @@
       "score": -42,
       "status": "win",
       "opened": "2026-06-24 10:23:31 UTC",
-      "exit": 0.632
+      "exit": 0.632,
+      "filled": true
     },
     {
       "instId": "AGLD-USDT-SWAP",
@@ -266,7 +256,8 @@
       "score": 48,
       "status": "loss",
       "opened": "2026-06-24 10:27:11 UTC",
-      "exit": 0.1501
+      "exit": 0.1501,
+      "filled": true
     },
     {
       "instId": "OP-USDT-SWAP",
@@ -287,7 +278,8 @@
       "score": 45,
       "status": "win",
       "opened": "2026-06-24 10:27:53 UTC",
-      "exit": 0.10208
+      "exit": 0.10208,
+      "filled": true
     },
     {
       "instId": "ZBT-USDT-SWAP",
@@ -308,7 +300,8 @@
       "score": -43,
       "status": "loss",
       "opened": "2026-06-24 10:31:27 UTC",
-      "exit": 0.10724
+      "exit": 0.10724,
+      "filled": true
     },
     {
       "instId": "EDGE-USDT-SWAP",
@@ -329,70 +322,8 @@
       "score": 48,
       "status": "loss",
       "opened": "2026-06-24 10:49:52 UTC",
-      "exit": 0.3971
-    },
-    {
-      "instId": "UNI-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 2.919,
-      "score": 51,
-      "status": "loss",
-      "opened": "2026-06-24 11:46:29 UTC",
-      "exit": 2.919
-    },
-    {
-      "instId": "XRP-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -15,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 1.0989,
-      "score": -72,
-      "status": "win",
-      "opened": "2026-06-24 11:50:58 UTC",
-      "exit": 1.0981
-    },
-    {
-      "instId": "ICP-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 5,
-        "Pattern": 0,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 2.193,
-      "score": 36,
-      "status": "loss",
-      "opened": "2026-06-24 12:26:49 UTC",
-      "exit": 2.193
+      "exit": 0.3971,
+      "filled": true
     },
     {
       "instId": "AT-USDT-SWAP",
@@ -413,175 +344,8 @@
       "score": 42,
       "status": "loss",
       "opened": "2026-06-24 12:27:33 UTC",
-      "exit": 0.1499
-    },
-    {
-      "instId": "JTO-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.6929,
-      "score": 46,
-      "status": "loss",
-      "opened": "2026-06-24 12:30:59 UTC",
-      "exit": 0.6924
-    },
-    {
-      "instId": "AERO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.5148,
-      "score": -40,
-      "status": "loss",
-      "opened": "2026-06-24 12:33:10 UTC",
-      "exit": 0.5149
-    },
-    {
-      "instId": "THETA-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1467,
-      "score": 36,
-      "status": "loss",
-      "opened": "2026-06-24 12:34:00 UTC",
-      "exit": 0.1467
-    },
-    {
-      "instId": "ZRO-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 10,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.9481,
-      "score": 39,
-      "status": "win",
-      "opened": "2026-06-24 12:39:37 UTC",
-      "exit": 0.9486
-    },
-    {
-      "instId": "OPG-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1694,
-      "score": -41,
-      "status": "win",
-      "opened": "2026-06-24 12:41:16 UTC",
-      "exit": 0.1693
-    },
-    {
-      "instId": "SOON-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": 0,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": 5,
-        "Volume": 10,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.162,
-      "score": 64,
-      "status": "loss",
-      "opened": "2026-06-24 12:42:32 UTC",
-      "exit": 0.162
-    },
-    {
-      "instId": "LIGHT-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1432,
-      "score": 45,
-      "status": "win",
-      "opened": "2026-06-24 12:44:29 UTC",
-      "exit": 0.1432
-    },
-    {
-      "instId": "ASTER-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.6271,
-      "score": -38,
-      "status": "loss",
-      "opened": "2026-06-24 12:45:01 UTC",
-      "exit": 0.6272
+      "exit": 0.1499,
+      "filled": true
     },
     {
       "instId": "RENDER-USDT-SWAP",
@@ -602,28 +366,8 @@
       "score": 38,
       "status": "loss",
       "opened": "2026-06-24 12:45:53 UTC",
-      "exit": 1.58
-    },
-    {
-      "instId": "SUI-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.697,
-      "score": -48,
-      "status": "loss",
-      "opened": "2026-06-24 12:47:35 UTC",
-      "exit": 0.6969
+      "exit": 1.58,
+      "filled": true
     },
     {
       "instId": "PROS-USDT-SWAP",
@@ -644,7 +388,8 @@
       "score": -52,
       "status": "win",
       "opened": "2026-06-24 12:48:24 UTC",
-      "exit": 0.4575
+      "exit": 0.4575,
+      "filled": true
     },
     {
       "instId": "XTZ-USDT-SWAP",
@@ -665,70 +410,8 @@
       "score": -49,
       "status": "win",
       "opened": "2026-06-24 13:07:15 UTC",
-      "exit": 0.2155
-    },
-    {
-      "instId": "RAVE-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 10,
-        "Pattern": -10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2707,
-      "score": 48,
-      "status": "loss",
-      "opened": "2026-06-24 13:08:03 UTC",
-      "exit": 0.2708
-    },
-    {
-      "instId": "BERA-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -25,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2151,
-      "score": -44,
-      "status": "loss",
-      "opened": "2026-06-24 13:08:56 UTC",
-      "exit": 0.2151
-    },
-    {
-      "instId": "SNX-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": 15,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 0.2242,
-      "score": 48,
-      "status": "loss",
-      "opened": "2026-06-24 13:23:38 UTC",
-      "exit": 0.224
+      "exit": 0.2155,
+      "filled": true
     },
     {
       "instId": "BSB-USDT-SWAP",
@@ -749,28 +432,8 @@
       "score": -42,
       "status": "loss",
       "opened": "2026-06-24 13:30:36 UTC",
-      "exit": 0.2965
-    },
-    {
-      "instId": "SPCX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 155.11,
-      "score": -38,
-      "status": "loss",
-      "opened": "2026-06-24 13:31:13 UTC",
-      "exit": 155.17
+      "exit": 0.2965,
+      "filled": true
     },
     {
       "instId": "LDO-USDT-SWAP",
@@ -791,49 +454,8 @@
       "score": -42,
       "status": "loss",
       "opened": "2026-06-24 13:32:04 UTC",
-      "exit": 0.2553
-    },
-    {
-      "instId": "APR-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": -5,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 10,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 0.198,
-      "score": 62,
-      "status": "loss",
-      "opened": "2026-06-24 13:34:10 UTC",
-      "exit": 0.198
-    },
-    {
-      "instId": "AT-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": -10,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1458,
-      "score": 36,
-      "status": "loss",
-      "opened": "2026-06-24 13:34:56 UTC",
-      "exit": 0.1459
+      "exit": 0.2553,
+      "filled": true
     },
     {
       "instId": "WLD-USDT-SWAP",
@@ -854,7 +476,8 @@
       "score": 45,
       "status": "loss",
       "opened": "2026-06-24 13:37:18 UTC",
-      "exit": 0.5316
+      "exit": 0.5316,
+      "filled": true
     },
     {
       "instId": "AXS-USDT-SWAP",
@@ -875,7 +498,8 @@
       "score": 38,
       "status": "loss",
       "opened": "2026-06-24 13:40:56 UTC",
-      "exit": 1.0264
+      "exit": 1.0264,
+      "filled": true
     },
     {
       "instId": "SOON-USDT-SWAP",
@@ -896,238 +520,8 @@
       "score": -63,
       "status": "loss",
       "opened": "2026-06-24 13:43:45 UTC",
-      "exit": 0.1603
-    },
-    {
-      "instId": "EDGE-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.3852,
-      "score": -43,
-      "status": "loss",
-      "opened": "2026-06-24 13:46:25 UTC",
-      "exit": 0.385
-    },
-    {
-      "instId": "MET-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1488,
-      "score": -41,
-      "status": "loss",
-      "opened": "2026-06-24 13:47:09 UTC",
-      "exit": 0.1488
-    },
-    {
-      "instId": "UNI-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 2.848,
-      "score": -43,
-      "status": "win",
-      "opened": "2026-06-24 14:03:26 UTC",
-      "exit": 2.847
-    },
-    {
-      "instId": "FARTCOIN-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1258,
-      "score": -42,
-      "status": "loss",
-      "opened": "2026-06-24 14:04:18 UTC",
-      "exit": 0.1257
-    },
-    {
-      "instId": "ICP-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 2.181,
-      "score": -40,
-      "status": "loss",
-      "opened": "2026-06-24 14:40:33 UTC",
-      "exit": 2.181
-    },
-    {
-      "instId": "APR-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 0.1972,
-      "score": 49,
-      "status": "loss",
-      "opened": "2026-06-24 14:51:10 UTC",
-      "exit": 0.1972
-    },
-    {
-      "instId": "APR-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 0.1972,
-      "score": 43,
-      "status": "loss",
-      "opened": "2026-06-24 14:52:08 UTC",
-      "exit": 0.1972
-    },
-    {
-      "instId": "OP-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.10024,
-      "score": -43,
-      "status": "win",
-      "opened": "2026-06-24 14:53:22 UTC",
-      "exit": 0.10031
-    },
-    {
-      "instId": "AVAX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 6.322,
-      "score": -36,
-      "status": "loss",
-      "opened": "2026-06-24 14:54:39 UTC",
-      "exit": 6.322
-    },
-    {
-      "instId": "APR-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": -5,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 0.1975,
-      "score": 62,
-      "status": "loss",
-      "opened": "2026-06-24 14:55:50 UTC",
-      "exit": 0.1974
-    },
-    {
-      "instId": "APR-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 0.1975,
-      "score": 53,
-      "status": "loss",
-      "opened": "2026-06-24 15:10:47 UTC",
-      "exit": 0.1975
+      "exit": 0.1603,
+      "filled": true
     },
     {
       "instId": "HYPE-USDT-SWAP",
@@ -1148,49 +542,8 @@
       "score": -36,
       "status": "win",
       "opened": "2026-06-24 15:12:11 UTC",
-      "exit": 60.62
-    },
-    {
-      "instId": "ZRO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": -10,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.9234,
-      "score": -59,
-      "status": "loss",
-      "opened": "2026-06-24 15:13:34 UTC",
-      "exit": 0.9238
-    },
-    {
-      "instId": "SPCX-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 158.17,
-      "score": 36,
-      "status": "loss",
-      "opened": "2026-06-24 16:06:02 UTC",
-      "exit": 158.25
+      "exit": 60.62,
+      "filled": true
     },
     {
       "instId": "LQTY-USDT-SWAP",
@@ -1211,91 +564,8 @@
       "score": -41,
       "status": "loss",
       "opened": "2026-06-24 16:06:58 UTC",
-      "exit": 0.1828
-    },
-    {
-      "instId": "SOON-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 0,
-        "RSIDivergence": 15
-      },
-      "entry": 0.1625,
-      "score": 57,
-      "status": "loss",
-      "opened": "2026-06-24 16:11:18 UTC",
-      "exit": 0.1625
-    },
-    {
-      "instId": "FARTCOIN-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1257,
-      "score": -42,
-      "status": "loss",
-      "opened": "2026-06-24 16:12:08 UTC",
-      "exit": 0.1257
-    },
-    {
-      "instId": "PI-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.126,
-      "score": -45,
-      "status": "loss",
-      "opened": "2026-06-24 16:23:57 UTC",
-      "exit": 0.126
-    },
-    {
-      "instId": "RENDER-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 1.556,
-      "score": -42,
-      "status": "loss",
-      "opened": "2026-06-24 16:25:11 UTC",
-      "exit": 1.556
+      "exit": 0.1828,
+      "filled": true
     },
     {
       "instId": "BSB-USDT-SWAP",
@@ -1316,28 +586,8 @@
       "score": -45,
       "status": "loss",
       "opened": "2026-06-24 16:29:12 UTC",
-      "exit": 0.3084
-    },
-    {
-      "instId": "RENDER-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 1.552,
-      "score": -53,
-      "status": "loss",
-      "opened": "2026-06-24 16:30:31 UTC",
-      "exit": 1.552
+      "exit": 0.3084,
+      "filled": true
     },
     {
       "instId": "LIT-USDT-SWAP",
@@ -1358,7 +608,8 @@
       "score": -37,
       "status": "loss",
       "opened": "2026-06-24 16:51:55 UTC",
-      "exit": 1.5096
+      "exit": 1.5096,
+      "filled": true
     },
     {
       "instId": "CRV-USDT-SWAP",
@@ -1379,49 +630,8 @@
       "score": -38,
       "status": "win",
       "opened": "2026-06-24 17:04:14 UTC",
-      "exit": 0.1919
-    },
-    {
-      "instId": "AXS-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.9858,
-      "score": -45,
-      "status": "loss",
-      "opened": "2026-06-24 17:15:50 UTC",
-      "exit": 0.9862
-    },
-    {
-      "instId": "DOT-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.8548,
-      "score": -35,
-      "status": "win",
-      "opened": "2026-06-24 17:17:00 UTC",
-      "exit": 0.8543
+      "exit": 0.1919,
+      "filled": true
     },
     {
       "instId": "OPG-USDT-SWAP",
@@ -1442,28 +652,8 @@
       "score": -36,
       "status": "win",
       "opened": "2026-06-24 17:27:24 UTC",
-      "exit": 0.1566
-    },
-    {
-      "instId": "SPCX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -25,
-        "RSI": 0,
-        "MACD": -10,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 155.6,
-      "score": -36,
-      "status": "loss",
-      "opened": "2026-06-24 17:36:49 UTC",
-      "exit": 155.53
+      "exit": 0.1566,
+      "filled": true
     },
     {
       "instId": "SPCX-USDT-SWAP",
@@ -1484,7 +674,8 @@
       "score": -36,
       "status": "loss",
       "opened": "2026-06-24 17:43:51 UTC",
-      "exit": 155.82
+      "exit": 155.82,
+      "filled": true
     },
     {
       "instId": "ENSO-USDT-SWAP",
@@ -1505,49 +696,8 @@
       "score": -35,
       "status": "loss",
       "opened": "2026-06-24 17:55:39 UTC",
-      "exit": 0.58
-    },
-    {
-      "instId": "ENSO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.5808,
-      "score": -35,
-      "status": "loss",
-      "opened": "2026-06-24 18:01:08 UTC",
-      "exit": 0.5807
-    },
-    {
-      "instId": "XRP-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 1.0505,
-      "score": -35,
-      "status": "win",
-      "opened": "2026-06-24 18:01:53 UTC",
-      "exit": 1.0497
+      "exit": 0.58,
+      "filled": true
     },
     {
       "instId": "ATOM-USDT-SWAP",
@@ -1568,70 +718,8 @@
       "score": -65,
       "status": "win",
       "opened": "2026-06-24 18:17:55 UTC",
-      "exit": 1.627
-    },
-    {
-      "instId": "STX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1675,
-      "score": -58,
-      "status": "loss",
-      "opened": "2026-06-24 18:47:57 UTC",
-      "exit": 0.1674
-    },
-    {
-      "instId": "STX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1677,
-      "score": -58,
-      "status": "loss",
-      "opened": "2026-06-24 19:09:48 UTC",
-      "exit": 0.1677
-    },
-    {
-      "instId": "JTO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": -5,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": -5,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.6506,
-      "score": -53,
-      "status": "loss",
-      "opened": "2026-06-24 20:14:48 UTC",
-      "exit": 0.651
+      "exit": 1.627,
+      "filled": true
     },
     {
       "instId": "AVAX-USDT-SWAP",
@@ -1652,175 +740,8 @@
       "score": -42,
       "status": "loss",
       "opened": "2026-06-24 20:16:01 UTC",
-      "exit": 6.267
-    },
-    {
-      "instId": "0G-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2286,
-      "score": -38,
-      "status": "loss",
-      "opened": "2026-06-24 20:20:53 UTC",
-      "exit": 0.2288
-    },
-    {
-      "instId": "ARX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -15,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2689,
-      "score": -46,
-      "status": "loss",
-      "opened": "2026-06-24 20:29:37 UTC",
-      "exit": 0.2688
-    },
-    {
-      "instId": "XRP-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": -5,
-        "MACD": 10,
-        "BB": -15,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": 0,
-        "RSIDivergence": 0
-      },
-      "entry": 1.0708,
-      "score": -49,
-      "status": "loss",
-      "opened": "2026-06-24 20:33:17 UTC",
-      "exit": 1.0714
-    },
-    {
-      "instId": "ETC-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": -10,
-        "BB": 15,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 6.868,
-      "score": 41,
-      "status": "win",
-      "opened": "2026-06-24 20:37:05 UTC",
-      "exit": 6.868
-    },
-    {
-      "instId": "AGLD-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.1468,
-      "score": 38,
-      "status": "loss",
-      "opened": "2026-06-24 20:57:07 UTC",
-      "exit": 0.1468
-    },
-    {
-      "instId": "ZBT-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.10584,
-      "score": 48,
-      "status": "loss",
-      "opened": "2026-06-24 20:58:08 UTC",
-      "exit": 0.10584
-    },
-    {
-      "instId": "AVAX-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": -5,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 6.335,
-      "score": 40,
-      "status": "loss",
-      "opened": "2026-06-24 21:16:45 UTC",
-      "exit": 6.334
-    },
-    {
-      "instId": "IP-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.3189,
-      "score": 43,
-      "status": "win",
-      "opened": "2026-06-24 21:53:07 UTC",
-      "exit": 0.3188
+      "exit": 6.267,
+      "filled": true
     },
     {
       "instId": "ASTER-USDT-SWAP",
@@ -1841,7 +762,8 @@
       "score": 38,
       "status": "win",
       "opened": "2026-06-24 22:25:55 UTC",
-      "exit": 0.6179
+      "exit": 0.6179,
+      "filled": true
     },
     {
       "instId": "ALLO-USDT-SWAP",
@@ -1862,70 +784,8 @@
       "score": 53,
       "status": "loss",
       "opened": "2026-06-25 05:02:58 UTC",
-      "exit": 0.39148
-    },
-    {
-      "instId": "MASK-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": -10,
-        "BB": 15,
-        "Stoch": 5,
-        "Volume": 10,
-        "Pattern": 0,
-        "HTF_1h": 5,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.4166,
-      "score": 55,
-      "status": "loss",
-      "opened": "2026-06-25 06:17:13 UTC",
-      "exit": 0.4166
-    },
-    {
-      "instId": "JUP-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 10,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": -5,
-        "Pattern": -10,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2317,
-      "score": -40,
-      "status": "loss",
-      "opened": "2026-06-25 09:05:14 UTC",
-      "exit": 0.2317
-    },
-    {
-      "instId": "KAITO-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": -10,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.4588,
-      "score": 45,
-      "status": "loss",
-      "opened": "2026-06-25 10:14:17 UTC",
-      "exit": 0.4588
+      "exit": 0.39148,
+      "filled": true
     },
     {
       "instId": "SPX-USDT-SWAP",
@@ -1946,49 +806,8 @@
       "score": 59,
       "status": "loss",
       "opened": "2026-06-25 10:35:46 UTC",
-      "exit": 0.3371
-    },
-    {
-      "instId": "PI-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -25,
-        "RSI": 5,
-        "MACD": 5,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": -5,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.126,
-      "score": -46,
-      "status": "loss",
-      "opened": "2026-06-25 10:58:49 UTC",
-      "exit": 0.126
-    },
-    {
-      "instId": "SNX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": -10,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2056,
-      "score": -42,
-      "status": "loss",
-      "opened": "2026-06-25 11:43:00 UTC",
-      "exit": 0.2056
+      "exit": 0.3371,
+      "filled": true
     },
     {
       "instId": "DYDX-USDT-SWAP",
@@ -2009,28 +828,8 @@
       "score": -46,
       "status": "loss",
       "opened": "2026-06-25 14:31:44 UTC",
-      "exit": 0.14195
-    },
-    {
-      "instId": "0G-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": -5,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.2089,
-      "score": -48,
-      "status": "loss",
-      "opened": "2026-06-26 00:54:11 UTC",
-      "exit": 0.2089
+      "exit": 0.14195,
+      "filled": true
     },
     {
       "instId": "ETHFI-USDT-SWAP",
@@ -2051,32 +850,12 @@
       "score": 58,
       "status": "loss",
       "opened": "2026-06-26 02:15:02 UTC",
-      "exit": 0.3678
-    },
-    {
-      "instId": "AERO-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 25,
-        "RSI": -5,
-        "MACD": 10,
-        "BB": -15,
-        "Stoch": -5,
-        "Volume": 10,
-        "Pattern": 10,
-        "HTF_1h": -5,
-        "OBV": 10,
-        "RSIDivergence": 15
-      },
-      "entry": 0.472,
-      "score": 39,
-      "status": "loss",
-      "opened": "2026-06-26 14:27:01 UTC",
-      "exit": 0.472
+      "exit": 0.3678,
+      "filled": true
     }
   ],
-  "wins": 26,
-  "losses": 73,
+  "wins": 16,
+  "losses": 23,
   "lr": 0.05,
   "updated": "2026-06-26 17:15:55 UTC",
   "exited": {

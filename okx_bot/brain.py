@@ -141,7 +141,12 @@ def open_instruments(memory):
 
 
 def record_open(memory, inst_id, signal, details, entry_price, score):
-    """Log an opened trade so we can learn from it when it closes."""
+    """Log an opened trade so we can learn from it when it closes.
+
+    filled=False until the position is confirmed active on the exchange.
+    أوامر maker (post-only) قد لا تُنفَّذ أبداً؛ نُسجّلها كـ filled=False ولا
+    نتعلّم منها كخسارة حتى يتأكّد تنفيذها — وإلا سمّمت الدماغ بخسائر وهمية.
+    """
     memory["trades"].append({
         "instId": inst_id,
         "signal": signal,
@@ -149,9 +154,38 @@ def record_open(memory, inst_id, signal, details, entry_price, score):
         "entry": entry_price,
         "score": score,
         "status": "open",
+        "filled": False,
         "opened": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
     })
     memory["trades"] = memory["trades"][-200:]
+
+
+def mark_filled(memory, inst_id, actual_entry=None):
+    """Confirm the open trade actually filled (position seen active on OKX)."""
+    for t in reversed(memory["trades"]):
+        if t["instId"] == inst_id and t["status"] == "open":
+            t["filled"] = True
+            if actual_entry:
+                t["entry"] = actual_entry
+            return True
+    return False
+
+
+def is_filled(memory, inst_id):
+    """True if there's an open trade for inst_id that was confirmed filled."""
+    for t in reversed(memory["trades"]):
+        if t["instId"] == inst_id and t["status"] == "open":
+            return bool(t.get("filled", False))
+    return False
+
+
+def discard_open(memory, inst_id):
+    """Remove an unfilled (phantom) open record WITHOUT counting it win/loss."""
+    for t in reversed(memory["trades"]):
+        if t["instId"] == inst_id and t["status"] == "open":
+            memory["trades"].remove(t)
+            return True
+    return False
 
 
 def learn_from_closed(memory, inst_id, exit_price, realized_pnl=None):
