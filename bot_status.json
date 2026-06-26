@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 0.10571,
       "size": 4.0,
-      "pnl": 0.0712
+      "pnl": 0.0716
     },
     {
       "instId": "COAI-USDT-SWAP",
@@ -35,7 +35,7 @@
   "total_trades": 140,
   "logs": [
     {
-      "time": "2026-06-26 17:10:19 UTC",
+      "time": "2026-06-26 17:10:20 UTC",
       "msg": "مراكز مفتوحة: 4/3 — لا دخول جديد",
       "level": "info"
     },
@@ -50,7 +50,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 17:10:18 UTC",
+      "time": "2026-06-26 17:10:19 UTC",
       "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -492,7 +492,7 @@
       "RSIDivergence": 0.861
     },
     "kelly": 5.0,
-    "updated": "2026-06-26 17:10:11 UTC"
+    "updated": "2026-06-26 17:10:13 UTC"
   },
   "equity_peak": 13.2074,
   "drawdown": 60.98
