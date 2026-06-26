@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 17:02:08 UTC",
   "mode": "Live 💰",
-  "balance": 0.242,
+  "balance": 0.2422,
   "positions": [
     {
       "instId": "ETHW-USDT-SWAP",
@@ -46,7 +46,7 @@
     },
     {
       "time": "2026-06-26 17:02:08 UTC",
-      "msg": "💰 الرصيد: $0.2420 USDT",
+      "msg": "💰 الرصيد: $0.2422 USDT",
       "level": "info"
     },
     {
