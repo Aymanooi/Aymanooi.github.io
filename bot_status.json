@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 15:27:27 UTC",
   "mode": "Live 💰",
-  "balance": 1.2251,
+  "balance": 1.225,
   "positions": [
     {
       "instId": "SOL-USDT-SWAP",
@@ -39,11 +39,11 @@
     },
     {
       "time": "2026-06-26 15:27:28 UTC",
-      "msg": "💰 الرصيد: $1.2251 USDT",
+      "msg": "💰 الرصيد: $1.2250 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-26 15:27:27 UTC",
+      "time": "2026-06-26 15:27:28 UTC",
       "msg": "⚙️ rocket | رافعة x2 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
