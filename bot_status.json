@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-26 15:43:54 UTC",
   "mode": "Live 💰",
-  "balance": 0.2706,
+  "balance": 0.2702,
   "positions": [
     {
       "instId": "BEAT-USDT-SWAP",
@@ -38,8 +38,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-26 15:43:55 UTC",
-      "msg": "💰 الرصيد: $0.2706 USDT",
+      "time": "2026-06-26 15:43:54 UTC",
+      "msg": "💰 الرصيد: $0.2702 USDT",
       "level": "info"
     },
     {
