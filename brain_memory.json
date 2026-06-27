@@ -1138,12 +1138,33 @@
       "filled": true,
       "opened": "2026-06-27 18:14:36 UTC",
       "exit": 197.6
+    },
+    {
+      "instId": "O-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -12,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.4577,
+      "score": 39,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-27 19:08:15 UTC"
     }
   ],
   "wins": 17,
   "losses": 35,
   "lr": 0.05,
-  "updated": "2026-06-27 19:06:41 UTC",
+  "updated": "2026-06-27 19:08:15 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1214,7 +1235,7 @@
     "WIF-USDT-SWAP": "2026-06-24T20:13:06.238405+00:00",
     "0G-USDT-SWAP": "2026-06-26T02:08:50.719276+00:00",
     "ETC-USDT-SWAP": "2026-06-24T20:37:10.996458+00:00",
-    "SYRUP-USDT-SWAP": "2026-06-24T21:03:57.798989+00:00",
+    "SYRUP-USDT-SWAP": "2026-06-27T19:07:44.457215+00:00",
     "ETHFI-USDT-SWAP": "2026-06-26T02:15:07.846806+00:00",
     "IP-USDT-SWAP": "2026-06-27T01:42:09.101478+00:00",
     "SLX-USDT-SWAP": "2026-06-25T06:16:23.606933+00:00",
