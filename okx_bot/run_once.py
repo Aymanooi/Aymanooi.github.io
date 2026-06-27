@@ -469,6 +469,13 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             eff_leverage = float(LEVERAGE)
             if max_lev and max_lev < eff_leverage:
                 eff_leverage = float(max_lev)
+        # ── سقف حماية من التصفية: لا تصفية إلا بفجوة ≥ LIQ_GAP_BUFFER ──────────
+        # التصفية ≈ عند حركة 1/الرافعة؛ نحدّ الرافعة بحيث تحتاج التصفية فجوة كبيرة.
+        gap = getattr(cfg, "LIQ_GAP_BUFFER", 0.0)
+        if gap and gap > 0:
+            liq_safe_cap = 1.0 / gap
+            if eff_leverage > liq_safe_cap:
+                eff_leverage = liq_safe_cap
         eff_leverage = max(1, int(round(eff_leverage)))
         add_log(status,
             f"\U0001f3af {inst_id}: رافعة x{eff_leverage} | "
@@ -528,24 +535,12 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             except (KeyError, IndexError, TypeError):
                 pass
             err_msg = detail or result.get("msg", "")
-            add_log(status, f"⚠️ {inst_id}: {err_msg} — محاولة بدون SL/TP", "warning")
-
-            result2 = client.place_order_no_sltp(inst_id, signal, sz)
-            if result2["code"] == "0":
-                add_log(status,
-                    f"✅ {direction} {inst_id} @ {live_price} | "
-                    f"درجة:{score} | (بدون SL/TP)", "success")
-                brain.record_open(memory, inst_id, signal, best["details"], live_price, score)
-                status["total_trades"] = status.get("total_trades", 0) + 1
-                trades_entered += 1
-            else:
-                detail2 = ""
-                try:
-                    detail2 = result2["data"][0].get("sMsg", "")
-                except (KeyError, IndexError, TypeError):
-                    pass
-                err_msg2 = detail2 or result2.get("msg", "خطأ غير معروف")
-                add_log(status, f"⏭️ فشل {inst_id}: {err_msg2} — جرب التالي", "warning")
+            # ⛔ حماية من التصفية: لا نفتح مركزاً بلا وقف خسارة أبداً.
+            # المركز العاري عند رافعة عالية = تصفية مؤكّدة على أول حركة 1-2%.
+            # نتخطّى العملة بدل المخاطرة. (أُزيل place_order_no_sltp بطلب «لا تتصفّى»)
+            add_log(status,
+                f"⏭️ {inst_id}: فشل وضع وقف الخسارة ({err_msg}) — "
+                f"تُخطّى لمنع مركز عارٍ يُصفّى. التالي", "warning")
 
 
 if __name__ == "__main__":
