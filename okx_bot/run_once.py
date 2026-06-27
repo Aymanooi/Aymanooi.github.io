@@ -267,8 +267,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     CAPITAL_RATIO   = cfg.CAPITAL_RATIO
     TOP_PAIRS       = cfg.SCAN_SYMBOLS
 
+    _lev_label = "أقصى/عملة" if getattr(cfg, "USE_MAX_LEVERAGE", False) else f"x{LEVERAGE}"
     add_log(status,
-        f"⚙️ {cfg.RISK_MODE} | رافعة x{LEVERAGE} | مخاطرة {cfg.RISK_PER_TRADE*100:.0f}% | "
+        f"⚙️ {cfg.RISK_MODE} | رافعة {_lev_label} | مخاطرة {cfg.RISK_PER_TRADE*100:.0f}% | "
         f"مراكز {cfg.MAX_POSITIONS} | مسح {TOP_PAIRS} عملة | أوامر {cfg.ORDER_MODE}", "info")
 
     client = OKXClient(key, secret, phrase, demo)
