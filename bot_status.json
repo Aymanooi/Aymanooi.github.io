@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 418.82,
       "size": 4.0,
-      "pnl": -0.3964
+      "pnl": -0.396
     },
     {
       "instId": "TAO-USDT-SWAP",
@@ -28,7 +28,7 @@
   "total_trades": 159,
   "logs": [
     {
-      "time": "2026-06-27 08:28:10 UTC",
+      "time": "2026-06-27 08:28:11 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
       "level": "info"
     },
@@ -488,5 +488,5 @@
     "updated": "2026-06-27 08:28:01 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 79.75
+  "drawdown": 79.8
 }
