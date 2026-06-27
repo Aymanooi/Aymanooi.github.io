@@ -1,9 +1,8 @@
 name: OKX Trading Bot — Snowball v22
 
 on:
-  # ⛔ متوقّف بطلب المستخدم — الـcron معطّل حتى يأذن بالتشغيل.
-  # schedule:
-  #   - cron: '*/30 * * * *'
+  schedule:
+    - cron: '*/30 * * * *'   # fallback كل 30 دقيقة إذا انقطعت السلسلة
   workflow_dispatch:
 
 permissions:
@@ -14,9 +13,6 @@ jobs:
   trade:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # ⛔ البوت متوقّف بطلب المستخدم. لإعادة التشغيل: احذف سطر if التالي
-    #    وأزِل التعليق عن schedule أعلاه.
-    if: ${{ false }}
 
     steps:
       - name: Checkout
