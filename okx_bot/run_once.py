@@ -460,11 +460,14 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             sl_price = round(live_price + sl_dist, 8)
             tp_price = round(live_price - tp_dist, 8)
 
-        # ── رافعة ثابتة من الإعداد (x2 — الرافعة المثلى رياضياً) ──────────────
-        eff_leverage = float(LEVERAGE)
+        # ── الرافعة: أعلى رافعة متاحة لكل عملة (طلب المستخدم، يتحمّل المسؤولية) ──
         max_lev = client.get_max_leverage(inst_id)
-        if max_lev and max_lev < eff_leverage:
-            eff_leverage = float(max_lev)
+        if getattr(cfg, "USE_MAX_LEVERAGE", False):
+            eff_leverage = float(max_lev) if max_lev else float(LEVERAGE)
+        else:
+            eff_leverage = float(LEVERAGE)
+            if max_lev and max_lev < eff_leverage:
+                eff_leverage = float(max_lev)
         eff_leverage = max(1, int(round(eff_leverage)))
         add_log(status,
             f"\U0001f3af {inst_id}: رافعة x{eff_leverage} | "
