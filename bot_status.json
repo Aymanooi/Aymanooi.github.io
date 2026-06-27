@@ -8,7 +8,7 @@
       "side": "بيع 📉",
       "entry": 0.01133,
       "size": 70.0,
-      "pnl": -0.035
+      "pnl": -0.042
     },
     {
       "instId": "ZEC-USDT-SWAP",
@@ -38,7 +38,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-27 00:06:17 UTC",
+      "time": "2026-06-27 00:06:18 UTC",
       "msg": "💰 الرصيد: $1.7348 USDT",
       "level": "info"
     },
