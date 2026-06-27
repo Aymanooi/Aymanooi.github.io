@@ -1138,33 +1138,12 @@
       "filled": true,
       "opened": "2026-06-27 18:14:36 UTC",
       "exit": 197.6
-    },
-    {
-      "instId": "ALLO-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 5,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.3,
-      "score": -36,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-27 18:27:32 UTC"
     }
   ],
   "wins": 17,
   "losses": 35,
   "lr": 0.05,
-  "updated": "2026-06-27 18:27:32 UTC",
+  "updated": "2026-06-27 18:27:33 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1258,6 +1237,6 @@
     "SKHYNIX-USDT-SWAP": "2026-06-27T17:02:45.926983+00:00",
     "H-USDT-SWAP": "2026-06-27T17:14:52.414990+00:00",
     "SOXL-USDT-SWAP": "2026-06-27T17:42:13.605032+00:00",
-    "BCH-USDT-SWAP": "2026-06-27T18:27:02.661477+00:00"
+    "BCH-USDT-SWAP": "2026-06-27T18:27:33.294624+00:00"
   }
 }
