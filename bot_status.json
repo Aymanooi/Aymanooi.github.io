@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 418.82,
       "size": 4.0,
-      "pnl": -0.004
+      "pnl": -0.0032
     },
     {
       "instId": "TAO-USDT-SWAP",
@@ -38,7 +38,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-27 02:08:55 UTC",
+      "time": "2026-06-27 02:08:56 UTC",
       "msg": "💰 الرصيد: $0.0765 USDT",
       "level": "info"
     },
@@ -476,5 +476,5 @@
     "updated": "2026-06-27 02:08:26 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 74.86
+  "drawdown": 74.87
 }
