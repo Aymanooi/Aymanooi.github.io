@@ -1,14 +1,14 @@
 {
-  "last_run": "2026-06-27 01:04:34 UTC",
+  "last_run": "2026-06-27 01:04:31 UTC",
   "mode": "Live 💰",
-  "balance": 1.5661,
+  "balance": 1.5686,
   "positions": [
     {
       "instId": "ZEC-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 418.82,
       "size": 4.0,
-      "pnl": 0.0068
+      "pnl": 0.0076
     },
     {
       "instId": "TAO-USDT-SWAP",
@@ -21,57 +21,57 @@
   "total_trades": 157,
   "logs": [
     {
-      "time": "2026-06-27 01:05:09 UTC",
+      "time": "2026-06-27 01:05:13 UTC",
       "msg": "⏭️ maker فشل FOGO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-27 01:05:09 UTC",
+      "time": "2026-06-27 01:05:12 UTC",
       "msg": "🎯 FOGO-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:05:08 UTC",
+      "time": "2026-06-27 01:05:12 UTC",
       "msg": "⏭️ maker فشل O-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-27 01:05:07 UTC",
+      "time": "2026-06-27 01:05:11 UTC",
       "msg": "🎯 O-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:05:07 UTC",
+      "time": "2026-06-27 01:05:10 UTC",
       "msg": "🧠 Brain WR=38.6% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 3 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:05:07 UTC",
+      "time": "2026-06-27 01:05:10 UTC",
       "msg": "⚖️ تركّز buy (2/3) — أُفضّل sell لتوازن المحفظة وتقليل خطر الترابط",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:04:35 UTC",
+      "time": "2026-06-27 01:04:32 UTC",
       "msg": "📉 رأس المال الكلي: $4.09 | القمّة $13.21 | تراجع 69.0% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:04:35 UTC",
-      "msg": "💰 الرصيد: $1.5661 USDT",
+      "time": "2026-06-27 01:04:32 UTC",
+      "msg": "💰 الرصيد: $1.5686 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:04:34 UTC",
+      "time": "2026-06-27 01:04:31 UTC",
       "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:04:34 UTC",
+      "time": "2026-06-27 01:04:31 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-27 01:04:34 UTC",
+      "time": "2026-06-27 01:04:31 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -430,6 +430,12 @@
       "prob": 0.78
     },
     {
+      "instId": "NES-USDT-SWAP",
+      "signal": "buy",
+      "score": 49,
+      "prob": 0.71
+    },
+    {
       "instId": "O-USDT-SWAP",
       "signal": "sell",
       "score": -44,
@@ -446,12 +452,6 @@
       "signal": "sell",
       "score": -36,
       "prob": 0.32
-    },
-    {
-      "instId": "XAU-USDT-SWAP",
-      "signal": "buy",
-      "score": 35,
-      "prob": 0.66
     }
   ],
   "peaks": {
@@ -481,5 +481,5 @@
     "updated": "2026-06-27 01:03:59 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 69.05
+  "drawdown": 69.04
 }
