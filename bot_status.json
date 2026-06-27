@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-27 00:10:07 UTC",
   "mode": "Live 💰",
-  "balance": 1.7449,
+  "balance": 1.7445,
   "positions": [
     {
       "instId": "FOGO-USDT-SWAP",
@@ -38,8 +38,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-27 00:10:08 UTC",
-      "msg": "💰 الرصيد: $1.7449 USDT",
+      "time": "2026-06-27 00:10:07 UTC",
+      "msg": "💰 الرصيد: $1.7445 USDT",
       "level": "info"
     },
     {
