@@ -24,7 +24,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-27 21:18:30 UTC",
+      "time": "2026-06-27 21:18:31 UTC",
       "msg": "💰 الرصيد: $0.0000 USDT",
       "level": "info"
     },
@@ -474,5 +474,5 @@
     "updated": "2026-06-27 21:18:22 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 90.46
+  "drawdown": 90.47
 }
