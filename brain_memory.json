@@ -983,12 +983,33 @@
       "status": "open",
       "filled": true,
       "opened": "2026-06-26 23:43:53 UTC"
+    },
+    {
+      "instId": "WIF-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.1573,
+      "score": 38,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-27 01:48:40 UTC"
     }
   ],
   "wins": 17,
   "losses": 27,
   "lr": 0.05,
-  "updated": "2026-06-27 01:48:33 UTC",
+  "updated": "2026-06-27 01:48:40 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1074,6 +1095,6 @@
     "TRUMP-USDT-SWAP": "2026-06-26T21:34:18.677165+00:00",
     "SNDK-USDT-SWAP": "2026-06-26T23:42:13.366140+00:00",
     "FOGO-USDT-SWAP": "2026-06-27T00:43:22.438348+00:00",
-    "O-USDT-SWAP": "2026-06-27T01:47:45.044326+00:00"
+    "O-USDT-SWAP": "2026-06-27T01:47:56.912475+00:00"
   }
 }
