@@ -1,32 +1,62 @@
 {
-  "last_run": "2026-06-27 03:16:31 UTC",
+  "last_run": "2026-06-27 03:16:40 UTC",
   "mode": "Live 💰",
-  "balance": 0.0498,
+  "balance": 0.0414,
   "positions": [
     {
       "instId": "ETH-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 1578.66,
       "size": 0.02,
-      "pnl": 0.0009
+      "pnl": 0.0008
     },
     {
       "instId": "ZEC-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 418.82,
       "size": 4.0,
-      "pnl": -0.2128
+      "pnl": -0.2172
     },
     {
       "instId": "TAO-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 214.4,
       "size": 4.0,
-      "pnl": -0.036
+      "pnl": -0.04
     }
   ],
   "total_trades": 159,
   "logs": [
+    {
+      "time": "2026-06-27 03:16:41 UTC",
+      "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-27 03:16:41 UTC",
+      "msg": "📉 رأس المال الكلي: $2.86 | القمّة $13.21 | تراجع 78.3% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-27 03:16:40 UTC",
+      "msg": "💰 الرصيد: $0.0414 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-27 03:16:40 UTC",
+      "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-27 03:16:40 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-27 03:16:40 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-27 03:16:32 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
@@ -396,36 +426,6 @@
       "time": "2026-06-27 03:12:58 UTC",
       "msg": "🎯 DYDX-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
       "level": "info"
-    },
-    {
-      "time": "2026-06-27 03:12:58 UTC",
-      "msg": "⏭️ maker فشل OKB-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-27 03:12:57 UTC",
-      "msg": "🎯 OKB-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-27 03:12:56 UTC",
-      "msg": "⏭️ maker فشل KAITO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-27 03:12:55 UTC",
-      "msg": "🎯 KAITO-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-27 03:12:55 UTC",
-      "msg": "⏭️ maker فشل WIF-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-27 03:12:54 UTC",
-      "msg": "🎯 WIF-USDT-SWAP: رافعة x10 | SL 4.00% TP 2.00%",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -485,8 +485,8 @@
       "RSIDivergence": 0.994
     },
     "kelly": 9.1,
-    "updated": "2026-06-27 03:16:17 UTC"
+    "updated": "2026-06-27 03:16:32 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 78.27
+  "drawdown": 78.33
 }
