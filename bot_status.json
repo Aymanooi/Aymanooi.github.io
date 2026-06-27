@@ -8,14 +8,14 @@
       "side": "شراء 📈",
       "entry": 1578.66,
       "size": 0.02,
-      "pnl": 0.0123
+      "pnl": 0.0124
     },
     {
       "instId": "ZEC-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 418.82,
       "size": 4.0,
-      "pnl": -0.3012
+      "pnl": -0.3008
     },
     {
       "instId": "TAO-USDT-SWAP",
@@ -28,7 +28,7 @@
   "total_trades": 159,
   "logs": [
     {
-      "time": "2026-06-27 07:58:12 UTC",
+      "time": "2026-06-27 07:58:13 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
       "level": "info"
     },
@@ -38,7 +38,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-27 07:58:11 UTC",
+      "time": "2026-06-27 07:58:12 UTC",
       "msg": "💰 الرصيد: $0.0053 USDT",
       "level": "info"
     },
