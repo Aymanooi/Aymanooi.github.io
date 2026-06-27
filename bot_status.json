@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-27 03:37:14 UTC",
   "mode": "Live 💰",
-  "balance": 0.0981,
+  "balance": 0.0984,
   "positions": [
     {
       "instId": "ETH-USDT-SWAP",
@@ -15,7 +15,7 @@
       "side": "شراء 📈",
       "entry": 418.82,
       "size": 4.0,
-      "pnl": -0.1588
+      "pnl": -0.1584
     },
     {
       "instId": "TAO-USDT-SWAP",
@@ -28,7 +28,7 @@
   "total_trades": 159,
   "logs": [
     {
-      "time": "2026-06-27 03:37:15 UTC",
+      "time": "2026-06-27 03:37:16 UTC",
       "msg": "مراكز مفتوحة: 3/3 — لا دخول جديد",
       "level": "info"
     },
@@ -38,8 +38,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-27 03:37:14 UTC",
-      "msg": "💰 الرصيد: $0.0981 USDT",
+      "time": "2026-06-27 03:37:15 UTC",
+      "msg": "💰 الرصيد: $0.0984 USDT",
       "level": "info"
     },
     {
