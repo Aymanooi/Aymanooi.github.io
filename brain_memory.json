@@ -1160,12 +1160,33 @@
       "filled": true,
       "opened": "2026-06-27 19:16:18 UTC",
       "exit": 0.4577
+    },
+    {
+      "instId": "ARX-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.2939,
+      "score": -36,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-27 21:30:51 UTC"
     }
   ],
   "wins": 17,
   "losses": 36,
   "lr": 0.05,
-  "updated": "2026-06-27 21:29:59 UTC",
+  "updated": "2026-06-27 21:30:51 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1225,7 +1246,7 @@
     "BSB-USDT-SWAP": "2026-06-24T16:29:45.004968+00:00",
     "TIA-USDT-SWAP": "2026-06-24T20:50:56.321891+00:00",
     "AVAX-USDT-SWAP": "2026-06-24T21:16:52.766082+00:00",
-    "HYPE-USDT-SWAP": "2026-06-25T10:13:28.023219+00:00",
+    "HYPE-USDT-SWAP": "2026-06-27T21:30:34.794120+00:00",
     "LAB-USDT-SWAP": "2026-06-24T16:43:57.577373+00:00",
     "LQTY-USDT-SWAP": "2026-06-24T16:10:43.103337+00:00",
     "PI-USDT-SWAP": "2026-06-25T10:59:17.737060+00:00",
