@@ -983,33 +983,12 @@
       "status": "open",
       "filled": true,
       "opened": "2026-06-26 23:43:53 UTC"
-    },
-    {
-      "instId": "O-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -5,
-        "OBV": -10,
-        "RSIDivergence": -15
-      },
-      "entry": 0.4052,
-      "score": -41,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-27 01:04:50 UTC"
     }
   ],
   "wins": 17,
   "losses": 27,
   "lr": 0.05,
-  "updated": "2026-06-27 01:04:50 UTC",
+  "updated": "2026-06-27 01:04:59 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
