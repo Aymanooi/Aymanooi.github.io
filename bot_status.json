@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-27 00:12:18 UTC",
   "mode": "Live 💰",
-  "balance": 1.7839,
+  "balance": 1.7807,
   "positions": [
     {
       "instId": "FOGO-USDT-SWAP",
@@ -38,12 +38,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-27 00:12:18 UTC",
-      "msg": "💰 الرصيد: $1.7839 USDT",
+      "time": "2026-06-27 00:12:19 UTC",
+      "msg": "💰 الرصيد: $1.7807 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-27 00:12:18 UTC",
+      "time": "2026-06-27 00:12:19 UTC",
       "msg": "⚙️ rocket | رافعة x10 | مخاطرة 5% | مراكز 3 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -476,5 +476,5 @@
     "updated": "2026-06-27 00:11:57 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 61.26
+  "drawdown": 61.27
 }
