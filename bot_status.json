@@ -1,62 +1,72 @@
 {
-  "last_run": "2026-06-28 03:33:07 UTC",
+  "last_run": "2026-06-28 03:33:01 UTC",
   "mode": "Live 💰",
   "balance": 0.8353,
   "positions": [],
   "total_trades": 169,
   "logs": [
     {
-      "time": "2026-06-28 03:33:19 UTC",
+      "time": "2026-06-28 03:33:18 UTC",
       "msg": "⏭️ CL-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 03:33:18 UTC",
+      "time": "2026-06-28 03:33:17 UTC",
       "msg": "🎯 CL-USDT-SWAP: رافعة x50 | SL 0.50% TP 1.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:18 UTC",
+      "time": "2026-06-28 03:33:16 UTC",
+      "msg": "⏭️ PIEVERSE-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 03:33:15 UTC",
+      "msg": "🎯 PIEVERSE-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 03:33:15 UTC",
       "msg": "🧠 Brain WR=30.9% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:18 UTC",
+      "time": "2026-06-28 03:33:15 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:08 UTC",
+      "time": "2026-06-28 03:33:02 UTC",
       "msg": "⏳ أُغلقت: BEAT-USDT-SWAP — إعادة دخول بعد 30 ثانية",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:08 UTC",
+      "time": "2026-06-28 03:33:02 UTC",
       "msg": "🧠 Brain تعلّم: BEAT-USDT-SWAP → خسارة ❌ (فعلي)",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:07 UTC",
+      "time": "2026-06-28 03:33:02 UTC",
       "msg": "📉 رأس المال الكلي: $0.84 | القمّة $13.21 | تراجع 93.7% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:07 UTC",
+      "time": "2026-06-28 03:33:01 UTC",
       "msg": "💰 الرصيد: $0.8353 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:07 UTC",
+      "time": "2026-06-28 03:33:01 UTC",
       "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:07 UTC",
+      "time": "2026-06-28 03:33:01 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:33:07 UTC",
+      "time": "2026-06-28 03:33:01 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -394,20 +404,16 @@
       "time": "2026-06-28 03:30:56 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
-    },
-    {
-      "time": "2026-06-28 03:30:56 UTC",
-      "msg": "📉 رأس المال الكلي: $0.86 | القمّة $13.21 | تراجع 93.5% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 03:30:55 UTC",
-      "msg": "💰 الرصيد: $0.0674 USDT",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
+    {
+      "instId": "PIEVERSE-USDT-SWAP",
+      "signal": "buy",
+      "score": 37,
+      "prob": 0.67
+    },
     {
       "instId": "CL-USDT-SWAP",
       "signal": "sell",
