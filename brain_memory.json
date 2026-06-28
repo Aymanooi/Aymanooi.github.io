@@ -1338,12 +1338,33 @@
       "opened": "2026-06-28 19:34:20 UTC",
       "exit": 0.08251,
       "closed": "2026-06-28 20:11:32 UTC"
+    },
+    {
+      "instId": "SKHYNIX-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1801.77,
+      "score": 36,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-28 20:12:12 UTC"
     }
   ],
   "wins": 19,
   "losses": 42,
   "lr": 0.05,
-  "updated": "2026-06-28 20:11:50 UTC",
+  "updated": "2026-06-28 20:12:12 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
