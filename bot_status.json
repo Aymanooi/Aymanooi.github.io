@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-28 04:50:02 UTC",
   "mode": "Live 💰",
-  "balance": 0.086,
+  "balance": 0.0851,
   "positions": [
     {
       "instId": "SAMSUNG-USDT-SWAP",
@@ -25,7 +25,7 @@
     },
     {
       "time": "2026-06-28 04:50:03 UTC",
-      "msg": "💰 الرصيد: $0.0860 USDT",
+      "msg": "💰 الرصيد: $0.0851 USDT",
       "level": "info"
     },
     {
