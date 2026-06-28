@@ -258,7 +258,7 @@ def _cancel_stale_maker_orders(status, client, memory, active):
 
 async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     from okx_client import OKXClient
-    from strategy import analyze
+    from strategy import analyze, stochastic
     import config as cfg
 
     LEVERAGE        = cfg.LEVERAGE
@@ -410,6 +410,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                             d15 = 1 if float(h15[-1][4]) > float(h15[-2][4]) else -1
                             if d15 != sig_dir:
                                 continue   # الإطار 15m يعارض — تخطّ
+                # ── تأكيد Stochastic — لا تدخل والمؤشّر مُنهَك (PF 1.49→2.09 بالباكتيست) ──
+                if getattr(cfg, "STOCH_CONFIRM", False):
+                    ch = sorted(c15, key=lambda x: int(x[0]))
+                    kk, _ = stochastic([float(x[2]) for x in ch],
+                                       [float(x[3]) for x in ch],
+                                       [float(x[4]) for x in ch])
+                    if (r["signal"] == "buy" and kk >= 80) or \
+                       (r["signal"] == "sell" and kk <= 20):
+                        continue   # المؤشّر مُنهَك — تخطّ
                 adj, prob = brain.adjusted_score(r["details"], memory)
                 signals.append({"instId": inst_id, **r,
                                  "adj_score": adj, "prob": prob})
