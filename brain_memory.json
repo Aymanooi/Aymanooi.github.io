@@ -1270,6 +1270,27 @@
       "filled": true,
       "opened": "2026-06-28 12:16:10 UTC",
       "exit": 0.5049
+    },
+    {
+      "instId": "O-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.5143,
+      "score": 36,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-06-28 15:10:34 UTC"
     }
   ],
   "wins": 18,
@@ -1376,7 +1397,7 @@
     "UB-USDT-SWAP": "2026-06-28T12:36:43.096499+00:00",
     "CL-USDT-SWAP": "2026-06-28T04:14:41.057035+00:00",
     "CAP-USDT-SWAP": "2026-06-28T12:15:47.326190+00:00",
-    "OKB-USDT-SWAP": "2026-06-28T15:09:59.084400+00:00",
+    "OKB-USDT-SWAP": "2026-06-28T15:10:13.504418+00:00",
     "PUMP-USDT-SWAP": "2026-06-28T14:33:20.606230+00:00"
   }
 }
