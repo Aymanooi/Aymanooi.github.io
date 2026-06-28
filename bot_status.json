@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-28 10:45:03 UTC",
   "mode": "Live 💰",
-  "balance": 0.0876,
+  "balance": 0.0854,
   "positions": [
     {
       "instId": "ZEC-USDT-SWAP",
@@ -25,7 +25,7 @@
     },
     {
       "time": "2026-06-28 10:45:04 UTC",
-      "msg": "💰 الرصيد: $0.0876 USDT",
+      "msg": "💰 الرصيد: $0.0854 USDT",
       "level": "info"
     },
     {
