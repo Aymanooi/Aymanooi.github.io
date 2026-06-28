@@ -410,6 +410,14 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                             d15 = 1 if float(h15[-1][4]) > float(h15[-2][4]) else -1
                             if d15 != sig_dir:
                                 continue   # الإطار 15m يعارض — تخطّ
+                    # تأكيد الإطار الرابع 1H (أقوى نظام: PF 1.38→1.69 خارج العيّنة)
+                    if getattr(cfg, "HTF_1H_CONFIRM", False):
+                        c1hr = client.get_candles(inst_id, bar="1H", limit=30)
+                        if len(c1hr) >= 2:
+                            hh = sorted(c1hr, key=lambda x: int(x[0]))
+                            d1h = 1 if float(hh[-1][4]) > float(hh[-2][4]) else -1
+                            if d1h != sig_dir:
+                                continue   # الإطار 1H يعارض — تخطّ
                 # ── تأكيد Stochastic — لا تدخل والمؤشّر مُنهَك (PF 1.49→2.09 بالباكتيست) ──
                 if getattr(cfg, "STOCH_CONFIRM", False):
                     ch = sorted(c15, key=lambda x: int(x[0]))
