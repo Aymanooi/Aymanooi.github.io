@@ -258,13 +258,14 @@ def regime_ok(memory, window=8, min_wr=0.40, max_age_seconds=3600):
         if t.get("status") not in ("win", "loss"):
             continue
         ct = t.get("closed")
-        if ct:
-            try:
-                dt = datetime.strptime(ct, "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=timezone.utc)
-                if (now - dt).total_seconds() > max_age_seconds:
-                    continue
-            except Exception:
-                pass
+        if not ct:
+            continue   # بلا طابع زمني = صفقة قديمة (قبل الميزة) — تُتجاهَل، لا تحتجز البوّابة
+        try:
+            dt = datetime.strptime(ct, "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=timezone.utc)
+            if (now - dt).total_seconds() > max_age_seconds:
+                continue
+        except Exception:
+            continue
         recent.append(1 if t["status"] == "win" else 0)
         if len(recent) >= window:
             break
