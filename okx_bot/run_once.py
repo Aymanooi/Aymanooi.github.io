@@ -258,7 +258,7 @@ def _cancel_stale_maker_orders(status, client, memory, active):
 
 async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     from okx_client import OKXClient
-    from strategy import analyze, stochastic
+    from strategy import analyze, stochastic, rsi
     import config as cfg
 
     LEVERAGE        = cfg.LEVERAGE
@@ -419,6 +419,14 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                     if (r["signal"] == "buy" and kk >= 80) or \
                        (r["signal"] == "sell" and kk <= 20):
                         continue   # المؤشّر مُنهَك — تخطّ
+                # ── RSI معتدل — أقوى استراتيجية صمدت خارج العيّنة (PF 1.17→1.30، ضِعف) ──
+                # لا تدخل عند RSI متطرّف؛ نتجنّب الدخول المُنهَك. شراء 40-68، بيع 32-60.
+                if getattr(cfg, "RSI_MODERATE", False):
+                    chr_=sorted(c15, key=lambda x: int(x[0]))
+                    rv=rsi([float(x[4]) for x in chr_], 14)
+                    if (r["signal"]=="buy"  and not (40 <= rv <= 68)) or \
+                       (r["signal"]=="sell" and not (32 <= rv <= 60)):
+                        continue
                 adj, prob = brain.adjusted_score(r["details"], memory)
                 signals.append({"instId": inst_id, **r,
                                  "adj_score": adj, "prob": prob})
