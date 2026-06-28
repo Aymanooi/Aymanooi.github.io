@@ -1204,12 +1204,33 @@
       "filled": true,
       "opened": "2026-06-28 03:30:19 UTC",
       "exit": 2.6498
+    },
+    {
+      "instId": "SAMSUNG-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 5,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 223.48,
+      "score": 36,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-06-28 04:14:55 UTC"
     }
   ],
   "wins": 17,
   "losses": 38,
   "lr": 0.05,
-  "updated": "2026-06-28 04:14:58 UTC",
+  "updated": "2026-06-28 04:14:59 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1308,6 +1329,6 @@
     "SAMSUNG-USDT-SWAP": "2026-06-28T01:04:06.938040+00:00",
     "MU-USDT-SWAP": "2026-06-28T02:57:19.498154+00:00",
     "UB-USDT-SWAP": "2026-06-28T03:14:24.076886+00:00",
-    "CL-USDT-SWAP": "2026-06-28T04:14:58.101760+00:00"
+    "CL-USDT-SWAP": "2026-06-28T04:14:41.057035+00:00"
   }
 }
