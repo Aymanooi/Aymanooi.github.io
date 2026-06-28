@@ -1270,6 +1270,27 @@
       "filled": true,
       "opened": "2026-06-28 12:16:10 UTC",
       "exit": 0.504
+    },
+    {
+      "instId": "UB-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 12,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.0841,
+      "score": -49,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-28 12:21:47 UTC"
     }
   ],
   "wins": 18,
