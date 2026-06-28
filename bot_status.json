@@ -1,20 +1,20 @@
 {
   "last_run": "2026-06-28 22:02:49 UTC",
   "mode": "Live 💰",
-  "balance": 0.4125,
+  "balance": 0.4104,
   "positions": [
     {
       "instId": "DOGE-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 0.07265,
       "size": 0.2,
-      "pnl": -0.15
+      "pnl": -0.152
     }
   ],
   "total_trades": 185,
   "logs": [
     {
-      "time": "2026-06-28 22:02:50 UTC",
+      "time": "2026-06-28 22:02:51 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
@@ -25,11 +25,11 @@
     },
     {
       "time": "2026-06-28 22:02:50 UTC",
-      "msg": "💰 الرصيد: $0.4125 USDT",
+      "msg": "💰 الرصيد: $0.4104 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-28 22:02:49 UTC",
+      "time": "2026-06-28 22:02:50 UTC",
       "msg": "⚙️ rocket | رافعة x13 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
