@@ -1160,33 +1160,12 @@
       "filled": true,
       "opened": "2026-06-27 19:16:18 UTC",
       "exit": 0.4577
-    },
-    {
-      "instId": "ARX-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 12,
-        "MACD": -15,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.2742,
-      "score": -42,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-28 02:57:31 UTC"
     }
   ],
   "wins": 17,
   "losses": 36,
   "lr": 0.05,
-  "updated": "2026-06-28 02:57:31 UTC",
+  "updated": "2026-06-28 02:57:32 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1283,6 +1262,6 @@
     "BCH-USDT-SWAP": "2026-06-27T18:27:33.294624+00:00",
     "DRAM-USDT-SWAP": "2026-06-27T19:28:09.138275+00:00",
     "SAMSUNG-USDT-SWAP": "2026-06-28T01:04:06.938040+00:00",
-    "MU-USDT-SWAP": "2026-06-28T02:57:18.934354+00:00"
+    "MU-USDT-SWAP": "2026-06-28T02:57:19.498154+00:00"
   }
 }
