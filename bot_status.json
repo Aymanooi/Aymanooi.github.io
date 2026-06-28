@@ -8,7 +8,7 @@
       "side": "شراء 📈",
       "entry": 0.08376,
       "size": 2.0,
-      "pnl": 0.022
+      "pnl": 0.024
     }
   ],
   "total_trades": 168,
@@ -24,7 +24,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:11:58 UTC",
+      "time": "2026-06-28 03:11:59 UTC",
       "msg": "💰 الرصيد: $0.2914 USDT",
       "level": "info"
     },
@@ -468,5 +468,5 @@
     "updated": "2026-06-28 03:11:52 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 91.44
+  "drawdown": 91.43
 }
