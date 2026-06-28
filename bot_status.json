@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-28 01:54:15 UTC",
   "mode": "Live 💰",
-  "balance": 0.2571,
+  "balance": 0.2581,
   "positions": [
     {
       "instId": "MU-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 1125.59,
       "size": 0.05,
-      "pnl": 0.0705
+      "pnl": 0.0715
     }
   ],
   "total_trades": 167,
@@ -24,12 +24,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-28 01:54:16 UTC",
-      "msg": "💰 الرصيد: $0.2571 USDT",
+      "time": "2026-06-28 01:54:15 UTC",
+      "msg": "💰 الرصيد: $0.2581 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-28 01:54:16 UTC",
+      "time": "2026-06-28 01:54:15 UTC",
       "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
       "level": "info"
     },
@@ -456,5 +456,5 @@
     "updated": "2026-06-28 01:54:03 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 89.55
+  "drawdown": 89.54
 }
