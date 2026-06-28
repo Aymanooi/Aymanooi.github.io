@@ -7,21 +7,11 @@
   "logs": [
     {
       "time": "2026-06-28 01:06:45 UTC",
-      "msg": "⏭️ AGLD-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 01:06:44 UTC",
-      "msg": "🎯 AGLD-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 01:06:44 UTC",
       "msg": "⏭️ SPCX-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 01:06:43 UTC",
+      "time": "2026-06-28 01:06:44 UTC",
       "msg": "🎯 SPCX-USDT-SWAP: رافعة x75 | SL 0.50% TP 1.00%",
       "level": "info"
     },
@@ -36,7 +26,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-28 01:06:28 UTC",
+      "time": "2026-06-28 01:06:29 UTC",
       "msg": "📉 رأس المال الكلي: $1.34 | القمّة $13.21 | تراجع 89.9% | مُنظّم ×0.00",
       "level": "info"
     },
@@ -404,6 +394,16 @@
       "time": "2026-06-28 01:03:28 UTC",
       "msg": "📉 رأس المال الكلي: $1.36 | القمّة $13.21 | تراجع 89.7% | مُنظّم ×0.00",
       "level": "info"
+    },
+    {
+      "time": "2026-06-28 01:03:27 UTC",
+      "msg": "💰 الرصيد: $0.2532 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 01:03:27 UTC",
+      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -413,12 +413,6 @@
       "signal": "buy",
       "score": 45,
       "prob": 0.69
-    },
-    {
-      "instId": "AGLD-USDT-SWAP",
-      "signal": "sell",
-      "score": -35,
-      "prob": 0.36
     }
   ],
   "peaks": {
