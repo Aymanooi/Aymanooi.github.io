@@ -6,107 +6,102 @@
   "total_trades": 174,
   "logs": [
     {
-      "time": "2026-06-28 17:25:28 UTC",
-      "msg": "⏭️ PROS-USDT-SWAP: رافعتها القصوى x20.0 ≤ x40 — تُخطّى. التالي",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:27 UTC",
-      "msg": "⏭️ LAB-USDT-SWAP: رافعتها القصوى x10.0 ≤ x40 — تُخطّى. التالي",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:27 UTC",
-      "msg": "⏭️ WIF-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 17:25:26 UTC",
-      "msg": "🎯 WIF-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:26 UTC",
-      "msg": "⏭️ MU-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 17:25:25 UTC",
-      "msg": "🎯 MU-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:24 UTC",
-      "msg": "⏭️ S-USDT-SWAP: رافعتها القصوى x20.0 ≤ x40 — تُخطّى. التالي",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:24 UTC",
-      "msg": "⏭️ SUI-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 17:25:23 UTC",
-      "msg": "🎯 SUI-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:23 UTC",
-      "msg": "⏭️ ETH-USDT-SWAP: فشل وضع وقف الخسارة (Order quantity must be a multiple of the lot size.) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 17:25:22 UTC",
-      "msg": "🎯 ETH-USDT-SWAP: رافعة x100 | SL 0.50% TP 0.50%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:22 UTC",
-      "msg": "⏭️ FIL-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 17:25:21 UTC",
-      "msg": "🎯 FIL-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:20 UTC",
-      "msg": "⏭️ DOT-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 17:25:19 UTC",
-      "msg": "🎯 DOT-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 17:25:19 UTC",
+      "time": "2026-06-28 17:25:34 UTC",
       "msg": "⏭️ CAP-USDT-SWAP: رافعتها القصوى x20.0 ≤ x40 — تُخطّى. التالي",
       "level": "info"
     },
     {
-      "time": "2026-06-28 17:25:19 UTC",
+      "time": "2026-06-28 17:25:33 UTC",
+      "msg": "⏭️ PROS-USDT-SWAP: رافعتها القصوى x20.0 ≤ x40 — تُخطّى. التالي",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:33 UTC",
+      "msg": "⏭️ LAB-USDT-SWAP: رافعتها القصوى x10.0 ≤ x40 — تُخطّى. التالي",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:32 UTC",
+      "msg": "⏭️ XPL-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 17:25:31 UTC",
+      "msg": "🎯 XPL-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:31 UTC",
+      "msg": "⏭️ WIF-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 17:25:30 UTC",
+      "msg": "🎯 WIF-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:29 UTC",
+      "msg": "⏭️ SUI-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 17:25:28 UTC",
+      "msg": "🎯 SUI-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:28 UTC",
+      "msg": "⏭️ ETH-USDT-SWAP: فشل وضع وقف الخسارة (Order quantity must be a multiple of the lot size.) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 17:25:27 UTC",
+      "msg": "🎯 ETH-USDT-SWAP: رافعة x100 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:26 UTC",
+      "msg": "⏭️ FIL-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 17:25:25 UTC",
+      "msg": "🎯 FIL-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:25 UTC",
+      "msg": "⏭️ DOT-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 17:25:24 UTC",
+      "msg": "🎯 DOT-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 17:25:23 UTC",
       "msg": "⏭️ TRUMP-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 17:25:18 UTC",
+      "time": "2026-06-28 17:25:22 UTC",
       "msg": "🎯 TRUMP-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 17:25:17 UTC",
+      "time": "2026-06-28 17:25:22 UTC",
       "msg": "🧠 Brain WR=30.5% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-28 17:24:50 UTC",
+      "time": "2026-06-28 17:24:51 UTC",
       "msg": "📉 رأس المال الكلي: $3.03 | القمّة $13.21 | تراجع 77.0% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-28 17:24:50 UTC",
+      "time": "2026-06-28 17:24:51 UTC",
       "msg": "💰 الرصيد: $3.0337 USDT",
       "level": "info"
     },
@@ -404,6 +399,11 @@
       "time": "2026-06-28 17:19:51 UTC",
       "msg": "⏭️ MU-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
+    },
+    {
+      "time": "2026-06-28 17:19:50 UTC",
+      "msg": "🎯 MU-USDT-SWAP: رافعة x50 | SL 0.50% TP 0.50%",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -413,12 +413,6 @@
       "signal": "sell",
       "score": -40,
       "prob": 0.27
-    },
-    {
-      "instId": "CAP-USDT-SWAP",
-      "signal": "sell",
-      "score": -48,
-      "prob": 0.28
     },
     {
       "instId": "DOT-USDT-SWAP",
@@ -434,6 +428,12 @@
     },
     {
       "instId": "ETH-USDT-SWAP",
+      "signal": "sell",
+      "score": -37,
+      "prob": 0.31
+    },
+    {
+      "instId": "SUI-USDT-SWAP",
       "signal": "sell",
       "score": -37,
       "prob": 0.31
