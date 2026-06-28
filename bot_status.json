@@ -6,27 +6,32 @@
   "total_trades": 184,
   "logs": [
     {
-      "time": "2026-06-28 21:56:51 UTC",
+      "time": "2026-06-28 21:56:56 UTC",
       "msg": "📤 maker بيع 📉 DOGE-USDT-SWAP @~0.07262 x13 | درجة:-45 | رأس المال:$0.283 | SL:1.50% TP:0.70% (بانتظار التنفيذ)",
       "level": "success"
     },
     {
-      "time": "2026-06-28 21:56:50 UTC",
+      "time": "2026-06-28 21:56:55 UTC",
       "msg": "🎯 DOGE-USDT-SWAP: رافعة x13 | SL 1.50% TP 0.70%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 21:56:50 UTC",
+      "time": "2026-06-28 21:56:55 UTC",
       "msg": "🧠 Brain WR=31.1% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
       "time": "2026-06-28 21:56:36 UTC",
+      "msg": "🧹 أُلغيت 1 أوامر maker عالقة + نُظّفت من الدماغ",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 21:56:35 UTC",
       "msg": "📉 رأس المال الكلي: $1.69 | القمّة $13.21 | تراجع 87.2% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-28 21:56:36 UTC",
+      "time": "2026-06-28 21:56:35 UTC",
       "msg": "💰 الرصيد: $0.2857 USDT",
       "level": "info"
     },
@@ -399,11 +404,6 @@
       "time": "2026-06-28 21:53:46 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
-    },
-    {
-      "time": "2026-06-28 21:53:46 UTC",
-      "msg": "📉 رأس المال الكلي: $1.83 | القمّة $13.21 | تراجع 86.1% | مُنظّم ×0.00",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -421,22 +421,22 @@
       "prob": 0.31
     },
     {
-      "instId": "ZEC-USDT-SWAP",
-      "signal": "sell",
-      "score": -45,
-      "prob": 0.31
-    },
-    {
       "instId": "XRP-USDT-SWAP",
       "signal": "sell",
       "score": -45,
       "prob": 0.31
     },
     {
-      "instId": "AGLD-USDT-SWAP",
+      "instId": "BNB-USDT-SWAP",
+      "signal": "sell",
+      "score": -45,
+      "prob": 0.31
+    },
+    {
+      "instId": "XAU-USDT-SWAP",
       "signal": "sell",
       "score": -42,
-      "prob": 0.31
+      "prob": 0.33
     }
   ],
   "peaks": {
