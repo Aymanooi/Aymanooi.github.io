@@ -1247,34 +1247,13 @@
       "status": "loss",
       "filled": true,
       "opened": "2026-06-28 10:37:09 UTC",
-      "exit": 387.85
-    },
-    {
-      "instId": "O-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.50035,
-      "score": -53,
-      "status": "open",
-      "filled": true,
-      "opened": "2026-06-28 11:56:06 UTC"
+      "exit": 387.78
     }
   ],
   "wins": 18,
   "losses": 39,
   "lr": 0.05,
-  "updated": "2026-06-28 11:56:20 UTC",
+  "updated": "2026-06-28 11:56:21 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1363,7 +1342,7 @@
     "O-USDT-SWAP": "2026-06-27T19:17:30.588528+00:00",
     "BASED-USDT-SWAP": "2026-06-27T03:11:40.066105+00:00",
     "TAO-USDT-SWAP": "2026-06-27T12:08:53.433956+00:00",
-    "ZEC-USDT-SWAP": "2026-06-28T11:55:53.563527+00:00",
+    "ZEC-USDT-SWAP": "2026-06-28T11:56:01.880964+00:00",
     "BNB-USDT-SWAP": "2026-06-27T15:37:51.818462+00:00",
     "SKHYNIX-USDT-SWAP": "2026-06-27T17:02:45.926983+00:00",
     "H-USDT-SWAP": "2026-06-27T19:19:41.139775+00:00",
