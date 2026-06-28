@@ -6,17 +6,17 @@
   "total_trades": 178,
   "logs": [
     {
-      "time": "2026-06-28 21:23:15 UTC",
+      "time": "2026-06-28 21:23:12 UTC",
       "msg": "⏭️ maker فشل SOL-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 21:23:14 UTC",
+      "time": "2026-06-28 21:23:11 UTC",
       "msg": "🎯 SOL-USDT-SWAP: رافعة x13 | SL 1.50% TP 0.70%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 21:23:14 UTC",
+      "time": "2026-06-28 21:23:11 UTC",
       "msg": "🧠 Brain WR=31.1% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
