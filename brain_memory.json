@@ -1338,6 +1338,27 @@
       "opened": "2026-06-28 19:34:20 UTC",
       "exit": 0.08251,
       "closed": "2026-06-28 20:11:32 UTC"
+    },
+    {
+      "instId": "NEAR-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 1.813,
+      "score": -45,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-28 21:55:51 UTC"
     }
   ],
   "wins": 19,
