@@ -463,6 +463,13 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
 
         # ── الرافعة: أعلى رافعة متاحة لكل عملة (طلب المستخدم، يتحمّل المسؤولية) ──
         max_lev = client.get_max_leverage(inst_id)
+        # فلتر: لا تدخل إلا العملات التي رافعتها القصوى > MIN_COIN_MAX_LEVERAGE (طلب المستخدم)
+        _min_lev = getattr(cfg, "MIN_COIN_MAX_LEVERAGE", 0)
+        if _min_lev and (not max_lev or max_lev <= _min_lev):
+            add_log(status,
+                f"⏭️ {inst_id}: رافعتها القصوى x{max_lev or 0} ≤ x{_min_lev} — تُخطّى. التالي",
+                "info")
+            continue
         if getattr(cfg, "USE_MAX_LEVERAGE", False):
             eff_leverage = float(max_lev) if max_lev else float(LEVERAGE)
         else:
