@@ -1270,33 +1270,12 @@
       "filled": true,
       "opened": "2026-06-28 12:16:10 UTC",
       "exit": 0.5049
-    },
-    {
-      "instId": "OKB-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 15,
-        "BB": -5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 77.31,
-      "score": 54,
-      "status": "open",
-      "filled": true,
-      "opened": "2026-06-28 12:37:00 UTC"
     }
   ],
   "wins": 18,
   "losses": 40,
   "lr": 0.05,
-  "updated": "2026-06-28 12:37:14 UTC",
+  "updated": "2026-06-28 12:37:34 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1394,7 +1373,7 @@
     "DRAM-USDT-SWAP": "2026-06-27T19:28:09.138275+00:00",
     "SAMSUNG-USDT-SWAP": "2026-06-28T10:24:55.995217+00:00",
     "MU-USDT-SWAP": "2026-06-28T02:57:19.498154+00:00",
-    "UB-USDT-SWAP": "2026-06-28T12:36:42.164082+00:00",
+    "UB-USDT-SWAP": "2026-06-28T12:36:43.096499+00:00",
     "CL-USDT-SWAP": "2026-06-28T04:14:41.057035+00:00",
     "CAP-USDT-SWAP": "2026-06-28T12:15:47.326190+00:00"
   }
