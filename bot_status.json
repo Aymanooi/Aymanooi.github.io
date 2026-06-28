@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-28 10:44:20 UTC",
   "mode": "Live 💰",
-  "balance": 0.1056,
+  "balance": 0.1045,
   "positions": [
     {
       "instId": "ZEC-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 385.98,
       "size": 11.0,
-      "pnl": 0.0561
+      "pnl": 0.055
     }
   ],
   "total_trades": 171,
@@ -24,12 +24,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-28 10:44:20 UTC",
-      "msg": "💰 الرصيد: $0.1056 USDT",
+      "time": "2026-06-28 10:44:21 UTC",
+      "msg": "💰 الرصيد: $0.1045 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-28 10:44:20 UTC",
+      "time": "2026-06-28 10:44:21 UTC",
       "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
       "level": "info"
     },
@@ -468,5 +468,5 @@
     "updated": "2026-06-28 10:44:08 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 92.78
+  "drawdown": 92.8
 }
