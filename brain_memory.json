@@ -1270,6 +1270,27 @@
       "filled": true,
       "opened": "2026-06-28 12:16:10 UTC",
       "exit": 0.5049
+    },
+    {
+      "instId": "MU-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -15,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1143.56,
+      "score": 38,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-06-28 13:38:43 UTC"
     }
   ],
   "wins": 18,
@@ -1376,6 +1397,6 @@
     "UB-USDT-SWAP": "2026-06-28T12:36:43.096499+00:00",
     "CL-USDT-SWAP": "2026-06-28T04:14:41.057035+00:00",
     "CAP-USDT-SWAP": "2026-06-28T12:15:47.326190+00:00",
-    "OKB-USDT-SWAP": "2026-06-28T13:38:28.697773+00:00"
+    "OKB-USDT-SWAP": "2026-06-28T13:38:27.719773+00:00"
   }
 }
