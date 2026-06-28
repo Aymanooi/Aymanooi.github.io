@@ -8,7 +8,7 @@
       "side": "شراء 📈",
       "entry": 1147.13,
       "size": 0.01,
-      "pnl": 0.003
+      "pnl": 0.0029
     }
   ],
   "total_trades": 173,
@@ -474,5 +474,5 @@
     "updated": "2026-06-28 15:28:54 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 97.46
+  "drawdown": 97.47
 }
