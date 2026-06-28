@@ -3,25 +3,35 @@
   "mode": "Live 💰",
   "balance": 1.3384,
   "positions": [],
-  "total_trades": 167,
+  "total_trades": 168,
   "logs": [
     {
-      "time": "2026-06-28 01:06:26 UTC",
+      "time": "2026-06-28 01:06:30 UTC",
+      "msg": "✅ بيع 📉 MU-USDT-SWAP @ 1125.58 x50 | درجة:-38 | رأس المال:$1.325 | SL:0.50% TP:1.00%",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-28 01:06:29 UTC",
+      "msg": "🎯 MU-USDT-SWAP: رافعة x50 | SL 0.50% TP 1.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 01:06:28 UTC",
       "msg": "⏭️ AGLD-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 01:06:25 UTC",
+      "time": "2026-06-28 01:06:27 UTC",
       "msg": "🎯 AGLD-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 01:06:24 UTC",
+      "time": "2026-06-28 01:06:27 UTC",
       "msg": "🧠 Brain WR=32.1% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-28 01:06:24 UTC",
+      "time": "2026-06-28 01:06:27 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
@@ -394,16 +404,6 @@
       "time": "2026-06-28 01:03:28 UTC",
       "msg": "📉 رأس المال الكلي: $1.36 | القمّة $13.21 | تراجع 89.7% | مُنظّم ×0.00",
       "level": "info"
-    },
-    {
-      "time": "2026-06-28 01:03:27 UTC",
-      "msg": "💰 الرصيد: $0.2532 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 01:03:27 UTC",
-      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
@@ -413,6 +413,12 @@
       "signal": "sell",
       "score": -49,
       "prob": 0.31
+    },
+    {
+      "instId": "MU-USDT-SWAP",
+      "signal": "sell",
+      "score": -38,
+      "prob": 0.34
     }
   ],
   "peaks": {
