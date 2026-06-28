@@ -1,180 +1,130 @@
 {
-  "last_run": "2026-06-28 12:37:19 UTC",
+  "last_run": "2026-06-28 12:37:15 UTC",
   "mode": "Live 💰",
-  "balance": 0.033,
+  "balance": 0.0307,
   "positions": [
     {
       "instId": "OKB-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 77.31,
       "size": 12.0,
-      "pnl": -0.0036
+      "pnl": -0.006
     }
   ],
-  "total_trades": 171,
+  "total_trades": 172,
   "logs": [
     {
-      "time": "2026-06-28 12:37:20 UTC",
+      "time": "2026-06-28 12:37:16 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
     {
-      "time": "2026-06-28 12:37:20 UTC",
+      "time": "2026-06-28 12:37:16 UTC",
       "msg": "📉 رأس المال الكلي: $0.50 | القمّة $13.21 | تراجع 96.2% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-28 12:37:20 UTC",
-      "msg": "💰 الرصيد: $0.0330 USDT",
+      "time": "2026-06-28 12:37:16 UTC",
+      "msg": "💰 الرصيد: $0.0307 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-28 12:37:19 UTC",
+      "time": "2026-06-28 12:37:15 UTC",
       "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
       "level": "info"
     },
     {
-      "time": "2026-06-28 12:37:19 UTC",
+      "time": "2026-06-28 12:37:15 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-28 12:37:19 UTC",
+      "time": "2026-06-28 12:37:15 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
     {
-      "time": "2026-06-28 12:37:14 UTC",
-      "msg": "⏭️ ACT-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:13 UTC",
-      "msg": "🎯 ACT-USDT-SWAP: رافعة x10 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:13 UTC",
-      "msg": "⏭️ LAB-USDT-SWAP: حجم صفر (رصيد صغير جداً؟) — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:12 UTC",
-      "msg": "🎯 LAB-USDT-SWAP: رافعة x10 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:12 UTC",
-      "msg": "⏭️ SUI-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:11 UTC",
-      "msg": "🎯 SUI-USDT-SWAP: رافعة x50 | SL 0.50% TP 1.00%",
+      "time": "2026-06-28 12:37:10 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
     },
     {
       "time": "2026-06-28 12:37:10 UTC",
-      "msg": "⏭️ XRP-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
+      "msg": "📉 رأس المال الكلي: $0.50 | القمّة $13.21 | تراجع 96.2% | مُنظّم ×0.00",
+      "level": "info"
     },
     {
       "time": "2026-06-28 12:37:10 UTC",
-      "msg": "🎯 XRP-USDT-SWAP: رافعة x100 | SL 0.50% TP 1.00%",
+      "msg": "💰 الرصيد: $0.0330 USDT",
       "level": "info"
     },
     {
       "time": "2026-06-28 12:37:09 UTC",
-      "msg": "⏭️ DOGE-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:08 UTC",
-      "msg": "🎯 DOGE-USDT-SWAP: رافعة x50 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:08 UTC",
-      "msg": "⏭️ WIF-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:07 UTC",
-      "msg": "🎯 WIF-USDT-SWAP: رافعة x50 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:06 UTC",
-      "msg": "⏭️ SOL-USDT-SWAP: فشل وضع وقف الخسارة (Order quantity must be a multiple of the lot size.) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:05 UTC",
-      "msg": "🎯 SOL-USDT-SWAP: رافعة x100 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:05 UTC",
-      "msg": "⏭️ BTC-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:04 UTC",
-      "msg": "🎯 BTC-USDT-SWAP: رافعة x100 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:04 UTC",
-      "msg": "⏭️ ETH-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:03 UTC",
-      "msg": "🎯 ETH-USDT-SWAP: رافعة x100 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:02 UTC",
-      "msg": "⏭️ OKB-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-28 12:37:02 UTC",
-      "msg": "🎯 OKB-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:01 UTC",
-      "msg": "🧠 Brain WR=31.0% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:37:01 UTC",
-      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:36:47 UTC",
-      "msg": "📉 رأس المال الكلي: $0.51 | القمّة $13.21 | تراجع 96.2% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:36:47 UTC",
-      "msg": "💰 الرصيد: $0.5049 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 12:36:46 UTC",
       "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
       "level": "info"
     },
     {
-      "time": "2026-06-28 12:36:46 UTC",
+      "time": "2026-06-28 12:37:09 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-28 12:36:46 UTC",
+      "time": "2026-06-28 12:37:09 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-28 12:37:00 UTC",
+      "msg": "✅ شراء 📈 OKB-USDT-SWAP @ 77.29 x20 | درجة:54 | رأس المال:$0.500 | SL:0.50% TP:1.00%",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-28 12:36:59 UTC",
+      "msg": "🎯 OKB-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:58 UTC",
+      "msg": "⏭️ ETH-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 12:36:57 UTC",
+      "msg": "🎯 ETH-USDT-SWAP: رافعة x100 | SL 0.50% TP 1.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:57 UTC",
+      "msg": "🧠 Brain WR=31.0% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:57 UTC",
+      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:41 UTC",
+      "msg": "📉 رأس المال الكلي: $0.51 | القمّة $13.21 | تراجع 96.2% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:41 UTC",
+      "msg": "💰 الرصيد: $0.5049 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:41 UTC",
+      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:41 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:36:41 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -412,21 +362,71 @@
       "time": "2026-06-28 12:35:06 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:35:06 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-28 12:34:59 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:34:59 UTC",
+      "msg": "📉 رأس المال الكلي: $0.52 | القمّة $13.21 | تراجع 96.0% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:34:58 UTC",
+      "msg": "💰 الرصيد: $0.1011 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:34:58 UTC",
+      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:34:58 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:34:58 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-28 12:34:51 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:34:51 UTC",
+      "msg": "📉 رأس المال الكلي: $0.53 | القمّة $13.21 | تراجع 96.0% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 12:34:51 UTC",
+      "msg": "💰 الرصيد: $0.1064 USDT",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
     {
+      "instId": "ETH-USDT-SWAP",
+      "signal": "buy",
+      "score": 65,
+      "prob": 0.77
+    },
+    {
       "instId": "OKB-USDT-SWAP",
       "signal": "buy",
       "score": 54,
       "prob": 0.77
-    },
-    {
-      "instId": "ETH-USDT-SWAP",
-      "signal": "buy",
-      "score": 53,
-      "prob": 0.72
     },
     {
       "instId": "BTC-USDT-SWAP",
@@ -471,8 +471,8 @@
       "RSIDivergence": 0.994
     },
     "kelly": 5.0,
-    "updated": "2026-06-28 12:37:14 UTC"
+    "updated": "2026-06-28 12:37:10 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 96.23
+  "drawdown": 96.25
 }
