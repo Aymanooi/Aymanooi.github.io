@@ -6,12 +6,12 @@
   "total_trades": 172,
   "logs": [
     {
-      "time": "2026-06-28 14:32:38 UTC",
+      "time": "2026-06-28 14:32:39 UTC",
       "msg": "⏭️ SLX-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 14:32:37 UTC",
+      "time": "2026-06-28 14:32:38 UTC",
       "msg": "🎯 SLX-USDT-SWAP: رافعة x20 | SL 0.50% TP 0.50%",
       "level": "info"
     },
@@ -51,7 +51,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-28 14:32:20 UTC",
+      "time": "2026-06-28 14:32:19 UTC",
       "msg": "💰 الرصيد: $0.6107 USDT",
       "level": "info"
     },
@@ -411,8 +411,8 @@
     {
       "instId": "PUMP-USDT-SWAP",
       "signal": "sell",
-      "score": -40,
-      "prob": 0.23
+      "score": -36,
+      "prob": 0.27
     },
     {
       "instId": "ACT-USDT-SWAP",
@@ -423,8 +423,8 @@
     {
       "instId": "SLX-USDT-SWAP",
       "signal": "buy",
-      "score": 36,
-      "prob": 0.64
+      "score": 48,
+      "prob": 0.69
     }
   ],
   "peaks": {
