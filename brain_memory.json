@@ -1204,33 +1204,12 @@
       "filled": true,
       "opened": "2026-06-28 03:30:19 UTC",
       "exit": 2.6498
-    },
-    {
-      "instId": "CL-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 5,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 71.64,
-      "score": -52,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-28 03:34:47 UTC"
     }
   ],
   "wins": 17,
   "losses": 38,
   "lr": 0.05,
-  "updated": "2026-06-28 03:34:47 UTC",
+  "updated": "2026-06-28 03:34:50 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1245,7 +1224,7 @@
     "APT-USDT-SWAP": "2026-06-24T14:44:19.894090+00:00",
     "AVNT-USDT-SWAP": "2026-06-24T06:43:47.220201+00:00",
     "PROS-USDT-SWAP": "2026-06-26T00:53:36.476781+00:00",
-    "PIEVERSE-USDT-SWAP": "2026-06-28T03:34:37.065187+00:00",
+    "PIEVERSE-USDT-SWAP": "2026-06-28T03:34:50.147232+00:00",
     "EDGE-USDT-SWAP": "2026-06-24T13:46:31.845782+00:00",
     "OP-USDT-SWAP": "2026-06-25T09:02:58.863919+00:00",
     "AT-USDT-SWAP": "2026-06-25T16:12:48.086949+00:00",
