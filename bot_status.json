@@ -1,18 +1,65 @@
 {
-  "last_run": "2026-06-28 10:24:44 UTC",
+  "last_run": "2026-06-28 10:24:54 UTC",
   "mode": "Live 💰",
-  "balance": 0.2519,
-  "positions": [
-    {
-      "instId": "SAMSUNG-USDT-SWAP",
-      "side": "شراء 📈",
-      "entry": 223.48,
-      "size": 0.09,
-      "pnl": 0.1917
-    }
-  ],
-  "total_trades": 170,
+  "balance": 1.2641,
+  "positions": [],
+  "total_trades": 171,
   "logs": [
+    {
+      "time": "2026-06-28 10:25:08 UTC",
+      "msg": "✅ بيع 📉 UB-USDT-SWAP @ 0.08398 x20 | درجة:-53 | رأس المال:$1.252 | SL:0.50% TP:1.00%",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-28 10:25:07 UTC",
+      "msg": "🎯 UB-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:25:07 UTC",
+      "msg": "🧠 Brain WR=32.1% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:25:07 UTC",
+      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:24:56 UTC",
+      "msg": "⏳ أُغلقت: SAMSUNG-USDT-SWAP — إعادة دخول بعد 30 ثانية",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:24:56 UTC",
+      "msg": "🧠 Brain تعلّم: SAMSUNG-USDT-SWAP → ربح ✅ (فعلي)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:24:55 UTC",
+      "msg": "📉 رأس المال الكلي: $1.26 | القمّة $13.21 | تراجع 90.4% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:24:55 UTC",
+      "msg": "💰 الرصيد: $1.2641 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:24:55 UTC",
+      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:24:54 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-28 10:24:54 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-28 10:24:45 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -357,82 +404,39 @@
       "time": "2026-06-28 10:22:59 UTC",
       "msg": "💰 الرصيد: $0.2501 USDT",
       "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:58 UTC",
-      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:58 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:58 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-28 10:22:51 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:51 UTC",
-      "msg": "📉 رأس المال الكلي: $1.26 | القمّة $13.21 | تراجع 90.4% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:50 UTC",
-      "msg": "💰 الرصيد: $0.2493 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:50 UTC",
-      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:50 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:50 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-28 10:22:47 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-28 10:22:47 UTC",
-      "msg": "📉 رأس المال الكلي: $1.26 | القمّة $13.21 | تراجع 90.4% | مُنظّم ×0.00",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
   "top_signals": [
     {
-      "instId": "SAMSUNG-USDT-SWAP",
-      "signal": "buy",
-      "score": 36,
-      "prob": 0.71
+      "instId": "UB-USDT-SWAP",
+      "signal": "sell",
+      "score": -53,
+      "prob": 0.27
     },
     {
-      "instId": "AAVE-USDT-SWAP",
-      "signal": "buy",
-      "score": 45,
-      "prob": 0.69
+      "instId": "BTC-USDT-SWAP",
+      "signal": "sell",
+      "score": -40,
+      "prob": 0.3
     },
     {
-      "instId": "PEPE-USDT-SWAP",
+      "instId": "WIF-USDT-SWAP",
       "signal": "sell",
       "score": -36,
-      "prob": 0.31
+      "prob": 0.3
+    },
+    {
+      "instId": "LAB-USDT-SWAP",
+      "signal": "sell",
+      "score": -42,
+      "prob": 0.33
+    },
+    {
+      "instId": "O-USDT-SWAP",
+      "signal": "sell",
+      "score": -36,
+      "prob": 0.34
     }
   ],
   "peaks": {
@@ -442,25 +446,25 @@
     "DOT-USDT-SWAP": -0.0419999999999945
   },
   "brain_stats": {
-    "wins": 17,
+    "wins": 18,
     "losses": 38,
-    "total_closed": 55,
-    "win_rate": 30.9,
+    "total_closed": 56,
+    "win_rate": 32.1,
     "weights": {
-      "EMA": 0.787,
-      "RSI": 1.045,
-      "MACD": 0.834,
-      "BB": 1.029,
-      "Stoch": 0.996,
-      "Volume": 0.981,
-      "Pattern": 0.898,
-      "HTF_1h": 0.757,
-      "OBV": 0.852,
+      "EMA": 0.79,
+      "RSI": 1.043,
+      "MACD": 0.841,
+      "BB": 1.027,
+      "Stoch": 0.992,
+      "Volume": 0.983,
+      "Pattern": 0.902,
+      "HTF_1h": 0.762,
+      "OBV": 0.855,
       "RSIDivergence": 0.994
     },
     "kelly": 5.0,
-    "updated": "2026-06-28 10:24:31 UTC"
+    "updated": "2026-06-28 10:24:45 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 90.41
+  "drawdown": 90.43
 }
