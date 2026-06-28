@@ -1,72 +1,72 @@
 {
-  "last_run": "2026-06-28 02:57:15 UTC",
+  "last_run": "2026-06-28 02:57:18 UTC",
   "mode": "Live 💰",
   "balance": 0.9978,
   "positions": [],
-  "total_trades": 167,
+  "total_trades": 168,
   "logs": [
     {
-      "time": "2026-06-28 02:57:28 UTC",
-      "msg": "⏭️ AAVE-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
-      "level": "warning"
+      "time": "2026-06-28 02:57:31 UTC",
+      "msg": "✅ بيع 📉 ARX-USDT-SWAP @ 0.2742 x20 | درجة:-42 | رأس المال:$0.988 | SL:0.50% TP:1.00%",
+      "level": "success"
     },
     {
-      "time": "2026-06-28 02:57:28 UTC",
-      "msg": "🎯 AAVE-USDT-SWAP: رافعة x50 | SL 0.50% TP 1.00%",
+      "time": "2026-06-28 02:57:30 UTC",
+      "msg": "🎯 ARX-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:27 UTC",
+      "time": "2026-06-28 02:57:30 UTC",
       "msg": "⏭️ NEAR-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 02:57:27 UTC",
+      "time": "2026-06-28 02:57:29 UTC",
       "msg": "🎯 NEAR-USDT-SWAP: رافعة x50 | SL 0.50% TP 1.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:26 UTC",
+      "time": "2026-06-28 02:57:29 UTC",
       "msg": "⏭️ XRP-USDT-SWAP: فشل وضع وقف الخسارة (Order quantity must be a multiple of the lot size.) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 02:57:26 UTC",
+      "time": "2026-06-28 02:57:28 UTC",
       "msg": "🎯 XRP-USDT-SWAP: رافعة x100 | SL 0.50% TP 1.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:25 UTC",
+      "time": "2026-06-28 02:57:28 UTC",
       "msg": "🧠 Brain WR=32.1% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:25 UTC",
+      "time": "2026-06-28 02:57:28 UTC",
       "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:16 UTC",
+      "time": "2026-06-28 02:57:18 UTC",
       "msg": "📉 رأس المال الكلي: $1.00 | القمّة $13.21 | تراجع 92.4% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:15 UTC",
+      "time": "2026-06-28 02:57:18 UTC",
       "msg": "💰 الرصيد: $0.9978 USDT",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:15 UTC",
+      "time": "2026-06-28 02:57:18 UTC",
       "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:15 UTC",
+      "time": "2026-06-28 02:57:18 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:57:15 UTC",
+      "time": "2026-06-28 02:57:18 UTC",
       "msg": "🚀 تشغيل Snowball v22 + Brain...",
       "level": "success"
     },
@@ -421,10 +421,10 @@
       "prob": 0.68
     },
     {
-      "instId": "AAVE-USDT-SWAP",
+      "instId": "ARX-USDT-SWAP",
       "signal": "sell",
-      "score": -36,
-      "prob": 0.34
+      "score": -42,
+      "prob": 0.33
     }
   ],
   "peaks": {
