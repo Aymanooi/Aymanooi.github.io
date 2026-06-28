@@ -35,7 +35,7 @@ _RISK_PRESETS = {
     # x2 / SL 4% / TP 2% → فوز 68.9% / PF=1.06 / مخاطرة 5% لكل صفقة.
     # رياضيات التراكم المركّب: $8 → $1M في ~870 يوم (100 صفقة/يوم، 5% مخاطرة).
     # مخاطرة 5% (بدل رأس المال الكامل) = التراكم يعمل لصالحك لا ضدّك.
-    "rocket":     {"leverage": 3,  "risk_per_trade": 0.05, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 100, "filter_losers": True,  "max_positions": 1},
+    "rocket":     {"leverage": 13,  "risk_per_trade": 0.05, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 100, "filter_losers": True,  "max_positions": 1},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
@@ -95,7 +95,7 @@ SCAN_INTERVAL   = 60
 TOP_PAIRS_COUNT = 100
 # الحدّ الأدنى للسيولة بالدولار خلال 24 ساعة — لا دخول إلا في العملات الأعلى سيولة
 # (طلب المستخدم: ≥ $10M). يقلّل الانزلاق ومشاكل حجم اللوت ويُحسّن تنفيذ أوامر maker.
-MIN_USD_VOL_24H = 20_000_000
+MIN_USD_VOL_24H = 25_000_000
 
 # === بوّابة النظام التكيّفية (Regime Gate) — أثبت الباكتيست أنها ترفع PF 1.03→1.08 ===
 REGIME_GATE   = True    # أوقِف الدخول في النوافذ الخاسرة، استأنف في الرابحة
