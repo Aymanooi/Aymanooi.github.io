@@ -6,27 +6,27 @@
   "total_trades": 175,
   "logs": [
     {
-      "time": "2026-06-28 20:12:21 UTC",
+      "time": "2026-06-28 20:12:25 UTC",
       "msg": "⏭️ maker فشل SKHYNIX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-28 20:12:20 UTC",
+      "time": "2026-06-28 20:12:24 UTC",
       "msg": "🎯 SKHYNIX-USDT-SWAP: رافعة x13 | SL 1.50% TP 0.70%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 20:12:20 UTC",
+      "time": "2026-06-28 20:12:24 UTC",
       "msg": "🧠 Brain WR=31.1% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-28 20:12:08 UTC",
+      "time": "2026-06-28 20:12:09 UTC",
       "msg": "📉 رأس المال الكلي: $2.64 | القمّة $13.21 | تراجع 80.0% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-28 20:12:08 UTC",
+      "time": "2026-06-28 20:12:09 UTC",
       "msg": "💰 الرصيد: $2.6440 USDT",
       "level": "info"
     },
