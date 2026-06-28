@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-28 22:35:21 UTC",
   "mode": "Live 💰",
-  "balance": 0.5353,
+  "balance": 0.5331,
   "positions": [
     {
       "instId": "DOGE-USDT-SWAP",
@@ -24,8 +24,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-28 22:35:21 UTC",
-      "msg": "💰 الرصيد: $0.5353 USDT",
+      "time": "2026-06-28 22:35:22 UTC",
+      "msg": "💰 الرصيد: $0.5331 USDT",
       "level": "info"
     },
     {
