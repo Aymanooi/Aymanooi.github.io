@@ -1358,13 +1358,13 @@
       "score": 36,
       "status": "open",
       "filled": false,
-      "opened": "2026-06-28 20:12:12 UTC"
+      "opened": "2026-06-28 20:12:17 UTC"
     }
   ],
   "wins": 19,
   "losses": 42,
   "lr": 0.05,
-  "updated": "2026-06-28 20:12:12 UTC",
+  "updated": "2026-06-28 20:12:17 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
