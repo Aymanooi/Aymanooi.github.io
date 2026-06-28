@@ -8,7 +8,7 @@
       "side": "بيع 📉",
       "entry": 385.98,
       "size": 11.0,
-      "pnl": -0.0286
+      "pnl": -0.0297
     }
   ],
   "total_trades": 171,
@@ -468,5 +468,5 @@
     "updated": "2026-06-28 11:33:47 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 93.41
+  "drawdown": 93.43
 }
