@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-28 02:06:54 UTC",
   "mode": "Live 💰",
-  "balance": 0.0944,
+  "balance": 0.0949,
   "positions": [
     {
       "instId": "MU-USDT-SWAP",
       "side": "بيع 📉",
       "entry": 1125.59,
       "size": 0.05,
-      "pnl": -0.088
+      "pnl": -0.0875
     }
   ],
   "total_trades": 167,
@@ -24,8 +24,8 @@
       "level": "info"
     },
     {
-      "time": "2026-06-28 02:06:54 UTC",
-      "msg": "💰 الرصيد: $0.0944 USDT",
+      "time": "2026-06-28 02:06:55 UTC",
+      "msg": "💰 الرصيد: $0.0949 USDT",
       "level": "info"
     },
     {
