@@ -6,17 +6,22 @@
   "total_trades": 168,
   "logs": [
     {
-      "time": "2026-06-28 03:14:49 UTC",
-      "msg": "لا توجد إشارات كافية",
+      "time": "2026-06-28 03:14:52 UTC",
+      "msg": "⏭️ RAVE-USDT-SWAP: فشل وضع وقف الخسارة (Order failed. Insufficient USDT margin in account ) — تُخطّى لمنع مركز عارٍ يُصفّى. التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-28 03:14:51 UTC",
+      "msg": "🎯 RAVE-USDT-SWAP: رافعة x20 | SL 0.50% TP 1.00%",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:14:49 UTC",
-      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
+      "time": "2026-06-28 03:14:51 UTC",
+      "msg": "🧠 Brain WR=31.5% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-28 03:14:37 UTC",
+      "time": "2026-06-28 03:14:36 UTC",
       "msg": "📉 رأس المال الكلي: $1.01 | القمّة $13.21 | تراجع 92.3% | مُنظّم ×0.00",
       "level": "info"
     },
@@ -399,15 +404,17 @@
       "time": "2026-06-28 03:12:14 UTC",
       "msg": "💰 الرصيد: $0.2686 USDT",
       "level": "info"
-    },
-    {
-      "time": "2026-06-28 03:12:13 UTC",
-      "msg": "⚙️ rocket | رافعة أقصى/عملة | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر taker",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
-  "top_signals": [],
+  "top_signals": [
+    {
+      "instId": "RAVE-USDT-SWAP",
+      "signal": "buy",
+      "score": 38,
+      "prob": 0.64
+    }
+  ],
   "peaks": {
     "DOT-USDT-SWAP": -0.0149326962049612
   },
@@ -432,7 +439,7 @@
       "RSIDivergence": 0.994
     },
     "kelly": 5.0,
-    "updated": "2026-06-28 03:14:31 UTC"
+    "updated": "2026-06-28 03:14:26 UTC"
   },
   "equity_peak": 13.2074,
   "drawdown": 92.34
