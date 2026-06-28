@@ -1338,6 +1338,27 @@
       "opened": "2026-06-28 19:34:20 UTC",
       "exit": 0.08251,
       "closed": "2026-06-28 20:11:32 UTC"
+    },
+    {
+      "instId": "LAB-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 16.605,
+      "score": -42,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-28 20:14:50 UTC"
     }
   ],
   "wins": 19,
