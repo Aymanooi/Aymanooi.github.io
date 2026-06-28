@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-28 12:00:15 UTC",
   "mode": "Live 💰",
-  "balance": 0.0182,
+  "balance": 0.0173,
   "positions": [
     {
       "instId": "HYPE-USDT-SWAP",
@@ -25,7 +25,7 @@
     },
     {
       "time": "2026-06-28 12:00:16 UTC",
-      "msg": "💰 الرصيد: $0.0182 USDT",
+      "msg": "💰 الرصيد: $0.0173 USDT",
       "level": "info"
     },
     {
