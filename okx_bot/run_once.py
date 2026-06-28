@@ -357,8 +357,18 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, f"مراكز مفتوحة: {len(active)}/{cfg.MAX_POSITIONS} — لا دخول جديد")
         return
 
-    # ملاحظة: حاجز إيقاف الدخول عند التراجع الحادّ أُزيل بطلب المستخدم —
-    # الدخول برأس المال كاملاً مستمرّ دائماً مهما بلغ التراجع (استراتيجية تعافٍ).
+    # ── بوّابة النظام التكيّفية (Regime Gate) — أثبت الباكتيست أنها ترفع PF ──
+    # توقف الدخول حين يكون النظام خاسراً مؤقتاً (آخر صفقات معدّل فوزها منخفض)،
+    # وتستأنف تلقائياً حين يتحسّن. تتجنّب النوافذ الخاسرة.
+    if getattr(cfg, "REGIME_GATE", False):
+        if not brain.regime_ok(memory,
+                               window=getattr(cfg, "REGIME_WINDOW", 8),
+                               min_wr=getattr(cfg, "REGIME_MIN_WR", 0.40),
+                               max_age_seconds=getattr(cfg, "REGIME_MAX_AGE", 3600)):
+            add_log(status,
+                "\U0001f6e1️ بوّابة النظام: آخر الصفقات خاسرة — إيقاف الدخول مؤقتاً حتى يتحسّن النظام",
+                "warning")
+            return
 
     # مركز واحد فقط لكل دورة — يمنع فتح مراكز متعددة قبل تحديث OKX
     slots_available = 1

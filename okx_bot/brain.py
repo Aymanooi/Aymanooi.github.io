@@ -209,6 +209,7 @@ def learn_from_closed(memory, inst_id, exit_price, realized_pnl=None):
                 won = 1 if pnl > 0 else 0
             t["status"] = "win" if won else "loss"
             t["exit"] = exit_price
+            t["closed"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
             if won:
                 memory["wins"] += 1
@@ -238,6 +239,38 @@ def current_win_rate(memory):
     if total < 5:
         return 0.5   # default until enough data
     return memory["wins"] / total
+
+
+def regime_ok(memory, window=8, min_wr=0.40, max_age_seconds=3600):
+    """بوّابة النظام التكيّفية (Regime Gate) — أثبت الباكتيست أنها ترفع PF.
+
+    تقيس معدّل فوز آخر `window` صفقة مُغلقة *حديثاً* (خلال max_age_seconds).
+    - لو الصفقات الحديثة أقلّ من window → True (نسمح بالتداول، بيانات غير كافية)
+    - لو معدّل فوزها ≥ min_wr → True (النظام رابح، تابِع)
+    - لو أقلّ → False (النظام خاسر مؤقتاً، أوقِف الدخول حتى يتحسّن)
+
+    max_age_seconds يمنع التجمّد: بعد توقّف طويل، تتقادم الصفقات الخاسرة
+    فتُفرَّغ النافذة وتُستأنف التجربة تلقائياً (probe) على النظام الجديد.
+    """
+    now = datetime.now(timezone.utc)
+    recent = []
+    for t in reversed(memory.get("trades", [])):
+        if t.get("status") not in ("win", "loss"):
+            continue
+        ct = t.get("closed")
+        if ct:
+            try:
+                dt = datetime.strptime(ct, "%Y-%m-%d %H:%M:%S UTC").replace(tzinfo=timezone.utc)
+                if (now - dt).total_seconds() > max_age_seconds:
+                    continue
+            except Exception:
+                pass
+        recent.append(1 if t["status"] == "win" else 0)
+        if len(recent) >= window:
+            break
+    if len(recent) < window:
+        return True
+    return (sum(recent) / len(recent)) >= min_wr
 
 
 def stats(memory):
