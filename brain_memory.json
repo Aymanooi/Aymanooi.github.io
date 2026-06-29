@@ -1612,35 +1612,14 @@
       "status": "win",
       "filled": true,
       "opened": "2026-06-29 13:31:04 UTC",
-      "exit": 91.66,
-      "closed": "2026-06-29 13:38:49 UTC"
-    },
-    {
-      "instId": "DOGE-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": -10,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": 0,
-        "RSIDivergence": 0
-      },
-      "entry": 0.07272,
-      "score": -43,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-29 13:39:04 UTC"
+      "exit": 91.77,
+      "closed": "2026-06-29 13:39:09 UTC"
     }
   ],
   "wins": 25,
   "losses": 48,
   "lr": 0.05,
-  "updated": "2026-06-29 13:39:04 UTC",
+  "updated": "2026-06-29 13:39:09 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1747,6 +1726,6 @@
     "ACT-USDT-SWAP": "2026-06-29T00:21:48.304504+00:00",
     "S-USDT-SWAP": "2026-06-29T00:45:17.937610+00:00",
     "NES-USDT-SWAP": "2026-06-29T01:13:31.614435+00:00",
-    "AAVE-USDT-SWAP": "2026-06-29T13:38:48.950971+00:00"
+    "AAVE-USDT-SWAP": "2026-06-29T13:39:09.175354+00:00"
   }
 }
