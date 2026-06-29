@@ -1683,33 +1683,12 @@
       "opened": "2026-06-29 16:28:36 UTC",
       "exit": 0.09901,
       "closed": "2026-06-29 16:30:34 UTC"
-    },
-    {
-      "instId": "HYPE-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -12,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -5,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 65.127,
-      "score": 40,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-29 17:04:19 UTC"
     }
   ],
   "wins": 27,
   "losses": 49,
   "lr": 0.05,
-  "updated": "2026-06-29 17:04:19 UTC",
+  "updated": "2026-06-29 17:04:26 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1820,6 +1799,6 @@
     "NEAR-USDT-SWAP": "2026-06-29T14:15:41.405042+00:00",
     "ENA-USDT-SWAP": "2026-06-29T14:59:11.725671+00:00",
     "INTC-USDT-SWAP": "2026-06-29T17:01:33.210919+00:00",
-    "RE-USDT-SWAP": "2026-06-29T17:03:56.390343+00:00"
+    "RE-USDT-SWAP": "2026-06-29T17:04:05.659807+00:00"
   }
 }
