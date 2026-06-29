@@ -114,7 +114,7 @@ def should_trade_symbol(memory, inst_id, rr=3.0, min_trades=5):
 
 
 # 30 ثانية — إعادة دخول سريعة بعد الخروج من العملة مباشرة
-COOLDOWN_SECONDS = 30
+COOLDOWN_SECONDS = 10
 
 def mark_exited(memory, inst_id):
     """Record that a position on inst_id was just closed — starts cooldown timer."""
