@@ -1658,35 +1658,14 @@
       "status": "win",
       "filled": true,
       "opened": "2026-06-29 14:52:35 UTC",
-      "exit": 0.1727,
-      "closed": "2026-06-29 14:56:02 UTC"
-    },
-    {
-      "instId": "ENA-USDT-SWAP",
-      "signal": "buy",
-      "features": {
-        "EMA": 10,
-        "RSI": -12,
-        "MACD": 20,
-        "BB": -5,
-        "Stoch": -10,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.08158,
-      "score": 36,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-29 14:56:19 UTC"
+      "exit": 0.1728,
+      "closed": "2026-06-29 14:56:09 UTC"
     }
   ],
   "wins": 27,
   "losses": 48,
   "lr": 0.05,
-  "updated": "2026-06-29 14:56:19 UTC",
+  "updated": "2026-06-29 14:56:25 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1792,7 +1771,7 @@
     "DOGE-USDT-SWAP": "2026-06-29T13:46:44.419835+00:00",
     "ACT-USDT-SWAP": "2026-06-29T00:21:48.304504+00:00",
     "S-USDT-SWAP": "2026-06-29T00:45:17.937610+00:00",
-    "NES-USDT-SWAP": "2026-06-29T14:56:01.737659+00:00",
+    "NES-USDT-SWAP": "2026-06-29T14:56:08.786749+00:00",
     "AAVE-USDT-SWAP": "2026-06-29T13:38:54.464653+00:00",
     "NEAR-USDT-SWAP": "2026-06-29T14:15:41.405042+00:00"
   }
