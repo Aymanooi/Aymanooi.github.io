@@ -3,25 +3,25 @@
   "mode": "Live 💰",
   "balance": 1.4634,
   "positions": [],
-  "total_trades": 244,
+  "total_trades": 245,
   "logs": [
     {
-      "time": "2026-06-29 19:16:05 UTC",
-      "msg": "⏭️ maker فشل RE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
+      "time": "2026-06-29 19:16:08 UTC",
+      "msg": "📤 maker شراء 📈 RE-USDT-SWAP @~0.77805 x20 | درجة:36 | رأس المال:$1.449 | SL:0.50% TP:0.50% (بانتظار التنفيذ)",
+      "level": "success"
     },
     {
-      "time": "2026-06-29 19:16:04 UTC",
+      "time": "2026-06-29 19:16:07 UTC",
       "msg": "🎯 RE-USDT-SWAP: رافعة x20 | SL 0.50% TP 0.50%",
       "level": "info"
     },
     {
-      "time": "2026-06-29 19:16:04 UTC",
+      "time": "2026-06-29 19:16:06 UTC",
       "msg": "🧠 Brain WR=36.4% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
-      "time": "2026-06-29 19:15:55 UTC",
+      "time": "2026-06-29 19:15:56 UTC",
       "msg": "📉 رأس المال الكلي: $1.46 | القمّة $13.21 | تراجع 88.9% | مُنظّم ×0.00",
       "level": "info"
     },
@@ -411,8 +411,8 @@
     {
       "instId": "RE-USDT-SWAP",
       "signal": "buy",
-      "score": 48,
-      "prob": 0.67
+      "score": 36,
+      "prob": 0.62
     }
   ],
   "peaks": {
