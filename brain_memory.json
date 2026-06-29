@@ -1660,33 +1660,12 @@
       "opened": "2026-06-29 14:52:35 UTC",
       "exit": 0.1737,
       "closed": "2026-06-29 14:56:17 UTC"
-    },
-    {
-      "instId": "XAG-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -25,
-        "RSI": 0,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 0,
-        "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 58.06,
-      "score": -44,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-29 15:01:19 UTC"
     }
   ],
   "wins": 27,
   "losses": 48,
   "lr": 0.05,
-  "updated": "2026-06-29 15:01:19 UTC",
+  "updated": "2026-06-29 15:02:09 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
