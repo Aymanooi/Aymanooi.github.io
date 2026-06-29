@@ -1,0 +1,8 @@
+# Core
+pandas>=2.0
+numpy>=1.24
+# Exchange / async
+ccxt>=4.0
+aiohttp>=3.9
+# Testing
+pytest>=7.4
