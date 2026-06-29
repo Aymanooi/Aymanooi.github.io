@@ -7,17 +7,7 @@
   "logs": [
     {
       "time": "2026-06-29 15:08:00 UTC",
-      "msg": "⏭️ maker فشل UB-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
-    },
-    {
-      "time": "2026-06-29 15:07:59 UTC",
-      "msg": "🎯 UB-USDT-SWAP: رافعة x13 | SL 0.50% TP 0.50%",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 15:07:59 UTC",
-      "msg": "🧠 Brain WR=36.0% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
+      "msg": "لا توجد إشارات كافية",
       "level": "info"
     },
     {
@@ -404,17 +394,20 @@
       "time": "2026-06-29 15:00:28 UTC",
       "msg": "💰 الرصيد: $1.2351 USDT",
       "level": "info"
+    },
+    {
+      "time": "2026-06-29 15:00:27 UTC",
+      "msg": "⚙️ rocket | رافعة x13 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 15:00:27 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
     }
   ],
   "risk_mode": "rocket",
-  "top_signals": [
-    {
-      "instId": "UB-USDT-SWAP",
-      "signal": "buy",
-      "score": 38,
-      "prob": 0.68
-    }
-  ],
+  "top_signals": [],
   "peaks": {
     "DOT-USDT-SWAP": -0.0149326962049612
   },
