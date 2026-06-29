@@ -1,7 +1,7 @@
 {
   "last_run": "2026-06-29 19:51:34 UTC",
   "mode": "Live 💰",
-  "balance": 0.0144,
+  "balance": 0.0206,
   "positions": [
     {
       "instId": "RAVE-USDT-SWAP",
@@ -25,7 +25,7 @@
     },
     {
       "time": "2026-06-29 19:51:35 UTC",
-      "msg": "💰 الرصيد: $0.0144 USDT",
+      "msg": "💰 الرصيد: $0.0206 USDT",
       "level": "info"
     },
     {
