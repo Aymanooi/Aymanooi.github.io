@@ -1566,14 +1566,35 @@
       "status": "win",
       "filled": true,
       "opened": "2026-06-29 12:08:40 UTC",
-      "exit": 93.78,
-      "closed": "2026-06-29 12:16:05 UTC"
+      "exit": 93.74,
+      "closed": "2026-06-29 12:15:56 UTC"
+    },
+    {
+      "instId": "LAB-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 14.783,
+      "score": -42,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-06-29 12:16:13 UTC"
     }
   ],
   "wins": 24,
   "losses": 47,
   "lr": 0.05,
-  "updated": "2026-06-29 12:16:20 UTC",
+  "updated": "2026-06-29 12:16:23 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
@@ -1680,6 +1701,6 @@
     "ACT-USDT-SWAP": "2026-06-29T00:21:48.304504+00:00",
     "S-USDT-SWAP": "2026-06-29T00:45:17.937610+00:00",
     "NES-USDT-SWAP": "2026-06-29T01:13:31.614435+00:00",
-    "AAVE-USDT-SWAP": "2026-06-29T12:16:05.359707+00:00"
+    "AAVE-USDT-SWAP": "2026-06-29T12:15:55.861620+00:00"
   }
 }
