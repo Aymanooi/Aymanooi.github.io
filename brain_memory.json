@@ -1683,27 +1683,6 @@
       "opened": "2026-06-29 16:28:36 UTC",
       "exit": 0.09901,
       "closed": "2026-06-29 16:30:34 UTC"
-    },
-    {
-      "instId": "O-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 5,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 0.5297,
-      "score": -41,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-29 17:34:16 UTC"
     }
   ],
   "wins": 27,
