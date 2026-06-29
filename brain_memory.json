@@ -1666,27 +1666,27 @@
       "signal": "sell",
       "features": {
         "EMA": -10,
-        "RSI": 12,
+        "RSI": 5,
         "MACD": -20,
         "BB": 5,
         "Stoch": 10,
-        "Volume": -5,
-        "Pattern": -10,
+        "Volume": -10,
+        "Pattern": 0,
         "HTF_1h": -15,
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 0.686,
-      "score": -36,
+      "entry": 0.6862,
+      "score": -38,
       "status": "open",
       "filled": false,
-      "opened": "2026-06-29 15:05:49 UTC"
+      "opened": "2026-06-29 15:05:57 UTC"
     }
   ],
   "wins": 27,
   "losses": 48,
   "lr": 0.05,
-  "updated": "2026-06-29 15:05:49 UTC",
+  "updated": "2026-06-29 15:05:57 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
