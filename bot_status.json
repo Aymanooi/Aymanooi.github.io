@@ -3,26 +3,31 @@
   "mode": "Live 💰",
   "balance": 1.6147,
   "positions": [],
-  "total_trades": 198,
+  "total_trades": 197,
   "logs": [
     {
-      "time": "2026-06-29 03:00:55 UTC",
-      "msg": "📤 maker شراء 📈 JTO-USDT-SWAP @~0.8344 x13 | درجة:53 | رأس المال:$1.599 | SL:1.50% TP:0.70% (بانتظار التنفيذ)",
-      "level": "success"
+      "time": "2026-06-29 03:01:03 UTC",
+      "msg": "⏭️ maker فشل CAP-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
-      "time": "2026-06-29 03:00:55 UTC",
+      "time": "2026-06-29 03:01:03 UTC",
+      "msg": "🎯 CAP-USDT-SWAP: رافعة x13 | SL 1.50% TP 0.70%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 03:01:02 UTC",
+      "msg": "⏭️ maker فشل JTO-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-29 03:01:01 UTC",
       "msg": "🎯 JTO-USDT-SWAP: رافعة x13 | SL 1.50% TP 0.70%",
       "level": "info"
     },
     {
-      "time": "2026-06-29 03:00:54 UTC",
+      "time": "2026-06-29 03:01:00 UTC",
       "msg": "🧠 Brain WR=32.8% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 03:00:41 UTC",
-      "msg": "🧹 أُلغيت 1 أوامر maker عالقة + نُظّفت من الدماغ",
       "level": "info"
     },
     {
@@ -399,11 +404,6 @@
       "time": "2026-06-29 02:52:29 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
-    },
-    {
-      "time": "2026-06-29 02:52:29 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
     }
   ],
   "risk_mode": "rocket",
