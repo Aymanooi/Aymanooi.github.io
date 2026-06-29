@@ -6,17 +6,17 @@
   "total_trades": 227,
   "logs": [
     {
-      "time": "2026-06-29 17:17:00 UTC",
+      "time": "2026-06-29 17:17:03 UTC",
       "msg": "⏭️ maker فشل ORDI-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-29 17:16:59 UTC",
+      "time": "2026-06-29 17:17:02 UTC",
       "msg": "🎯 ORDI-USDT-SWAP: رافعة x20 | SL 0.50% TP 0.50%",
       "level": "info"
     },
     {
-      "time": "2026-06-29 17:16:59 UTC",
+      "time": "2026-06-29 17:17:02 UTC",
       "msg": "🧠 Brain WR=35.5% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
@@ -31,7 +31,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-29 17:16:38 UTC",
+      "time": "2026-06-29 17:16:39 UTC",
       "msg": "⚙️ rocket | رافعة x20 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
       "level": "info"
     },
@@ -412,7 +412,7 @@
       "instId": "ORDI-USDT-SWAP",
       "signal": "buy",
       "score": 38,
-      "prob": 0.67
+      "prob": 0.66
     }
   ],
   "peaks": {
