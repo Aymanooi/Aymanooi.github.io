@@ -6,17 +6,17 @@
   "total_trades": 251,
   "logs": [
     {
-      "time": "2026-06-29 19:47:41 UTC",
+      "time": "2026-06-29 19:47:44 UTC",
       "msg": "⏭️ maker فشل SPCX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-29 19:47:40 UTC",
+      "time": "2026-06-29 19:47:43 UTC",
       "msg": "🎯 SPCX-USDT-SWAP: رافعة x75 | SL 0.50% TP 0.50%",
       "level": "info"
     },
     {
-      "time": "2026-06-29 19:47:40 UTC",
+      "time": "2026-06-29 19:47:43 UTC",
       "msg": "🧠 Brain WR=37.2% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
