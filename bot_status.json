@@ -1,14 +1,14 @@
 {
   "last_run": "2026-06-29 18:58:19 UTC",
   "mode": "Live 💰",
-  "balance": 0.4015,
+  "balance": 0.4024,
   "positions": [
     {
       "instId": "RE-USDT-SWAP",
       "side": "شراء 📈",
       "entry": 0.77102,
       "size": 3.0,
-      "pnl": 0.0216
+      "pnl": 0.0225
     }
   ],
   "total_trades": 236,
@@ -25,7 +25,7 @@
     },
     {
       "time": "2026-06-29 18:58:20 UTC",
-      "msg": "💰 الرصيد: $0.4015 USDT",
+      "msg": "💰 الرصيد: $0.4024 USDT",
       "level": "info"
     },
     {
@@ -443,5 +443,5 @@
     "updated": "2026-06-29 18:58:09 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 88.2
+  "drawdown": 88.19
 }
