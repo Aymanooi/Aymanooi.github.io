@@ -6,17 +6,17 @@
   "total_trades": 226,
   "logs": [
     {
-      "time": "2026-06-29 17:06:07 UTC",
+      "time": "2026-06-29 17:06:15 UTC",
       "msg": "⏭️ maker فشل ACT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
       "level": "warning"
     },
     {
-      "time": "2026-06-29 17:06:06 UTC",
+      "time": "2026-06-29 17:06:14 UTC",
       "msg": "🎯 ACT-USDT-SWAP: رافعة x10 | SL 0.50% TP 0.50%",
       "level": "info"
     },
     {
-      "time": "2026-06-29 17:06:06 UTC",
+      "time": "2026-06-29 17:06:13 UTC",
       "msg": "🧠 Brain WR=35.5% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
@@ -26,7 +26,7 @@
       "level": "info"
     },
     {
-      "time": "2026-06-29 17:05:46 UTC",
+      "time": "2026-06-29 17:05:47 UTC",
       "msg": "💰 الرصيد: $3.8396 USDT",
       "level": "info"
     },
