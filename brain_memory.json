@@ -1430,12 +1430,33 @@
       "opened": "2026-06-29 01:08:29 UTC",
       "exit": 0.1976,
       "closed": "2026-06-29 01:13:32 UTC"
+    },
+    {
+      "instId": "PUMP-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -25,
+        "RSI": 0,
+        "MACD": -10,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.001419,
+      "score": -40,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-29 01:15:25 UTC"
     }
   ],
   "wins": 21,
   "losses": 44,
   "lr": 0.05,
-  "updated": "2026-06-29 01:14:51 UTC",
+  "updated": "2026-06-29 01:15:25 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
