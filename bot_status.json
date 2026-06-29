@@ -3,11 +3,21 @@
   "mode": "Live 💰",
   "balance": 1.5436,
   "positions": [],
-  "total_trades": 235,
+  "total_trades": 236,
   "logs": [
     {
-      "time": "2026-06-29 18:57:23 UTC",
-      "msg": "لا توجد إشارات كافية",
+      "time": "2026-06-29 18:57:28 UTC",
+      "msg": "📤 maker شراء 📈 RE-USDT-SWAP @~0.77304 x20 | درجة:37 | رأس المال:$1.528 | SL:0.50% TP:0.50% (بانتظار التنفيذ)",
+      "level": "success"
+    },
+    {
+      "time": "2026-06-29 18:57:27 UTC",
+      "msg": "🎯 RE-USDT-SWAP: رافعة x20 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 18:57:26 UTC",
+      "msg": "🧠 Brain WR=36.4% | مُنظّم ×0.00 | رأس المال الكامل (99%) موزّع على 1 مراكز",
       "level": "info"
     },
     {
@@ -394,20 +404,17 @@
       "time": "2026-06-29 18:53:21 UTC",
       "msg": "📉 رأس المال الكلي: $1.69 | القمّة $13.21 | تراجع 87.2% | مُنظّم ×0.00",
       "level": "info"
-    },
-    {
-      "time": "2026-06-29 18:53:21 UTC",
-      "msg": "💰 الرصيد: $0.0000 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 18:53:21 UTC",
-      "msg": "⚙️ rocket | رافعة x25 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
-  "top_signals": [],
+  "top_signals": [
+    {
+      "instId": "RE-USDT-SWAP",
+      "signal": "buy",
+      "score": 37,
+      "prob": 0.65
+    }
+  ],
   "peaks": {
     "DOT-USDT-SWAP": -0.0149326962049612
   },
