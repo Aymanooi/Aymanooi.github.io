@@ -1660,12 +1660,33 @@
       "opened": "2026-06-29 14:52:35 UTC",
       "exit": 0.1737,
       "closed": "2026-06-29 14:56:17 UTC"
+    },
+    {
+      "instId": "ADA-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.1437,
+      "score": -38,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-29 15:11:48 UTC"
     }
   ],
   "wins": 27,
   "losses": 48,
   "lr": 0.05,
-  "updated": "2026-06-29 15:11:03 UTC",
+  "updated": "2026-06-29 15:11:48 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
