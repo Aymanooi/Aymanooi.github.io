@@ -1637,33 +1637,12 @@
       "opened": "2026-06-29 13:50:24 UTC",
       "exit": 1.819,
       "closed": "2026-06-29 14:15:41 UTC"
-    },
-    {
-      "instId": "SNDK-USDT-SWAP",
-      "signal": "sell",
-      "features": {
-        "EMA": -10,
-        "RSI": 5,
-        "MACD": -20,
-        "BB": 5,
-        "Stoch": 10,
-        "Volume": 0,
-        "Pattern": -10,
-        "HTF_1h": -15,
-        "OBV": -10,
-        "RSIDivergence": 0
-      },
-      "entry": 1922.99,
-      "score": -38,
-      "status": "open",
-      "filled": false,
-      "opened": "2026-06-29 14:44:09 UTC"
     }
   ],
   "wins": 26,
   "losses": 48,
   "lr": 0.05,
-  "updated": "2026-06-29 14:44:09 UTC",
+  "updated": "2026-06-29 14:44:20 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
