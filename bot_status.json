@@ -1,18 +1,55 @@
 {
-  "last_run": "2026-06-29 14:15:27 UTC",
+  "last_run": "2026-06-29 14:15:40 UTC",
   "mode": "Live 💰",
-  "balance": 0.0284,
-  "positions": [
-    {
-      "instId": "NEAR-USDT-SWAP",
-      "side": "بيع 📉",
-      "entry": 1.8338,
-      "size": 1.0,
-      "pnl": 0.018
-    }
-  ],
+  "balance": 1.5225,
+  "positions": [],
   "total_trades": 213,
   "logs": [
+    {
+      "time": "2026-06-29 14:15:56 UTC",
+      "msg": "لا توجد إشارات كافية",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:56 UTC",
+      "msg": "⏳ تخطّى 1 عملة في فترة التهدئة",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:41 UTC",
+      "msg": "⏳ أُغلقت: NEAR-USDT-SWAP — إعادة دخول بعد 30 ثانية",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:41 UTC",
+      "msg": "🧠 Brain تعلّم: NEAR-USDT-SWAP → ربح ✅ (فعلي)",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:41 UTC",
+      "msg": "📉 رأس المال الكلي: $1.52 | القمّة $13.21 | تراجع 88.5% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:40 UTC",
+      "msg": "💰 الرصيد: $1.5225 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:40 UTC",
+      "msg": "⚙️ rocket | رافعة x13 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:40 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 14:15:40 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-29 14:15:29 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -367,62 +404,10 @@
       "time": "2026-06-29 14:11:46 UTC",
       "msg": "الوضع: Live 💰",
       "level": "info"
-    },
-    {
-      "time": "2026-06-29 14:11:46 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-29 14:11:25 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 14:11:25 UTC",
-      "msg": "📉 رأس المال الكلي: $1.45 | القمّة $13.21 | تراجع 89.0% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 14:11:25 UTC",
-      "msg": "💰 الرصيد: $0.0392 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 14:11:24 UTC",
-      "msg": "⚙️ rocket | رافعة x13 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 14:11:24 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 14:11:24 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-29 14:10:56 UTC",
-      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 14:10:55 UTC",
-      "msg": "📉 رأس المال الكلي: $1.43 | القمّة $13.21 | تراجع 89.2% | مُنظّم ×0.00",
-      "level": "info"
     }
   ],
   "risk_mode": "rocket",
-  "top_signals": [
-    {
-      "instId": "NEAR-USDT-SWAP",
-      "signal": "sell",
-      "score": -38,
-      "prob": 0.35
-    }
-  ],
+  "top_signals": [],
   "peaks": {
     "DOT-USDT-SWAP": -0.0149326962049612
   },
@@ -430,25 +415,25 @@
     "DOT-USDT-SWAP": -0.0419999999999945
   },
   "brain_stats": {
-    "wins": 25,
+    "wins": 26,
     "losses": 48,
-    "total_closed": 73,
-    "win_rate": 34.2,
+    "total_closed": 74,
+    "win_rate": 35.1,
     "weights": {
-      "EMA": 0.743,
-      "RSI": 1.067,
-      "MACD": 0.756,
-      "BB": 1.053,
-      "Stoch": 1.024,
+      "EMA": 0.734,
+      "RSI": 1.072,
+      "MACD": 0.738,
+      "BB": 1.057,
+      "Stoch": 1.029,
       "Volume": 0.967,
-      "Pattern": 0.895,
-      "HTF_1h": 0.707,
-      "OBV": 0.827,
+      "Pattern": 0.887,
+      "HTF_1h": 0.694,
+      "OBV": 0.818,
       "RSIDivergence": 0.994
     },
-    "kelly": 6.2,
-    "updated": "2026-06-29 14:14:55 UTC"
+    "kelly": 6.8,
+    "updated": "2026-06-29 14:15:29 UTC"
   },
   "equity_peak": 13.2074,
-  "drawdown": 89.12
+  "drawdown": 88.48
 }
