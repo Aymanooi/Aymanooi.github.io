@@ -1706,12 +1706,33 @@
       "opened": "2026-06-29 18:11:51 UTC",
       "exit": 2024.45,
       "closed": "2026-06-29 18:19:22 UTC"
+    },
+    {
+      "instId": "RE-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 0,
+        "RSIDivergence": 0
+      },
+      "entry": 0.77763,
+      "score": 43,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-06-29 19:14:32 UTC"
     }
   ],
   "wins": 28,
   "losses": 49,
   "lr": 0.05,
-  "updated": "2026-06-29 19:14:25 UTC",
+  "updated": "2026-06-29 19:14:32 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-24T13:22:19.825962+00:00",
     "ONDO-USDT-SWAP": "2026-06-24T18:05:30.100121+00:00",
