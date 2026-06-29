@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-29 17:10:24 UTC",
+  "last_run": "2026-06-29 17:10:30 UTC",
   "mode": "Live 💰",
   "balance": 0.3481,
   "positions": [
@@ -13,6 +13,36 @@
   ],
   "total_trades": 226,
   "logs": [
+    {
+      "time": "2026-06-29 17:10:31 UTC",
+      "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 17:10:31 UTC",
+      "msg": "📉 رأس المال الكلي: $3.89 | القمّة $13.21 | تراجع 70.5% | مُنظّم ×0.00",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 17:10:31 UTC",
+      "msg": "💰 الرصيد: $0.3481 USDT",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 17:10:30 UTC",
+      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 17:10:30 UTC",
+      "msg": "الوضع: Live 💰",
+      "level": "info"
+    },
+    {
+      "time": "2026-06-29 17:10:30 UTC",
+      "msg": "🚀 تشغيل Snowball v22 + Brain...",
+      "level": "success"
+    },
     {
       "time": "2026-06-29 17:10:25 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
@@ -382,36 +412,6 @@
       "time": "2026-06-29 17:06:20 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
       "level": "info"
-    },
-    {
-      "time": "2026-06-29 17:06:20 UTC",
-      "msg": "📉 رأس المال الكلي: $3.83 | القمّة $13.21 | تراجع 71.0% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 17:06:19 UTC",
-      "msg": "💰 الرصيد: $3.6657 USDT",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 17:06:19 UTC",
-      "msg": "⚙️ rocket | رافعة x20 | مخاطرة 5% | مراكز 1 | مسح 100 عملة | أوامر maker",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 17:06:19 UTC",
-      "msg": "الوضع: Live 💰",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 17:06:19 UTC",
-      "msg": "🚀 تشغيل Snowball v22 + Brain...",
-      "level": "success"
-    },
-    {
-      "time": "2026-06-29 17:06:15 UTC",
-      "msg": "⏭️ maker فشل ACT-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
-      "level": "warning"
     }
   ],
   "risk_mode": "rocket",
@@ -440,7 +440,7 @@
       "RSIDivergence": 0.994
     },
     "kelly": 7.0,
-    "updated": "2026-06-29 17:09:32 UTC"
+    "updated": "2026-06-29 17:10:25 UTC"
   },
   "equity_peak": 13.2074,
   "drawdown": 70.55
