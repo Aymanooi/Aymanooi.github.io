@@ -3,12 +3,22 @@
   "mode": "Live 💰",
   "balance": 1.8834,
   "positions": [],
-  "total_trades": 232,
+  "total_trades": 231,
   "logs": [
     {
+      "time": "2026-06-29 18:11:28 UTC",
+      "msg": "⏭️ maker فشل SLX-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
+    },
+    {
+      "time": "2026-06-29 18:11:27 UTC",
+      "msg": "🎯 SLX-USDT-SWAP: رافعة x20 | SL 0.50% TP 0.50%",
+      "level": "info"
+    },
+    {
       "time": "2026-06-29 18:11:26 UTC",
-      "msg": "📤 maker شراء 📈 DOGE-USDT-SWAP @~0.07401 x20 | درجة:36 | رأس المال:$1.865 | SL:0.50% TP:0.50% (بانتظار التنفيذ)",
-      "level": "success"
+      "msg": "⏭️ maker فشل DOGE-USDT-SWAP: Order failed. Insufficient USDT margin in account  — التالي",
+      "level": "warning"
     },
     {
       "time": "2026-06-29 18:11:25 UTC",
@@ -21,12 +31,12 @@
       "level": "info"
     },
     {
-      "time": "2026-06-29 18:11:14 UTC",
+      "time": "2026-06-29 18:11:13 UTC",
       "msg": "📉 رأس المال الكلي: $1.88 | القمّة $13.21 | تراجع 85.8% | مُنظّم ×0.00",
       "level": "info"
     },
     {
-      "time": "2026-06-29 18:11:14 UTC",
+      "time": "2026-06-29 18:11:13 UTC",
       "msg": "💰 الرصيد: $1.8834 USDT",
       "level": "info"
     },
@@ -393,16 +403,6 @@
     {
       "time": "2026-06-29 18:08:18 UTC",
       "msg": "مراكز مفتوحة: 1/1 — لا دخول جديد",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 18:08:17 UTC",
-      "msg": "📉 رأس المال الكلي: $1.90 | القمّة $13.21 | تراجع 85.6% | مُنظّم ×0.00",
-      "level": "info"
-    },
-    {
-      "time": "2026-06-29 18:08:17 UTC",
-      "msg": "💰 الرصيد: $0.5921 USDT",
       "level": "info"
     }
   ],
