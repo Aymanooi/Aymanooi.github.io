@@ -30,7 +30,7 @@ def entry_signal(df, i, cfg):
 
     # تجاهل الصفوف التي لم تكتمل مؤشراتها بعد
     required = ["ema_fast", "ema_slow", "ema_trend_fast",
-                "ema_trend_slow", "rsi", "atr", "vol_ma"]
+                "ema_trend_slow", "rsi", "atr", "adx", "vol_ma"]
     if any(pd.isna(row[c]) for c in required):
         return False
 
@@ -47,7 +47,10 @@ def entry_signal(df, i, cfg):
     # 4) تأكيد الحجم
     volume_ok = row["vol"] > row["vol_ma"]
 
-    return bool(trend_up and cross_up and momentum_ok and volume_ok)
+    # 5) قوة الاتجاه — نتجنّب السوق العرضي المتذبذب
+    strong_trend = row["adx"] >= cfg.ADX_MIN
+
+    return bool(trend_up and cross_up and momentum_ok and volume_ok and strong_trend)
 
 
 def compute_stops(entry_price, atr_value, cfg):

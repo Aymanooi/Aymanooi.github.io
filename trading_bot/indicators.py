@@ -34,6 +34,28 @@ def atr(df: pd.DataFrame, period: int = 14) -> pd.Series:
     return tr.ewm(alpha=1 / period, adjust=False).mean()
 
 
+def adx(df: pd.DataFrame, period: int = 14) -> pd.Series:
+    """مؤشر متوسط الحركة الاتجاهية — يقيس قوة الاتجاه (لا اتجاهه)."""
+    high, low, close = df["high"], df["low"], df["close"]
+    up_move = high.diff()
+    down_move = -low.diff()
+    plus_dm = ((up_move > down_move) & (up_move > 0)) * up_move
+    minus_dm = ((down_move > up_move) & (down_move > 0)) * down_move
+
+    prev_close = close.shift(1)
+    tr = pd.concat([
+        high - low,
+        (high - prev_close).abs(),
+        (low - prev_close).abs(),
+    ], axis=1).max(axis=1)
+
+    atr_ = tr.ewm(alpha=1 / period, adjust=False).mean()
+    plus_di = 100 * plus_dm.ewm(alpha=1 / period, adjust=False).mean() / atr_.replace(0, 1e-10)
+    minus_di = 100 * minus_dm.ewm(alpha=1 / period, adjust=False).mean() / atr_.replace(0, 1e-10)
+    dx = 100 * (plus_di - minus_di).abs() / (plus_di + minus_di).replace(0, 1e-10)
+    return dx.ewm(alpha=1 / period, adjust=False).mean()
+
+
 def add_indicators(df: pd.DataFrame, cfg) -> pd.DataFrame:
     """إضافة كل المؤشرات المطلوبة للاستراتيجية إلى DataFrame."""
     df = df.copy()
@@ -43,5 +65,6 @@ def add_indicators(df: pd.DataFrame, cfg) -> pd.DataFrame:
     df["ema_trend_slow"] = ema(df["close"], cfg.EMA_TREND_SLOW)
     df["rsi"] = rsi(df["close"], cfg.RSI_PERIOD)
     df["atr"] = atr(df, cfg.ATR_PERIOD)
+    df["adx"] = adx(df, cfg.ADX_PERIOD)
     df["vol_ma"] = df["vol"].rolling(cfg.VOLUME_MA_PERIOD).mean()
     return df
