@@ -8,6 +8,21 @@ import pandas as pd
 import config
 
 
+def _get_with_retry(url, params, retries=4, timeout=20):
+    """طلب HTTP مع إعادة محاولة وتراجع أسّي للتعامل مع أخطاء الشبكة العابرة."""
+    last_err = None
+    for attempt in range(retries):
+        try:
+            resp = requests.get(url, params=params, timeout=timeout)
+            resp.raise_for_status()
+            return resp
+        except requests.exceptions.RequestException as e:
+            last_err = e
+            if attempt < retries - 1:
+                time.sleep(2 ** attempt)  # 1, 2, 4 ثوانٍ
+    raise last_err
+
+
 def _parse_candles(raw):
     """تحويل استجابة OKX الخام إلى DataFrame مرتّب تصاعديًا بالوقت."""
     cols = ["ts", "open", "high", "low", "close", "vol", "volCcy", "volCcyQuote", "confirm"]
@@ -29,8 +44,7 @@ def fetch_candles(symbol, bar=None, limit=None):
     limit = limit or config.CANDLE_LIMIT
     url = f"{config.OKX_BASE_URL}/api/v5/market/candles"
     params = {"instId": symbol, "bar": bar, "limit": limit}
-    resp = requests.get(url, params=params, timeout=20)
-    resp.raise_for_status()
+    resp = _get_with_retry(url, params)
     payload = resp.json()
     if payload.get("code") != "0":
         raise RuntimeError(f"OKX error for {symbol}: {payload.get('msg')}")
@@ -51,8 +65,7 @@ def fetch_history(symbol, bar=None, total=1500):
         params = {"instId": symbol, "bar": bar, "limit": 100}
         if after:
             params["after"] = after
-        resp = requests.get(url, params=params, timeout=20)
-        resp.raise_for_status()
+        resp = _get_with_retry(url, params)
         payload = resp.json()
         if payload.get("code") != "0":
             raise RuntimeError(f"OKX error for {symbol}: {payload.get('msg')}")
