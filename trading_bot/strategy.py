@@ -24,10 +24,17 @@ def _crossed_down(prev_fast, prev_slow, fast, slow):
 
 def entry_signal(df, i, cfg):
     """
-    تقييم شمعة عند الفهرس i.
-    يعيد:  1 لإشارة شراء (Long)، -1 لإشارة بيع (Short)، 0 لا إشارة.
-    يتطلب شمعة سابقة (i-1) لاكتشاف التقاطع.
+    موزّع الإشارات حسب الاستراتيجية المختارة في الإعدادات.
+    يعيد:  1 شراء (Long)، -1 بيع (Short)، 0 لا إشارة.
     """
+    if getattr(cfg, "STRATEGY", "trend") == "smc":
+        from smc import entry_signal_smc
+        return entry_signal_smc(df, i, cfg)
+    return _entry_signal_trend(df, i, cfg)
+
+
+def _entry_signal_trend(df, i, cfg):
+    """الاستراتيجية الاتجاهية (EMA + RSI + ADX + الحجم)."""
     if i < 1:
         return 0
 
@@ -84,9 +91,16 @@ def compute_stops(entry_price, atr_value, direction, cfg):
 
 def position_size(capital, entry_price, stop_loss, cfg):
     """
-    حجم الصفقة بحيث لا تتجاوز الخسارة المحتملة نسبة المخاطرة المحددة.
-    يعيد الكمية (بالعملة الأساسية). يعمل للاتجاهين عبر القيمة المطلقة.
+    حجم الصفقة بالعملة الأساسية، حسب الأسلوب المختار:
+      • "full": رأس المال كامل (All-in) — كل المال في صفقة واحدة. خطر أقصى!
+      • "risk": مخاطرة نسبة ثابتة من رأس المال (الأسلوب الآمن، الافتراضي).
     """
+    if getattr(cfg, "POSITION_SIZING", "risk") == "full":
+        # كامل رأس المال كقيمة اسمية للصفقة
+        if entry_price <= 0:
+            return 0.0
+        return capital / entry_price
+
     risk_per_unit = abs(entry_price - stop_loss)
     if risk_per_unit <= 0:
         return 0.0

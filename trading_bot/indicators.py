@@ -91,4 +91,8 @@ def add_indicators(df: pd.DataFrame, cfg) -> pd.DataFrame:
     df["atr"] = atr(df, cfg.ATR_PERIOD)
     df["adx"] = adx(df, cfg.ADX_PERIOD)
     df["vol_ma"] = df["vol"].rolling(cfg.VOLUME_MA_PERIOD).mean()
+    # أعمدة SMC (تُحسب دائمًا حتى تتوفّر عند اختيار استراتيجية smc)
+    if getattr(cfg, "STRATEGY", "trend") == "smc":
+        from smc import add_smc
+        df = add_smc(df, cfg)
     return df
