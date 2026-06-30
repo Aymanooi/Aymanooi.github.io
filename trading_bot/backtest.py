@@ -35,28 +35,40 @@ def run_symbol(symbol, total_candles, capital, verbose=False):
         if position is not None:
             exit_price = None
             reason = None
+            d = position["direction"]
 
-            # فحص ضرب المستويات داخل نطاق الشمعة الحالية
-            if row["low"] <= position["stop_loss"]:
-                exit_price = position["stop_loss"]
-                reason = "stop_loss"
-            elif row["high"] >= position["take_profit"]:
-                exit_price = position["take_profit"]
-                reason = "take_profit"
+            # فحص ضرب المستويات داخل نطاق الشمعة الحالية (حسب الاتجاه)
+            if d == 1:
+                if row["low"] <= position["stop_loss"]:
+                    exit_price, reason = position["stop_loss"], "stop_loss"
+                elif row["high"] >= position["take_profit"]:
+                    exit_price, reason = position["take_profit"], "take_profit"
+            else:  # صفقة بيع
+                if row["high"] >= position["stop_loss"]:
+                    exit_price, reason = position["stop_loss"], "stop_loss"
+                elif row["low"] <= position["take_profit"]:
+                    exit_price, reason = position["take_profit"], "take_profit"
 
-            # تحديث الوقف المتحرك (يرفع وقف الخسارة فقط للأعلى)
+            # تحديث الوقف المتحرك (يحرّك الوقف في اتجاه الربح فقط)
             if exit_price is None and cfg.USE_TRAILING_STOP:
-                new_stop = row["close"] - row["atr"] * cfg.TRAILING_ATR_MULTIPLIER
-                if new_stop > position["stop_loss"]:
-                    position["stop_loss"] = new_stop
+                offset = row["atr"] * cfg.TRAILING_ATR_MULTIPLIER
+                if d == 1:
+                    new_stop = row["close"] - offset
+                    if new_stop > position["stop_loss"]:
+                        position["stop_loss"] = new_stop
+                else:
+                    new_stop = row["close"] + offset
+                    if new_stop < position["stop_loss"]:
+                        position["stop_loss"] = new_stop
 
             if exit_price is not None:
-                gross = (exit_price - position["entry_price"]) * position["qty"]
+                gross = (exit_price - position["entry_price"]) * position["qty"] * d
                 fees = (position["entry_price"] + exit_price) * position["qty"] * cfg.TAKER_FEE
                 pnl = gross - fees
                 capital += pnl
                 trades.append({
                     "symbol": symbol,
+                    "direction": "LONG" if d == 1 else "SHORT",
                     "entry_time": position["entry_time"],
                     "exit_time": row["ts"],
                     "entry_price": position["entry_price"],
@@ -68,28 +80,33 @@ def run_symbol(symbol, total_candles, capital, verbose=False):
                     "capital_after": capital,
                 })
                 if verbose:
-                    print(f"  [{symbol}] خروج {reason} | ربح/خسارة: {pnl:+.2f} | رأس المال: {capital:.2f}")
+                    tag = "LONG" if d == 1 else "SHORT"
+                    print(f"  [{symbol}/{tag}] خروج {reason} | ربح/خسارة: {pnl:+.2f} | رأس المال: {capital:.2f}")
                 position = None
 
         # ---- البحث عن دخول جديد ----
-        if position is None and entry_signal(df, i, cfg):
-            entry_price = row["close"]
-            stop_loss, take_profit = compute_stops(entry_price, row["atr"], cfg)
-            qty = position_size(capital, entry_price, stop_loss, cfg)
-            cost = entry_price * qty
-            # في العقود الآجلة: الهامش المطلوب = القيمة الاسمية / الرافعة
-            required_margin = cost / cfg.MAX_LEVERAGE
-            if qty > 0 and required_margin <= capital:
-                position = {
-                    "entry_time": row["ts"],
-                    "entry_price": entry_price,
-                    "stop_loss": stop_loss,
-                    "take_profit": take_profit,
-                    "qty": qty,
-                    "cost": cost,
-                }
-                if verbose:
-                    print(f"  [{symbol}] دخول @ {entry_price:.4f} | SL {stop_loss:.4f} | TP {take_profit:.4f}")
+        if position is None:
+            direction = entry_signal(df, i, cfg)
+            if direction != 0:
+                entry_price = row["close"]
+                stop_loss, take_profit = compute_stops(entry_price, row["atr"], direction, cfg)
+                qty = position_size(capital, entry_price, stop_loss, cfg)
+                cost = entry_price * qty
+                # في العقود الآجلة: الهامش المطلوب = القيمة الاسمية / الرافعة
+                required_margin = cost / cfg.MAX_LEVERAGE
+                if qty > 0 and required_margin <= capital:
+                    position = {
+                        "direction": direction,
+                        "entry_time": row["ts"],
+                        "entry_price": entry_price,
+                        "stop_loss": stop_loss,
+                        "take_profit": take_profit,
+                        "qty": qty,
+                        "cost": cost,
+                    }
+                    if verbose:
+                        tag = "LONG" if direction == 1 else "SHORT"
+                        print(f"  [{symbol}/{tag}] دخول @ {entry_price:.4f} | SL {stop_loss:.4f} | TP {take_profit:.4f}")
 
     return trades, capital
 

@@ -35,6 +35,7 @@ ATR_STOP_MULTIPLIER = 1.5        # وقف الخسارة = السعر - 1.5 × A
 RISK_REWARD_RATIO = 2.0          # نسبة المخاطرة/العائد 1:2
 USE_TRAILING_STOP = True         # تفعيل الوقف المتحرك
 TRAILING_ATR_MULTIPLIER = 2.0    # مسافة الوقف المتحرك
+ALLOW_SHORT = True               # السماح بالتداول في الهبوط (Short) أيضًا
 
 # ===== رأس المال (للاختبار التاريخي والمحاكاة) =====
 INITIAL_CAPITAL = 1000.0         # رأس مال وهمي للاختبار (بالدولار)

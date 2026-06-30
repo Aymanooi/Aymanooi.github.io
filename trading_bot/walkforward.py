@@ -27,16 +27,29 @@ def simulate(df, capital):
         row = df.iloc[i]
         if position is not None:
             exit_price = None
-            if row["low"] <= position["stop_loss"]:
-                exit_price = position["stop_loss"]
-            elif row["high"] >= position["take_profit"]:
-                exit_price = position["take_profit"]
+            d = position["direction"]
+            if d == 1:
+                if row["low"] <= position["stop_loss"]:
+                    exit_price = position["stop_loss"]
+                elif row["high"] >= position["take_profit"]:
+                    exit_price = position["take_profit"]
+            else:
+                if row["high"] >= position["stop_loss"]:
+                    exit_price = position["stop_loss"]
+                elif row["low"] <= position["take_profit"]:
+                    exit_price = position["take_profit"]
             if exit_price is None and cfg.USE_TRAILING_STOP:
-                new_stop = row["close"] - row["atr"] * cfg.TRAILING_ATR_MULTIPLIER
-                if new_stop > position["stop_loss"]:
-                    position["stop_loss"] = new_stop
+                offset = row["atr"] * cfg.TRAILING_ATR_MULTIPLIER
+                if d == 1:
+                    new_stop = row["close"] - offset
+                    if new_stop > position["stop_loss"]:
+                        position["stop_loss"] = new_stop
+                else:
+                    new_stop = row["close"] + offset
+                    if new_stop < position["stop_loss"]:
+                        position["stop_loss"] = new_stop
             if exit_price is not None:
-                gross = (exit_price - position["entry_price"]) * position["qty"]
+                gross = (exit_price - position["entry_price"]) * position["qty"] * d
                 fees = (position["entry_price"] + exit_price) * position["qty"] * cfg.TAKER_FEE
                 pnl = gross - fees
                 capital += pnl
@@ -44,18 +57,21 @@ def simulate(df, capital):
                 if pnl > 0:
                     wins += 1
                 position = None
-        if position is None and entry_signal(df, i, cfg):
-            entry_price = row["close"]
-            stop_loss, take_profit = compute_stops(entry_price, row["atr"], cfg)
-            qty = position_size(capital, entry_price, stop_loss, cfg)
-            required_margin = entry_price * qty / cfg.MAX_LEVERAGE
-            if qty > 0 and required_margin <= capital:
-                position = {
-                    "entry_price": entry_price,
-                    "stop_loss": stop_loss,
-                    "take_profit": take_profit,
-                    "qty": qty,
-                }
+        if position is None:
+            direction = entry_signal(df, i, cfg)
+            if direction != 0:
+                entry_price = row["close"]
+                stop_loss, take_profit = compute_stops(entry_price, row["atr"], direction, cfg)
+                qty = position_size(capital, entry_price, stop_loss, cfg)
+                required_margin = entry_price * qty / cfg.MAX_LEVERAGE
+                if qty > 0 and required_margin <= capital:
+                    position = {
+                        "direction": direction,
+                        "entry_price": entry_price,
+                        "stop_loss": stop_loss,
+                        "take_profit": take_profit,
+                        "qty": qty,
+                    }
     return capital, trades, wins
 
 
