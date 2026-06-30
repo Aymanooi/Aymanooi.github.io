@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام البحث الكمّي للتداول | Quantitative Trading Research</title>
+  <meta name="description" content="نظام بحث كمّي كامل لاختبار استراتيجيات تداول العملات الرقمية بمنهجية علمية صارمة — اختبار تاريخي، اختبار متانة، تحسين آلي، وتعلّم آلي.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --bg-card: #131929;
+      --bg-card-2: #1a2236;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --green: #34d399;
+      --red: #f87171;
+      --amber: #fbbf24;
+      --text: #e2e8f0;
+      --text-dim: #94a3b8;
+      --border: #1e293b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; direction: ltr; display: inline-block; }
+
+    /* خلفية متدرّجة متحرّكة */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(56,189,248,0.12), transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(129,140,248,0.12), transparent 50%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.25;
+      mask-image: radial-gradient(ellipse at center, black, transparent 75%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 860px; }
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 1.1rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+      background: rgba(56,189,248,0.08);
+    }
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(120deg, #fff 30%, var(--accent) 70%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p.sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-dim);
+      max-width: 640px;
+      margin: 0 auto 2.4rem;
+    }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 0.85rem 1.8rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #0a0e1a;
+      box-shadow: 0 8px 24px rgba(56,189,248,0.3);
+    }
+    .btn-secondary { background: var(--bg-card-2); color: var(--text); border: 1px solid var(--border); }
+    .btn:hover { transform: translateY(-3px); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      color: var(--text-dim);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+
+    section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+    .section-sub { text-align: center; color: var(--text-dim); margin-bottom: 3rem; max-width: 620px; margin-inline: auto; }
+
+    /* بطاقات المميزات */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .card p { color: var(--text-dim); font-size: 0.95rem; }
+
+    /* جدول النتائج */
+    .results-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; min-width: 520px; }
+    th, td { padding: 1rem 1.2rem; text-align: center; border-bottom: 1px solid var(--border); }
+    th { background: var(--bg-card-2); font-weight: 700; color: var(--text); }
+    td { color: var(--text-dim); }
+    tr:last-child td { border-bottom: none; }
+    .tag-fail { color: var(--red); font-weight: 700; }
+    .neutral { color: var(--amber); font-weight: 700; }
+
+    /* مربع الخلاصة العلمية */
+    .insight {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-top: 1rem;
+      position: relative;
+    }
+    .insight h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent); }
+    .insight p { color: var(--text); margin-bottom: 1rem; }
+    .insight blockquote {
+      border-right: 3px solid var(--accent);
+      padding-right: 1.2rem;
+      color: var(--text-dim);
+      font-style: italic;
+      margin: 1.2rem 0;
+    }
+
+    /* المكوّنات التقنية */
+    .stack { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin-top: 1rem; }
+    .chip {
+      padding: 0.5rem 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .chip .mono { color: var(--accent); }
+
+    /* خطوات سير العمل */
+    .pipeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    .step .num {
+      width: 36px; height: 36px;
+      line-height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #0a0e1a;
+      font-weight: 800;
+      margin: 0 auto 0.8rem;
+    }
+    .step h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .step p { font-size: 0.82rem; color: var(--text-dim); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    .disclaimer {
+      max-width: 720px;
+      margin: 2rem auto 0;
+      padding: 1.2rem;
+      background: rgba(248,113,113,0.08);
+      border: 1px solid var(--red);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- البطل -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">⚛️ بحث كمّي · Quantitative Research</span>
+      <h1>نظام البحث الكمّي<br>لاستراتيجيات التداول</h1>
+      <p class="sub">
+        إطار عمل برمجي كامل لاختبار استراتيجيات تداول العملات الرقمية
+        بمنهجية علمية صارمة — من المؤشرات الفنية إلى التعلّم الآلي،
+        مع تحقّق صارم يكشف الوهم من الحقيقة.
+      </p>
+      <div class="cta-row">
+        <a href="#findings" class="btn btn-primary">📊 اكتشف النتائج</a>
+        <a href="https://github.com/Aymanooi/Aymanooi.github.io/tree/main/trading_bot" class="btn btn-secondary">💻 الكود المصدري</a>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </header>
+
+  <!-- المميزات -->
+  <section id="features">
+    <h2 class="section-title">ماذا يفعل النظام؟</h2>
+    <p class="section-sub">ثمانِ وحدات برمجية تعمل معًا لاختبار أي استراتيجية تداول بصرامة قبل المخاطرة بأي مال.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">📡</div>
+        <h3>جلب بيانات حيّة</h3>
+        <p>سحب آلاف الشموع التاريخية من منصة OKX عبر واجهتها العامة، بلا حاجة لمفاتيح.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📐</div>
+        <h3>مؤشرات فنية</h3>
+        <p>تطبيق يدوي دقيق لـ EMA, RSI, ATR, ADX, MACD, Bollinger, Stochastic.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⏮️</div>
+        <h3>اختبار تاريخي</h3>
+        <p>محاكاة واقعية مع رسوم، رافعة مالية، وقف خسارة، وجني أرباح، ووقف متحرك.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔬</div>
+        <h3>اختبار المتانة</h3>
+        <p>تقسيم زمني (walk-forward) يكشف إن كان الربح مهارة حقيقية أم مجرد حظ.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>تحسين آلي</h3>
+        <p>بحث في آلاف التركيبات مع تحقّق خارج العيّنة لفضح الإفراط في التحسين.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>تعلّم آلي</h3>
+        <p>نموذج Gradient Boosting بـ 25 خاصية، مع حماية صارمة من تسرّب البيانات.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- سير العمل -->
+  <section id="pipeline">
+    <h2 class="section-title">المنهجية العلمية</h2>
+    <p class="section-sub">نفس المنهجية التي تتبعها صناديق التحوّط — اختبار صارم قبل أي قرار.</p>
+    <div class="pipeline">
+      <div class="step"><div class="num">1</div><h4>البيانات</h4><p>جلب وتنظيف الشموع التاريخية</p></div>
+      <div class="step"><div class="num">2</div><h4>الخصائص</h4><p>حساب المؤشرات والخصائص</p></div>
+      <div class="step"><div class="num">3</div><h4>الاستراتيجية</h4><p>توليد الإشارات وإدارة المخاطر</p></div>
+      <div class="step"><div class="num">4</div><h4>التحقّق</h4><p>اختبار خارج العيّنة بصرامة</p></div>
+      <div class="step"><div class="num">5</div><h4>الحكم</h4><p>قرار مبني على الأرقام لا الأوهام</p></div>
+    </div>
+  </section>
+
+  <!-- النتائج -->
+  <section id="findings">
+    <h2 class="section-title">النتائج العلمية الصادقة</h2>
+    <p class="section-sub">جرّبنا أربعة مناهج، من الأبسط للأكثر تطورًا. هذه نتائج الاختبار على بيانات لم يرها النظام أبدًا.</p>
+    <div class="results-wrap">
+      <table>
+        <thead>
+          <tr><th>المنهج</th><th>الأداة</th><th>الحكم (خارج العيّنة)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>مؤشرات فنية</td><td><span class="mono">EMA + RSI + ADX</span></td><td class="neutral">≈ 0%</td></tr>
+          <tr><td>التداول بالاتجاهين</td><td><span class="mono">Long + Short</span></td><td class="neutral">≈ 0%</td></tr>
+          <tr><td>التحسين الآلي</td><td><span class="mono">1,215 combo</span></td><td class="tag-fail">−0.1% (Overfitting)</td></tr>
+          <tr><td>التعلّم الآلي</td><td><span class="mono">Gradient Boosting</span></td><td class="tag-fail">−20.7% (AUC 0.52)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight">
+      <h3>💡 الخلاصة العلمية</h3>
+      <p>
+        المناهج الأربعة، رغم تطوّرها المتزايد، أوصلتنا لنفس النتيجة:
+        <strong>لا توجد ميزة ربحية مستدامة</strong> يمكن استخراجها من بيانات الأسعار
+        العامة على الإطار الزمني الساعي بعد خصم الرسوم.
+      </p>
+      <blockquote>
+        "أي نمط بسيط يمكن لنموذج اكتشافه من الأسعار التاريخية، يكتشفه آلاف المحترفين
+        بحواسيب أقوى فيستغلّونه حتى يختفي. ما يبقى هو ضجيج شبه عشوائي."
+        — فرضية كفاءة السوق
+      </blockquote>
+      <p>
+        قيمة هذا المشروع ليست في "آلة طباعة نقود" — فتلك لا وجود لها — بل في
+        <strong>النزاهة العلمية</strong>: أن نختبر بصدق ونرفض خداع أنفسنا.
+        هذا بالضبط ما يحمي رأس المال الحقيقي.
+      </p>
+    </div>
+  </section>
+
+  <!-- التقنيات -->
+  <section id="stack">
+    <h2 class="section-title">التقنيات المستخدمة</h2>
+    <p class="section-sub">أدوات احترافية لتحليل البيانات والتعلّم الآلي.</p>
+    <div class="stack">
+      <span class="chip"><span class="mono">Python 3</span></span>
+      <span class="chip"><span class="mono">pandas</span></span>
+      <span class="chip"><span class="mono">NumPy</span></span>
+      <span class="chip"><span class="mono">scikit-learn</span></span>
+      <span class="chip"><span class="mono">OKX API</span></span>
+      <span class="chip">تحليل بيانات</span>
+      <span class="chip">إدارة المخاطر</span>
+      <span class="chip">اختبار خارج العيّنة</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>صُمّم وطُوّر بشغف بالبحث الكمّي · <span class="mono">Aymanooi</span></p>
+    <p style="margin-top:0.5rem;">
+      <a href="https://github.com/Aymanooi/Aymanooi.github.io">GitHub</a>
+    </p>
+    <div class="disclaimer">
+      ⚠️ <strong>إخلاء مسؤولية:</strong> هذا المشروع لأغراض بحثية وتعليمية بحتة،
+      وليس نصيحة مالية. التداول بالعقود الآجلة يحمل مخاطر عالية وقد يؤدي لخسارة
+      كامل رأس المال. النتائج التاريخية لا تضمن النتائج المستقبلية.
+    </div>
+  </footer>
+
+</body>
+</html>
