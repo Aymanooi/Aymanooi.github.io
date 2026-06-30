@@ -25,6 +25,7 @@ from config import Settings
 from detector import (JupiterClient, evaluate_cycle,
                       estimate_sol_price_in_base)
 from jupiter import JupiterError
+from logger import CsvLogger
 
 
 def parse_args() -> argparse.Namespace:
@@ -40,6 +41,8 @@ def parse_args() -> argparse.Namespace:
                    help="التكرار كل N ثانية (0 = مرة واحدة)")
     p.add_argument("--show-all", action="store_true",
                    help="إظهار كل الحلقات حتى الخاسرة")
+    p.add_argument("--csv", default=None,
+                   help="مسار ملف CSV لتسجيل كل النتائج (اختياري)")
     return p.parse_args()
 
 
@@ -58,8 +61,10 @@ def fmt(x: float, nd: int = 4) -> str:
     return f"{x:,.{nd}f}"
 
 
-def run_once(client: JupiterClient, settings: Settings, show_all: bool) -> None:
+def run_once(client: JupiterClient, settings: Settings, show_all: bool,
+             csv_logger: CsvLogger | None = None) -> None:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    iso_ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     base = settings.base_token
 
     try:
@@ -83,6 +88,9 @@ def run_once(client: JupiterClient, settings: Settings, show_all: bool) -> None:
         try:
             res = evaluate_cycle(client, settings, cycle, sol_price)
             results.append(res)
+            if csv_logger is not None:
+                csv_logger.log(res, base, sol_price,
+                               settings.fees.flash_loan_fee_bps, ts=iso_ts)
         except (JupiterError, AssertionError) as e:
             print(f"  ⚠️  {label}: خطأ — {e}")
 
@@ -122,15 +130,18 @@ def main() -> int:
     args = parse_args()
     settings = build_settings(args)
     client = JupiterClient(settings.jupiter_base_url, settings.slippage_bps)
+    csv_logger = CsvLogger(args.csv) if args.csv else None
+    if csv_logger:
+        print(f"📝 تسجيل النتائج في: {args.csv}")
 
     if args.watch <= 0:
-        run_once(client, settings, args.show_all)
+        run_once(client, settings, args.show_all, csv_logger)
         return 0
 
     print(f"🔁 وضع المراقبة: كل {args.watch} ثانية (Ctrl+C للإيقاف)")
     try:
         while True:
-            run_once(client, settings, args.show_all)
+            run_once(client, settings, args.show_all, csv_logger)
             time.sleep(args.watch)
     except KeyboardInterrupt:
         print("\n⏹  تم الإيقاف.")

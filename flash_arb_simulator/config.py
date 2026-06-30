@@ -16,6 +16,13 @@ MINTS = {
     "BONK": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
     "JTO": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
     "RAY": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+    "WIF": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+    "PYTH": "HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3",
+    "ORCA": "orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE",
+    "MSOL": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+    "JITOSOL": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+    "WBTC": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+    "WETH": "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs",
 }
 
 # عدد المنازل العشرية لكل عملة (لتحويل الوحدات الذرية إلى مبلغ مقروء)
@@ -27,6 +34,13 @@ DECIMALS = {
     "BONK": 5,
     "JTO": 9,
     "RAY": 6,
+    "WIF": 6,
+    "PYTH": 6,
+    "ORCA": 6,
+    "MSOL": 9,
+    "JITOSOL": 9,
+    "WBTC": 8,
+    "WETH": 8,
 }
 
 
@@ -80,5 +94,14 @@ class Settings:
         ["USDC", "SOL", "JUP", "USDC"],
         ["USDC", "SOL", "JTO", "USDC"],
         ["USDC", "SOL", "RAY", "USDC"],
+        ["USDC", "SOL", "WIF", "USDC"],
+        ["USDC", "SOL", "ORCA", "USDC"],
+        ["USDC", "SOL", "PYTH", "USDC"],
         ["USDC", "USDT", "SOL", "USDC"],
+        # حلقات مشتقات SOL (غالباً الأقرب للربحية لقلة الفروق)
+        ["USDC", "SOL", "MSOL", "USDC"],
+        ["USDC", "SOL", "JITOSOL", "USDC"],
+        # حلقات أصول كبيرة
+        ["USDC", "SOL", "WBTC", "USDC"],
+        ["USDC", "SOL", "WETH", "USDC"],
     ])
