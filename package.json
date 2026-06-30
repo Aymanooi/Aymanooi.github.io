@@ -1,0 +1,11 @@
+{
+  "name": "adawat",
+  "version": "0.1.0",
+  "description": "مركز أدوات ويب تعمل بالكامل في المتصفح — عربية أولًا، بلا خادم.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
