@@ -56,6 +56,30 @@ def adx(df: pd.DataFrame, period: int = 14) -> pd.Series:
     return dx.ewm(alpha=1 / period, adjust=False).mean()
 
 
+def macd(series: pd.Series, fast=12, slow=26, signal=9):
+    """خط MACD وخط الإشارة والهيستوجرام."""
+    macd_line = ema(series, fast) - ema(series, slow)
+    signal_line = ema(macd_line, signal)
+    hist = macd_line - signal_line
+    return macd_line, signal_line, hist
+
+
+def bollinger(series: pd.Series, period=20, mult=2.0):
+    """نطاقات بولينجر: الأعلى، الأوسط، الأدنى."""
+    mid = series.rolling(period).mean()
+    std = series.rolling(period).std()
+    return mid + mult * std, mid, mid - mult * std
+
+
+def stochastic(df: pd.DataFrame, k_period=14, d_period=3):
+    """مذبذب ستوكاستيك %K و %D."""
+    low_min = df["low"].rolling(k_period).min()
+    high_max = df["high"].rolling(k_period).max()
+    k = 100 * (df["close"] - low_min) / (high_max - low_min).replace(0, 1e-10)
+    d = k.rolling(d_period).mean()
+    return k, d
+
+
 def add_indicators(df: pd.DataFrame, cfg) -> pd.DataFrame:
     """إضافة كل المؤشرات المطلوبة للاستراتيجية إلى DataFrame."""
     df = df.copy()
