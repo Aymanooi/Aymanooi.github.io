@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from config import Settings
 from detector import (JupiterClient, evaluate_cycle,
                       estimate_sol_price_in_base)
-from jupiter import JupiterError
+from jupiter import JupiterError, NoRouteError
 from logger import CsvLogger
 
 
@@ -91,6 +91,9 @@ def run_once(client: JupiterClient, settings: Settings, show_all: bool,
             if csv_logger is not None:
                 csv_logger.log(res, base, sol_price,
                                settings.fees.flash_loan_fee_bps, ts=iso_ts)
+        except NoRouteError:
+            if show_all:
+                print(f"  ⏭️  {label}: تخطّي (لا مسار / سيولة غير كافية لهذا الحجم)")
         except (JupiterError, AssertionError) as e:
             print(f"  ⚠️  {label}: خطأ — {e}")
 

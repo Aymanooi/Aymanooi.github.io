@@ -1,0 +1,5 @@
+# نتائج مُولَّدة من التشغيل
+flash_arb_simulator/results.csv
+*.csv
+__pycache__/
+*.pyc

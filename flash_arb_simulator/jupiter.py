@@ -17,6 +17,10 @@ class JupiterError(Exception):
     pass
 
 
+class NoRouteError(JupiterError):
+    """لا يوجد مسار تبديل (سيولة غير كافية لهذا الحجم) — لا فائدة من إعادة المحاولة."""
+
+
 class JupiterClient:
     def __init__(self, base_url: str, slippage_bps: int = 50, timeout: int = 25):
         self.base_url = base_url.rstrip("/")
@@ -49,7 +53,20 @@ class JupiterClient:
                 if "outAmount" not in data:
                     raise JupiterError(f"رد غير متوقع: {data}")
                 return data
-            except Exception as e:  # شبكة/تحليل
+            except urllib.error.HTTPError as e:
+                # 4xx = خطأ منطقي (غالباً لا مسار) — اقرأ السبب ولا تُعد المحاولة
+                body = ""
+                try:
+                    body = e.read().decode("utf-8")
+                except Exception:
+                    pass
+                if 400 <= e.code < 500:
+                    if "NO_ROUTES_FOUND" in body or "No routes" in body:
+                        raise NoRouteError("لا مسار (سيولة غير كافية لهذا الحجم)")
+                    raise JupiterError(f"HTTP {e.code}: {body[:200]}")
+                last_err = e
+                time.sleep(2 ** attempt)
+            except Exception as e:  # شبكة/تحليل — أعد المحاولة
                 last_err = e
                 time.sleep(2 ** attempt)
         raise JupiterError(f"فشل جلب الاقتباس بعد {retries} محاولات: {last_err}")

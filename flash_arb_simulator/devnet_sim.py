@@ -28,7 +28,7 @@ from dataclasses import dataclass, field
 
 from config import MINTS, DECIMALS, Settings
 from detector import to_atomic, from_atomic
-from jupiter import JupiterClient, JupiterError
+from jupiter import JupiterClient, JupiterError, NoRouteError
 
 
 DEVNET_RPC = "https://api.devnet.solana.com"
@@ -221,6 +221,10 @@ def main() -> int:
     client = JupiterClient(settings.jupiter_base_url, settings.slippage_bps)
     try:
         instructions, meta = build_flash_loan_tx(client, settings, cycle)
+    except NoRouteError:
+        print("⏭️  لا مسار لإحدى قفزات هذه الحلقة (سيولة غير كافية لهذا الحجم).")
+        print("   جرّب مبلغاً أصغر أو حلقة بعملات أكثر سيولة.")
+        return 1
     except (JupiterError, AssertionError) as e:
         print(f"❌ تعذّر بناء المعاملة: {e}")
         return 1
