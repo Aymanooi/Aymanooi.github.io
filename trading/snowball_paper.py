@@ -95,6 +95,10 @@ class Config:
     DAILY_LOSS_HALT: float = 0.05  # خسارة يومية 5% → توقف عن فتح صفقات لليوم
     MAX_DRAWDOWN_HALT: float = 0.15  # سحب 15% من القمة → إيقاف كامل
 
+    # ── أوضاع "الحافة" — تُفعّل فقط بأعلام صريحة من سطر الأوامر ──
+    ALL_IN: bool = False          # --all-in: كامل الرصيد هامشاً لكل صفقة
+    HALTS_ENABLED: bool = True    # --no-halt: تعطيل كوابح الحماية
+
 
 config = Config()
 
@@ -393,6 +397,8 @@ class RiskManager:
         else:
             self.loss_streak += 1
             self.win_streak = 0
+        if not config.HALTS_ENABLED:
+            return  # ⚠️ الكوابح معطّلة بطلب صريح — لا حماية
         # كسر الحماية اليومي
         if equity <= self.day_start_equity * (1 - config.DAILY_LOSS_HALT):
             self.halted_today = True
@@ -436,6 +442,16 @@ class PaperBroker:
         spec = self.specs.get(symbol)
         if not spec:
             return 0.0, "لا توجد مواصفات للعقد"
+        if config.ALL_IN:
+            # كامل الرصيد هامشاً (مع هامش صغير للرسوم) × الرافعة
+            margin_target = self.balance * 0.98
+            qty_raw = margin_target * config.LEVERAGE / price
+            contracts = math.floor(qty_raw / spec["ctVal"] / spec["lotSz"]) * spec["lotSz"]
+            if contracts < spec["minSz"]:
+                min_notional = spec["minSz"] * spec["ctVal"] * price
+                return 0.0, (f"الرصيد أصغر من الحد الأدنى للعقد "
+                             f"(أقل صفقة ممكنة ≈ ${min_notional:.2f} notional)")
+            return contracts * spec["ctVal"], None
         qty_raw = risk_usdt / sl_dist                     # كمية بالعملة الأساس
         contracts = qty_raw / spec["ctVal"]
         contracts = math.floor(contracts / spec["lotSz"]) * spec["lotSz"]
@@ -855,9 +871,22 @@ def main() -> None:
     ap.add_argument("--once", action="store_true", help="دورة واحدة ثم خروج")
     ap.add_argument("--backtest-days", type=int, default=None,
                     help="محاكاة تاريخية على آخر N أيام بدل التشغيل الحي")
+    ap.add_argument("--leverage", type=int, default=None, help="الرافعة المالية")
+    ap.add_argument("--all-in", action="store_true",
+                    help="⚠️ كامل الرصيد هامشاً في كل صفقة")
+    ap.add_argument("--no-halt", action="store_true",
+                    help="⚠️ تعطيل كوابح الحماية (اليومية والسحب الأقصى)")
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s %(message)s", datefmt="%H:%M:%S")
+    if args.leverage:
+        config.LEVERAGE = args.leverage
+    if args.all_in:
+        config.ALL_IN = True
+        log.warning("⚠️ وضع ALL-IN: كامل الرصيد في كل صفقة — للقياس فقط")
+    if args.no_halt:
+        config.HALTS_ENABLED = False
+        log.warning("⚠️ الكوابح معطّلة: لا حد للخسارة اليومية ولا للسحب الأقصى")
     if args.backtest_days:
         Backtester(args.balance, args.backtest_days).run()
     else:
