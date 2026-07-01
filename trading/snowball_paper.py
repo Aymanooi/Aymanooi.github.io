@@ -21,6 +21,9 @@
 ║     ودورة كل 60 ثانية                                              ║
 ║  🔧 عتبة إجماع 52% (عملة معدنية) → 65%                             ║
 ║  🔧 محاكاة تصفية (Liquidation) واقعية للرافعة المعزولة             ║
+║  🔧 اكتشاف تلقائي للعملات: سيولة 24h ≥ $30M من السوق الحي،         ║
+║     بدون BTC/ETH/SOL وبدون الأصول المرمّزة (ذهب/أسهم)، تحديث كل    ║
+║     ساعة، والعملة ذات الصفقة المفتوحة لا تُسقط من المراقبة          ║
 ║                                                                    ║
 ║  التشغيل:                                                          ║
 ║    python3 snowball_paper.py --once            # دورة واحدة        ║
@@ -54,10 +57,18 @@ DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "snowball_pap
 # ══════════════════════════════════════════════════════════════════
 @dataclass
 class Config:
-    SYMBOLS: List[str] = field(default_factory=lambda: [
-        "BTC-USDT-SWAP", "ETH-USDT-SWAP", "SOL-USDT-SWAP",
-        "XRP-USDT-SWAP", "DOGE-USDT-SWAP", "LINK-USDT-SWAP",
-    ])
+    # ── اكتشاف العملات ديناميكياً حسب السيولة الحقيقية ──────────
+    SYMBOLS: List[str] = field(default_factory=list)  # تُملأ تلقائياً من السوق
+    MIN_LIQUIDITY_USD: float = 30_000_000  # حجم تداول 24h لا يقل عن $30M
+    MAX_SYMBOLS: int = 20                  # سقف للعدد (احترام حدود الـ API)
+    SYMBOL_REFRESH_CYCLES: int = 60        # إعادة اكتشاف القائمة كل ساعة
+    EXCLUDED_BASES: frozenset = frozenset({"BTC", "ETH", "SOL"})  # مستبعدة بطلبك
+    # أصول مرمّزة ليست عملات رقمية (ذهب/فضة/أسهم) — خارج نطاق "العملات الرقمية"
+    NON_CRYPTO_BASES: frozenset = frozenset({
+        "XAU", "XAG", "MU", "SNDK", "SOXL", "MSTR", "SKHYNIX",
+        "DRAM", "SPCX", "OPENAI", "COIN", "HOOD", "NVDA", "TSLA",
+        "AAPL", "GOOGL", "META", "AMZN", "MSFT", "CRCL", "SBET",
+    })
     BAR: str = "5m"              # شموع 5 دقائق — لا سكالبينغ انتحاري
     LOOKBACK: int = 200          # عدد الشموع للتحليل
     CYCLE_SECONDS: int = 60      # دورة كل دقيقة
@@ -120,6 +131,32 @@ class OKXPublic:
                     "minSz": float(d["minSz"]),      # أقل عدد عقود مسموح
                     "maxLever": float(d["lever"]),
                 }
+
+    def discover_symbols(self) -> List[str]:
+        """اكتشاف العملات المؤهلة من السوق الحي: سيولة 24h ≥ الحد الأدنى،
+        بدون BTC/ETH/SOL وبدون الأصول المرمّزة غير الرقمية"""
+        data = self._get("/api/v5/market/tickers", {"instType": "SWAP"}) or []
+        rows = []
+        for d in data:
+            inst = d["instId"]
+            if not inst.endswith("-USDT-SWAP"):
+                continue
+            base = inst.split("-")[0]
+            if base in config.EXCLUDED_BASES or base in config.NON_CRYPTO_BASES:
+                continue
+            try:
+                vol_usd = float(d["volCcy24h"]) * float(d["last"])
+            except (ValueError, KeyError):
+                continue
+            if vol_usd >= config.MIN_LIQUIDITY_USD:
+                rows.append((inst, vol_usd))
+        rows.sort(key=lambda x: -x[1])
+        symbols = [r[0] for r in rows[:config.MAX_SYMBOLS]]
+        log.info(f"🔍 اكتشاف السوق: {len(rows)} عملة سيولتها ≥ "
+                 f"${config.MIN_LIQUIDITY_USD/1e6:.0f}M — اخترت أعلى {len(symbols)}")
+        for inst, vol in rows[:config.MAX_SYMBOLS]:
+            log.info(f"   {inst.split('-')[0]:<10} ${vol/1e6:,.0f}M/24h")
+        return symbols
 
     def candles(self, symbol: str, bar: str, limit: int) -> Optional[List[dict]]:
         """شموع من الأحدث للأقدم في API → نعكسها للأقدم أولاً"""
@@ -483,11 +520,24 @@ class Store:
 class Engine:
     def __init__(self, balance: float):
         self.okx = OKXPublic()
+        config.SYMBOLS = self.okx.discover_symbols()
+        if not config.SYMBOLS:
+            raise RuntimeError("لم يتم اكتشاف أي عملة مؤهلة — تحقق من الاتصال")
         self.okx.load_specs(config.SYMBOLS)
         self.broker = PaperBroker(balance, self.okx.specs)
         self.risk = RiskManager(balance)
         self.store = Store()
         self.cycle_n = 0
+
+    def refresh_symbols(self) -> None:
+        """تحديث قائمة العملات دورياً — السيولة تتغير على مدار اليوم"""
+        fresh = self.okx.discover_symbols()
+        if not fresh:
+            return  # فشل الجلب؟ نبقى على القائمة الحالية
+        held = {p["symbol"] for p in self.broker.positions.values()}
+        # لا نُسقط عملة عليها صفقة مفتوحة — تبقى حتى تُغلق صفقتها
+        config.SYMBOLS = list(dict.fromkeys(fresh + sorted(held)))
+        self.okx.load_specs(config.SYMBOLS)
 
     # ── إدارة الصفقات المفتوحة ──────────────────────────────────
     def manage_positions(self, prices: Dict[str, float]) -> None:
@@ -588,6 +638,8 @@ class Engine:
     # ── دورة واحدة ──────────────────────────────────────────────
     def cycle(self) -> None:
         self.cycle_n += 1
+        if self.cycle_n > 1 and self.cycle_n % config.SYMBOL_REFRESH_CYCLES == 1:
+            self.refresh_symbols()
         all_candles, prices = {}, {}
         for symbol in config.SYMBOLS:
             candles = self.okx.candles(symbol, config.BAR, config.LOOKBACK)
