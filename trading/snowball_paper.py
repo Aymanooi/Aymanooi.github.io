@@ -179,6 +179,32 @@ class OKXPublic:
             return float(data[0]["last"])
         return None
 
+    def history_candles(self, symbol: str, bar: str, days: int) -> List[dict]:
+        """جلب تاريخ كامل بالتقسيم — لأغراض المحاكاة التاريخية (Backtest)"""
+        end_ms = int(time.time() * 1000)
+        start_ms = end_ms - days * 24 * 3600 * 1000
+        out, after = [], str(end_ms)
+        while True:
+            data = self._get("/api/v5/market/history-candles",
+                             {"instId": symbol, "bar": bar,
+                              "after": after, "limit": "100"})
+            if not data:
+                break
+            for row in data:  # الأحدث أولاً
+                ts = int(row[0])
+                if ts < start_ms:
+                    break
+                out.append({"ts": ts, "o": float(row[1]), "h": float(row[2]),
+                            "l": float(row[3]), "c": float(row[4]),
+                            "v": float(row[5]), "confirmed": True})
+            oldest = int(data[-1][0])
+            if oldest < start_ms or len(data) < 100:
+                break
+            after = str(oldest)
+            time.sleep(0.12)  # احترام حدود الـ API
+        out.sort(key=lambda c: c["ts"])
+        return out
+
 
 # ══════════════════════════════════════════════════════════════════
 # 📐 المؤشرات — بايثون خالص، بدون مكتبات ثقيلة
@@ -352,8 +378,8 @@ class RiskManager:
         self.halted_today = False
         self.halted_forever = False
 
-    def new_day_check(self, equity: float) -> None:
-        today = datetime.now(timezone.utc).date()
+    def new_day_check(self, equity: float, today=None) -> None:
+        today = today or datetime.now(timezone.utc).date()
         if today != self.day:
             self.day = today
             self.day_start_equity = equity
@@ -684,16 +710,158 @@ class Engine:
                  f"رسوم=${self.broker.fees_paid:.4f} | رصيد=${self.broker.balance:.4f}")
 
 
+# ══════════════════════════════════════════════════════════════════
+# ⏪ المحاكاة التاريخية — إعادة تشغيل الأيام الماضية شمعةً شمعة
+# ══════════════════════════════════════════════════════════════════
+class Backtester:
+    """نفس الوكلاء ونفس الوسيط ونفس المخاطر — على بيانات تاريخية حقيقية.
+    فحص SL قبل TP داخل الشمعة الواحدة (الافتراض المتشائم = الأصدق)."""
+
+    def __init__(self, balance: float, days: int):
+        self.okx = OKXPublic()
+        config.SYMBOLS = self.okx.discover_symbols()
+        if not config.SYMBOLS:
+            raise RuntimeError("لم يتم اكتشاف عملات")
+        self.okx.load_specs(config.SYMBOLS)
+        self.broker = PaperBroker(balance, self.okx.specs)
+        self.risk = RiskManager(balance)
+        self.days = days
+        self.data: Dict[str, List[dict]] = {}
+        self.rejections: Dict[str, int] = {}
+        log.info(f"⏳ تحميل {days} أيام من شموع {config.BAR} لـ {len(config.SYMBOLS)} عملة...")
+        for s in config.SYMBOLS:
+            candles = self.okx.history_candles(s, config.BAR, days)
+            if len(candles) >= 250:
+                self.data[s] = candles
+                log.info(f"   {s}: {len(candles)} شمعة")
+            else:
+                log.info(f"   {s}: بيانات غير كافية ({len(candles)}) — استُبعدت")
+
+    def _manage(self, ts: int, bars: Dict[str, dict]) -> None:
+        for pid in list(self.broker.positions.keys()):
+            p = self.broker.positions[pid]
+            bar = bars.get(p["symbol"])
+            if not bar:
+                continue
+            sign = 1 if p["dir"] == "LONG" else -1
+            # Breakeven ثم وقف متحرك (بإغلاق الشمعة — تقدير متحفظ)
+            best = bar["h"] if sign == 1 else bar["l"]
+            p["peak"] = max(p["peak"], best) if sign == 1 else min(p["peak"], best)
+            if not p["breakeven_done"] and sign * (best - p["entry"]) >= p["atr"] * config.BREAKEVEN_ATR:
+                p["sl"], p["breakeven_done"] = p["entry"], True
+            if p["breakeven_done"]:
+                trail = p["peak"] - sign * p["atr"] * config.TRAIL_ATR
+                p["sl"] = max(p["sl"], trail) if sign == 1 else min(p["sl"], trail)
+
+            reason, exit_px = None, None
+            worst = bar["l"] if sign == 1 else bar["h"]
+            liq_px = p["entry"] - sign * p["margin"] * 0.9 / p["qty"]
+            if sign * (worst - liq_px) <= 0:
+                reason, exit_px = "تصفية ⚡", liq_px
+            elif sign * (worst - p["sl"]) <= 0:     # SL أولاً — الأصدق
+                reason, exit_px = "وقف خسارة 🛑", p["sl"]
+            elif sign * ((bar["h"] if sign == 1 else bar["l"]) - p["tp"]) >= 0:
+                reason, exit_px = "هدف ✅", p["tp"]
+            if reason:
+                pnl = self.broker.close(pid, exit_px, reason)
+                if pnl is not None:
+                    eq = self.broker.equity({s: b["c"] for s, b in bars.items()})
+                    self.risk.record(pnl, eq)
+
+    def run(self) -> None:
+        # محور زمني موحّد لكل العملات
+        all_ts = sorted({c["ts"] for cs in self.data.values() for c in cs})
+        index = {s: {c["ts"]: i for i, c in enumerate(cs)} for s, cs in self.data.items()}
+        warmup = 200
+        log.info(f"▶️  بدء المحاكاة: {len(all_ts)} خطوة زمنية (5 دقائق/خطوة)")
+        for step, ts in enumerate(all_ts):
+            bars = {s: cs[index[s][ts]] for s, cs in self.data.items() if ts in index[s]}
+            if not bars:
+                continue
+            day = datetime.fromtimestamp(ts / 1000, tz=timezone.utc).date()
+            self.risk.new_day_check(
+                self.broker.equity({s: b["c"] for s, b in bars.items()}), day)
+            self._manage(ts, bars)
+            # دخول جديد — على الشموع المكتملة فقط وبنفس شروط النسخة الحية
+            if not self.risk.can_open() or self.risk.halted_forever:
+                if self.risk.halted_forever:
+                    break
+                continue
+            if len(self.broker.positions) >= config.MAX_POSITIONS:
+                continue
+            held = {p["symbol"] for p in self.broker.positions.values()}
+            for s, bar in bars.items():
+                if s in held:
+                    continue
+                i = index[s][ts]
+                if i < warmup:
+                    continue
+                window = self.data[s][i - warmup:i + 1]
+                signal, agreement, details = council_vote(window)
+                if signal == "NONE":
+                    continue
+                price = bar["c"]
+                a = atr(window)
+                if a <= 0:
+                    continue
+                sl_dist = a * config.SL_ATR
+                risk_usdt = self.broker.balance * self.risk.risk_pct()
+                qty, reject = self.broker.size_position(s, price, sl_dist, risk_usdt)
+                if reject:
+                    self.rejections[s] = self.rejections.get(s, 0) + 1
+                    continue
+                sign = 1 if signal == "LONG" else -1
+                self.broker.open(s, signal, price, qty,
+                                 price - sign * sl_dist,
+                                 price + sign * a * config.TP_ATR, a, agreement)
+                if len(self.broker.positions) >= config.MAX_POSITIONS:
+                    break
+        # إغلاق ما تبقى بسعر آخر شمعة
+        last_prices = {s: cs[-1]["c"] for s, cs in self.data.items()}
+        for pid in list(self.broker.positions.keys()):
+            sym = self.broker.positions[pid]["symbol"]
+            self.broker.close(pid, last_prices[sym], "نهاية المحاكاة ⏹")
+        self._report()
+
+    def _report(self) -> None:
+        t = self.broker.trades
+        wins = [x for x in t if x["pnl"] > 0]
+        losses = [x for x in t if x["pnl"] <= 0]
+        pnl = sum(x["pnl"] for x in t)
+        log.info("═" * 60)
+        log.info(f"🏁 نتيجة محاكاة {self.days} أيام (بيانات OKX حقيقية):")
+        log.info(f"   رأس المال: ${self.risk.start:.2f} → ${self.broker.balance:.4f} "
+                 f"({(self.broker.balance/self.risk.start-1)*100:+.2f}%)")
+        log.info(f"   صفقات: {len(t)} | فوز: {len(wins)} | خسارة: {len(losses)} "
+                 f"| نسبة الفوز: {len(wins)/len(t)*100 if t else 0:.0f}%")
+        log.info(f"   صافي PnL: ${pnl:+.4f} | رسوم مدفوعة: ${self.broker.fees_paid:.4f}")
+        if wins:
+            log.info(f"   متوسط الربح: ${sum(x['pnl'] for x in wins)/len(wins):+.4f}")
+        if losses:
+            log.info(f"   متوسط الخسارة: ${sum(x['pnl'] for x in losses)/len(losses):+.4f}")
+        if self.rejections:
+            total_rej = sum(self.rejections.values())
+            log.info(f"   ⚠️ إشارات مرفوضة (الرصيد أصغر من حد العقد): {total_rej}")
+        if self.risk.halted_forever:
+            log.info("   🛑 توقفت المحاكاة مبكراً: تجاوز حد السحب الأقصى")
+        log.info("═" * 60)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Snowball Paper — تداول وهمي فقط")
     ap.add_argument("--balance", type=float, default=config.PAPER_BALANCE,
                     help="الرصيد الوهمي بالدولار (جرّب 2 لترى واقع حسابك)")
     ap.add_argument("--minutes", type=float, default=None, help="مدة التشغيل بالدقائق")
     ap.add_argument("--once", action="store_true", help="دورة واحدة ثم خروج")
+    ap.add_argument("--backtest-days", type=int, default=None,
+                    help="محاكاة تاريخية على آخر N أيام بدل التشغيل الحي")
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s %(message)s", datefmt="%H:%M:%S")
-    Engine(args.balance).run(args.minutes, args.once)
+    if args.backtest_days:
+        Backtester(args.balance, args.backtest_days).run()
+    else:
+        Engine(args.balance).run(args.minutes, args.once)
 
 
 if __name__ == "__main__":
