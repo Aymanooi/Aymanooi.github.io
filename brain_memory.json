@@ -1,0 +1,106 @@
+{
+  "weights": {
+    "EMA": 0.9639072955400789,
+    "RSI": 1.0134887710101517,
+    "MACD": 0.968648849409163,
+    "BB": 1.0089311897903428,
+    "Stoch": 0.9952531147450251,
+    "Volume": 1.0,
+    "Pattern": 0.9639072955400789,
+    "HTF_1h": 0.9458609433101183
+  },
+  "bias": 0.00016563395402590005,
+  "trades": [
+    {
+      "instId": "ONDO-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15
+      },
+      "entry": 0.3248,
+      "score": -47,
+      "status": "win",
+      "opened": "2026-06-23 04:01:50 UTC",
+      "exit": 0.31
+    },
+    {
+      "instId": "DOT-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": 10,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15
+      },
+      "entry": 0.9027,
+      "score": -48,
+      "status": "win",
+      "opened": "2026-06-23 12:07:46 UTC",
+      "exit": 0.8983
+    },
+    {
+      "instId": "FARTCOIN-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15
+      },
+      "entry": 0.1285,
+      "score": 48,
+      "status": "loss",
+      "opened": "2026-06-23 22:46:58 UTC",
+      "exit": 0.1576
+    },
+    {
+      "instId": "KITE-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15
+      },
+      "entry": 0.16282,
+      "score": 42,
+      "status": "loss",
+      "opened": "2026-06-23 23:59:24 UTC",
+      "exit": 0.10666
+    }
+  ],
+  "wins": 2,
+  "losses": 2,
+  "lr": 0.05,
+  "updated": "2026-07-02 22:13:31 UTC",
+  "exited": {
+    "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
+    "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
+    "DOT-USDT-SWAP": "2026-06-23T19:01:09.998370+00:00",
+    "LIGHT-USDT-SWAP": "2026-06-23T22:36:07.841979+00:00",
+    "AXS-USDT-SWAP": "2026-06-23T22:36:08.186765+00:00",
+    "DYDX-USDT-SWAP": "2026-06-23T22:55:56.756667+00:00",
+    "COAI-USDT-SWAP": "2026-07-02T22:12:43.998199+00:00",
+    "FARTCOIN-USDT-SWAP": "2026-07-02T22:12:44.482034+00:00",
+    "KITE-USDT-SWAP": "2026-07-02T22:12:44.978856+00:00"
+  }
+}
