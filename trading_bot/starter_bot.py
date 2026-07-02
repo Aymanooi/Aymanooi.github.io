@@ -33,6 +33,13 @@ import pandas as pd
 SYMBOL = os.getenv("BOT_SYMBOL", "XRP/USDT:USDT")   # ⛔ بدون BTC/ETH/SOL
 BANNED_ASSETS = ("BTC", "ETH", "SOL")               # قيد المالك — لا يُتجاوز
 
+# وضع GitHub Actions: دورة واحدة عبر عدة عملات ثم خروج (بدل while True)
+RUN_ONCE = os.getenv("BOT_RUN_ONCE", "false").lower() == "true"
+SYMBOLS = [s.strip() for s in os.getenv(
+    "BOT_SYMBOLS",
+    "XRP/USDT:USDT,DOGE/USDT:USDT,ADA/USDT:USDT,"
+    "AVAX/USDT:USDT,LINK/USDT:USDT,BNB/USDT:USDT").split(",") if s.strip()]
+
 TIMEFRAME = os.getenv("BOT_TIMEFRAME", "5m")
 LOOKBACK = int(os.getenv("BOT_LOOKBACK", "250"))
 POLL_SECONDS = int(os.getenv("BOT_POLL_SECONDS", "60"))
@@ -118,6 +125,14 @@ def build_exchange() -> ccxt.okx:
     )
     if OKX_DEMO:
         ex.headers = {"x-simulated-trading": "1"}
+    # دعم شهادة CA مخصصة (بيئات خلف بروكسي شركات/تطوير)
+    # ملاحظة: ccxt يحسب (verify and validateServerSsl) — يجب ضبط الاثنين
+    # حتى يصل مسار الشهادة فعليًا إلى requests
+    ca_bundle = os.getenv("BOT_CA_BUNDLE", "")
+    if ca_bundle:
+        ex.verify = ca_bundle
+        ex.validateServerSsl = ca_bundle
+        ex.session.verify = ca_bundle
     return ex
 
 
@@ -374,11 +389,57 @@ def submit_order(exchange: ccxt.okx, symbol: str, signal: Signal, qty: float) ->
 # ============================
 
 
+def process_symbol(exchange: ccxt.okx, state: BotState, symbol: str) -> None:
+    """دورة قرار واحدة لعملة واحدة (تُستخدم في الوضعين)."""
+    pos = get_open_position(exchange, symbol)
+    if pos:
+        logger.info(
+            f"[{symbol}] Open position exists, skipping: side={pos.get('side')} "
+            f"contracts={pos.get('contracts')}"
+        )
+        return
+
+    df = fetch_ohlcv_df(exchange, symbol, TIMEFRAME, LOOKBACK)
+    equity = get_equity_usdt(exchange)
+    if equity <= 0 and PAPER_TRADING:
+        equity = 10.0
+
+    if not daily_drawdown_guard(state, equity):
+        state.trading_enabled = False
+        logger.warning("Daily drawdown limit reached. Trading paused.")
+
+    if not state.trading_enabled:
+        return
+
+    signal = generate_signal(df)
+    if not signal:
+        logger.info(f"[{symbol}] No signal.")
+        return
+
+    if state.consecutive_losses >= MAX_CONSECUTIVE_LOSSES:
+        state.trading_enabled = False
+        logger.warning("Consecutive loss limit reached. Trading paused.")
+        return
+
+    qty = position_size(equity, signal.entry, signal.stop_loss, signal.leverage)
+
+    logger.info(
+        f"[{symbol}] Signal={signal.side.upper()} regime={signal.regime} "
+        f"entry={signal.entry:.4f} sl={signal.stop_loss:.4f} tp={signal.take_profit:.4f} "
+        f"lev={signal.leverage}x qty={qty:.6f} equity={equity:.2f}"
+    )
+
+    set_leverage(exchange, symbol, signal.leverage)
+    submit_order(exchange, symbol, signal, qty)
+
+
 def run() -> None:
     # ⛔ قيد المالك: لا BTC ولا ETH ولا SOL
-    if any(b in SYMBOL.upper() for b in BANNED_ASSETS):
-        logger.error(f"الرمز {SYMBOL} محظور بقيد المالك (بدون BTC/ETH/SOL). "
-                     f"استخدم عملة بديلة عبر BOT_SYMBOL.")
+    symbols = SYMBOLS if RUN_ONCE else [SYMBOL]
+    symbols = [s for s in symbols
+               if not any(b in s.upper() for b in BANNED_ASSETS)]
+    if not symbols:
+        logger.error("كل الرموز المطلوبة محظورة بقيد المالك (بدون BTC/ETH/SOL).")
         return
 
     exchange = build_exchange()
@@ -387,65 +448,31 @@ def run() -> None:
     logger.info("Loading markets...")
     exchange.load_markets()
 
-    if SYMBOL not in exchange.markets:
-        logger.warning(f"Symbol not found: {SYMBOL}. Check OKX market naming.")
+    for s in symbols:
+        if s not in exchange.markets:
+            logger.warning(f"Symbol not found: {s}. Check OKX market naming.")
 
-    set_leverage(exchange, SYMBOL, BASE_LEVERAGE)
-
+    mode = "RUN_ONCE (GitHub Actions)" if RUN_ONCE else "LOOP (server)"
     logger.info(
-        f"Starting | symbol={SYMBOL} timeframe={TIMEFRAME} paper={PAPER_TRADING} "
-        f"demo={OKX_DEMO} baseLev={BASE_LEVERAGE}x"
+        f"Starting | mode={mode} symbols={symbols} timeframe={TIMEFRAME} "
+        f"paper={PAPER_TRADING} demo={OKX_DEMO} baseLev={BASE_LEVERAGE}x"
     )
 
+    if RUN_ONCE:
+        # وضع GitHub Actions: مسح كل العملات مرة واحدة ثم الخروج
+        for s in symbols:
+            try:
+                process_symbol(exchange, state, s)
+            except Exception as e:
+                logger.exception(f"[{s}] error: {e}")
+        logger.info("Cycle complete — exiting (RUN_ONCE).")
+        return
+
+    # وضع الخادم الدائم (الأصلي)
     while True:
         try:
-            pos = get_open_position(exchange, SYMBOL)
-            if pos:
-                logger.info(
-                    f"Open position exists, skipping: side={pos.get('side')} "
-                    f"contracts={pos.get('contracts')}"
-                )
-                time.sleep(POLL_SECONDS)
-                continue
-
-            df = fetch_ohlcv_df(exchange, SYMBOL, TIMEFRAME, LOOKBACK)
-            equity = get_equity_usdt(exchange)
-            if equity <= 0 and PAPER_TRADING:
-                equity = 10.0
-
-            if not daily_drawdown_guard(state, equity):
-                state.trading_enabled = False
-                logger.warning("Daily drawdown limit reached. Trading paused.")
-
-            if not state.trading_enabled:
-                time.sleep(POLL_SECONDS)
-                continue
-
-            signal = generate_signal(df)
-            if not signal:
-                logger.info("No signal.")
-                time.sleep(POLL_SECONDS)
-                continue
-
-            if state.consecutive_losses >= MAX_CONSECUTIVE_LOSSES:
-                state.trading_enabled = False
-                logger.warning("Consecutive loss limit reached. Trading paused.")
-                time.sleep(POLL_SECONDS)
-                continue
-
-            qty = position_size(equity, signal.entry, signal.stop_loss, signal.leverage)
-
-            logger.info(
-                f"Signal={signal.side.upper()} regime={signal.regime} entry={signal.entry:.4f} "
-                f"sl={signal.stop_loss:.4f} tp={signal.take_profit:.4f} lev={signal.leverage}x "
-                f"qty={qty:.6f} equity={equity:.2f}"
-            )
-
-            set_leverage(exchange, SYMBOL, signal.leverage)
-            submit_order(exchange, SYMBOL, signal, qty)
-
+            process_symbol(exchange, state, symbols[0])
             time.sleep(POLL_SECONDS)
-
         except ccxt.NetworkError as e:
             logger.warning(f"Network error: {e}")
             time.sleep(POLL_SECONDS)
