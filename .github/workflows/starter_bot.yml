@@ -1,0 +1,41 @@
+# تشغيل starter_bot (بوت المالك) عبر GitHub Actions — عملات بديلة فقط
+#
+# يعمل على حساب OKX التجريبي (Demo Trading) — الأوامر تذهب لبيئة
+# المحاكاة الرسمية من OKX، فتتراكم النتائج في حساب تجريبي حقيقي
+# يمكنك مراجعته من تطبيق OKX.
+#
+# المفاتيح المطلوبة في Settings → Secrets → Actions (مفاتيح Demo):
+#   OKX_API_KEY / OKX_SECRET_KEY / OKX_PASSPHRASE
+
+name: Starter Bot (Alts, OKX Demo)
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"    # مرتين في الساعة (بإزاحة عن fusion)
+  workflow_dispatch: {}        # تشغيل يدوي من تبويب Actions
+
+jobs:
+  run-starter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install ccxt pandas
+
+      - name: Run one scan cycle over altcoins (OKX Demo enforced)
+        working-directory: trading_bot
+        env:
+          OKX_API_KEY: ${{ secrets.OKX_API_KEY }}
+          OKX_API_SECRET: ${{ secrets.OKX_SECRET_KEY }}
+          OKX_API_PASSPHRASE: ${{ secrets.OKX_PASSPHRASE }}
+          BOT_RUN_ONCE: "true"          # دورة واحدة ثم خروج (نمط Actions)
+          OKX_DEMO: "true"              # 🔒 بيئة المحاكاة الرسمية — إجباري
+          BOT_PAPER_TRADING: "false"    # أوامر فعلية إلى حساب Demo (ليس LIVE)
+          BOT_SYMBOLS: "XRP/USDT:USDT,DOGE/USDT:USDT,ADA/USDT:USDT,AVAX/USDT:USDT,LINK/USDT:USDT,BNB/USDT:USDT"
+        run: python starter_bot.py

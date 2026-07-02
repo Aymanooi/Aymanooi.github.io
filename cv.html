@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السيرة الذاتية | Aymanooi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <!--
+    ====== ملاحظة لك (Ayman) ======
+    هذه سيرة ذاتية جاهزة. عدّل الأماكن المعلّمة بـ [[ ... ]]
+    بمعلوماتك الحقيقية (الاسم، الدراسة، الخبرات). لا تترك بيانات وهمية.
+    قسم "المشاريع" حقيقي ويعرض ما بنيناه فعلًا.
+  -->
+  <style>
+    :root {
+      --bg:#0a0e1a; --card:#131929; --card2:#1a2236; --accent:#38bdf8;
+      --accent2:#818cf8; --text:#e2e8f0; --dim:#94a3b8; --border:#1e293b; --green:#34d399;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Cairo',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; }
+    .mono { font-family:'JetBrains Mono',monospace; direction:ltr; display:inline-block; }
+    .wrap { max-width:920px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+    .topbar { padding:1rem 1.5rem; border-bottom:1px solid var(--border); }
+    .topbar a { color:var(--accent); text-decoration:none; font-weight:600; }
+
+    header.cv-head {
+      background:linear-gradient(135deg,var(--card),var(--card2));
+      border:1px solid var(--border); border-radius:20px;
+      padding:2.5rem; margin-bottom:2rem; text-align:center;
+    }
+    .avatar {
+      width:96px; height:96px; border-radius:50%;
+      background:linear-gradient(120deg,var(--accent),var(--accent2));
+      display:flex; align-items:center; justify-content:center;
+      font-size:2.4rem; font-weight:900; color:#0a0e1a; margin:0 auto 1.2rem;
+    }
+    .cv-head h1 { font-size:2rem; margin-bottom:0.3rem; }
+    .cv-head .title { color:var(--accent); font-weight:600; font-size:1.1rem; margin-bottom:1rem; }
+    .contacts { display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; color:var(--dim); font-size:0.9rem; }
+    .contacts a { color:var(--dim); text-decoration:none; }
+    .contacts a:hover { color:var(--accent); }
+
+    section.block { margin-bottom:2rem; }
+    .block h2 {
+      font-size:1.3rem; margin-bottom:1.2rem; padding-bottom:0.5rem;
+      border-bottom:2px solid var(--accent); display:inline-block;
+    }
+    .item {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:14px; padding:1.4rem; margin-bottom:1rem;
+    }
+    .item h3 { font-size:1.1rem; margin-bottom:0.2rem; }
+    .item .meta { color:var(--accent); font-size:0.88rem; margin-bottom:0.6rem; }
+    .item p, .item li { color:var(--dim); font-size:0.95rem; }
+    .item ul { padding-right:1.2rem; }
+    .placeholder { color:#64748b; font-style:italic; }
+
+    .skills { display:flex; flex-wrap:wrap; gap:0.6rem; }
+    .skill {
+      padding:0.45rem 1rem; background:var(--card); border:1px solid var(--border);
+      border-radius:999px; font-size:0.9rem; font-weight:600;
+    }
+    .skill .mono { color:var(--accent); }
+
+    .links a { color:var(--accent); text-decoration:none; }
+    @media print {
+      body { background:#fff; color:#000; }
+      .topbar, .no-print { display:none; }
+      .item, header.cv-head { border-color:#ccc; background:#fff; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar no-print">
+    <a href="index.html">→ العودة للموقع</a>
+  </nav>
+
+  <div class="wrap">
+    <header class="cv-head">
+      <div class="avatar">A</div>
+      <h1>[[ اكتب اسمك هنا ]]</h1>
+      <div class="title">مطوّر Python · تحليل بيانات وتعلّم آلي</div>
+      <div class="contacts">
+        <a href="mailto:aseriayman9@gmail.com">📧 aseriayman9@gmail.com</a>
+        <a href="https://github.com/Aymanooi">💻 github.com/Aymanooi</a>
+        <span>📍 <span class="placeholder">[[ مدينتك ]]</span></span>
+      </div>
+    </header>
+
+    <!-- نبذة -->
+    <section class="block">
+      <h2>نبذة مختصرة</h2>
+      <div class="item">
+        <p>
+          مطوّر شغوف ببناء حلول برمجية موثوقة في Python وتحليل البيانات والتعلّم
+          الآلي. أؤمن بالمنهجية العلمية والاختبار الصارم قبل أي استنتاج. بنيتُ
+          نظام بحث كمّي كاملًا يطبّق منهجية صناديق التحوّط في اختبار الاستراتيجيات.
+          <span class="placeholder">[[ أضف جملة عن أهدافك أو تخصصك ]]</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- المهارات -->
+    <section class="block">
+      <h2>المهارات التقنية</h2>
+      <div class="item">
+        <div class="skills">
+          <span class="skill"><span class="mono">Python</span></span>
+          <span class="skill"><span class="mono">pandas</span></span>
+          <span class="skill"><span class="mono">NumPy</span></span>
+          <span class="skill"><span class="mono">scikit-learn</span></span>
+          <span class="skill"><span class="mono">Git / GitHub</span></span>
+          <span class="skill"><span class="mono">REST APIs</span></span>
+          <span class="skill">تحليل البيانات</span>
+          <span class="skill">التعلّم الآلي</span>
+          <span class="skill">إدارة المخاطر</span>
+          <span class="skill">HTML / CSS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- المشاريع (حقيقية) -->
+    <section class="block">
+      <h2>المشاريع</h2>
+      <div class="item">
+        <h3>نظام البحث الكمّي لاستراتيجيات التداول</h3>
+        <div class="meta">مشروع شخصي · Python · 2026</div>
+        <ul>
+          <li>بناء إطار عمل كامل (8 وحدات) لاختبار استراتيجيات تداول العملات الرقمية.</li>
+          <li>تطبيق مؤشرات فنية يدويًا: EMA, RSI, ATR, ADX, MACD, Bollinger, Stochastic.</li>
+          <li>محرّك اختبار تاريخي واقعي مع رسوم ورافعة وإدارة مخاطر ووقف متحرك.</li>
+          <li>محرّك تحسين آلي يبحث في أكثر من 1,200 تركيبة مع تحقّق خارج العيّنة.</li>
+          <li>نموذج تعلّم آلي (Gradient Boosting) بـ 25 خاصية مع حماية من تسرّب البيانات.</li>
+          <li>استنتاج علمي صادق مبني على الأرقام مع تجنّب الإفراط في التحسين.</li>
+        </ul>
+        <p class="links" style="margin-top:0.6rem;">
+          🔗 <a href="https://github.com/Aymanooi/Aymanooi.github.io/tree/main/trading_bot">الكود المصدري</a>
+        </p>
+      </div>
+      <div class="item">
+        <h3>Snowball — نظام تداول آلي متعدد الوكلاء (6,900 سطر)</h3>
+        <div class="meta">مشروع شخصي · Python (asyncio) · Docker · 2026</div>
+        <ul>
+          <li>معمارية 11 وكيلًا متخصصًا (تحليل فني، ML، تدفق أوامر، مشاعر...) بتصويت موزون.</li>
+          <li>تكامل مباشر مع OKX عبر ccxt، ومجلس قرار بنماذج لغوية عبر OpenRouter API.</li>
+          <li>أنظمة أمان: قواطع دارة بعشرة مستويات، حارس انهيارات، حدود خسارة يومية، وضع محاكاة افتراضي.</li>
+          <li>إشعارات Telegram، تخزين SQLite، تغليف Docker كامل للتشغيل الذاتي 24/7.</li>
+          <li>أُخضع لاحقًا لتدقيق كمّي صارم ضمن مختبري ووثّقت نتائجه بشفافية — بما فيها حدود الفرضية الربحية.</li>
+        </ul>
+        <p class="links" style="margin-top:0.6rem;">
+          🔗 <a href="https://github.com/Aymanooi/Aymanooi.github.io/tree/main/trading_bot/snowball">الكود والتدقيق</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- التعليم -->
+    <section class="block">
+      <h2>التعليم</h2>
+      <div class="item">
+        <h3 class="placeholder">[[ المؤهل / التخصص ]]</h3>
+        <div class="meta placeholder">[[ اسم الجامعة / المعهد · السنوات ]]</div>
+        <p class="placeholder">[[ تفاصيل إضافية إن وُجدت ]]</p>
+      </div>
+    </section>
+
+    <!-- الخبرة -->
+    <section class="block">
+      <h2>الخبرة العملية</h2>
+      <div class="item">
+        <h3 class="placeholder">[[ المسمى الوظيفي ]]</h3>
+        <div class="meta placeholder">[[ الجهة · المدة ]]</div>
+        <p class="placeholder">[[ أبرز مهامك وإنجازاتك. إن لم تكن لديك خبرة بعد، احذف هذا القسم وركّز على المشاريع. ]]</p>
+      </div>
+    </section>
+
+    <!-- اللغات -->
+    <section class="block">
+      <h2>اللغات</h2>
+      <div class="item">
+        <p>العربية (اللغة الأم) · <span class="placeholder">[[ الإنجليزية: مستواك ]]</span></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

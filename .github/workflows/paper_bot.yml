@@ -1,0 +1,38 @@
+# المشغّل الدوري لبوت المحاكاة — البديل الصحيح لـ keep_alive.py
+#
+# keep_alive.py المرفوع مصمّم لخادم VPS (حلقة لا نهائية + إعادة تشغيل).
+# على GitHub Actions النمط الصحيح: جدولة cron تستدعي تشغيلًا قصيرًا.
+#
+# للتفعيل تحتاج إضافة المفاتيح في Settings → Secrets → Actions:
+#   OKX_API_KEY / OKX_SECRET_KEY / OKX_PASSPHRASE
+# (أنشئ المفاتيح من حساب Demo Trading في OKX — وضع المحاكاة إجباري هنا)
+
+name: Paper Trading Bot (Demo)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # كل 30 دقيقة (قد يتأخر — طبيعة GitHub)
+  workflow_dispatch: {}       # تشغيل يدوي من تبويب Actions
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r trading_bot/requirements.txt
+
+      - name: Run one FUSION cycle (DEMO mode enforced)
+        working-directory: trading_bot
+        env:
+          OKX_API_KEY: ${{ secrets.OKX_API_KEY }}
+          OKX_SECRET_KEY: ${{ secrets.OKX_SECRET_KEY }}
+          OKX_PASSPHRASE: ${{ secrets.OKX_PASSPHRASE }}
+          # ملاحظة: OKX_LIVE غير مضبوط عمدًا — وضع Demo إجباري
+        run: python fusion_bot.py
