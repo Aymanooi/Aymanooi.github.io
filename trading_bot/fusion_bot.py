@@ -38,9 +38,13 @@ from data_feed import fetch_history
 from strategy_lab import prepare, sig_momentum
 from regime import detect_regime, TREND_UP, TREND_DOWN
 from okx_client import OKXClient
+from institutional import passes_gate
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("fusion")
+
+# بوابة النقاط "المؤسسية" (بوت المستخدم السادس) — تأكيد إضافي فوق الفلاتر
+INSTITUTIONAL_GATE = os.environ.get("FUSION_INSTITUTIONAL", "true").lower() == "true"
 
 # ═══ إعدادات الاندماج ═══
 CAPITAL = 10.0                     # 💰 رأس المال المستهدف
@@ -102,11 +106,20 @@ def scan_signals():
         reg = df.iloc[i]["regime"]
         if (d == 1 and reg == TREND_UP) or (d == -1 and reg == TREND_DOWN):
             row = df.iloc[i]
-            if not pd.isna(row["atr"]) and row["atr"] > 0:
-                picks.append({"symbol": s, "dir": d,
-                              "close": float(row["close"]),
-                              "atr": float(row["atr"]),
-                              "mom": float(row.get("roc13", 0) or 0)})
+            if pd.isna(row["atr"]) or row["atr"] <= 0:
+                continue
+            # بوابة النقاط المؤسسية (بوت المستخدم السادس)
+            if INSTITUTIONAL_GATE:
+                ok, sc = passes_gate(df, d)
+                if not ok:
+                    log.info("[%s] إشارة %+d حُجبت بالبوابة المؤسسية (درجة %.2f)",
+                             s, d, sc)
+                    continue
+                log.info("[%s] اجتازت البوابة المؤسسية (درجة %.2f)", s, sc)
+            picks.append({"symbol": s, "dir": d,
+                          "close": float(row["close"]),
+                          "atr": float(row["atr"]),
+                          "mom": float(row.get("roc13", 0) or 0)})
     # الأقوى زخمًا أولًا (فلسفة Snowball في انتقاء الفرص)
     picks.sort(key=lambda p: abs(p["mom"]), reverse=True)
     return picks
