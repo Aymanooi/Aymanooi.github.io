@@ -1,0 +1,13 @@
+services:
+  snowball-bot:
+    build: .
+    container_name: snowball-bot
+    restart: unless-stopped          # ✅ يعيد التشغيل تلقائياً 24/7
+    env_file: .env                   # ✅ المفاتيح من .env (لا تُكتب في الصورة)
+    volumes:
+      - ./data:/app/data             # ✅ يحفظ قاعدة البيانات والسجلّات
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
