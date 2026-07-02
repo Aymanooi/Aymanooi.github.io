@@ -86,12 +86,66 @@
       "status": "loss",
       "opened": "2026-06-23 23:59:24 UTC",
       "exit": 0.10666
+    },
+    {
+      "instId": "HYPE-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": -5,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15
+      },
+      "entry": 65.875,
+      "score": 43,
+      "status": "open",
+      "opened": "2026-07-02 22:38:20 UTC"
+    },
+    {
+      "instId": "SNX-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15
+      },
+      "entry": 0.2301,
+      "score": 48,
+      "status": "open",
+      "opened": "2026-07-02 22:38:21 UTC"
+    },
+    {
+      "instId": "BARD-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15
+      },
+      "entry": 0.1404,
+      "score": 42,
+      "status": "open",
+      "opened": "2026-07-02 22:38:23 UTC"
     }
   ],
   "wins": 2,
   "losses": 2,
   "lr": 0.05,
-  "updated": "2026-07-02 22:13:31 UTC",
+  "updated": "2026-07-02 22:38:23 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
