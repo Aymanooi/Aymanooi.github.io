@@ -3,3 +3,4 @@ __pycache__/
 .env
 *.csv
 fusion_state.json
+*.log
