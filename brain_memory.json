@@ -505,12 +505,33 @@
       "status": "open",
       "filled": true,
       "opened": "2026-07-03 04:17:01 UTC"
+    },
+    {
+      "instId": "SOXL-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -12,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 191.14,
+      "score": 35,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-07-03 04:39:08 UTC"
     }
   ],
   "wins": 7,
   "losses": 14,
   "lr": 0.05,
-  "updated": "2026-07-03 04:33:58 UTC",
+  "updated": "2026-07-03 04:41:12 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
