@@ -6,6 +6,7 @@ import asyncio
 import os
 import sys
 import json
+import time
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -117,13 +118,31 @@ async def run():
     add_log(status, "\U0001f680 تشغيل Snowball v22 + Brain...", "success")
     add_log(status, f"الوضع: {status['mode']}", "info")
 
-    await _fallback_mscs(status, memory, key, secret, phrase, demo)
+    # ── حلقة داخلية: عدة فحوصات بفاصل 30 ثانية في التشغيلة الواحدة ──────────
+    # ضريبة تجهيز GitHub Actions (checkout + pip ≈ دقيقة) تُدفع مرة واحدة،
+    # ثم يتكرر الفحص كل BOT_RESCAN_SECONDS حتى نفاد BOT_LOOP_MINUTES —
+    # فيصير الدخول في عملة جديدة بعد الخروج خلال ~30 ثانية بدل 2-4 دقائق.
+    # الميزانية 6 دقائق: آخر فحص قد يمتد ~75 ثانية + حفظ الحالة + جدولة
+    # الدورة التالية، فنبقى تحت سقف timeout-minutes: 10 بهامش مريح.
+    loop_minutes   = float(os.environ.get("BOT_LOOP_MINUTES", "6"))
+    rescan_seconds = float(os.environ.get("BOT_RESCAN_SECONDS", "30"))
+    deadline = time.monotonic() + loop_minutes * 60
 
-    # ── حفظ إحصائيات Brain في الحالة للعرض في لوحة التحكم ────────────────────
-    status["brain_stats"] = brain.stats(memory)
+    while True:
+        await _fallback_mscs(status, memory, key, secret, phrase, demo)
 
-    brain.save_memory(memory)
-    save_status(status)
+        # حفظ إحصائيات Brain والحالة بعد كل فحص (لا عند النهاية فقط) حتى
+        # لا يضيع تعلّم الدماغ لو قُتلت التشغيلة بالـtimeout
+        status["brain_stats"] = brain.stats(memory)
+        brain.save_memory(memory)
+        save_status(status)
+
+        if time.monotonic() + rescan_seconds >= deadline:
+            break
+        await asyncio.sleep(rescan_seconds)
+        status["last_run"] = datetime.now(timezone.utc).strftime(
+            "%Y-%m-%d %H:%M:%S UTC")
+
     print("✅ Done.")
 
 
