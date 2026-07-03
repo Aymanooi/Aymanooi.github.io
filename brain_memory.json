@@ -1188,17 +1188,17 @@
         "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 0.4205,
+      "entry": 0.4203,
       "score": 42,
       "status": "open",
-      "filled": false,
+      "filled": true,
       "opened": "2026-07-03 07:38:31 UTC"
     }
   ],
   "wins": 18,
   "losses": 32,
   "lr": 0.05,
-  "updated": "2026-07-03 07:38:31 UTC",
+  "updated": "2026-07-03 07:45:30 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
