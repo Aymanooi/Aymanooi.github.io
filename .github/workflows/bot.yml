@@ -42,8 +42,9 @@ jobs:
           OKX_SECRET_KEY:     ${{ secrets.OKX_API_SECRET }}
           OKX_PASSPHRASE:     ${{ secrets.OKX_PASSPHRASE }}
           OKX_IS_DEMO:        ${{ secrets.OKX_IS_DEMO }}
-          RISK_MODE:          balanced   # البوت القديم: x20 ثابتة، 3 مراكز، 100 عملة
+          RISK_MODE:          prime   # الإعداد الوحيد المثبت PF>1: x3، SL 4%/TP 2%، فلاتر كاملة
           BOT_MAX_POSITIONS:  "3"    # 3 عملات متزامنة (طلب المستخدم)
+          BOT_ALWAYS_IN:      "0"    # دخول مؤكَّد الأطر فقط — مصدر الحافة الوحيد المثبت
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY:  ${{ github.repository }}
         run: python okx_bot/run_once.py

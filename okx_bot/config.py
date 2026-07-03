@@ -36,6 +36,12 @@ _RISK_PRESETS = {
     # رياضيات التراكم المركّب: $8 → $1M في ~870 يوم (100 صفقة/يوم، 5% مخاطرة).
     # مخاطرة 5% (بدل رأس المال الكامل) = التراكم يعمل لصالحك لا ضدّك.
     "rocket":     {"leverage": 25,  "risk_per_trade": 0.05, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 100, "filter_losers": True,  "max_positions": 1},
+    # prime: تجميع كل ما أثبت PF>1 في بيانات هذا المستودع الحقيقية في
+    # إعداد واحد: رافعة x3 (الحافة المثلى على فريم الدقيقة، PF=1.07)
+    # مع مخارج compound (SL 4% / TP 2% → فوز 68.9%، PF=1.06) وفلتر
+    # الخاسرين. يعمل مع فلاتر تأكيد الأطر كاملة (PF 1.38→1.69 خارج
+    # العيّنة) — أي بدون تناوب إجباري.
+    "prime":      {"leverage": 3,  "risk_per_trade": 0.05, "kelly_cap": 0.10, "half_kelly": True,  "symbols": 100, "filter_losers": True,  "max_positions": 3},
 }
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
@@ -51,8 +57,10 @@ FILTER_LOSERS  = _preset["filter_losers"]    # True=يحذف العملات ال
 MAX_POSITIONS  = int(os.getenv("BOT_MAX_POSITIONS",
                                str(_preset["max_positions"])))
 CAPITAL_RATIO   = 0.99    # رأس المال الكامل — 99% هامش (1% محجوز لرسم الفتح فقط، وإلا OKX يرفض الأمر كله)
-STOP_LOSS_PCT   = 0.005   # وقف الخسارة: 0.5% (طلب المستخدم — رابح مع الفلاتر الـ5)
-TAKE_PROFIT_PCT = 0.005   # هدف الربح: 0.5% — نسبة 1:1، صفقات أكثر (PF 2.01 OOS مع الفلاتر)
+# مخارج compound المثبتة (PF=1.06 على بيانات OKX الحقيقية): وقف 4% /
+# هدف 2% — الرسوم تلتهم 3.5% فقط من الهدف بدل 14% مع هدف 0.5%.
+STOP_LOSS_PCT   = 0.04
+TAKE_PROFIT_PCT = 0.02
 
 # === أعلى رافعة لكل عملة (طلب المستخدم الصريح — يتحمّل المسؤولية الكاملة) ===
 # True = استخدم أقصى رافعة تتيحها OKX لكل عملة (قد تبلغ x50-x100).
