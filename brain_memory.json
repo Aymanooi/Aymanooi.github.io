@@ -175,26 +175,26 @@
       "features": {
         "EMA": 10,
         "RSI": -5,
-        "MACD": 20,
+        "MACD": 15,
         "BB": -5,
-        "Stoch": -10,
+        "Stoch": -5,
         "Volume": 0,
-        "Pattern": 10,
-        "HTF_1h": 5,
+        "Pattern": 0,
+        "HTF_1h": 15,
         "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 1430.42,
+      "entry": 1435.27,
       "score": 38,
       "status": "open",
       "filled": false,
-      "opened": "2026-07-03 01:18:40 UTC"
+      "opened": "2026-07-03 01:20:13 UTC"
     }
   ],
   "wins": 3,
   "losses": 5,
   "lr": 0.05,
-  "updated": "2026-07-03 01:18:40 UTC",
+  "updated": "2026-07-03 01:20:13 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
