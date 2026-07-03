@@ -1429,12 +1429,33 @@
       "opened": "2026-07-03 17:13:56 UTC",
       "exit": 0.10945,
       "closed": "2026-07-03 18:06:08 UTC"
+    },
+    {
+      "instId": "MU-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 5,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1025.92,
+      "score": 35,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-07-03 18:17:57 UTC"
     }
   ],
   "wins": 21,
   "losses": 42,
   "lr": 0.05,
-  "updated": "2026-07-03 18:15:50 UTC",
+  "updated": "2026-07-03 18:23:05 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
