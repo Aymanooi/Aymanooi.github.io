@@ -179,6 +179,43 @@ def _trail_floor_pnl(peak_pnl):
     return peak_pnl * 0.75                  # $5+: اقفل 75% (الفارس الجامح)
 
 
+def _explosion_score(candles):
+    """
+    درجة «ما قبل الانفجار» (طلب المستخدم: الدخول قبل انفجار العملة
+    صعوداً أو هبوطاً) — تجمع الظاهرتين الموثقتين اللتين تسبقان
+    الحركات الكبيرة:
+
+      • انضغاط التقلب (squeeze): نطاق آخر 12 دقيقة أضيق بكثير من نطاق
+        الـ48 دقيقة السابقة = نابض مضغوط لم ينطلق بعد.
+      • تدفق الحجم: حجم آخر 5 دقائق أعلى بوضوح من متوسط ما قبله =
+        وقود يتدفق قبل الحركة.
+
+    الدرجة = انضغاط × تدفق (كلاهما مسقوف بـ5 ضد شذوذ البيانات).
+    عملة منفجرة أصلاً تحصل على انضغاط منخفض فتتأخر في الترتيب —
+    نريد التي على وشك الانفجار، لا التي انفجرت.
+    """
+    try:
+        ch = sorted(candles, key=lambda x: int(x[0]))
+        if len(ch) < 60:
+            return 0.0
+        highs  = [float(x[2]) for x in ch]
+        lows   = [float(x[3]) for x in ch]
+        closes = [float(x[4]) for x in ch]
+        vols   = [float(x[5]) for x in ch]
+        px = closes[-1]
+        if px <= 0:
+            return 0.0
+        recent_range = (max(highs[-12:]) - min(lows[-12:])) / px
+        prior_range  = (max(highs[-60:-12]) - min(lows[-60:-12])) / px
+        compression  = min(prior_range / (recent_range + 1e-9), 5.0)
+        vol_recent = sum(vols[-5:]) / 5.0
+        vol_base   = sum(vols[-35:-5]) / 30.0
+        vol_surge  = min(vol_recent / (vol_base + 1e-9), 5.0)
+        return round(compression * vol_surge, 3)
+    except Exception:
+        return 0.0
+
+
 def _equity_throttle(status, total_eq):
     """
     مُنظّم المخاطر حسب منحنى رأس المال (Equity-Curve Risk Throttle).
@@ -431,6 +468,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             c15 = client.get_candles(inst_id, bar="1m", limit=100)
             c1h = client.get_candles(inst_id, bar="5m",  limit=60)
             r   = analyze(c15, c1h)
+            # درجة «ما قبل الانفجار» لكل مرشح — تُستخدم في ترتيب الاختيار
+            r["explosion"] = _explosion_score(c15)
             if r["signal"]:
                 # ── تأكيد الإطار الأعلى (HTF 5m) — أقوى استراتيجية مُختبَرة ──
                 # لا تدخل إلا إذا اتّفق اتجاه الـ5m مع إشارة الـ1m.
@@ -494,13 +533,18 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     if skipped_losers:
         add_log(status, f"\U0001f6ab تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
 
-    # ترتيب «أسرع وصول للهدف» (طلب المستخدم): الأعلى تقلباً (ATR% لكل
-    # دقيقة) يقطع مسافة الهدف 4% في أقصر زمن متوقع؛ قوة الإشارة كاسر تعادل.
+    # ترتيب «ما قبل الانفجار ثم أسرع وصول للهدف» (طلب المستخدم):
+    # 1) explosion — انضغاط التقلب × تدفق الحجم: النطاق الضيق (نابض
+    #    مضغوط) مع حجم متدفق فجأة يسبق الانفجارات إحصائياً (بأي اتجاه —
+    #    الإشارة تحدد الاتجاه).
+    # 2) ATR% — الأسرع حركة يقطع مسافة الهدف 4% في أقصر زمن.
+    # 3) قوة الإشارة كاسر تعادل.
     def _speed_key(s):
         price = float(s.get("price") or 0)
         atr   = float(s.get("atr") or 0)
         atr_pct = (atr / price) if price > 0 else 0.0
-        return (atr_pct, abs(s.get("adj_score", s.get("score", 0))))
+        return (float(s.get("explosion", 0.0)), atr_pct,
+                abs(s.get("adj_score", s.get("score", 0))))
 
     signals.sort(key=_speed_key, reverse=True)
     status["top_signals"] = [
@@ -613,7 +657,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         eff_leverage = max(1, int(round(eff_leverage)))
         add_log(status,
             f"\U0001f3af {inst_id}: رافعة x{eff_leverage} | "
-            f"SL {sl_move*100:.2f}% TP {tp_move*100:.2f}%", "info")
+            f"SL {sl_move*100:.2f}% TP {tp_move*100:.2f}% | "
+            f"💥 انفجار:{best.get('explosion', 0):.1f}", "info")
 
         # رأس المال كاملاً موزّعاً على المراكز المتاحة — طلب المستخدم (2-3 عملات)
         # نقسم رأس المال الكامل على الخانات المتبقّية فيُملأ كل مركز بحصّة متساوية
