@@ -44,7 +44,8 @@ jobs:
           OKX_IS_DEMO:        ${{ secrets.OKX_IS_DEMO }}
           RISK_MODE:          prime   # الإعداد الوحيد المثبت PF>1: x3، SL 4%/TP 2%، فلاتر كاملة
           BOT_MAX_POSITIONS:  "3"    # 3 عملات متزامنة (طلب المستخدم)
-          BOT_ALWAYS_IN:      "0"    # دخول مؤكَّد الأطر فقط — مصدر الحافة الوحيد المثبت
+          BOT_ALWAYS_IN:      "1"    # تناوب دائم (طلب المستخدم الصريح المتكرر): خروج ← دخول ≤30 ثانية.
+                                     # الأولوية دائماً للمرشح مؤكَّد الأطر؛ الاحتياط relaxed ثم weak.
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY:  ${{ github.repository }}
         run: python okx_bot/run_once.py
