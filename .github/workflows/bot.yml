@@ -1,0 +1,122 @@
+name: OKX Trading Bot — Snowball v22
+
+on:
+  # ✅ مُفعَّل. الحلقة الأساسية: كل تشغيل يُعيد جدولة نفسه بعد 30 ثانية (آخر خطوة).
+  # الـcron هنا شبكة أمان فقط — تلتقط الحلقة لو انقطعت (فشل شبكي في خطوة الجدولة).
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: okx-bot-loop
+  cancel-in-progress: false   # لا تُلغِ دورة تداول قائمة — انتظر دورك بدل التشغيل المتوازي
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: okx_bot/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r okx_bot/requirements.txt
+
+      - name: Run Snowball v22 + Brain
+        env:
+          OKX_API_KEY:        ${{ secrets.OKX_API_KEY }}
+          OKX_API_SECRET:     ${{ secrets.OKX_API_SECRET }}
+          OKX_SECRET_KEY:     ${{ secrets.OKX_API_SECRET }}
+          OKX_PASSPHRASE:     ${{ secrets.OKX_PASSPHRASE }}
+          OKX_IS_DEMO:        ${{ secrets.OKX_IS_DEMO }}
+          RISK_MODE:          rocket
+          GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY:  ${{ github.repository }}
+        run: python okx_bot/run_once.py
+
+      - name: Save state to repo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import base64, json, os, time, urllib.request, urllib.error
+
+          token = os.environ['GH_TOKEN']
+          repo  = os.environ['GITHUB_REPOSITORY']
+
+          for fname in ['bot_status.json', 'brain_memory.json']:
+            try:
+              with open(fname, 'rb') as f:
+                content = base64.b64encode(f.read()).decode()
+            except FileNotFoundError:
+              continue
+
+            url = f'https://api.github.com/repos/{repo}/contents/{fname}'
+            headers = {
+              'Authorization': f'token {token}',
+              'Accept': 'application/vnd.github.v3+json',
+              'Content-Type': 'application/json',
+            }
+
+            # Retry up to 5 times on SHA conflict (race condition between concurrent runs)
+            for attempt in range(5):
+              sha = None
+              try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req) as r:
+                  sha = json.loads(r.read())['sha']
+              except Exception:
+                pass
+
+              body = {'message': f'bot: update {fname} [skip ci]', 'content': content}
+              if sha:
+                body['sha'] = sha
+
+              req = urllib.request.Request(url, data=json.dumps(body).encode(),
+                                           method='PUT', headers=headers)
+              try:
+                with urllib.request.urlopen(req) as r:
+                  print(f'✅ {fname} updated (attempt {attempt+1})')
+                  break
+              except urllib.error.HTTPError as e:
+                err = e.read().decode()
+                if e.code == 409 or 'sha' in err.lower():
+                  # SHA conflict — another run saved first, retry with fresh SHA
+                  print(f'⚠️ {fname} SHA conflict, retrying... ({attempt+1}/5)')
+                  time.sleep(2 ** attempt)
+                  continue
+                else:
+                  print(f'❌ {fname} failed: {err[:200]}')
+                  break
+          PYEOF
+
+      - name: 🔁 Schedule next run in 30 seconds
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "⏳ انتظار 30 ثانية ثم تشغيل البوت مجدداً..."
+          sleep 30
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Content-Type: application/json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/bot.yml/dispatches" \
+            -d '{"ref":"${{ github.ref_name }}"}')
+          if [ "$STATUS" = "204" ]; then
+            echo "✅ تم جدولة التشغيل القادم بنجاح (HTTP $STATUS)"
+          else
+            echo "⚠️ فشل الجدولة (HTTP $STATUS) — سيعتمد على الـ cron كبديل"
+          fi
