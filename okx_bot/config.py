@@ -46,7 +46,10 @@ KELLY_CAP      = _preset["kelly_cap"]
 HALF_KELLY     = _preset["half_kelly"]       # True=نصف Kelly (أمان), False=Kelly الكامل
 SCAN_SYMBOLS   = _preset["symbols"]          # عدد العملات المُمسوحة
 FILTER_LOSERS  = _preset["filter_losers"]    # True=يحذف العملات الخاسرة (Brain)
-MAX_POSITIONS  = _preset["max_positions"]    # عدد المراكز المتزامنة
+# عدد المراكز المتزامنة — يتجاوز قيمة الوضع عبر BOT_MAX_POSITIONS
+# (طلب المستخدم: 3 عملات متزامنة مع بقاء باقي إعدادات rocket)
+MAX_POSITIONS  = int(os.getenv("BOT_MAX_POSITIONS",
+                               str(_preset["max_positions"])))
 CAPITAL_RATIO   = 0.99    # رأس المال الكامل — 99% هامش (1% محجوز لرسم الفتح فقط، وإلا OKX يرفض الأمر كله)
 STOP_LOSS_PCT   = 0.005   # وقف الخسارة: 0.5% (طلب المستخدم — رابح مع الفلاتر الـ5)
 TAKE_PROFIT_PCT = 0.005   # هدف الربح: 0.5% — نسبة 1:1، صفقات أكثر (PF 2.01 OOS مع الفلاتر)

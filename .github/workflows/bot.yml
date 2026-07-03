@@ -43,6 +43,7 @@ jobs:
           OKX_PASSPHRASE:     ${{ secrets.OKX_PASSPHRASE }}
           OKX_IS_DEMO:        ${{ secrets.OKX_IS_DEMO }}
           RISK_MODE:          rocket
+          BOT_MAX_POSITIONS:  "3"    # 3 عملات متزامنة (طلب المستخدم)
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY:  ${{ github.repository }}
         run: python okx_bot/run_once.py
