@@ -1337,12 +1337,33 @@
       "opened": "2026-07-03 14:36:26 UTC",
       "exit": 1593.09,
       "closed": "2026-07-03 14:43:22 UTC"
+    },
+    {
+      "instId": "ZEC-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": -5,
+        "MACD": 10,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 459.51,
+      "score": -44,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-07-03 14:46:12 UTC"
     }
   ],
   "wins": 20,
   "losses": 39,
   "lr": 0.05,
-  "updated": "2026-07-03 14:44:46 UTC",
+  "updated": "2026-07-03 14:51:54 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
