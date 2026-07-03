@@ -42,8 +42,9 @@ jobs:
           OKX_SECRET_KEY:     ${{ secrets.OKX_API_SECRET }}
           OKX_PASSPHRASE:     ${{ secrets.OKX_PASSPHRASE }}
           OKX_IS_DEMO:        ${{ secrets.OKX_IS_DEMO }}
-          RISK_MODE:          prime   # الإعداد الوحيد المثبت PF>1: x3، SL 4%/TP 2%، فلاتر كاملة
-          BOT_MAX_POSITIONS:  "3"    # 3 عملات متزامنة (طلب المستخدم)
+          RISK_MODE:          prime   # الأساس: SL 2%/TP 4%، فلاتر كاملة، فلتر الخاسرين
+          BOT_MAX_POSITIONS:  "1"    # عملة واحدة فقط (طلب المستخدم) — رأس المال كاملاً فيها
+          BOT_LEVERAGE:       "5"    # رافعة x5 (طلب المستخدم)
           BOT_ALWAYS_IN:      "1"    # تناوب دائم (طلب المستخدم الصريح المتكرر): خروج ← دخول ≤30 ثانية.
                                      # الأولوية دائماً للمرشح مؤكَّد الأطر؛ الاحتياط relaxed ثم weak.
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}

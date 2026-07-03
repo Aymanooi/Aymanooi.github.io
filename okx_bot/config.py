@@ -46,7 +46,12 @@ _RISK_PRESETS = {
 _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 
 # === Trading Parameters ===
-LEVERAGE       = _preset["leverage"]
+# الرافعة — تتجاوز قيمة الوضع عبر BOT_LEVERAGE (طلب المستخدم: x5)
+LEVERAGE       = int(os.getenv("BOT_LEVERAGE", str(_preset["leverage"])))
+
+# ⛔ أصول محظورة من الدخول (طلب المستخدم): لا BTC ولا ETH ولا SOL.
+# المراكز المفتوحة مسبقاً على أصل محظور تُدار حتى تُغلق طبيعياً.
+BANNED_ASSETS  = ("BTC", "ETH", "SOL")
 RISK_PER_TRADE = _preset["risk_per_trade"]
 KELLY_CAP      = _preset["kelly_cap"]
 HALF_KELLY     = _preset["half_kelly"]       # True=نصف Kelly (أمان), False=Kelly الكامل

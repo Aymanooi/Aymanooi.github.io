@@ -416,6 +416,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     for inst_id in pairs:
         if inst_id in active:
             continue
+        # ⛔ حظر الأصول (طلب المستخدم): لا دخول في BTC/ETH/SOL
+        if any(b in inst_id.upper() for b in getattr(cfg, "BANNED_ASSETS", ())):
+            continue
         if not brain.can_reenter(memory, inst_id):
             skipped_cooldown += 1
             continue
@@ -491,7 +494,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     if skipped_losers:
         add_log(status, f"\U0001f6ab تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
 
-    signals.sort(key=lambda x: abs(x.get("adj_score", x["score"])), reverse=True)
+    # ترتيب «أسرع وصول للهدف» (طلب المستخدم): الأعلى تقلباً (ATR% لكل
+    # دقيقة) يقطع مسافة الهدف 4% في أقصر زمن متوقع؛ قوة الإشارة كاسر تعادل.
+    def _speed_key(s):
+        price = float(s.get("price") or 0)
+        atr   = float(s.get("atr") or 0)
+        atr_pct = (atr / price) if price > 0 else 0.0
+        return (atr_pct, abs(s.get("adj_score", s.get("score", 0))))
+
+    signals.sort(key=_speed_key, reverse=True)
     status["top_signals"] = [
         {"instId": s["instId"], "signal": s["signal"],
          "score": s["score"], "prob": round(s.get("prob",0.5),2)}
@@ -506,7 +517,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         pool, label = (relaxed, "رفضته فلاتر الأطر") if relaxed else \
                       (weak,    "درجة تحت العتبة")
         if pool:
-            pool.sort(key=lambda x: abs(x.get("score", 0)), reverse=True)
+            pool.sort(key=_speed_key, reverse=True)
             pick = pool[0]
             if not pick.get("signal"):
                 pick["signal"] = "buy" if pick.get("score", 0) > 0 else "sell"
