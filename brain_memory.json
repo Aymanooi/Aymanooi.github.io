@@ -1,17 +1,17 @@
 {
   "weights": {
-    "EMA": 0.8496322973555875,
-    "RSI": 1.0527700127685797,
-    "MACD": 0.8788128243981186,
-    "BB": 1.0301915074072092,
-    "Stoch": 0.9974509020850267,
+    "EMA": 0.8175315918239915,
+    "RSI": 1.0572299080096086,
+    "MACD": 0.8656094264439114,
+    "BB": 1.0300152196383303,
+    "Stoch": 1.0019107973260555,
     "Volume": 0.9830477204729403,
-    "Pattern": 0.9026655167378067,
-    "HTF_1h": 0.8541845387912312,
-    "OBV": 0.9278489389762564,
-    "RSIDivergence": 0.9862848023488783
+    "Pattern": 0.8937457262557492,
+    "HTF_1h": 0.8268963040384218,
+    "OBV": 0.9274963634384985,
+    "RSIDivergence": 0.972905116625792
   },
-  "bias": -0.037791946630857776,
+  "bias": -0.045068809231606936,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -1217,9 +1217,11 @@
       },
       "entry": 81.24,
       "score": 41,
-      "status": "open",
+      "status": "loss",
       "filled": true,
-      "opened": "2026-07-03 08:06:20 UTC"
+      "opened": "2026-07-03 08:06:20 UTC",
+      "exit": 81.11,
+      "closed": "2026-07-03 08:22:07 UTC"
     },
     {
       "instId": "KORU-USDT-SWAP",
@@ -1238,36 +1240,38 @@
       },
       "entry": 588.03,
       "score": 36,
-      "status": "open",
+      "status": "loss",
       "filled": true,
-      "opened": "2026-07-03 08:07:52 UTC"
+      "opened": "2026-07-03 08:07:52 UTC",
+      "exit": 587.3,
+      "closed": "2026-07-03 08:22:07 UTC"
     },
     {
-      "instId": "SPCX-USDT-SWAP",
-      "signal": "sell",
+      "instId": "SLX-USDT-SWAP",
+      "signal": "buy",
       "features": {
-        "EMA": -10,
-        "RSI": 0,
-        "MACD": 5,
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
         "BB": -5,
-        "Stoch": -10,
+        "Stoch": 0,
         "Volume": 0,
-        "Pattern": 0,
-        "HTF_1h": -15,
-        "OBV": -10,
+        "Pattern": -10,
+        "HTF_1h": 15,
+        "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 160.7,
-      "score": -48,
+      "entry": 0.4767,
+      "score": 31,
       "status": "open",
-      "filled": false,
-      "opened": "2026-07-03 08:20:48 UTC"
+      "filled": true,
+      "opened": "2026-07-03 08:24:24 UTC"
     }
   ],
   "wins": 19,
-  "losses": 34,
+  "losses": 36,
   "lr": 0.05,
-  "updated": "2026-07-03 08:20:49 UTC",
+  "updated": "2026-07-03 08:28:01 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -1301,6 +1305,8 @@
     "INTC-USDT-SWAP": "2026-07-03T05:50:28.602160+00:00",
     "BREV-USDT-SWAP": "2026-07-03T06:31:42.659167+00:00",
     "RE-USDT-SWAP": "2026-07-03T06:32:55.206654+00:00",
-    "LAB-USDT-SWAP": "2026-07-03T07:32:52.080608+00:00"
+    "LAB-USDT-SWAP": "2026-07-03T07:32:52.080608+00:00",
+    "KORU-USDT-SWAP": "2026-07-03T08:22:06.681937+00:00",
+    "SOL-USDT-SWAP": "2026-07-03T08:22:07.094214+00:00"
   }
 }
