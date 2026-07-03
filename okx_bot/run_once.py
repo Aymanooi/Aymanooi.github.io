@@ -384,21 +384,31 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     # ── بوّابة النظام التكيّفية (Regime Gate) — أثبت الباكتيست أنها ترفع PF ──
     # توقف الدخول حين يكون النظام خاسراً مؤقتاً (آخر صفقات معدّل فوزها منخفض)،
     # وتستأنف تلقائياً حين يتحسّن. تتجنّب النوافذ الخاسرة.
+    # وضع التناوب الدائم (طلب المستخدم): عند الخروج من عملة ندخل أخرى في
+    # الفحص التالي (~30 ثانية) — لا ننتظر مرشحاً مثالياً ولا بوّابة النظام.
+    always_in = os.environ.get("BOT_ALWAYS_IN", "1").strip() != "0"
+
     if getattr(cfg, "REGIME_GATE", False):
         if not brain.regime_ok(memory,
                                window=getattr(cfg, "REGIME_WINDOW", 8),
                                min_wr=getattr(cfg, "REGIME_MIN_WR", 0.40),
                                max_age_seconds=getattr(cfg, "REGIME_MAX_AGE", 3600)):
+            if not (always_in and not active):
+                add_log(status,
+                    "\U0001f6e1️ بوّابة النظام: آخر الصفقات خاسرة — إيقاف الدخول مؤقتاً حتى يتحسّن النظام",
+                    "warning")
+                return
             add_log(status,
-                "\U0001f6e1️ بوّابة النظام: آخر الصفقات خاسرة — إيقاف الدخول مؤقتاً حتى يتحسّن النظام",
+                "\U0001f6e1️ بوّابة النظام خاسرة مؤقتاً — التناوب الدائم مفعّل: نواصل الدخول",
                 "warning")
-            return
 
     # مركز واحد فقط لكل دورة — يمنع فتح مراكز متعددة قبل تحديث OKX
     slots_available = 1
 
     pairs            = client.get_top_pairs(TOP_PAIRS, min_usd_vol=cfg.MIN_USD_VOL_24H)
     signals          = []
+    relaxed          = []   # إشارة تجاوزت العتبة لكن رفضتها فلاتر تأكيد الأطر
+    weak             = []   # درجة تحت العتبة (احتياط أخير للتناوب الدائم)
     skipped_losers   = 0
     skipped_cooldown = 0
     for inst_id in pairs:
@@ -425,6 +435,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                     htf = sorted(c1h, key=lambda x: int(x[0]))
                     htf_dir = 1 if float(htf[-1][4]) > float(htf[-2][4]) else -1
                     if htf_dir != sig_dir:
+                        relaxed.append({"instId": inst_id, **r})
                         continue   # الإطار 5m يعارض — تخطّ
                     # تأكيد ثلاثي: 15m أيضاً يجب أن يتّفق (أقوى استراتيجية: PF 1.28→1.49)
                     if getattr(cfg, "HTF_15M_CONFIRM", False):
@@ -433,6 +444,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                             h15 = sorted(c15m, key=lambda x: int(x[0]))
                             d15 = 1 if float(h15[-1][4]) > float(h15[-2][4]) else -1
                             if d15 != sig_dir:
+                                relaxed.append({"instId": inst_id, **r})
                                 continue   # الإطار 15m يعارض — تخطّ
                     # تأكيد الإطار الرابع 1H (أقوى نظام: PF 1.38→1.69 خارج العيّنة)
                     if getattr(cfg, "HTF_1H_CONFIRM", False):
@@ -441,6 +453,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                             hh = sorted(c1hr, key=lambda x: int(x[0]))
                             d1h = 1 if float(hh[-1][4]) > float(hh[-2][4]) else -1
                             if d1h != sig_dir:
+                                relaxed.append({"instId": inst_id, **r})
                                 continue   # الإطار 1H يعارض — تخطّ
                 # ── تأكيد Stochastic — لا تدخل والمؤشّر مُنهَك (PF 1.49→2.09 بالباكتيست) ──
                 if getattr(cfg, "STOCH_CONFIRM", False):
@@ -450,6 +463,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                                        [float(x[4]) for x in ch])
                     if (r["signal"] == "buy" and kk >= 80) or \
                        (r["signal"] == "sell" and kk <= 20):
+                        relaxed.append({"instId": inst_id, **r})
                         continue   # المؤشّر مُنهَك — تخطّ
                 # ── RSI معتدل — أقوى استراتيجية صمدت خارج العيّنة (PF 1.17→1.30، ضِعف) ──
                 # لا تدخل عند RSI متطرّف؛ نتجنّب الدخول المُنهَك. شراء 40-68، بيع 32-60.
@@ -458,10 +472,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                     rv=rsi([float(x[4]) for x in chr_], 14)
                     if (r["signal"]=="buy"  and not (40 <= rv <= 68)) or \
                        (r["signal"]=="sell" and not (32 <= rv <= 60)):
+                        relaxed.append({"instId": inst_id, **r})
                         continue
                 adj, prob = brain.adjusted_score(r["details"], memory)
                 signals.append({"instId": inst_id, **r,
                                  "adj_score": adj, "prob": prob})
+            elif abs(r.get("score", 0)) >= 15:
+                # لا إشارة (تحت العتبة) لكن الدرجة ليست ضجيجاً صرفاً —
+                # احتياط أخير لوضع التناوب الدائم
+                weak.append({"instId": inst_id, **r})
         except Exception:
             continue
 
@@ -476,6 +495,24 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
          "score": s["score"], "prob": round(s.get("prob",0.5),2)}
         for s in signals[:5]
     ]
+
+    if not signals and always_in and not active:
+        # ── التناوب الدائم (طلب المستخدم): لا مركز مفتوح ولا مرشح مؤكَّد —
+        # ندخل أفضل مرشح متاح بدل الانتظار: أولاً من رفضتهم فلاتر الأطر
+        # (إشارة حقيقية فوق العتبة)، وإلا فأقوى درجة خام ≥ 15.
+        pool, label = (relaxed, "رفضته فلاتر الأطر") if relaxed else \
+                      (weak,    "درجة تحت العتبة")
+        if pool:
+            pool.sort(key=lambda x: abs(x.get("score", 0)), reverse=True)
+            pick = pool[0]
+            if not pick.get("signal"):
+                pick["signal"] = "buy" if pick.get("score", 0) > 0 else "sell"
+            adj, prob = brain.adjusted_score(pick.get("details", {}), memory)
+            pick["adj_score"], pick["prob"] = adj, prob
+            signals = [pick]
+            add_log(status,
+                f"🔄 تناوب دائم: دخول أفضل مرشح ({label}) "
+                f"{pick['instId']} درجة {pick.get('score', 0)}", "info")
 
     if not signals:
         add_log(status, "لا توجد إشارات كافية")
