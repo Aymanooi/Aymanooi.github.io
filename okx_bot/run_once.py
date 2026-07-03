@@ -90,6 +90,11 @@ async def run():
         add_log(status, "\U0001f6d1 bot_stop.json — إيقاف طارئ: إغلاق جميع الصفقات", "warning")
         from okx_client import OKXClient as _OKXClient
         _client = _OKXClient(key, secret, phrase, demo)
+        # إلغاء أوامر maker المعلّقة أولاً — حتى لا يُنفَّذ أمر بعد الإيقاف
+        # فيفتح صفقة بلا إدارة
+        for _o in _client.get_pending_orders():
+            if _client.cancel_order(_o["instId"], _o["ordId"]):
+                add_log(status, f"🧹 أُلغي أمر معلّق: {_o['instId']}", "info")
         _positions = _client.get_all_positions()
         _closed = []
         for _p in _positions:
