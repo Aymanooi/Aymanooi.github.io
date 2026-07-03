@@ -1,15 +1,17 @@
 {
   "weights": {
-    "EMA": 0.9496772541021768,
-    "RSI": 1.0223264590856518,
-    "MACD": 0.9359090664982795,
-    "BB": 1.019491545222392,
-    "Stoch": 0.9971461966817413,
+    "EMA": 0.9529352029996053,
+    "RSI": 1.0206974846369374,
+    "MACD": 0.9424249642931366,
+    "BB": 1.0178625707736777,
+    "Stoch": 0.9938882477843128,
     "Volume": 1.0,
-    "Pattern": 0.9583445275975101,
-    "HTF_1h": 0.9245158811532651
+    "Pattern": 0.9616024764949386,
+    "HTF_1h": 0.9294028044994078,
+    "OBV": 1.0032579488974285,
+    "RSIDivergence": 1.0
   },
-  "bias": -0.005526382621134952,
+  "bias": -0.006829562180106353,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -143,12 +145,56 @@
       "status": "loss",
       "opened": "2026-07-02 22:38:23 UTC",
       "exit": 0.1353
+    },
+    {
+      "instId": "ETH-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 1696.83,
+      "score": -42,
+      "status": "loss",
+      "filled": true,
+      "opened": "2026-07-03 01:02:18 UTC",
+      "exit": 1703.47,
+      "closed": "2026-07-03 01:06:03 UTC"
+    },
+    {
+      "instId": "SKHYNIX-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1435.27,
+      "score": 38,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-07-03 01:20:13 UTC"
     }
   ],
   "wins": 3,
-  "losses": 4,
+  "losses": 5,
   "lr": 0.05,
-  "updated": "2026-07-03 00:39:17 UTC",
+  "updated": "2026-07-03 01:20:13 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -161,6 +207,7 @@
     "KITE-USDT-SWAP": "2026-07-02T22:12:44.978856+00:00",
     "HYPE-USDT-SWAP": "2026-07-03T00:30:01.311084+00:00",
     "SNX-USDT-SWAP": "2026-07-03T00:30:01.821636+00:00",
-    "BARD-USDT-SWAP": "2026-07-03T00:30:02.278928+00:00"
+    "BARD-USDT-SWAP": "2026-07-03T00:30:02.278928+00:00",
+    "ETH-USDT-SWAP": "2026-07-03T01:06:03.358656+00:00"
   }
 }
