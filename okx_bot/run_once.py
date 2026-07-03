@@ -393,7 +393,9 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
                                window=getattr(cfg, "REGIME_WINDOW", 8),
                                min_wr=getattr(cfg, "REGIME_MIN_WR", 0.40),
                                max_age_seconds=getattr(cfg, "REGIME_MAX_AGE", 3600)):
-            if not (always_in and not active):
+            # مع التناوب الدائم: البوّابة لا تمنع ملء الخانات الفارغة —
+            # وصلنا هنا فقط إذا كانت هناك خانة فارغة (الفحص أعلاه)
+            if not always_in:
                 add_log(status,
                     "\U0001f6e1️ بوّابة النظام: آخر الصفقات خاسرة — إيقاف الدخول مؤقتاً حتى يتحسّن النظام",
                     "warning")
@@ -496,10 +498,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         for s in signals[:5]
     ]
 
-    if not signals and always_in and not active:
-        # ── التناوب الدائم (طلب المستخدم): لا مركز مفتوح ولا مرشح مؤكَّد —
+    if not signals and always_in:
+        # ── التناوب الدائم (طلب المستخدم): خانة فارغة ولا مرشح مؤكَّد —
         # ندخل أفضل مرشح متاح بدل الانتظار: أولاً من رفضتهم فلاتر الأطر
         # (إشارة حقيقية فوق العتبة)، وإلا فأقوى درجة خام ≥ 15.
+        # (لا نصل هنا إلا وهناك خانة فارغة — الفحص المبكر أعلاه يعيد قبلها)
         pool, label = (relaxed, "رفضته فلاتر الأطر") if relaxed else \
                       (weak,    "درجة تحت العتبة")
         if pool:
