@@ -1,17 +1,17 @@
 {
   "weights": {
-    "EMA": 0.8959210026198657,
-    "RSI": 1.0348871912576267,
-    "MACD": 0.9032702649833421,
-    "BB": 1.022962715267827,
-    "Stoch": 0.9768499447710696,
+    "EMA": 0.8989502790114351,
+    "RSI": 1.033372553061842,
+    "MACD": 0.9093288177664807,
+    "BB": 1.0214480770720422,
+    "Stoch": 0.9753353065752849,
     "Volume": 0.9830477204729403,
-    "Pattern": 0.9262665661173187,
-    "HTF_1h": 0.8942718499889422,
-    "OBV": 0.9605934534565163,
+    "Pattern": 0.9292958425088881,
+    "HTF_1h": 0.8988157645762961,
+    "OBV": 0.9636227298480856,
     "RSIDivergence": 1.0
   },
-  "bias": -0.03653668817317872,
+  "bias": -0.03774839872980645,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -1102,17 +1102,61 @@
       },
       "entry": 2.1015,
       "score": -58,
-      "status": "open",
+      "status": "loss",
       "filled": true,
-      "opened": "2026-07-03 06:47:29 UTC"
+      "opened": "2026-07-03 06:47:29 UTC",
+      "exit": 2.1112,
+      "closed": "2026-07-03 06:50:55 UTC"
     },
     {
-      "instId": "DOGE-USDT-SWAP",
+      "instId": "LAB-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": -15
+      },
+      "entry": 9.007,
+      "score": -40,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-07-03 06:51:10 UTC"
+    },
+    {
+      "instId": "BASED-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 12,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.09396,
+      "score": -42,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-07-03 06:54:14 UTC"
+    },
+    {
+      "instId": "ETH-USDT-SWAP",
       "signal": "buy",
       "features": {
-        "EMA": 10,
-        "RSI": 0,
-        "MACD": 20,
+        "EMA": 25,
+        "RSI": -5,
+        "MACD": 10,
         "BB": -5,
         "Stoch": -5,
         "Volume": 0,
@@ -1121,17 +1165,17 @@
         "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 0.07519,
-      "score": 40,
+      "entry": 1715.95,
+      "score": 34,
       "status": "open",
-      "filled": false,
-      "opened": "2026-07-03 06:49:37 UTC"
+      "filled": true,
+      "opened": "2026-07-03 06:54:59 UTC"
     }
   ],
   "wins": 17,
-  "losses": 31,
+  "losses": 32,
   "lr": 0.05,
-  "updated": "2026-07-03 06:49:37 UTC",
+  "updated": "2026-07-03 06:56:32 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -1153,7 +1197,7 @@
     "BASED-USDT-SWAP": "2026-07-03T06:46:33.087909+00:00",
     "WLD-USDT-SWAP": "2026-07-03T06:21:53.857529+00:00",
     "XRP-USDT-SWAP": "2026-07-03T04:07:46.526097+00:00",
-    "LIT-USDT-SWAP": "2026-07-03T06:46:33.846305+00:00",
+    "LIT-USDT-SWAP": "2026-07-03T06:50:55.127102+00:00",
     "DOGE-USDT-SWAP": "2026-07-03T04:07:47.203426+00:00",
     "DRAM-USDT-SWAP": "2026-07-03T06:46:33.476666+00:00",
     "MU-USDT-SWAP": "2026-07-03T04:48:08.174829+00:00",
