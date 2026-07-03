@@ -145,12 +145,33 @@
       "status": "loss",
       "opened": "2026-07-02 22:38:23 UTC",
       "exit": 0.1353
+    },
+    {
+      "instId": "ETH-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 1695.98,
+      "score": -42,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-07-03 01:02:18 UTC"
     }
   ],
   "wins": 3,
   "losses": 4,
   "lr": 0.05,
-  "updated": "2026-07-03 01:00:43 UTC",
+  "updated": "2026-07-03 01:02:18 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
