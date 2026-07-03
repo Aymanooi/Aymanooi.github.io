@@ -1,17 +1,17 @@
 {
   "weights": {
-    "EMA": 0.9523038709452157,
-    "RSI": 1.0189260121901549,
-    "MACD": 0.9492668380921588,
-    "BB": 1.0115557710176424,
-    "Stoch": 0.9805665870327146,
-    "Volume": 0.9920874607269745,
-    "Pattern": 0.9526973591474766,
-    "HTF_1h": 0.9292421738401455,
-    "OBV": 1.0025020599621886,
+    "EMA": 0.9546590757903233,
+    "RSI": 1.0225468752679447,
+    "MACD": 0.941415913769672,
+    "BB": 1.0138822427904055,
+    "Stoch": 0.9809943988638572,
+    "Volume": 0.9952906319520298,
+    "Pattern": 0.9567955820009791,
+    "HTF_1h": 0.9327749811078069,
+    "OBV": 1.0048572648072962,
     "RSIDivergence": 1.0
   },
-  "bias": -0.02156183752738114,
+  "bias": -0.023182292569382364,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -502,9 +502,11 @@
       },
       "entry": 66.352,
       "score": -48,
-      "status": "open",
+      "status": "loss",
       "filled": true,
-      "opened": "2026-07-03 04:17:01 UTC"
+      "opened": "2026-07-03 04:17:01 UTC",
+      "exit": 66.688,
+      "closed": "2026-07-03 04:42:35 UTC"
     },
     {
       "instId": "SOXL-USDT-SWAP",
@@ -523,15 +525,105 @@
       },
       "entry": 191.14,
       "score": 35,
+      "status": "loss",
+      "filled": true,
+      "opened": "2026-07-03 04:39:08 UTC",
+      "exit": 190.16,
+      "closed": "2026-07-03 04:42:34 UTC"
+    },
+    {
+      "instId": "MU-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -12,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1010.74,
+      "score": 34,
+      "status": "win",
+      "filled": true,
+      "opened": "2026-07-03 04:43:33 UTC",
+      "exit": 1016.73,
+      "closed": "2026-07-03 04:48:08 UTC"
+    },
+    {
+      "instId": "SOXL-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
+        "MACD": -10,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 189.69,
+      "score": 45,
+      "status": "win",
+      "filled": true,
+      "opened": "2026-07-03 04:44:17 UTC",
+      "exit": 190.57,
+      "closed": "2026-07-03 04:47:24 UTC"
+    },
+    {
+      "instId": "DRAM-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 63.52,
+      "score": 31,
       "status": "open",
       "filled": true,
-      "opened": "2026-07-03 04:39:08 UTC"
+      "opened": "2026-07-03 04:47:37 UTC"
+    },
+    {
+      "instId": "SNDK-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -12,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1828.89,
+      "score": 29,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-07-03 04:48:20 UTC"
     }
   ],
-  "wins": 7,
-  "losses": 14,
+  "wins": 9,
+  "losses": 16,
   "lr": 0.05,
-  "updated": "2026-07-03 04:41:12 UTC",
+  "updated": "2026-07-03 04:48:20 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -542,7 +634,7 @@
     "COAI-USDT-SWAP": "2026-07-02T22:12:43.998199+00:00",
     "FARTCOIN-USDT-SWAP": "2026-07-02T22:12:44.482034+00:00",
     "KITE-USDT-SWAP": "2026-07-02T22:12:44.978856+00:00",
-    "HYPE-USDT-SWAP": "2026-07-03T03:50:40.357012+00:00",
+    "HYPE-USDT-SWAP": "2026-07-03T04:42:34.983163+00:00",
     "SNX-USDT-SWAP": "2026-07-03T00:30:01.821636+00:00",
     "BARD-USDT-SWAP": "2026-07-03T00:30:02.278928+00:00",
     "ETH-USDT-SWAP": "2026-07-03T01:06:03.358656+00:00",
@@ -556,6 +648,7 @@
     "LIT-USDT-SWAP": "2026-07-03T04:07:46.864501+00:00",
     "DOGE-USDT-SWAP": "2026-07-03T04:07:47.203426+00:00",
     "DRAM-USDT-SWAP": "2026-07-03T04:14:33.318356+00:00",
-    "MU-USDT-SWAP": "2026-07-03T04:30:23.398572+00:00"
+    "MU-USDT-SWAP": "2026-07-03T04:48:08.174829+00:00",
+    "SOXL-USDT-SWAP": "2026-07-03T04:47:24.290819+00:00"
   }
 }
