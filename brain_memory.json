@@ -1243,31 +1243,31 @@
       "opened": "2026-07-03 08:07:52 UTC"
     },
     {
-      "instId": "SNDK-USDT-SWAP",
-      "signal": "buy",
+      "instId": "SPCX-USDT-SWAP",
+      "signal": "sell",
       "features": {
-        "EMA": 10,
-        "RSI": -5,
-        "MACD": 15,
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": 5,
         "BB": -5,
-        "Stoch": -5,
-        "Volume": 10,
-        "Pattern": 10,
-        "HTF_1h": 15,
-        "OBV": 10,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -15,
+        "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 1830.06,
-      "score": 65,
+      "entry": 160.7,
+      "score": -48,
       "status": "open",
       "filled": false,
-      "opened": "2026-07-03 08:13:21 UTC"
+      "opened": "2026-07-03 08:20:48 UTC"
     }
   ],
   "wins": 19,
   "losses": 34,
   "lr": 0.05,
-  "updated": "2026-07-03 08:13:21 UTC",
+  "updated": "2026-07-03 08:20:49 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
