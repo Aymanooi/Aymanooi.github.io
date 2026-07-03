@@ -1,17 +1,17 @@
 {
   "weights": {
-    "EMA": 0.958891080852921,
-    "RSI": 1.020430872736646,
-    "MACD": 0.9477639213635686,
-    "BB": 1.0117662402591068,
-    "Stoch": 0.9767623938012595,
+    "EMA": 0.9532173782504271,
+    "RSI": 1.0294920297524452,
+    "MACD": 0.9348074348065762,
+    "BB": 1.0146030915603537,
+    "Stoch": 0.9840451777557581,
     "Volume": 0.9952906319520298,
-    "Pattern": 0.9567955820009791,
-    "HTF_1h": 0.9391229887017034,
-    "OBV": 1.009089269869894,
+    "Pattern": 0.9511218793984852,
+    "HTF_1h": 0.9306124347979626,
+    "OBV": 1.0034155672674,
     "RSIDivergence": 1.0
   },
-  "bias": -0.021489490544343303,
+  "bias": -0.019220009503345768,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -481,9 +481,11 @@
       },
       "entry": 3.192,
       "score": -36,
-      "status": "open",
+      "status": "win",
       "filled": true,
-      "opened": "2026-07-03 04:10:43 UTC"
+      "opened": "2026-07-03 04:10:43 UTC",
+      "exit": 3.176,
+      "closed": "2026-07-03 05:06:54 UTC"
     },
     {
       "instId": "HYPE-USDT-SWAP",
@@ -641,12 +643,56 @@
       "status": "open",
       "filled": true,
       "opened": "2026-07-03 05:00:33 UTC"
+    },
+    {
+      "instId": "SLX-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.4656,
+      "score": -42,
+      "status": "loss",
+      "filled": true,
+      "opened": "2026-07-03 05:08:36 UTC",
+      "exit": 0.4681,
+      "closed": "2026-07-03 05:09:38 UTC"
+    },
+    {
+      "instId": "UNI-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 15,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 3.177,
+      "score": -33,
+      "status": "open",
+      "filled": false,
+      "opened": "2026-07-03 05:09:50 UTC"
     }
   ],
-  "wins": 10,
-  "losses": 16,
+  "wins": 11,
+  "losses": 17,
   "lr": 0.05,
-  "updated": "2026-07-03 05:02:37 UTC",
+  "updated": "2026-07-03 05:09:50 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -672,6 +718,8 @@
     "DOGE-USDT-SWAP": "2026-07-03T04:07:47.203426+00:00",
     "DRAM-USDT-SWAP": "2026-07-03T04:53:41.769135+00:00",
     "MU-USDT-SWAP": "2026-07-03T04:48:08.174829+00:00",
-    "SOXL-USDT-SWAP": "2026-07-03T04:47:24.290819+00:00"
+    "SOXL-USDT-SWAP": "2026-07-03T04:47:24.290819+00:00",
+    "UNI-USDT-SWAP": "2026-07-03T05:06:54.265369+00:00",
+    "SLX-USDT-SWAP": "2026-07-03T05:09:38.029019+00:00"
   }
 }
