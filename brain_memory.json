@@ -362,17 +362,38 @@
         "OBV": 10,
         "RSIDivergence": 0
       },
-      "entry": 0.07474,
+      "entry": 0.0747,
       "score": 38,
       "status": "open",
-      "filled": false,
+      "filled": true,
       "opened": "2026-07-03 03:52:29 UTC"
+    },
+    {
+      "instId": "XRP-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 0,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": -5,
+        "Volume": -5,
+        "Pattern": 0,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 1.0896,
+      "score": -38,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-07-03 03:55:53 UTC"
     }
   ],
   "wins": 5,
   "losses": 10,
   "lr": 0.05,
-  "updated": "2026-07-03 03:52:29 UTC",
+  "updated": "2026-07-03 03:59:29 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
