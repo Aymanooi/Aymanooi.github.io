@@ -170,31 +170,64 @@
       "closed": "2026-07-03 01:06:03 UTC"
     },
     {
-      "instId": "SKHYNIX-USDT-SWAP",
+      "instId": "RAVE-USDT-SWAP",
       "signal": "buy",
       "features": {
         "EMA": 10,
         "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 15
+      },
+      "entry": 0.2892,
+      "score": 49,
+      "status": "open",
+      "opened": "2026-07-03 01:31:24 UTC"
+    },
+    {
+      "instId": "ENSO-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": 0,
         "MACD": 15,
         "BB": -5,
-        "Stoch": -5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 10,
+        "HTF_1h": 5
+      },
+      "entry": 0.641,
+      "score": 45,
+      "status": "open",
+      "opened": "2026-07-03 01:31:25 UTC"
+    },
+    {
+      "instId": "EIGEN-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 25,
+        "RSI": -5,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
         "Volume": 0,
         "Pattern": 0,
-        "HTF_1h": 15,
-        "OBV": 10,
-        "RSIDivergence": 0
+        "HTF_1h": 15
       },
-      "entry": 1435.27,
-      "score": 38,
+      "entry": 0.2123,
+      "score": 43,
       "status": "open",
-      "filled": false,
-      "opened": "2026-07-03 01:20:13 UTC"
+      "opened": "2026-07-03 01:31:26 UTC"
     }
   ],
   "wins": 3,
   "losses": 5,
   "lr": 0.05,
-  "updated": "2026-07-03 01:20:13 UTC",
+  "updated": "2026-07-03 01:31:26 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
