@@ -1454,31 +1454,31 @@
       "closed": "2026-07-04 04:16:58 UTC"
     },
     {
-      "instId": "SKHYNIX-USDT-SWAP",
+      "instId": "MU-USDT-SWAP",
       "signal": "sell",
       "features": {
         "EMA": -10,
         "RSI": 5,
-        "MACD": -15,
+        "MACD": -20,
         "BB": 5,
-        "Stoch": 5,
+        "Stoch": 10,
         "Volume": 0,
-        "Pattern": 0,
+        "Pattern": -10,
         "HTF_1h": -15,
         "OBV": -10,
         "RSIDivergence": 0
       },
-      "entry": 1612.94,
-      "score": -36,
+      "entry": 1026.7,
+      "score": -42,
       "status": "open",
-      "filled": false,
-      "opened": "2026-07-04 04:17:06 UTC"
+      "filled": true,
+      "opened": "2026-07-04 04:23:35 UTC"
     }
   ],
   "wins": 21,
   "losses": 43,
   "lr": 0.05,
-  "updated": "2026-07-04 04:17:06 UTC",
+  "updated": "2026-07-04 04:24:06 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
