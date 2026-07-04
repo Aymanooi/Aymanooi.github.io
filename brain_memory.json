@@ -1,17 +1,17 @@
 {
   "weights": {
-    "EMA": 0.8119394103466899,
-    "RSI": 1.070495475135619,
-    "MACD": 0.840241987403197,
-    "BB": 1.0395367323395435,
-    "Stoch": 1.0067109722730223,
+    "EMA": 0.7925978248066257,
+    "RSI": 1.085427883386514,
+    "MACD": 0.8096960479975053,
+    "BB": 1.0492075251095756,
+    "Stoch": 1.0162291103706071,
     "Volume": 0.9830477204729403,
-    "Pattern": 0.9083732682351381,
-    "HTF_1h": 0.8185080318224695,
-    "OBV": 0.913735662788548,
+    "Pattern": 0.8999207077752491,
+    "HTF_1h": 0.8057701168612467,
+    "OBV": 0.8899446058955846,
     "RSIDivergence": 0.972905116625792
   },
-  "bias": -0.052499006948470484,
+  "bias": -0.057033169878904395,
   "trades": [
     {
       "instId": "ONDO-USDT-SWAP",
@@ -1378,15 +1378,107 @@
       },
       "entry": 0.63654,
       "score": -35,
+      "status": "loss",
+      "filled": true,
+      "opened": "2026-07-03 15:01:32 UTC",
+      "exit": 0.63891,
+      "closed": "2026-07-03 17:07:40 UTC"
+    },
+    {
+      "instId": "RE-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -12,
+        "MACD": 20,
+        "BB": -5,
+        "Stoch": -10,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 15,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.64011,
+      "score": 28,
+      "status": "loss",
+      "filled": true,
+      "opened": "2026-07-03 17:09:47 UTC",
+      "exit": 0.63907,
+      "closed": "2026-07-03 17:13:49 UTC"
+    },
+    {
+      "instId": "XPL-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -5,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.11172,
+      "score": -42,
+      "status": "win",
+      "filled": true,
+      "opened": "2026-07-03 17:13:56 UTC",
+      "exit": 0.10945,
+      "closed": "2026-07-03 18:06:08 UTC"
+    },
+    {
+      "instId": "MU-USDT-SWAP",
+      "signal": "buy",
+      "features": {
+        "EMA": 10,
+        "RSI": -5,
+        "MACD": 15,
+        "BB": -5,
+        "Stoch": 0,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": 5,
+        "OBV": 10,
+        "RSIDivergence": 0
+      },
+      "entry": 1025.92,
+      "score": 35,
+      "status": "loss",
+      "filled": true,
+      "opened": "2026-07-03 18:17:57 UTC",
+      "exit": 1026.29,
+      "closed": "2026-07-04 04:16:58 UTC"
+    },
+    {
+      "instId": "MU-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 5,
+        "MACD": -20,
+        "BB": 5,
+        "Stoch": 10,
+        "Volume": 0,
+        "Pattern": -10,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 1026.7,
+      "score": -42,
       "status": "open",
       "filled": true,
-      "opened": "2026-07-03 15:01:32 UTC"
+      "opened": "2026-07-04 04:23:35 UTC"
     }
   ],
-  "wins": 20,
-  "losses": 40,
+  "wins": 21,
+  "losses": 43,
   "lr": 0.05,
-  "updated": "2026-07-03 17:05:10 UTC",
+  "updated": "2026-07-04 04:31:08 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
@@ -1411,7 +1503,7 @@
     "LIT-USDT-SWAP": "2026-07-03T06:50:55.127102+00:00",
     "DOGE-USDT-SWAP": "2026-07-03T04:07:47.203426+00:00",
     "DRAM-USDT-SWAP": "2026-07-03T06:46:33.476666+00:00",
-    "MU-USDT-SWAP": "2026-07-03T04:48:08.174829+00:00",
+    "MU-USDT-SWAP": "2026-07-04T04:16:57.616150+00:00",
     "SOXL-USDT-SWAP": "2026-07-03T04:47:24.290819+00:00",
     "UNI-USDT-SWAP": "2026-07-03T08:57:37.861138+00:00",
     "SLX-USDT-SWAP": "2026-07-03T08:36:21.585847+00:00",
@@ -1419,10 +1511,11 @@
     "ZEC-USDT-SWAP": "2026-07-03T15:00:14.871697+00:00",
     "INTC-USDT-SWAP": "2026-07-03T05:50:28.602160+00:00",
     "BREV-USDT-SWAP": "2026-07-03T06:31:42.659167+00:00",
-    "RE-USDT-SWAP": "2026-07-03T06:32:55.206654+00:00",
+    "RE-USDT-SWAP": "2026-07-03T17:13:48.876767+00:00",
     "LAB-USDT-SWAP": "2026-07-03T07:32:52.080608+00:00",
     "KORU-USDT-SWAP": "2026-07-03T08:22:06.681937+00:00",
     "SOL-USDT-SWAP": "2026-07-03T08:22:07.094214+00:00",
-    "SKHYNIX-USDT-SWAP": "2026-07-03T14:43:21.855150+00:00"
+    "SKHYNIX-USDT-SWAP": "2026-07-03T14:43:21.855150+00:00",
+    "XPL-USDT-SWAP": "2026-07-03T18:06:07.776580+00:00"
   }
 }
