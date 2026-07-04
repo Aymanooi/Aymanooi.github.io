@@ -47,6 +47,12 @@ jobs:
           BOT_LEVERAGE:       "30"   # رافعة x30 (طلب المستخدم — التصعيد الرابع: 5→10→20→30)
           BOT_ALWAYS_IN:      "1"    # تناوب دائم (طلب المستخدم الصريح المتكرر): خروج ← دخول ≤30 ثانية.
                                      # الأولوية دائماً للمرشح مؤكَّد الأطر؛ الاحتياط relaxed ثم weak.
+          # 🌐 فتح الكون كله (طلب المستخدم 2026-07-04): جميع العملات الرقمية
+          # بسيولة > $50M — بلا قيد الميم وبلا قيد الحركة وبلا سقف سعر.
+          BOT_MEME_ONLY:       "0"   # ليس الميم فقط — كل العملات
+          BOT_MEME_PREFER:     "0"   # بلا تفضيل ميم
+          BOT_MOMENTUM_FILTER: "0"   # بلا قيد الحركة (+10%/−5%)
+          BOT_MAX_PRICE_USD:   "0"   # بلا سقف سعر ($0 = معطّل)
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY:  ${{ github.repository }}
         run: python okx_bot/run_once.py
