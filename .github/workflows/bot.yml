@@ -57,6 +57,9 @@ jobs:
           # maker الحدّية كانت لا تُنفَّذ (تنتظر السعر) وتُرفض على العملات
           # الرخيصة بـ«Parameter px error» — فبدا أن البوت لا يتداول.
           ORDER_MODE:          "taker"
+          # ⏱️ فاصل إعادة الفحص 15 ثانية (كان 30) — يضمن الدخول التالي
+          # بعد إغلاق صفقة خلال ≤30 ثانية حتى مع زمن المعالجة (طلب المستخدم).
+          BOT_RESCAN_SECONDS:  "15"
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY:  ${{ github.repository }}
         run: python okx_bot/run_once.py
