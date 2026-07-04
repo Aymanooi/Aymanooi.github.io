@@ -52,6 +52,23 @@ LEVERAGE       = int(os.getenv("BOT_LEVERAGE", str(_preset["leverage"])))
 # ⛔ أصول محظورة من الدخول (طلب المستخدم): لا BTC ولا ETH ولا SOL.
 # المراكز المفتوحة مسبقاً على أصل محظور تُدار حتى تُغلق طبيعياً.
 BANNED_ASSETS  = ("BTC", "ETH", "SOL")
+
+# 🐸 تفضيل عملات الميم (طلب المستخدم: «من الأفضل فقط عملات MEME»).
+# قائمة منسّقة لأشهر عملات الميم المتداولة كعقود دائمة على OKX —
+# الأعنف تقلباً والأسرع حركة، فتنسجم مع طلب «السرعة الهائلة».
+# التفضيل ذكي: إن وُجد مرشح ميم مؤهَّل نختاره؛ وإلا نرجع لبقية العملات
+# حتى لا يبقى البوت خارج السوق (احتراماً لـ 24/7 والتناوب الدائم).
+MEME_PREFER = os.getenv("BOT_MEME_PREFER", "1").strip() != "0"
+MEME_ASSETS = (
+    "DOGE", "SHIB", "PEPE", "WIF", "BONK", "FLOKI", "MEME", "TRUMP",
+    "POPCAT", "MEW", "BRETT", "TURBO", "MOG", "PNUT", "GOAT", "NEIRO",
+    "ACT", "MOODENG", "CHILLGUY", "PEOPLE", "DOGS", "BOME", "SLERF",
+    "MYRO", "WEN", "BABYDOGE", "SPX", "GIGA", "PONKE", "FARTCOIN",
+    "AI16Z", "ZEREBRO", "GRIFFAIN", "MICHI", "SUNDOG", "DEGEN", "TShib",
+    "BONK", "CAT", "HIPPO", "MAGA", "WOJAK", "LADYS", "ELON", "AIDOGE",
+    "BABYNEIRO", "SIGMA", "FWOG", "LUCE", "USELESS", "RETARDIO", "GME",
+    "SNEK", "ANDY", "APU", "MUMU", "BILLY", "SC", "HARAMBE",
+)
 RISK_PER_TRADE = _preset["risk_per_trade"]
 KELLY_CAP      = _preset["kelly_cap"]
 HALF_KELLY     = _preset["half_kelly"]       # True=نصف Kelly (أمان), False=Kelly الكامل

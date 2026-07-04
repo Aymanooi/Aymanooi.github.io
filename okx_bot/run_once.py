@@ -533,6 +533,28 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     if skipped_losers:
         add_log(status, f"\U0001f6ab تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
 
+    # 🐸 تفضيل عملات الميم (طلب المستخدم): إن وُجد مرشح ميم مؤهَّل في أي
+    # قائمة نُبقي الميم فقط فيها؛ وإلا نُبقيها كما هي (رجوع لبقية العملات
+    # حتى لا يبقى البوت خارج السوق). يُطبَّق على القوائم الثلاث بثبات.
+    if getattr(cfg, "MEME_PREFER", False):
+        memes = tuple(m.upper() for m in getattr(cfg, "MEME_ASSETS", ()))
+
+        def _is_meme(inst_id):
+            base = inst_id.split("-")[0].upper()
+            return base in memes
+
+        def _meme_first(pool):
+            m = [s for s in pool if _is_meme(s["instId"])]
+            return m if m else pool
+
+        n_before = len(signals)
+        signals = _meme_first(signals)
+        relaxed = _meme_first(relaxed)
+        weak    = _meme_first(weak)
+        if signals and n_before and len(signals) < n_before:
+            add_log(status,
+                f"🐸 تفضيل الميم: {len(signals)} مرشح ميم من {n_before}", "info")
+
     # ترتيب «السرعة أولاً» (طلب المستخدم الصريح: الدخول في العملات التي
     # تتحرك بسرعة كبيرة جداً). درجة مركّبة متصلة تدمج العاملين فعلاً بدل
     # المقارنة التسلسلية التي كانت تجعل الانفجار يحسم كل شيء والسرعة
