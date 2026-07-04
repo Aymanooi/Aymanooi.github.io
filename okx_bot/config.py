@@ -64,6 +64,12 @@ MEME_PREFER = os.getenv("BOT_MEME_PREFER", "1").strip() != "0"
 # البوت أي عملة ليست ميم في المسح — فإن لم تتوفّر فرصة ميم لا يدخل
 # إطلاقاً (بلا رجوع لغير الميم). أقوى من MEME_PREFER.
 MEME_ONLY = os.getenv("BOT_MEME_ONLY", "1").strip() != "0"
+
+# 💲 نطاق السعر المسموح للدخول (طلب المستخدم: بين ~صفر و 1 دولار).
+# نتخطّى أي عملة سعرها ≥ MAX_PRICE_USD أو ≤ MIN_PRICE_USD.
+# العملات الرخيصة/الميكرو — تنسجم مع الميم والسرعة الهائلة.
+MIN_PRICE_USD = float(os.getenv("BOT_MIN_PRICE_USD", "1e-19"))
+MAX_PRICE_USD = float(os.getenv("BOT_MAX_PRICE_USD", "1.0"))
 MEME_ASSETS = (
     "DOGE", "SHIB", "PEPE", "WIF", "BONK", "FLOKI", "MEME", "TRUMP",
     "POPCAT", "MEW", "BRETT", "TURBO", "MOG", "PNUT", "GOAT", "NEIRO",

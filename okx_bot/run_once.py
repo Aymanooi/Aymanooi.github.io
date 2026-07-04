@@ -474,6 +474,16 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             c15 = client.get_candles(inst_id, bar="1m", limit=100)
             c1h = client.get_candles(inst_id, bar="5m",  limit=60)
             r   = analyze(c15, c1h)
+            # 💲 فلتر نطاق السعر (طلب المستخدم: الدخول فقط في العملات بين
+            # ~صفر و 1 دولار). العملات الرخيصة/الميكرو — تنسجم مع الميم
+            # والسرعة الهائلة. نتخطّى أي عملة خارج النطاق.
+            _px = float(r.get("price") or 0)
+            _pmin = getattr(cfg, "MIN_PRICE_USD", 0.0)
+            _pmax = getattr(cfg, "MAX_PRICE_USD", 0.0)
+            if _pmax and _px > _pmax:
+                continue
+            if _px <= _pmin:
+                continue
             # درجة «ما قبل الانفجار» لكل مرشح — تُستخدم في ترتيب الاختيار
             r["explosion"] = _explosion_score(c15)
             if r["signal"]:
