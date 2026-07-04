@@ -533,18 +533,20 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     if skipped_losers:
         add_log(status, f"\U0001f6ab تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
 
-    # ترتيب «ما قبل الانفجار ثم أسرع وصول للهدف» (طلب المستخدم):
-    # 1) explosion — انضغاط التقلب × تدفق الحجم: النطاق الضيق (نابض
-    #    مضغوط) مع حجم متدفق فجأة يسبق الانفجارات إحصائياً (بأي اتجاه —
-    #    الإشارة تحدد الاتجاه).
-    # 2) ATR% — الأسرع حركة يقطع مسافة الهدف 4% في أقصر زمن.
-    # 3) قوة الإشارة كاسر تعادل.
+    # ترتيب «السرعة أولاً» (طلب المستخدم الصريح: الدخول في العملات التي
+    # تتحرك بسرعة كبيرة جداً). درجة مركّبة متصلة تدمج العاملين فعلاً بدل
+    # المقارنة التسلسلية التي كانت تجعل الانفجار يحسم كل شيء والسرعة
+    # لا تؤثر:
+    #   الدرجة = ATR% × (1 + درجة الانفجار)
+    # → الأسرع حركة يتصدّر، معزّزاً بمن هو على وشك الانفجار (النابض
+    #   المضغوط ذو الحجم المتدفق). قوة الإشارة كاسر تعادل أخير.
     def _speed_key(s):
         price = float(s.get("price") or 0)
         atr   = float(s.get("atr") or 0)
         atr_pct = (atr / price) if price > 0 else 0.0
-        return (float(s.get("explosion", 0.0)), atr_pct,
-                abs(s.get("adj_score", s.get("score", 0))))
+        composite = atr_pct * (1.0 + float(s.get("explosion", 0.0)))
+        s["speed_score"] = round(composite, 5)
+        return (composite, abs(s.get("adj_score", s.get("score", 0))))
 
     signals.sort(key=_speed_key, reverse=True)
     status["top_signals"] = [
@@ -658,7 +660,8 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status,
             f"\U0001f3af {inst_id}: رافعة x{eff_leverage} | "
             f"SL {sl_move*100:.2f}% TP {tp_move*100:.2f}% | "
-            f"💥 انفجار:{best.get('explosion', 0):.1f}", "info")
+            f"⚡سرعة:{best.get('speed_score', 0)*100:.2f}% "
+            f"💥انفجار:{best.get('explosion', 0):.1f}", "info")
 
         # رأس المال كاملاً موزّعاً على المراكز المتاحة — طلب المستخدم (2-3 عملات)
         # نقسم رأس المال الكامل على الخانات المتبقّية فيُملأ كل مركز بحصّة متساوية
