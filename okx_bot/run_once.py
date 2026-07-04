@@ -453,9 +453,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     for inst_id in pairs:
         if inst_id in active:
             continue
-        # ⛔ حظر الأصول (طلب المستخدم): لا دخول في BTC/ETH/SOL
+        # ⛔ حظر الأصول (طلب المستخدم): لا دخول في BTC/ETH/SOL/XAU
         if any(b in inst_id.upper() for b in getattr(cfg, "BANNED_ASSETS", ())):
             continue
+        # 🐸 حصري على الميم (طلب المستخدم: الدخول فقط في عملات الميم):
+        # تخطَّ أي عملة ليست في قائمة الميم تماماً كالمحظورة.
+        if getattr(cfg, "MEME_ONLY", False):
+            _base = inst_id.split("-")[0].upper()
+            if _base not in tuple(m.upper() for m in getattr(cfg, "MEME_ASSETS", ())):
+                continue
         if not brain.can_reenter(memory, inst_id):
             skipped_cooldown += 1
             continue
