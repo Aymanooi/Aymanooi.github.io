@@ -53,6 +53,10 @@ jobs:
           BOT_MEME_PREFER:     "0"   # بلا تفضيل ميم
           BOT_MOMENTUM_FILTER: "0"   # بلا قيد الحركة (+10%/−5%)
           BOT_MAX_PRICE_USD:   "0"   # بلا سقف سعر ($0 = معطّل)
+          # ⚡ أوامر سوق فورية (طلب المستخدم: يشتري ويبيع الآن). أوامر
+          # maker الحدّية كانت لا تُنفَّذ (تنتظر السعر) وتُرفض على العملات
+          # الرخيصة بـ«Parameter px error» — فبدا أن البوت لا يتداول.
+          ORDER_MODE:          "taker"
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY:  ${{ github.repository }}
         run: python okx_bot/run_once.py
