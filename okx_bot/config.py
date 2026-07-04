@@ -70,6 +70,12 @@ MEME_ONLY = os.getenv("BOT_MEME_ONLY", "1").strip() != "0"
 # العملات الرخيصة/الميكرو — تنسجم مع الميم والسرعة الهائلة.
 MIN_PRICE_USD = float(os.getenv("BOT_MIN_PRICE_USD", "1e-19"))
 MAX_PRICE_USD = float(os.getenv("BOT_MAX_PRICE_USD", "1.0"))
+
+# 📊 فلتر الحركة اليومية (طلب المستخدم): لا دخول إلا في العملات التي
+# صعدت أكثر من MOM_UP_PCT% أو هبطت أكثر من MOM_DOWN_PCT% خلال 24 ساعة.
+MOMENTUM_FILTER = os.getenv("BOT_MOMENTUM_FILTER", "1").strip() != "0"
+MOM_UP_PCT   = float(os.getenv("BOT_MOM_UP_PCT", "10.0"))   # صعود > +10%
+MOM_DOWN_PCT = float(os.getenv("BOT_MOM_DOWN_PCT", "5.0"))  # هبوط > −5%
 MEME_ASSETS = (
     "DOGE", "SHIB", "PEPE", "WIF", "BONK", "FLOKI", "MEME", "TRUMP",
     "POPCAT", "MEW", "BRETT", "TURBO", "MOG", "PNUT", "GOAT", "NEIRO",
