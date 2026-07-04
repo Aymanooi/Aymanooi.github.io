@@ -49,6 +49,28 @@ class OKXClient:
             return None
         return result["data"][0]
 
+    def get_change_map(self):
+        """خريطة تغيّر السعر خلال 24 ساعة لكل عقد SWAP (نسبة مئوية).
+
+        التغيّر ≈ (last − open24h) / open24h × 100. نداء واحد لكل الأزواج
+        (يُستخدم لفلتر الحركة: صعود > X% أو هبوط > Y%)."""
+        try:
+            result = self.market_api.get_tickers(instType="SWAP")
+            if result["code"] != "0":
+                return {}
+            out = {}
+            for t in result["data"]:
+                iid = t.get("instId", "")
+                if not iid.endswith("-USDT-SWAP"):
+                    continue
+                last = float(t.get("last", 0) or 0)
+                op   = float(t.get("open24h", 0) or 0)
+                if op > 0:
+                    out[iid] = (last - op) / op * 100.0
+            return out
+        except Exception:
+            return {}
+
     def get_balance(self):
         result = self.account_api.get_account_balance(ccy="USDT")
         if result["code"] != "0":

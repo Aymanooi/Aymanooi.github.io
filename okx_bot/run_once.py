@@ -450,12 +450,26 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     weak             = []   # درجة تحت العتبة (احتياط أخير للتناوب الدائم)
     skipped_losers   = 0
     skipped_cooldown = 0
+    skipped_mom      = 0
+    # 📊 فلتر الحركة اليومية (طلب المستخدم: صعود > MOM_UP% أو هبوط >
+    # MOM_DOWN% خلال 24 ساعة فقط). خريطة التغيّر بنداء واحد.
+    change_map = client.get_change_map() if getattr(cfg, "MOMENTUM_FILTER", False) else {}
     for inst_id in pairs:
         if inst_id in active:
             continue
         # ⛔ حظر الأصول (طلب المستخدم): لا دخول في BTC/ETH/SOL/XAU
         if any(b in inst_id.upper() for b in getattr(cfg, "BANNED_ASSETS", ())):
             continue
+        # 📊 فلتر الحركة: لا دخول إلا صعود > +MOM_UP% أو هبوط < −MOM_DOWN%
+        if getattr(cfg, "MOMENTUM_FILTER", False):
+            chg = change_map.get(inst_id)
+            if chg is None:
+                continue
+            up = getattr(cfg, "MOM_UP_PCT", 10.0)
+            dn = getattr(cfg, "MOM_DOWN_PCT", 5.0)
+            if not (chg >= up or chg <= -dn):
+                skipped_mom += 1
+                continue
         # 🐸 حصري على الميم (طلب المستخدم: الدخول فقط في عملات الميم):
         # تخطَّ أي عملة ليست في قائمة الميم تماماً كالمحظورة.
         if getattr(cfg, "MEME_ONLY", False):
@@ -548,6 +562,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status, f"⏳ تخطّى {skipped_cooldown} عملة في فترة التهدئة", "info")
     if skipped_losers:
         add_log(status, f"\U0001f6ab تخطّى {skipped_losers} عملة خاسرة (Brain فلتر)", "info")
+    if skipped_mom:
+        add_log(status,
+            f"📊 تخطّى {skipped_mom} عملة خارج نطاق الحركة "
+            f"(صعود>+{getattr(cfg,'MOM_UP_PCT',10):.0f}% أو هبوط<−{getattr(cfg,'MOM_DOWN_PCT',5):.0f}%)",
+            "info")
 
     # 🐸 تفضيل عملات الميم (طلب المستخدم): إن وُجد مرشح ميم مؤهَّل في أي
     # قائمة نُبقي الميم فقط فيها؛ وإلا نُبقيها كما هي (رجوع لبقية العملات
