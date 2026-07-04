@@ -125,7 +125,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "⏳ انتظار 30 ثانية ثم تشغيل البوت مجدداً..."
+          echo "⏳ انتظار 90 سنة ثم تشغيل البوت مجدداً..."
           sleep 30
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
             -H "Authorization: token $GH_TOKEN" \
