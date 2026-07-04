@@ -95,7 +95,10 @@ FILTER_LOSERS  = _preset["filter_losers"]    # True=يحذف العملات ال
 # (طلب المستخدم: 3 عملات متزامنة مع بقاء باقي إعدادات rocket)
 MAX_POSITIONS  = int(os.getenv("BOT_MAX_POSITIONS",
                                str(_preset["max_positions"])))
-CAPITAL_RATIO   = 0.99    # رأس المال الكامل — 99% هامش (1% محجوز لرسم الفتح فقط، وإلا OKX يرفض الأمر كله)
+# نسبة رأس المال المستخدَمة كهامش. 0.99 كانت تُفشل الأمر بـ«Insufficient
+# USDT margin» لأن OKX يحتاج هامشاً حراً للرسوم ولأمر SL/TP المرفق —
+# فيُرفض الدخول بالكامل. 0.90 يترك 10% حرة فتُنفَّذ الصفقات فعلاً.
+CAPITAL_RATIO   = float(os.getenv("BOT_CAPITAL_RATIO", "0.90"))
 # طلب المستخدم الصريح: هدف 2% ووقف 2% (نسبة 1:1 متماثلة).
 # الهدف الأقرب يُصاب أسرع وأكثر تكراراً — لكن التعادل يحتاج فوز 50%+.
 STOP_LOSS_PCT   = 0.02
