@@ -49,9 +49,10 @@ _preset = _RISK_PRESETS.get(RISK_MODE, _RISK_PRESETS["safe"])
 # الرافعة — تتجاوز قيمة الوضع عبر BOT_LEVERAGE (طلب المستخدم: x5)
 LEVERAGE       = int(os.getenv("BOT_LEVERAGE", str(_preset["leverage"])))
 
-# ⛔ أصول محظورة من الدخول (طلب المستخدم): لا BTC ولا ETH ولا SOL.
+# ⛔ أصول محظورة من الدخول (طلب المستخدم): لا BTC/ETH/SOL/XAU.
+# (XAU = الذهب المرمّز — أُضيف بطلب المستخدم 2026-07-04.)
 # المراكز المفتوحة مسبقاً على أصل محظور تُدار حتى تُغلق طبيعياً.
-BANNED_ASSETS  = ("BTC", "ETH", "SOL")
+BANNED_ASSETS  = ("BTC", "ETH", "SOL", "XAU")
 
 # 🐸 تفضيل عملات الميم (طلب المستخدم: «من الأفضل فقط عملات MEME»).
 # قائمة منسّقة لأشهر عملات الميم المتداولة كعقود دائمة على OKX —
