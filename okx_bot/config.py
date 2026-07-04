@@ -60,6 +60,10 @@ BANNED_ASSETS  = ("BTC", "ETH", "SOL", "XAU")
 # التفضيل ذكي: إن وُجد مرشح ميم مؤهَّل نختاره؛ وإلا نرجع لبقية العملات
 # حتى لا يبقى البوت خارج السوق (احتراماً لـ 24/7 والتناوب الدائم).
 MEME_PREFER = os.getenv("BOT_MEME_PREFER", "1").strip() != "0"
+# حصري على الميم (طلب المستخدم: «الدخول فقط في عملات الميم»): يتخطّى
+# البوت أي عملة ليست ميم في المسح — فإن لم تتوفّر فرصة ميم لا يدخل
+# إطلاقاً (بلا رجوع لغير الميم). أقوى من MEME_PREFER.
+MEME_ONLY = os.getenv("BOT_MEME_ONLY", "1").strip() != "0"
 MEME_ASSETS = (
     "DOGE", "SHIB", "PEPE", "WIF", "BONK", "FLOKI", "MEME", "TRUMP",
     "POPCAT", "MEW", "BRETT", "TURBO", "MOG", "PNUT", "GOAT", "NEIRO",
