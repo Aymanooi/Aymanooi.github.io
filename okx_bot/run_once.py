@@ -451,6 +451,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
     skipped_losers   = 0
     skipped_cooldown = 0
     skipped_mom      = 0
+    skipped_slow     = 0
     # 📊 فلتر الحركة اليومية (طلب المستخدم: صعود > MOM_UP% أو هبوط >
     # MOM_DOWN% خلال 24 ساعة فقط). خريطة التغيّر بنداء واحد.
     change_map = client.get_change_map() if getattr(cfg, "MOMENTUM_FILTER", False) else {}
@@ -497,6 +498,15 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
             if _pmax and _px > _pmax:
                 continue
             if _px <= _pmin:
+                continue
+            # ⚡ فلتر السرعة الصارم (طلب المستخدم: الدخول فقط في العملات
+            # التي تتحرك بسرعة هائلة). ATR% لكل دقيقة = مقياس السرعة؛
+            # نتخطّى أي عملة سرعتها دون MIN_ATR_PCT.
+            _atr_pct = (float(r.get("atr") or 0) / _px * 100.0) if _px > 0 else 0.0
+            r["atr_pct"] = round(_atr_pct, 3)
+            _min_spd = getattr(cfg, "MIN_ATR_PCT", 0.0)
+            if _min_spd and _atr_pct < _min_spd:
+                skipped_slow += 1
                 continue
             # درجة «ما قبل الانفجار» لكل مرشح — تُستخدم في ترتيب الاختيار
             r["explosion"] = _explosion_score(c15)
@@ -566,6 +576,10 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         add_log(status,
             f"📊 تخطّى {skipped_mom} عملة خارج نطاق الحركة "
             f"(صعود>+{getattr(cfg,'MOM_UP_PCT',10):.0f}% أو هبوط<−{getattr(cfg,'MOM_DOWN_PCT',5):.0f}%)",
+            "info")
+    if skipped_slow:
+        add_log(status,
+            f"⚡ تخطّى {skipped_slow} عملة بطيئة (سرعة < {getattr(cfg,'MIN_ATR_PCT',0):.2f}% ATR/دقيقة)",
             "info")
 
     # 🐸 تفضيل عملات الميم (طلب المستخدم): إن وُجد مرشح ميم مؤهَّل في أي

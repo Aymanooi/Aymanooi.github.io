@@ -76,6 +76,11 @@ MAX_PRICE_USD = float(os.getenv("BOT_MAX_PRICE_USD", "1.0"))
 MOMENTUM_FILTER = os.getenv("BOT_MOMENTUM_FILTER", "1").strip() != "0"
 MOM_UP_PCT   = float(os.getenv("BOT_MOM_UP_PCT", "10.0"))   # صعود > +10%
 MOM_DOWN_PCT = float(os.getenv("BOT_MOM_DOWN_PCT", "5.0"))  # هبوط > −5%
+
+# ⚡ فلتر السرعة الصارم (طلب المستخدم: الدخول فقط في العملات التي تتحرك
+# بسرعة هائلة). الحد الأدنى لتقلّب الدقيقة (ATR%) — نتخطّى أي عملة أبطأ.
+# 1.0% ATR/دقيقة = حركة عنيفة (عملات الميم السريعة). 0 = معطّل.
+MIN_ATR_PCT = float(os.getenv("BOT_MIN_ATR_PCT", "1.0"))
 MEME_ASSETS = (
     "DOGE", "SHIB", "PEPE", "WIF", "BONK", "FLOKI", "MEME", "TRUMP",
     "POPCAT", "MEW", "BRETT", "TURBO", "MOG", "PNUT", "GOAT", "NEIRO",
