@@ -2073,12 +2073,33 @@
       "opened": "2026-07-05 20:17:42 UTC",
       "exit": 1.1355,
       "closed": "2026-07-05 20:48:48 UTC"
+    },
+    {
+      "instId": "CAP-USDT-SWAP",
+      "signal": "sell",
+      "features": {
+        "EMA": -10,
+        "RSI": 12,
+        "MACD": -15,
+        "BB": 5,
+        "Stoch": 5,
+        "Volume": 0,
+        "Pattern": 0,
+        "HTF_1h": -15,
+        "OBV": -10,
+        "RSIDivergence": 0
+      },
+      "entry": 0.0258,
+      "score": -29,
+      "status": "open",
+      "filled": true,
+      "opened": "2026-07-05 21:00:03 UTC"
     }
   ],
   "wins": 29,
   "losses": 62,
   "lr": 0.05,
-  "updated": "2026-07-05 20:53:07 UTC",
+  "updated": "2026-07-05 21:00:19 UTC",
   "exited": {
     "XLM-USDT-SWAP": "2026-06-23T17:25:02.789077+00:00",
     "ONDO-USDT-SWAP": "2026-06-23T19:01:09.778709+00:00",
