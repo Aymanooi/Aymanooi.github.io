@@ -94,7 +94,10 @@ MEME_ASSETS = (
 RISK_PER_TRADE = _preset["risk_per_trade"]
 KELLY_CAP      = _preset["kelly_cap"]
 HALF_KELLY     = _preset["half_kelly"]       # True=نصف Kelly (أمان), False=Kelly الكامل
-SCAN_SYMBOLS   = _preset["symbols"]          # عدد العملات المُمسوحة
+# عدد العملات المُمسوحة — يتجاوز الوضع عبر BOT_SCAN_SYMBOLS.
+# رُفع إلى 300 (طلب المستخدم: عملات سريعة حتى لو صغيرة السيولة) ليصل
+# المسح إلى العملات الصغيرة السريعة خارج أعلى 100 سيولة.
+SCAN_SYMBOLS   = int(os.getenv("BOT_SCAN_SYMBOLS", "300"))
 FILTER_LOSERS  = _preset["filter_losers"]    # True=يحذف العملات الخاسرة (Brain)
 # عدد المراكز المتزامنة — يتجاوز قيمة الوضع عبر BOT_MAX_POSITIONS
 # (طلب المستخدم: 3 عملات متزامنة مع بقاء باقي إعدادات rocket)
@@ -159,7 +162,10 @@ SCAN_INTERVAL   = 60
 TOP_PAIRS_COUNT = 100
 # الحدّ الأدنى للسيولة بالدولار خلال 24 ساعة — لا دخول إلا في العملات الأعلى سيولة
 # (طلب المستخدم: ≥ $50M). يقلّل الانزلاق ومشاكل حجم اللوت ويُحسّن تنفيذ أوامر maker.
-MIN_USD_VOL_24H = int(os.getenv("BOT_MIN_USD_VOL_24H", "50000000"))
+# خُفض إلى $2M (طلب المستخدم: السرعة أهم من السيولة، ليس ضرورياً >$50M).
+# نُبقي حدّاً أدنى صغيراً فقط لمنع العملات غير القابلة للتداول (انزلاق
+# هائل + مشاكل حجم اللوت). فلتر السرعة (MIN_ATR_PCT) هو المُصفّي الأساس.
+MIN_USD_VOL_24H = int(os.getenv("BOT_MIN_USD_VOL_24H", "2000000"))
 
 # === بوّابة النظام التكيّفية (Regime Gate) — أثبت الباكتيست أنها ترفع PF 1.03→1.08 ===
 REGIME_GATE   = True    # أوقِف الدخول في النوافذ الخاسرة، استأنف في الرابحة
