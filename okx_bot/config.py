@@ -81,6 +81,11 @@ MOM_DOWN_PCT = float(os.getenv("BOT_MOM_DOWN_PCT", "5.0"))  # هبوط > −5%
 # بسرعة هائلة). الحد الأدنى لتقلّب الدقيقة (ATR%) — نتخطّى أي عملة أبطأ.
 # 1.0% ATR/دقيقة = حركة عنيفة (عملات الميم السريعة). 0 = معطّل.
 MIN_ATR_PCT = float(os.getenv("BOT_MIN_ATR_PCT", "1.0"))
+
+# 🔄 عكس الإشارة (طلب المستخدم): الدخول عكس ما يقوله البوت (شراء→بيع).
+# اختبار فرضية «اعكس الخاسر لتربح». ملاحظة: لا يضمن 68% لأن الرسوم
+# تُدفع في الاتجاهين — يساعد فقط إن كانت الإشارة معاكسة للسوق فعلاً.
+REVERSE_SIGNAL = os.getenv("BOT_REVERSE_SIGNAL", "0").strip() != "0"
 MEME_ASSETS = (
     "DOGE", "SHIB", "PEPE", "WIF", "BONK", "FLOKI", "MEME", "TRUMP",
     "POPCAT", "MEW", "BRETT", "TURBO", "MOG", "PNUT", "GOAT", "NEIRO",
