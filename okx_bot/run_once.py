@@ -686,7 +686,11 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         # والعكس — اختبار فرضية «اعكس الخاسر لتربح». التنفيذ فقط يُعكس؛
         # المنطق والتأكيدات تبقى كما هي. SL/TP تُحسب من signal فتتبعه.
         if getattr(cfg, "REVERSE_SIGNAL", False) and signal in ("buy", "sell"):
+            _orig = signal
             signal = "sell" if signal == "buy" else "buy"
+            add_log(status,
+                f"🔄 عكس الإشارة: البوت قال {'شراء' if _orig=='buy' else 'بيع'} "
+                f"← ندخل {'بيع' if signal=='sell' else 'شراء'} ({inst_id})", "info")
 
         ticker     = client.get_ticker(inst_id)
         live_price = float(ticker["last"]) if ticker else best["price"]
