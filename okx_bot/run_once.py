@@ -61,22 +61,41 @@ def _refresh_state_from_github():
             pass
 
 
+EXCHANGE = os.environ.get("EXCHANGE", "okx").strip().lower()
+
+
+def make_client(key, secret, phrase, demo):
+    """مصنع العميل حسب المنصة (EXCHANGE=okx افتراضياً، أو mexc)."""
+    if EXCHANGE == "mexc":
+        from mexc_client import MEXCClient
+        return MEXCClient(key, secret, phrase, demo)
+    from okx_client import OKXClient
+    return OKXClient(key, secret, phrase, demo)
+
+
 async def run():
-    # ── Validate credentials ──────────────────────────────────────────────────
-    key    = os.environ.get("OKX_API_KEY", "").strip()
-    secret = os.environ.get("OKX_API_SECRET", os.environ.get("OKX_SECRET_KEY","")).strip()
-    phrase = os.environ.get("OKX_PASSPHRASE", "").strip()
-    demo   = os.environ.get("OKX_IS_DEMO", "1").strip()
-
-    if not key or not secret or not phrase:
-        print("❌ Missing OKX credentials in GitHub Secrets.")
-        sys.exit(1)
-
-    os.environ["OKX_API_KEY"]    = key
-    os.environ["OKX_API_SECRET"] = secret
-    os.environ["OKX_SECRET_KEY"] = secret
-    os.environ["OKX_PASSPHRASE"] = phrase
-    os.environ["OKX_IS_DEMO"]    = demo
+    # ── Validate credentials (منصة-واعٍ) ──────────────────────────────────────
+    if EXCHANGE == "mexc":
+        key    = os.environ.get("MEXC_API_KEY", "").strip()
+        secret = os.environ.get("MEXC_API_SECRET", os.environ.get("MEXC_SECRET_KEY","")).strip()
+        phrase = ""                                   # MEXC لا يحتاج passphrase
+        demo   = "0"                                  # MEXC عقود = حقيقي دائماً
+        if not key or not secret:
+            print("❌ Missing MEXC credentials in GitHub Secrets.")
+            sys.exit(1)
+    else:
+        key    = os.environ.get("OKX_API_KEY", "").strip()
+        secret = os.environ.get("OKX_API_SECRET", os.environ.get("OKX_SECRET_KEY","")).strip()
+        phrase = os.environ.get("OKX_PASSPHRASE", "").strip()
+        demo   = os.environ.get("OKX_IS_DEMO", "1").strip()
+        if not key or not secret or not phrase:
+            print("❌ Missing OKX credentials in GitHub Secrets.")
+            sys.exit(1)
+        os.environ["OKX_API_KEY"]    = key
+        os.environ["OKX_API_SECRET"] = secret
+        os.environ["OKX_SECRET_KEY"] = secret
+        os.environ["OKX_PASSPHRASE"] = phrase
+        os.environ["OKX_IS_DEMO"]    = demo
 
     _refresh_state_from_github()
     status = load_status()
@@ -89,8 +108,7 @@ async def run():
     STOP_FILE = os.path.join(os.path.dirname(__file__), "..", "bot_stop.json")
     if os.path.exists(STOP_FILE):
         add_log(status, "\U0001f6d1 bot_stop.json — إيقاف طارئ: إغلاق جميع الصفقات", "warning")
-        from okx_client import OKXClient as _OKXClient
-        _client = _OKXClient(key, secret, phrase, demo)
+        _client = make_client(key, secret, phrase, demo)
         # إلغاء أوامر maker المعلّقة أولاً — حتى لا يُنفَّذ أمر بعد الإيقاف
         # فيفتح صفقة بلا إدارة
         for _o in _client.get_pending_orders():
@@ -318,7 +336,6 @@ def _cancel_stale_maker_orders(status, client, memory, active):
 
 
 async def _fallback_mscs(status, memory, key, secret, phrase, demo):
-    from okx_client import OKXClient
     from strategy import analyze, stochastic, rsi
     import config as cfg
 
@@ -333,7 +350,7 @@ async def _fallback_mscs(status, memory, key, secret, phrase, demo):
         f"⚙️ {cfg.RISK_MODE} | رافعة {_lev_label} | مخاطرة {cfg.RISK_PER_TRADE*100:.0f}% | "
         f"مراكز {cfg.MAX_POSITIONS} | مسح {TOP_PAIRS} عملة | أوامر {cfg.ORDER_MODE}", "info")
 
-    client = OKXClient(key, secret, phrase, demo)
+    client = make_client(key, secret, phrase, demo)
     balance = client.get_balance()
     status["balance"] = round(balance, 4)
     add_log(status, f"\U0001f4b0 الرصيد: ${balance:.4f} USDT")

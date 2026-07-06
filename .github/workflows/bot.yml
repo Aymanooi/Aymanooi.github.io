@@ -1,11 +1,9 @@
 name: OKX Trading Bot — Snowball v22
 
 on:
-  # ⛔ متوقّف نهائياً بطلب المستخدم (2026-07-06). الـcron معطّل والحلقة
-  # مقفولة بـ if:false. الصفقات أُغلقت عبر bot_stop.json.
-  # لإعادة التشغيل مستقبلاً: احذف سطر if، أعِد الـcron، واحذف bot_stop.json.
-  # schedule:
-  #   - cron: '*/15 * * * *'
+  # ✅ مُفعَّل على MEXC Futures (2026-07-06). الحلقة الذاتية + cron أمان.
+  schedule:
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 concurrency:
@@ -20,8 +18,6 @@ jobs:
   trade:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # ⛔ البوت متوقّف بطلب المستخدم — انظر التعليق أعلى الملف لإعادة التشغيل.
-    if: ${{ false }}
 
     steps:
       - name: Checkout
@@ -39,6 +35,11 @@ jobs:
 
       - name: Run Snowball v22 + Brain
         env:
+          # 🟢 المنصة النشطة: MEXC Futures (طلب المستخدم 2026-07-06)
+          EXCHANGE:           "mexc"
+          MEXC_API_KEY:       ${{ secrets.MEXC_API_KEY }}
+          MEXC_API_SECRET:    ${{ secrets.MEXC_API_SECRET }}
+          # OKX (احتياطي — يُستخدم لو EXCHANGE=okx)
           OKX_API_KEY:        ${{ secrets.OKX_API_KEY }}
           OKX_API_SECRET:     ${{ secrets.OKX_API_SECRET }}
           OKX_SECRET_KEY:     ${{ secrets.OKX_API_SECRET }}
