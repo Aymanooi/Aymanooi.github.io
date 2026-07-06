@@ -313,7 +313,7 @@ class MEXCClient:
         if tp is not None:
             body["takeProfitPrice"] = tp
         # نطبّع الرد لصيغة OKX: {"code":"0"} عند النجاح
-        r = self._post("/api/v1/private/order/submit", body)
+        r = self._post("/api/v1/private/order/create", body)
         ok = bool(r.get("success")) and r.get("code") in (0, "0", None)
         return {"code": "0" if ok else str(r.get("code", "1")),
                 "msg": r.get("message", r.get("msg", "")),
