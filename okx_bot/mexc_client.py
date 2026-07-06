@@ -79,10 +79,20 @@ class MEXCClient:
             with urllib.request.urlopen(req, timeout=15) as r:
                 return json.loads(r.read())
         except urllib.error.HTTPError as e:
+            # التقاط نص الرد لتمييز رفض MEXC (JSON صلاحية) من حجب Cloudflare (HTML)
             try:
-                return json.loads(e.read())
+                raw = e.read().decode("utf-8", "replace")
             except Exception:
-                return {"success": False, "code": e.code, "msg": str(e)}
+                raw = ""
+            try:
+                return json.loads(raw)
+            except Exception:
+                snippet = raw.strip().replace("\n", " ")[:200]
+                is_html = ("<html" in raw.lower() or "cloudflare" in raw.lower()
+                           or "<!doctype" in raw.lower())
+                tag = "CLOUDFLARE/WAF" if is_html else "MEXC"
+                return {"success": False, "code": e.code,
+                        "msg": f"HTTP {e.code} [{tag}]: {snippet or str(e)}"}
         except Exception as e:
             return {"success": False, "code": -1, "msg": str(e)}
 
