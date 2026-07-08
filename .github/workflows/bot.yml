@@ -1,9 +1,7 @@
 name: OKX Trading Bot — Snowball v22
 
 on:
-  # ✅ مُفعَّل على MEXC Futures (2026-07-06). الحلقة الذاتية + cron أمان.
-  schedule:
-    - cron: '*/15 * * * *'
+  # ⏹️ مُوقَف (2026-07-08 بطلب المستخدم). لا جدولة ولا حلقة ذاتية.
   workflow_dispatch:
 
 concurrency:
@@ -131,22 +129,3 @@ jobs:
                   print(f'❌ {fname} failed: {err[:200]}')
                   break
           PYEOF
-
-      - name: 🔁 Schedule next run in 30 seconds
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "⏳ انتظار 30 ثانية ثم تشغيل البوت مجدداً..."
-          sleep 30
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
-            -H "Authorization: token $GH_TOKEN" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Content-Type: application/json" \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/bot.yml/dispatches" \
-            -d '{"ref":"${{ github.ref_name }}"}')
-          if [ "$STATUS" = "204" ]; then
-            echo "✅ تم جدولة التشغيل القادم بنجاح (HTTP $STATUS)"
-          else
-            echo "⚠️ فشل الجدولة (HTTP $STATUS) — سيعتمد على الـ cron كبديل"
-          fi
